@@ -102,7 +102,7 @@ struct FormJSONBuilder: FormJSONBuilderProtocol {
     return item.value.transformForJSON()
   }
   
-  private func filter(by item: RowFormComposite) -> Bool {
+  private func filter(by item: RowFormTextComposite) -> Bool {
     switch item.visualisation.dataType {
     case .radio:
       return true

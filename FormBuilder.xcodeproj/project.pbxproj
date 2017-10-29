@@ -26,7 +26,7 @@
 		E8A105A71FA34D99003FDF9B /* ConditionTrue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105891FA34D99003FDF9B /* ConditionTrue.swift */; };
 		E8A105A81FA34D99003FDF9B /* FormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058A1FA34D99003FDF9B /* FormBuilder.swift */; };
 		E8A105A91FA34D99003FDF9B /* BaseFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058C1FA34D99003FDF9B /* BaseFormComposite.swift */; };
-		E8A105AA1FA34D99003FDF9B /* RowFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058D1FA34D99003FDF9B /* RowFormComposite.swift */; };
+		E8A105AA1FA34D99003FDF9B /* RowFormTextComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058D1FA34D99003FDF9B /* RowFormTextComposite.swift */; };
 		E8A105AB1FA34D99003FDF9B /* SectionFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058E1FA34D99003FDF9B /* SectionFormComposite.swift */; };
 		E8A105AC1FA34D99003FDF9B /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105901FA34D99003FDF9B /* Dictionary+Ext.swift */; };
 		E8A105AD1FA34D99003FDF9B /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105911FA34D99003FDF9B /* String+Common.swift */; };
@@ -99,7 +99,7 @@
 		E8A105891FA34D99003FDF9B /* ConditionTrue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionTrue.swift; sourceTree = "<group>"; };
 		E8A1058A1FA34D99003FDF9B /* FormBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBuilder.swift; sourceTree = "<group>"; };
 		E8A1058C1FA34D99003FDF9B /* BaseFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormComposite.swift; sourceTree = "<group>"; };
-		E8A1058D1FA34D99003FDF9B /* RowFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormComposite.swift; sourceTree = "<group>"; };
+		E8A1058D1FA34D99003FDF9B /* RowFormTextComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormTextComposite.swift; sourceTree = "<group>"; };
 		E8A1058E1FA34D99003FDF9B /* SectionFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionFormComposite.swift; sourceTree = "<group>"; };
 		E8A105901FA34D99003FDF9B /* Dictionary+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		E8A105911FA34D99003FDF9B /* String+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				E8CCF5A61FA5D89A00A3C1CB /* rowProtocols */,
 				E8A1058C1FA34D99003FDF9B /* BaseFormComposite.swift */,
 				E8A1058E1FA34D99003FDF9B /* SectionFormComposite.swift */,
-				E8A1058D1FA34D99003FDF9B /* RowFormComposite.swift */,
+				E8A1058D1FA34D99003FDF9B /* RowFormTextComposite.swift */,
 				E8A105C01FA382BA003FDF9B /* RowCustomComposite.swift */,
 				E8F4F0121FA39A05003F5BCE /* RowFormButtonComposite.swift */,
 				E8CCF5A41FA5D71000A3C1CB /* RowFormBoolComposite.swift */,
@@ -606,7 +606,7 @@
 				E8A105A71FA34D99003FDF9B /* ConditionTrue.swift in Sources */,
 				E8A105731FA301C7003FDF9B /* CCRegValidationTextField.swift in Sources */,
 				E8A105A81FA34D99003FDF9B /* FormBuilder.swift in Sources */,
-				E8A105AA1FA34D99003FDF9B /* RowFormComposite.swift in Sources */,
+				E8A105AA1FA34D99003FDF9B /* RowFormTextComposite.swift in Sources */,
 				E8A105AB1FA34D99003FDF9B /* SectionFormComposite.swift in Sources */,
 				E8A105B01FA34D99003FDF9B /* StringValue.swift in Sources */,
 				E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */,

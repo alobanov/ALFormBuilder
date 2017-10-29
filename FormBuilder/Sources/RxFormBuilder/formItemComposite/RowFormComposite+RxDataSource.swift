@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension RowFormComposite: RxCellModelDatasoursable {
+extension RowFormTextComposite: RxCellModelDatasoursable {
   // MARK :- ModelItemDatasoursable
   var diffIdentifier: String? {
     return self.identifier

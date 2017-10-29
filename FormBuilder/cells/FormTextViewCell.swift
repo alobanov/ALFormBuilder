@@ -18,7 +18,7 @@ class FormTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   @IBOutlet weak var cleareBtn: UIButton!
   @IBOutlet weak var errorHighlightView: UIView!
   
-  fileprivate var storedModel: RowFormCompositeOutput!
+  fileprivate var storedModel: RowFormTextCompositeOutput!
   fileprivate var alreadyInitialized = false
   
   let bag = DisposeBag()
@@ -41,7 +41,7 @@ class FormTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   
   func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
-    guard let vm = model as? RowFormCompositeOutput else {
+    guard let vm = model as? RowFormTextCompositeOutput else {
       return
     }
     

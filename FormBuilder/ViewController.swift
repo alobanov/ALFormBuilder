@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                           autocapitalizationType: .none)
     
     let baseMailComposite = BaseFormComposite(identifier: "Mail row", level: .item)
-    let mail = RowFormComposite(composite: baseMailComposite, value: value, validation: validation, visualisation: vsl, visible: vsbl, base: base1)
+    let mail = RowFormTextComposite(composite: baseMailComposite, value: value, validation: validation, visualisation: vsl, visible: vsbl, base: base1)
     
     /// PASS
     let passValue = StringValue(value: "1234")
@@ -74,7 +74,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let base2 = RowSettings.Base(cellType: FormBuilderCells.editField)
     
     let basePassComposite = BaseFormComposite(identifier: "Pass row", level: .item)
-    let pass = RowFormComposite(composite: basePassComposite, value: passValue, validation: validationPass, visualisation: vslPass, visible: vsblPass, base: base2)
+    let pass = RowFormTextComposite(composite: basePassComposite, value: passValue, validation: validationPass, visualisation: vslPass, visible: vsblPass, base: base2)
     
     /// PHONE
     let phoneValue = StringValue(value: "8480209")
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let base3 = RowSettings.Base(cellType: FormBuilderCells.editField)
     
     let basePhoneComposite = BaseFormComposite(identifier: "Phone row", level: .item)
-    let phone = RowFormComposite(composite: basePhoneComposite, value: phoneValue, validation: validationPhone, visualisation: vslPhone, visible: vsblPhone, base: base3)
+    let phone = RowFormTextComposite(composite: basePhoneComposite, value: phoneValue, validation: validationPhone, visualisation: vslPhone, visible: vsblPhone, base: base3)
     
     root.add(section1, section2)
     section1.add(mail, pass)
@@ -136,7 +136,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let section = self.item.datasource[indexPath.section]
-    if let cellModel = section.datasource[indexPath.row] as? RowFormComposite {
+    if let cellModel = section.datasource[indexPath.row] as? RowFormTextComposite {
       let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
       cell.textLabel?.text = cellModel.value.transformForDisplay()
       cell.detailTextLabel?.text = cellModel.visualisation.placeholderText
@@ -148,7 +148,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let section = self.item.datasource[indexPath.section]
-    if let cellModel = section.datasource[indexPath.row] as? RowFormComposite {
+    if let cellModel = section.datasource[indexPath.row] as? RowFormTextComposite {
       if cellModel.identifier == "Mail row" {
         cellModel.validate(value: StringValue(value: "lobanov.aw@gmail.com1"))
       }

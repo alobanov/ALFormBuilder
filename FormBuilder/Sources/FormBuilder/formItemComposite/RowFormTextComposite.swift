@@ -10,12 +10,12 @@ import Foundation
 import UIKit.UITableViewCell
 
 // Протокол с которым работает ячейка
-protocol RowFormCompositeOutput:
+protocol RowFormTextCompositeOutput:
   RowCompositeValueTransformable, RowCompositeVisibleSetting,
   RowCompositeValidationSetting, RowCompositeVisualizationSetting
 {}
 
-class RowFormComposite: FromItemCompositeProtocol, RowFormCompositeOutput {
+class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   

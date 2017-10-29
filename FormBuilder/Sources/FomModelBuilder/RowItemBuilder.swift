@@ -72,7 +72,7 @@ RowItemValidationBuilderProtocol, RowItemVisualizationBuilderProtocol, RowItemVa
 class StringRowItemBuilder: RowItemBuilder, StringRowItemBuilderProtocol {
   override func result() -> FromItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
-    return RowFormComposite(composite: baseComposite, value: self.value, validation: validation,
+    return RowFormTextComposite(composite: baseComposite, value: self.value, validation: validation,
                             visualisation: visualization, visible: visibleSetting, base: base)
   }
 }
