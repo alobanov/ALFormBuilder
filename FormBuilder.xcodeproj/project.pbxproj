@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3E1F3F34C9A0E44E301727A /* Pods_FormBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D9F48D95B089817870450D /* Pods_FormBuilder.framework */; };
+		E89608321FA483CE0030C679 /* RxFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89608311FA483CE0030C679 /* RxFormBuilder.swift */; };
+		E8A105731FA301C7003FDF9B /* CCRegValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105721FA301C7003FDF9B /* CCRegValidationTextField.swift */; };
+		E8A105751FA30369003FDF9B /* PulsStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105741FA30369003FDF9B /* PulsStyleKit.swift */; };
+		E8A105771FA31041003FDF9B /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105761FA31041003FDF9B /* RxViewController.swift */; };
+		E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105781FA31173003FDF9B /* CellIdentifiable.swift */; };
+		E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105791FA31173003FDF9B /* UITableView+Additions.swift */; };
+		E8A1059E1FA34D99003FDF9B /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1057F1FA34D99003FDF9B /* Evaluator.swift */; };
+		E8A1059F1FA34D99003FDF9B /* InterpreterConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105801FA34D99003FDF9B /* InterpreterConditions.swift */; };
+		E8A105A01FA34D99003FDF9B /* StackArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105811FA34D99003FDF9B /* StackArray.swift */; };
+		E8A105A11FA34D99003FDF9B /* ConditionBitwiseAND.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105831FA34D99003FDF9B /* ConditionBitwiseAND.swift */; };
+		E8A105A21FA34D99003FDF9B /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105841FA34D99003FDF9B /* Expression.swift */; };
+		E8A105A31FA34D99003FDF9B /* ConditionFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105851FA34D99003FDF9B /* ConditionFalse.swift */; };
+		E8A105A41FA34D99003FDF9B /* ConditionOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105861FA34D99003FDF9B /* ConditionOR.swift */; };
+		E8A105A51FA34D99003FDF9B /* ConditionAND.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105871FA34D99003FDF9B /* ConditionAND.swift */; };
+		E8A105A61FA34D99003FDF9B /* VariableExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105881FA34D99003FDF9B /* VariableExpression.swift */; };
+		E8A105A71FA34D99003FDF9B /* ConditionTrue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105891FA34D99003FDF9B /* ConditionTrue.swift */; };
+		E8A105A81FA34D99003FDF9B /* FormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058A1FA34D99003FDF9B /* FormBuilder.swift */; };
+		E8A105A91FA34D99003FDF9B /* BaseFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058C1FA34D99003FDF9B /* BaseFormComposite.swift */; };
+		E8A105AA1FA34D99003FDF9B /* RowFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058D1FA34D99003FDF9B /* RowFormComposite.swift */; };
+		E8A105AB1FA34D99003FDF9B /* SectionFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1058E1FA34D99003FDF9B /* SectionFormComposite.swift */; };
+		E8A105AC1FA34D99003FDF9B /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105901FA34D99003FDF9B /* Dictionary+Ext.swift */; };
+		E8A105AD1FA34D99003FDF9B /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105911FA34D99003FDF9B /* String+Common.swift */; };
+		E8A105AE1FA34D99003FDF9B /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105921FA34D99003FDF9B /* String+Regex.swift */; };
+		E8A105AF1FA34D99003FDF9B /* ValueTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105941FA34D99003FDF9B /* ValueTransformable.swift */; };
+		E8A105B01FA34D99003FDF9B /* StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105951FA34D99003FDF9B /* StringValue.swift */; };
+		E8A105B11FA34D99003FDF9B /* FormBuilderEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105961FA34D99003FDF9B /* FormBuilderEnums.swift */; };
+		E8A105B21FA34D99003FDF9B /* FormJSONBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105971FA34D99003FDF9B /* FormJSONBuilder.swift */; };
+		E8A105B31FA34D99003FDF9B /* PreparingMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105991FA34D99003FDF9B /* PreparingMiddlewareValidation.swift */; };
+		E8A105B41FA34D99003FDF9B /* RegExpMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1059A1FA34D99003FDF9B /* RegExpMiddlewareValidation.swift */; };
+		E8A105B51FA34D99003FDF9B /* FormModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1059B1FA34D99003FDF9B /* FormModelValidator.swift */; };
+		E8A105B61FA34D99003FDF9B /* NilMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A1059C1FA34D99003FDF9B /* NilMiddlewareValidation.swift */; };
+		E8A105B91FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105B81FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift */; };
+		E8A105BB1FA34F34003FDF9B /* CellsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105BA1FA34F34003FDF9B /* CellsEnum.swift */; };
+		E8A105C11FA382BA003FDF9B /* RowCustomComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105C01FA382BA003FDF9B /* RowCustomComposite.swift */; };
+		E8CAF2441FA2516D004829F6 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CAF2431FA2516D004829F6 /* RxFormBuilderDatasource.swift */; };
+		E8CAF2481FA252CD004829F6 /* FormTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CAF2461FA252CD004829F6 /* FormTextViewCell.xib */; };
+		E8CAF2491FA252CD004829F6 /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CAF2471FA252CD004829F6 /* FormTextViewCell.swift */; };
+		E8CCF5A21FA5D69700A3C1CB /* FormBoolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CCF5A01FA5D69700A3C1CB /* FormBoolViewCell.xib */; };
+		E8CCF5A31FA5D69700A3C1CB /* FormBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCF5A11FA5D69700A3C1CB /* FormBoolViewCell.swift */; };
+		E8CCF5A51FA5D71000A3C1CB /* RowFormBoolComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCF5A41FA5D71000A3C1CB /* RowFormBoolComposite.swift */; };
+		E8CCF5A81FA5D8B400A3C1CB /* RowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCF5A71FA5D8B400A3C1CB /* RowSettings.swift */; };
+		E8CCF5AA1FA5DB3F00A3C1CB /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCF5A91FA5DB3F00A3C1CB /* BoolValue.swift */; };
+		E8CCF5AC1FA5DF1F00A3C1CB /* RowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCF5AB1FA5DF1F00A3C1CB /* RowItemBuilder.swift */; };
+		E8CCF5B01FA6228500A3C1CB /* SectionItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCF5AF1FA6228500A3C1CB /* SectionItemBuilder.swift */; };
+		E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */; };
+		E8D3C6D91FA070A70074FB28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6D81FA070A70074FB28 /* ViewController.swift */; };
+		E8D3C6DC1FA070A70074FB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3C6DA1FA070A70074FB28 /* Main.storyboard */; };
+		E8D3C6DE1FA070A70074FB28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8D3C6DD1FA070A70074FB28 /* Assets.xcassets */; };
+		E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3C6DF1FA070A70074FB28 /* LaunchScreen.storyboard */; };
+		E8D3C6EC1FA070A70074FB28 /* FormBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */; };
+		E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */; };
+		E8F4F0111FA3905B003F5BCE /* AuthFormDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F0101FA3905B003F5BCE /* AuthFormDirector.swift */; };
+		E8F4F0131FA39A05003F5BCE /* RowFormButtonComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F0121FA39A05003F5BCE /* RowFormButtonComposite.swift */; };
+		E8F4F0161FA39A6A003F5BCE /* FormButtonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F4F0141FA39A6A003F5BCE /* FormButtonViewCell.xib */; };
+		E8F4F0171FA39A6A003F5BCE /* FormButtonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F0151FA39A6A003F5BCE /* FormButtonViewCell.swift */; };
+		E8F4F01B1FA3A0AE003F5BCE /* CompositeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F01A1FA3A0AE003F5BCE /* CompositeProtocols.swift */; };
+		E8F4F01D1FA3A2C1003F5BCE /* RowFormButtonComposite+RxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F01C1FA3A2C1003F5BCE /* RowFormButtonComposite+RxDataSource.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E8D3C6E81FA070A70074FB28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8D3C6CB1FA070A70074FB28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8D3C6D21FA070A70074FB28;
+			remoteInfo = FormBuilder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		062A44C8779DDAB2F68DBC61 /* Pods-FormBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder.release.xcconfig"; sourceTree = "<group>"; };
+		06D9F48D95B089817870450D /* Pods_FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9993D6E33986745D044A927 /* Pods-FormBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder.debug.xcconfig"; sourceTree = "<group>"; };
+		E89608311FA483CE0030C679 /* RxFormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFormBuilder.swift; sourceTree = "<group>"; };
+		E8A105721FA301C7003FDF9B /* CCRegValidationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCRegValidationTextField.swift; sourceTree = "<group>"; };
+		E8A105741FA30369003FDF9B /* PulsStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulsStyleKit.swift; sourceTree = "<group>"; };
+		E8A105761FA31041003FDF9B /* RxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
+		E8A105781FA31173003FDF9B /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
+		E8A105791FA31173003FDF9B /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
+		E8A1057F1FA34D99003FDF9B /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		E8A105801FA34D99003FDF9B /* InterpreterConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterConditions.swift; sourceTree = "<group>"; };
+		E8A105811FA34D99003FDF9B /* StackArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackArray.swift; sourceTree = "<group>"; };
+		E8A105831FA34D99003FDF9B /* ConditionBitwiseAND.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionBitwiseAND.swift; sourceTree = "<group>"; };
+		E8A105841FA34D99003FDF9B /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		E8A105851FA34D99003FDF9B /* ConditionFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionFalse.swift; sourceTree = "<group>"; };
+		E8A105861FA34D99003FDF9B /* ConditionOR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionOR.swift; sourceTree = "<group>"; };
+		E8A105871FA34D99003FDF9B /* ConditionAND.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionAND.swift; sourceTree = "<group>"; };
+		E8A105881FA34D99003FDF9B /* VariableExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableExpression.swift; sourceTree = "<group>"; };
+		E8A105891FA34D99003FDF9B /* ConditionTrue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionTrue.swift; sourceTree = "<group>"; };
+		E8A1058A1FA34D99003FDF9B /* FormBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBuilder.swift; sourceTree = "<group>"; };
+		E8A1058C1FA34D99003FDF9B /* BaseFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormComposite.swift; sourceTree = "<group>"; };
+		E8A1058D1FA34D99003FDF9B /* RowFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormComposite.swift; sourceTree = "<group>"; };
+		E8A1058E1FA34D99003FDF9B /* SectionFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionFormComposite.swift; sourceTree = "<group>"; };
+		E8A105901FA34D99003FDF9B /* Dictionary+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
+		E8A105911FA34D99003FDF9B /* String+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
+		E8A105921FA34D99003FDF9B /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		E8A105941FA34D99003FDF9B /* ValueTransformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTransformable.swift; sourceTree = "<group>"; };
+		E8A105951FA34D99003FDF9B /* StringValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringValue.swift; sourceTree = "<group>"; };
+		E8A105961FA34D99003FDF9B /* FormBuilderEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBuilderEnums.swift; sourceTree = "<group>"; };
+		E8A105971FA34D99003FDF9B /* FormJSONBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormJSONBuilder.swift; sourceTree = "<group>"; };
+		E8A105991FA34D99003FDF9B /* PreparingMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreparingMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8A1059A1FA34D99003FDF9B /* RegExpMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExpMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8A1059B1FA34D99003FDF9B /* FormModelValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormModelValidator.swift; sourceTree = "<group>"; };
+		E8A1059C1FA34D99003FDF9B /* NilMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8A105B81FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowFormComposite+RxDataSource.swift"; sourceTree = "<group>"; };
+		E8A105BA1FA34F34003FDF9B /* CellsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsEnum.swift; sourceTree = "<group>"; };
+		E8A105C01FA382BA003FDF9B /* RowCustomComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCustomComposite.swift; sourceTree = "<group>"; };
+		E8CAF2431FA2516D004829F6 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
+		E8CAF2461FA252CD004829F6 /* FormTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTextViewCell.xib; sourceTree = "<group>"; };
+		E8CAF2471FA252CD004829F6 /* FormTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextViewCell.swift; sourceTree = "<group>"; };
+		E8CCF5A01FA5D69700A3C1CB /* FormBoolViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormBoolViewCell.xib; sourceTree = "<group>"; };
+		E8CCF5A11FA5D69700A3C1CB /* FormBoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBoolViewCell.swift; sourceTree = "<group>"; };
+		E8CCF5A41FA5D71000A3C1CB /* RowFormBoolComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormBoolComposite.swift; sourceTree = "<group>"; };
+		E8CCF5A71FA5D8B400A3C1CB /* RowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowSettings.swift; sourceTree = "<group>"; };
+		E8CCF5A91FA5DB3F00A3C1CB /* BoolValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolValue.swift; sourceTree = "<group>"; };
+		E8CCF5AB1FA5DF1F00A3C1CB /* RowItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowItemBuilder.swift; sourceTree = "<group>"; };
+		E8CCF5AF1FA6228500A3C1CB /* SectionItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItemBuilder.swift; sourceTree = "<group>"; };
+		E8D3C6D31FA070A70074FB28 /* FormBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E8D3C6D81FA070A70074FB28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E8D3C6DB1FA070A70074FB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E8D3C6DD1FA070A70074FB28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8D3C6E01FA070A70074FB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E8D3C6E21FA070A70074FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8D3C6E71FA070A70074FB28 /* FormBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilderTests.swift; sourceTree = "<group>"; };
+		E8D3C6ED1FA070A70074FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atlantis.swift; sourceTree = "<group>"; };
+		E8F4F0101FA3905B003F5BCE /* AuthFormDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFormDirector.swift; sourceTree = "<group>"; };
+		E8F4F0121FA39A05003F5BCE /* RowFormButtonComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowFormButtonComposite.swift; sourceTree = "<group>"; };
+		E8F4F0141FA39A6A003F5BCE /* FormButtonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormButtonViewCell.xib; sourceTree = "<group>"; };
+		E8F4F0151FA39A6A003F5BCE /* FormButtonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButtonViewCell.swift; sourceTree = "<group>"; };
+		E8F4F01A1FA3A0AE003F5BCE /* CompositeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeProtocols.swift; sourceTree = "<group>"; };
+		E8F4F01C1FA3A2C1003F5BCE /* RowFormButtonComposite+RxDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowFormButtonComposite+RxDataSource.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8D3C6D01FA070A70074FB28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E1F3F34C9A0E44E301727A /* Pods_FormBuilder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8D3C6E41FA070A70074FB28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2778C479BB7968E6063F1E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9993D6E33986745D044A927 /* Pods-FormBuilder.debug.xcconfig */,
+				062A44C8779DDAB2F68DBC61 /* Pods-FormBuilder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF26A54751E239131186AE36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06D9F48D95B089817870450D /* Pods_FormBuilder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8A1057C1FA34C3A003FDF9B /* components */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105721FA301C7003FDF9B /* CCRegValidationTextField.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		E8A1057D1FA34D99003FDF9B /* FormBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105981FA34D99003FDF9B /* validation */,
+				E8A1057E1FA34D99003FDF9B /* Interpreter */,
+				E8A1058B1FA34D99003FDF9B /* formItemComposite */,
+				E8A1058F1FA34D99003FDF9B /* extension */,
+				E8A105931FA34D99003FDF9B /* values */,
+				E8A105961FA34D99003FDF9B /* FormBuilderEnums.swift */,
+				E8A1058A1FA34D99003FDF9B /* FormBuilder.swift */,
+				E8A105971FA34D99003FDF9B /* FormJSONBuilder.swift */,
+			);
+			path = FormBuilder;
+			sourceTree = "<group>";
+		};
+		E8A1057E1FA34D99003FDF9B /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				E8A1057F1FA34D99003FDF9B /* Evaluator.swift */,
+				E8A105801FA34D99003FDF9B /* InterpreterConditions.swift */,
+				E8A105811FA34D99003FDF9B /* StackArray.swift */,
+				E8A105821FA34D99003FDF9B /* Expressions */,
+			);
+			path = Interpreter;
+			sourceTree = "<group>";
+		};
+		E8A105821FA34D99003FDF9B /* Expressions */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105831FA34D99003FDF9B /* ConditionBitwiseAND.swift */,
+				E8A105841FA34D99003FDF9B /* Expression.swift */,
+				E8A105851FA34D99003FDF9B /* ConditionFalse.swift */,
+				E8A105861FA34D99003FDF9B /* ConditionOR.swift */,
+				E8A105871FA34D99003FDF9B /* ConditionAND.swift */,
+				E8A105881FA34D99003FDF9B /* VariableExpression.swift */,
+				E8A105891FA34D99003FDF9B /* ConditionTrue.swift */,
+			);
+			path = Expressions;
+			sourceTree = "<group>";
+		};
+		E8A1058B1FA34D99003FDF9B /* formItemComposite */ = {
+			isa = PBXGroup;
+			children = (
+				E8CCF5A61FA5D89A00A3C1CB /* rowProtocols */,
+				E8A1058C1FA34D99003FDF9B /* BaseFormComposite.swift */,
+				E8A1058E1FA34D99003FDF9B /* SectionFormComposite.swift */,
+				E8A1058D1FA34D99003FDF9B /* RowFormComposite.swift */,
+				E8A105C01FA382BA003FDF9B /* RowCustomComposite.swift */,
+				E8F4F0121FA39A05003F5BCE /* RowFormButtonComposite.swift */,
+				E8CCF5A41FA5D71000A3C1CB /* RowFormBoolComposite.swift */,
+			);
+			path = formItemComposite;
+			sourceTree = "<group>";
+		};
+		E8A1058F1FA34D99003FDF9B /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105901FA34D99003FDF9B /* Dictionary+Ext.swift */,
+				E8A105911FA34D99003FDF9B /* String+Common.swift */,
+				E8A105921FA34D99003FDF9B /* String+Regex.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		E8A105931FA34D99003FDF9B /* values */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105941FA34D99003FDF9B /* ValueTransformable.swift */,
+				E8A105951FA34D99003FDF9B /* StringValue.swift */,
+				E8CCF5A91FA5DB3F00A3C1CB /* BoolValue.swift */,
+			);
+			path = values;
+			sourceTree = "<group>";
+		};
+		E8A105981FA34D99003FDF9B /* validation */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105991FA34D99003FDF9B /* PreparingMiddlewareValidation.swift */,
+				E8A1059A1FA34D99003FDF9B /* RegExpMiddlewareValidation.swift */,
+				E8A1059B1FA34D99003FDF9B /* FormModelValidator.swift */,
+				E8A1059C1FA34D99003FDF9B /* NilMiddlewareValidation.swift */,
+			);
+			path = validation;
+			sourceTree = "<group>";
+		};
+		E8A1059D1FA34D99003FDF9B /* RxFormBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E89608311FA483CE0030C679 /* RxFormBuilder.swift */,
+				E8CAF2431FA2516D004829F6 /* RxFormBuilderDatasource.swift */,
+				E8A105B71FA34DE9003FDF9B /* formItemComposite */,
+			);
+			path = RxFormBuilder;
+			sourceTree = "<group>";
+		};
+		E8A105B71FA34DE9003FDF9B /* formItemComposite */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105B81FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift */,
+				E8F4F01C1FA3A2C1003F5BCE /* RowFormButtonComposite+RxDataSource.swift */,
+			);
+			path = formItemComposite;
+			sourceTree = "<group>";
+		};
+		E8A105C21FA389C7003FDF9B /* FomModelBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E8F4F0101FA3905B003F5BCE /* AuthFormDirector.swift */,
+				E8CCF5AB1FA5DF1F00A3C1CB /* RowItemBuilder.swift */,
+				E8CCF5AF1FA6228500A3C1CB /* SectionItemBuilder.swift */,
+			);
+			path = FomModelBuilder;
+			sourceTree = "<group>";
+		};
+		E8CAF2451FA252A5004829F6 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105BA1FA34F34003FDF9B /* CellsEnum.swift */,
+				E8CCF5A11FA5D69700A3C1CB /* FormBoolViewCell.swift */,
+				E8CCF5A01FA5D69700A3C1CB /* FormBoolViewCell.xib */,
+				E8CAF2471FA252CD004829F6 /* FormTextViewCell.swift */,
+				E8CAF2461FA252CD004829F6 /* FormTextViewCell.xib */,
+				E8F4F0151FA39A6A003F5BCE /* FormButtonViewCell.swift */,
+				E8F4F0141FA39A6A003F5BCE /* FormButtonViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		E8CCF5A61FA5D89A00A3C1CB /* rowProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				E8F4F01A1FA3A0AE003F5BCE /* CompositeProtocols.swift */,
+				E8CCF5A71FA5D8B400A3C1CB /* RowSettings.swift */,
+			);
+			path = rowProtocols;
+			sourceTree = "<group>";
+		};
+		E8D3C6CA1FA070A70074FB28 = {
+			isa = PBXGroup;
+			children = (
+				E8D3C6D51FA070A70074FB28 /* FormBuilder */,
+				E8D3C6EA1FA070A70074FB28 /* FormBuilderTests */,
+				E8D3C6D41FA070A70074FB28 /* Products */,
+				C2778C479BB7968E6063F1E9 /* Pods */,
+				CF26A54751E239131186AE36 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E8D3C6D41FA070A70074FB28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3C6D31FA070A70074FB28 /* FormBuilder.app */,
+				E8D3C6E71FA070A70074FB28 /* FormBuilderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8D3C6D51FA070A70074FB28 /* FormBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E8A1057C1FA34C3A003FDF9B /* components */,
+				E8CAF2451FA252A5004829F6 /* cells */,
+				E8D3C70D1FA0B16B0074FB28 /* vendors */,
+				E8D3C6F61FA070B80074FB28 /* Sources */,
+				E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */,
+				E8A105761FA31041003FDF9B /* RxViewController.swift */,
+				E8D3C6D81FA070A70074FB28 /* ViewController.swift */,
+				E8D3C6DA1FA070A70074FB28 /* Main.storyboard */,
+				E8D3C6DD1FA070A70074FB28 /* Assets.xcassets */,
+				E8D3C6DF1FA070A70074FB28 /* LaunchScreen.storyboard */,
+				E8A105741FA30369003FDF9B /* PulsStyleKit.swift */,
+				E8D3C6E21FA070A70074FB28 /* Info.plist */,
+			);
+			path = FormBuilder;
+			sourceTree = "<group>";
+		};
+		E8D3C6EA1FA070A70074FB28 /* FormBuilderTests */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */,
+				E8D3C6ED1FA070A70074FB28 /* Info.plist */,
+			);
+			path = FormBuilderTests;
+			sourceTree = "<group>";
+		};
+		E8D3C6F61FA070B80074FB28 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105C21FA389C7003FDF9B /* FomModelBuilder */,
+				E8A1057D1FA34D99003FDF9B /* FormBuilder */,
+				E8A1059D1FA34D99003FDF9B /* RxFormBuilder */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E8D3C70D1FA0B16B0074FB28 /* vendors */ = {
+			isa = PBXGroup;
+			children = (
+				E8A105781FA31173003FDF9B /* CellIdentifiable.swift */,
+				E8A105791FA31173003FDF9B /* UITableView+Additions.swift */,
+				E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */,
+			);
+			path = vendors;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E8D3C6D21FA070A70074FB28 /* FormBuilder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8D3C6F01FA070A70074FB28 /* Build configuration list for PBXNativeTarget "FormBuilder" */;
+			buildPhases = (
+				56EFB6162508F4288B829A6D /* [CP] Check Pods Manifest.lock */,
+				E8D3C6CF1FA070A70074FB28 /* Sources */,
+				E8D3C6D01FA070A70074FB28 /* Frameworks */,
+				E8D3C6D11FA070A70074FB28 /* Resources */,
+				2CC7BE174984C3C84007D7FD /* [CP] Embed Pods Frameworks */,
+				9E3F80236EB6FE09B40DA2A9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FormBuilder;
+			productName = FormBuilder;
+			productReference = E8D3C6D31FA070A70074FB28 /* FormBuilder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E8D3C6E61FA070A70074FB28 /* FormBuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8D3C6F31FA070A70074FB28 /* Build configuration list for PBXNativeTarget "FormBuilderTests" */;
+			buildPhases = (
+				E8D3C6E31FA070A70074FB28 /* Sources */,
+				E8D3C6E41FA070A70074FB28 /* Frameworks */,
+				E8D3C6E51FA070A70074FB28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8D3C6E91FA070A70074FB28 /* PBXTargetDependency */,
+			);
+			name = FormBuilderTests;
+			productName = FormBuilderTests;
+			productReference = E8D3C6E71FA070A70074FB28 /* FormBuilderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8D3C6CB1FA070A70074FB28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Lobanov Aleksey";
+				TargetAttributes = {
+					E8D3C6D21FA070A70074FB28 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					E8D3C6E61FA070A70074FB28 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E8D3C6D21FA070A70074FB28;
+					};
+				};
+			};
+			buildConfigurationList = E8D3C6CE1FA070A70074FB28 /* Build configuration list for PBXProject "FormBuilder" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E8D3C6CA1FA070A70074FB28;
+			productRefGroup = E8D3C6D41FA070A70074FB28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8D3C6D21FA070A70074FB28 /* FormBuilder */,
+				E8D3C6E61FA070A70074FB28 /* FormBuilderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E8D3C6D11FA070A70074FB28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */,
+				E8F4F0161FA39A6A003F5BCE /* FormButtonViewCell.xib in Resources */,
+				E8CCF5A21FA5D69700A3C1CB /* FormBoolViewCell.xib in Resources */,
+				E8CAF2481FA252CD004829F6 /* FormTextViewCell.xib in Resources */,
+				E8D3C6DE1FA070A70074FB28 /* Assets.xcassets in Resources */,
+				E8D3C6DC1FA070A70074FB28 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8D3C6E51FA070A70074FB28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CC7BE174984C3C84007D7FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56EFB6162508F4288B829A6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FormBuilder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E3F80236EB6FE09B40DA2A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8D3C6CF1FA070A70074FB28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8A105B41FA34D99003FDF9B /* RegExpMiddlewareValidation.swift in Sources */,
+				E8F4F0171FA39A6A003F5BCE /* FormButtonViewCell.swift in Sources */,
+				E8F4F0131FA39A05003F5BCE /* RowFormButtonComposite.swift in Sources */,
+				E8F4F01D1FA3A2C1003F5BCE /* RowFormButtonComposite+RxDataSource.swift in Sources */,
+				E8A1059F1FA34D99003FDF9B /* InterpreterConditions.swift in Sources */,
+				E8CCF5A81FA5D8B400A3C1CB /* RowSettings.swift in Sources */,
+				E8A105BB1FA34F34003FDF9B /* CellsEnum.swift in Sources */,
+				E8A105AD1FA34D99003FDF9B /* String+Common.swift in Sources */,
+				E8A105A51FA34D99003FDF9B /* ConditionAND.swift in Sources */,
+				E8A105A31FA34D99003FDF9B /* ConditionFalse.swift in Sources */,
+				E8A105AC1FA34D99003FDF9B /* Dictionary+Ext.swift in Sources */,
+				E8A105B51FA34D99003FDF9B /* FormModelValidator.swift in Sources */,
+				E8A105A11FA34D99003FDF9B /* ConditionBitwiseAND.swift in Sources */,
+				E8A105771FA31041003FDF9B /* RxViewController.swift in Sources */,
+				E8A105B31FA34D99003FDF9B /* PreparingMiddlewareValidation.swift in Sources */,
+				E8CCF5A31FA5D69700A3C1CB /* FormBoolViewCell.swift in Sources */,
+				E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */,
+				E8F4F01B1FA3A0AE003F5BCE /* CompositeProtocols.swift in Sources */,
+				E8CAF2491FA252CD004829F6 /* FormTextViewCell.swift in Sources */,
+				E8A105751FA30369003FDF9B /* PulsStyleKit.swift in Sources */,
+				E8F4F0111FA3905B003F5BCE /* AuthFormDirector.swift in Sources */,
+				E8CAF2441FA2516D004829F6 /* RxFormBuilderDatasource.swift in Sources */,
+				E8A105AE1FA34D99003FDF9B /* String+Regex.swift in Sources */,
+				E8A105AF1FA34D99003FDF9B /* ValueTransformable.swift in Sources */,
+				E8CCF5AA1FA5DB3F00A3C1CB /* BoolValue.swift in Sources */,
+				E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */,
+				E8CCF5B01FA6228500A3C1CB /* SectionItemBuilder.swift in Sources */,
+				E8D3C6D91FA070A70074FB28 /* ViewController.swift in Sources */,
+				E89608321FA483CE0030C679 /* RxFormBuilder.swift in Sources */,
+				E8A105B21FA34D99003FDF9B /* FormJSONBuilder.swift in Sources */,
+				E8A1059E1FA34D99003FDF9B /* Evaluator.swift in Sources */,
+				E8A105B61FA34D99003FDF9B /* NilMiddlewareValidation.swift in Sources */,
+				E8CCF5AC1FA5DF1F00A3C1CB /* RowItemBuilder.swift in Sources */,
+				E8A105B91FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift in Sources */,
+				E8A105B11FA34D99003FDF9B /* FormBuilderEnums.swift in Sources */,
+				E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */,
+				E8CCF5A51FA5D71000A3C1CB /* RowFormBoolComposite.swift in Sources */,
+				E8A105A71FA34D99003FDF9B /* ConditionTrue.swift in Sources */,
+				E8A105731FA301C7003FDF9B /* CCRegValidationTextField.swift in Sources */,
+				E8A105A81FA34D99003FDF9B /* FormBuilder.swift in Sources */,
+				E8A105AA1FA34D99003FDF9B /* RowFormComposite.swift in Sources */,
+				E8A105AB1FA34D99003FDF9B /* SectionFormComposite.swift in Sources */,
+				E8A105B01FA34D99003FDF9B /* StringValue.swift in Sources */,
+				E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */,
+				E8A105A01FA34D99003FDF9B /* StackArray.swift in Sources */,
+				E8A105A21FA34D99003FDF9B /* Expression.swift in Sources */,
+				E8A105A41FA34D99003FDF9B /* ConditionOR.swift in Sources */,
+				E8A105C11FA382BA003FDF9B /* RowCustomComposite.swift in Sources */,
+				E8A105A91FA34D99003FDF9B /* BaseFormComposite.swift in Sources */,
+				E8A105A61FA34D99003FDF9B /* VariableExpression.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8D3C6E31FA070A70074FB28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8D3C6EC1FA070A70074FB28 /* FormBuilderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E8D3C6E91FA070A70074FB28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8D3C6D21FA070A70074FB28 /* FormBuilder */;
+			targetProxy = E8D3C6E81FA070A70074FB28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E8D3C6DA1FA070A70074FB28 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8D3C6DB1FA070A70074FB28 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E8D3C6DF1FA070A70074FB28 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8D3C6E01FA070A70074FB28 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E8D3C6EE1FA070A70074FB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E8D3C6EF1FA070A70074FB28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8D3C6F11FA070A70074FB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9993D6E33986745D044A927 /* Pods-FormBuilder.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9W2XCDBH5;
+				INFOPLIST_FILE = FormBuilder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.lobanov.FormBuilder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E8D3C6F21FA070A70074FB28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 062A44C8779DDAB2F68DBC61 /* Pods-FormBuilder.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9W2XCDBH5;
+				INFOPLIST_FILE = FormBuilder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.lobanov.FormBuilder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E8D3C6F41FA070A70074FB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9W2XCDBH5;
+				INFOPLIST_FILE = FormBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.lobanov.FormBuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormBuilder.app/FormBuilder";
+			};
+			name = Debug;
+		};
+		E8D3C6F51FA070A70074FB28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9W2XCDBH5;
+				INFOPLIST_FILE = FormBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.lobanov.FormBuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FormBuilder.app/FormBuilder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8D3C6CE1FA070A70074FB28 /* Build configuration list for PBXProject "FormBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8D3C6EE1FA070A70074FB28 /* Debug */,
+				E8D3C6EF1FA070A70074FB28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8D3C6F01FA070A70074FB28 /* Build configuration list for PBXNativeTarget "FormBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8D3C6F11FA070A70074FB28 /* Debug */,
+				E8D3C6F21FA070A70074FB28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8D3C6F31FA070A70074FB28 /* Build configuration list for PBXNativeTarget "FormBuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8D3C6F41FA070A70074FB28 /* Debug */,
+				E8D3C6F51FA070A70074FB28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8D3C6CB1FA070A70074FB28 /* Project object */;
+}
