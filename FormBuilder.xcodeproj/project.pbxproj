@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D3E1F3F34C9A0E44E301727A /* Pods_FormBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D9F48D95B089817870450D /* Pods_FormBuilder.framework */; };
+		E83DA5BF1FA66AF000F2CC63 /* PickerValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83DA5BE1FA66AF000F2CC63 /* PickerValue.swift */; };
+		E83DA5C21FA66CC500F2CC63 /* FormTextInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83DA5C01FA66CC400F2CC63 /* FormTextInfoViewCell.swift */; };
+		E83DA5C31FA66CC500F2CC63 /* FormTextInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E83DA5C11FA66CC500F2CC63 /* FormTextInfoViewCell.xib */; };
+		E83DA5C51FA66D5000F2CC63 /* CustomRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83DA5C41FA66D5000F2CC63 /* CustomRowItemBuilder.swift */; };
+		E842E9251FA6652E004D12F1 /* FormPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842E9231FA6652E004D12F1 /* FormPickerViewCell.swift */; };
+		E842E9261FA6652E004D12F1 /* FormPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E842E9241FA6652E004D12F1 /* FormPickerViewCell.xib */; };
 		E89608321FA483CE0030C679 /* RxFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89608311FA483CE0030C679 /* RxFormBuilder.swift */; };
 		E8A105731FA301C7003FDF9B /* CCRegValidationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105721FA301C7003FDF9B /* CCRegValidationTextField.swift */; };
 		E8A105751FA30369003FDF9B /* PulsStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105741FA30369003FDF9B /* PulsStyleKit.swift */; };
@@ -42,6 +48,9 @@
 		E8A105B91FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105B81FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift */; };
 		E8A105BB1FA34F34003FDF9B /* CellsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105BA1FA34F34003FDF9B /* CellsEnum.swift */; };
 		E8A105C11FA382BA003FDF9B /* RowCustomComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105C01FA382BA003FDF9B /* RowCustomComposite.swift */; };
+		E8B1B90B1FA65C800030FDBD /* StringRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1B90A1FA65C800030FDBD /* StringRowItemBuilder.swift */; };
+		E8B1B90D1FA65C990030FDBD /* ButtonRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1B90C1FA65C990030FDBD /* ButtonRowItemBuilder.swift */; };
+		E8B1B90F1FA65CB10030FDBD /* BoolRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1B90E1FA65CB10030FDBD /* BoolRowItemBuilder.swift */; };
 		E8CAF2441FA2516D004829F6 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CAF2431FA2516D004829F6 /* RxFormBuilderDatasource.swift */; };
 		E8CAF2481FA252CD004829F6 /* FormTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CAF2461FA252CD004829F6 /* FormTextViewCell.xib */; };
 		E8CAF2491FA252CD004829F6 /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CAF2471FA252CD004829F6 /* FormTextViewCell.swift */; };
@@ -81,6 +90,12 @@
 		062A44C8779DDAB2F68DBC61 /* Pods-FormBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder.release.xcconfig"; sourceTree = "<group>"; };
 		06D9F48D95B089817870450D /* Pods_FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9993D6E33986745D044A927 /* Pods-FormBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder.debug.xcconfig"; sourceTree = "<group>"; };
+		E83DA5BE1FA66AF000F2CC63 /* PickerValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerValue.swift; sourceTree = "<group>"; };
+		E83DA5C01FA66CC400F2CC63 /* FormTextInfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextInfoViewCell.swift; sourceTree = "<group>"; };
+		E83DA5C11FA66CC500F2CC63 /* FormTextInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTextInfoViewCell.xib; sourceTree = "<group>"; };
+		E83DA5C41FA66D5000F2CC63 /* CustomRowItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRowItemBuilder.swift; sourceTree = "<group>"; };
+		E842E9231FA6652E004D12F1 /* FormPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPickerViewCell.swift; sourceTree = "<group>"; };
+		E842E9241FA6652E004D12F1 /* FormPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormPickerViewCell.xib; sourceTree = "<group>"; };
 		E89608311FA483CE0030C679 /* RxFormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxFormBuilder.swift; sourceTree = "<group>"; };
 		E8A105721FA301C7003FDF9B /* CCRegValidationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCRegValidationTextField.swift; sourceTree = "<group>"; };
 		E8A105741FA30369003FDF9B /* PulsStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulsStyleKit.swift; sourceTree = "<group>"; };
@@ -115,6 +130,9 @@
 		E8A105B81FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RowFormComposite+RxDataSource.swift"; sourceTree = "<group>"; };
 		E8A105BA1FA34F34003FDF9B /* CellsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsEnum.swift; sourceTree = "<group>"; };
 		E8A105C01FA382BA003FDF9B /* RowCustomComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCustomComposite.swift; sourceTree = "<group>"; };
+		E8B1B90A1FA65C800030FDBD /* StringRowItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8B1B90C1FA65C990030FDBD /* ButtonRowItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8B1B90E1FA65CB10030FDBD /* BoolRowItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolRowItemBuilder.swift; sourceTree = "<group>"; };
 		E8CAF2431FA2516D004829F6 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
 		E8CAF2461FA252CD004829F6 /* FormTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormTextViewCell.xib; sourceTree = "<group>"; };
 		E8CAF2471FA252CD004829F6 /* FormTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +196,14 @@
 				06D9F48D95B089817870450D /* Pods_FormBuilder.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E842E9221FA65E00004D12F1 /* sections */ = {
+			isa = PBXGroup;
+			children = (
+				E8CCF5AF1FA6228500A3C1CB /* SectionItemBuilder.swift */,
+			);
+			path = sections;
 			sourceTree = "<group>";
 		};
 		E8A1057C1FA34C3A003FDF9B /* components */ = {
@@ -258,6 +284,7 @@
 				E8A105941FA34D99003FDF9B /* ValueTransformable.swift */,
 				E8A105951FA34D99003FDF9B /* StringValue.swift */,
 				E8CCF5A91FA5DB3F00A3C1CB /* BoolValue.swift */,
+				E83DA5BE1FA66AF000F2CC63 /* PickerValue.swift */,
 			);
 			path = values;
 			sourceTree = "<group>";
@@ -295,11 +322,23 @@
 		E8A105C21FA389C7003FDF9B /* FomModelBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				E842E9221FA65E00004D12F1 /* sections */,
+				E8B1B9091FA65C740030FDBD /* rows */,
 				E8F4F0101FA3905B003F5BCE /* AuthFormDirector.swift */,
 				E8CCF5AB1FA5DF1F00A3C1CB /* RowItemBuilder.swift */,
-				E8CCF5AF1FA6228500A3C1CB /* SectionItemBuilder.swift */,
 			);
 			path = FomModelBuilder;
+			sourceTree = "<group>";
+		};
+		E8B1B9091FA65C740030FDBD /* rows */ = {
+			isa = PBXGroup;
+			children = (
+				E8B1B90A1FA65C800030FDBD /* StringRowItemBuilder.swift */,
+				E8B1B90C1FA65C990030FDBD /* ButtonRowItemBuilder.swift */,
+				E8B1B90E1FA65CB10030FDBD /* BoolRowItemBuilder.swift */,
+				E83DA5C41FA66D5000F2CC63 /* CustomRowItemBuilder.swift */,
+			);
+			path = rows;
 			sourceTree = "<group>";
 		};
 		E8CAF2451FA252A5004829F6 /* cells */ = {
@@ -312,6 +351,10 @@
 				E8CAF2461FA252CD004829F6 /* FormTextViewCell.xib */,
 				E8F4F0151FA39A6A003F5BCE /* FormButtonViewCell.swift */,
 				E8F4F0141FA39A6A003F5BCE /* FormButtonViewCell.xib */,
+				E842E9231FA6652E004D12F1 /* FormPickerViewCell.swift */,
+				E842E9241FA6652E004D12F1 /* FormPickerViewCell.xib */,
+				E83DA5C01FA66CC400F2CC63 /* FormTextInfoViewCell.swift */,
+				E83DA5C11FA66CC500F2CC63 /* FormTextInfoViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -480,11 +523,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */,
+				E83DA5C31FA66CC500F2CC63 /* FormTextInfoViewCell.xib in Resources */,
 				E8F4F0161FA39A6A003F5BCE /* FormButtonViewCell.xib in Resources */,
 				E8CCF5A21FA5D69700A3C1CB /* FormBoolViewCell.xib in Resources */,
 				E8CAF2481FA252CD004829F6 /* FormTextViewCell.xib in Resources */,
 				E8D3C6DE1FA070A70074FB28 /* Assets.xcassets in Resources */,
 				E8D3C6DC1FA070A70074FB28 /* Main.storyboard in Resources */,
+				E842E9261FA6652E004D12F1 /* FormPickerViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,13 +611,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E83DA5C51FA66D5000F2CC63 /* CustomRowItemBuilder.swift in Sources */,
 				E8A105B41FA34D99003FDF9B /* RegExpMiddlewareValidation.swift in Sources */,
 				E8F4F0171FA39A6A003F5BCE /* FormButtonViewCell.swift in Sources */,
 				E8F4F0131FA39A05003F5BCE /* RowFormButtonComposite.swift in Sources */,
 				E8F4F01D1FA3A2C1003F5BCE /* RowFormButtonComposite+RxDataSource.swift in Sources */,
 				E8A1059F1FA34D99003FDF9B /* InterpreterConditions.swift in Sources */,
+				E8B1B90F1FA65CB10030FDBD /* BoolRowItemBuilder.swift in Sources */,
 				E8CCF5A81FA5D8B400A3C1CB /* RowSettings.swift in Sources */,
 				E8A105BB1FA34F34003FDF9B /* CellsEnum.swift in Sources */,
+				E83DA5BF1FA66AF000F2CC63 /* PickerValue.swift in Sources */,
+				E8B1B90D1FA65C990030FDBD /* ButtonRowItemBuilder.swift in Sources */,
 				E8A105AD1FA34D99003FDF9B /* String+Common.swift in Sources */,
 				E8A105A51FA34D99003FDF9B /* ConditionAND.swift in Sources */,
 				E8A105A31FA34D99003FDF9B /* ConditionFalse.swift in Sources */,
@@ -589,6 +638,7 @@
 				E8F4F0111FA3905B003F5BCE /* AuthFormDirector.swift in Sources */,
 				E8CAF2441FA2516D004829F6 /* RxFormBuilderDatasource.swift in Sources */,
 				E8A105AE1FA34D99003FDF9B /* String+Regex.swift in Sources */,
+				E8B1B90B1FA65C800030FDBD /* StringRowItemBuilder.swift in Sources */,
 				E8A105AF1FA34D99003FDF9B /* ValueTransformable.swift in Sources */,
 				E8CCF5AA1FA5DB3F00A3C1CB /* BoolValue.swift in Sources */,
 				E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */,
@@ -599,6 +649,7 @@
 				E8A1059E1FA34D99003FDF9B /* Evaluator.swift in Sources */,
 				E8A105B61FA34D99003FDF9B /* NilMiddlewareValidation.swift in Sources */,
 				E8CCF5AC1FA5DF1F00A3C1CB /* RowItemBuilder.swift in Sources */,
+				E842E9251FA6652E004D12F1 /* FormPickerViewCell.swift in Sources */,
 				E8A105B91FA34E14003FDF9B /* RowFormComposite+RxDataSource.swift in Sources */,
 				E8A105B11FA34D99003FDF9B /* FormBuilderEnums.swift in Sources */,
 				E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */,
@@ -606,6 +657,7 @@
 				E8A105A71FA34D99003FDF9B /* ConditionTrue.swift in Sources */,
 				E8A105731FA301C7003FDF9B /* CCRegValidationTextField.swift in Sources */,
 				E8A105A81FA34D99003FDF9B /* FormBuilder.swift in Sources */,
+				E83DA5C21FA66CC500F2CC63 /* FormTextInfoViewCell.swift in Sources */,
 				E8A105AA1FA34D99003FDF9B /* RowFormTextComposite.swift in Sources */,
 				E8A105AB1FA34D99003FDF9B /* SectionFormComposite.swift in Sources */,
 				E8A105B01FA34D99003FDF9B /* StringValue.swift in Sources */,

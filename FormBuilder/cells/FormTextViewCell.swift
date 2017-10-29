@@ -46,7 +46,7 @@ class FormTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
     }
     
     // check type of model data
-    switch vm.visualisation.dataType {
+    switch vm.base.dataType {
     case .string, .decimal, .integer, .password:
       self.storedModel = vm
     break
@@ -55,11 +55,11 @@ class FormTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
     
     // Configurate text field
     // keybord type
-    textField.keyboardType = vm.visualisation.keyboardType.value
+    textField.keyboardType = vm.visualisation.keyboardType?.value ?? .default
     
     // Additional placeholder above the input text
     textField.textPlaceholder = vm.visualisation.placeholderTopText
-    textField.autocapitalizationType = vm.visualisation.autocapitalizationType.value
+    textField.autocapitalizationType = vm.visualisation.autocapitalizationType?.value ?? .none
     
     // Just place holder
     textField.placeholder = vm.visualisation.placeholderText
@@ -75,7 +75,7 @@ class FormTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
       : UIColor.lightText
     
     // is password type
-    textField.isSecureTextEntry = vm.visualisation.isPassword
+    textField.isSecureTextEntry = vm.visualisation.isPassword ?? false
     
     // Set value
     textField.text = vm.value.transformForDisplay() ?? ""

@@ -29,15 +29,25 @@ extension RowCompositeVisibleSetting {
   }
 }
 
-/// Протокол отвечающий за настройки и хранение статических данных для отображения
-protocol RowCompositeVisualizationSetting {
-  var visualisation: RowSettings.Visualization {get}
+/// Протокол отвечающий за возможность валидации
+protocol RowCompositeValidationSetting: class, RowCompositeValueTransformable {
+  var validation: RowSettings.Validation {set get}
+  @discardableResult func validate(value: ValueTransformable) -> RowSettings.ValidationState
+  func makeValidation(value: ValueTransformable) -> RowSettings.ValidationState
 }
 
-/// Протокол отвечающий за возможность валидации
-protocol RowCompositeValidationSetting: class {
-  var validation: RowSettings.Validation {get}
-  @discardableResult func validate(value: ValueTransformable) -> RowSettings.ValidationState
+extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol {
+  @discardableResult func validate(value: ValueTransformable) -> RowSettings.ValidationState {
+    let result = makeValidation(value: value)
+    self.validation.change(state: result)
+    
+    if self.value.transformForDisplay() != value.transformForDisplay() {
+      self.value.change(originalValue: value.retriveOriginalValue())
+      didChangeData?(self)
+    }
+    
+    return result
+  }
 }
 
 typealias DidChange = (FromItemCompositeProtocol) -> Void

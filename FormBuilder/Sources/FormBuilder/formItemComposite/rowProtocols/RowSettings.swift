@@ -13,9 +13,11 @@ struct RowSettings {
   struct Base {
     let cellType: UniversalCellProtocol
     var isStrictReload: Bool = false
+    let dataType: DataType
     
-    init(cellType: UniversalCellProtocol) {
+    init(cellType: UniversalCellProtocol, dataType: DataType) {
       self.cellType = cellType
+      self.dataType = dataType
     }
     
     mutating func needReloadModel() {
@@ -37,11 +39,9 @@ struct RowSettings {
     let placeholderText: String
     let placeholderTopText: String?
     let detailsText: String?
-    let dataType: DataType
-    let isPassword: Bool
-    let errorText: String?
-    let keyboardType: FBKeyboardType
-    let autocapitalizationType: FBAutocapitalizationType
+    let isPassword: Bool?
+    let keyboardType: FBKeyboardType?
+    let autocapitalizationType: FBAutocapitalizationType?
   }
   
   struct Restriction {
@@ -52,6 +52,7 @@ struct RowSettings {
     let validationType: ValidationType
     var state: ValidationState
     var valueKeyPath: String?
+    let errorText: String?
     
     mutating func change(state: ValidationState) {
       self.state = state

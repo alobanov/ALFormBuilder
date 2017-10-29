@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol RowFormBoolCompositeOutput:
-  RowCompositeValueTransformable, RowCompositeVisibleSetting, RowCompositeVisualizationSetting, RowCompositeValidationSetting
-{}
+protocol RowFormBoolCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
+  var title: String {get}
+}
 
 class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutput {  
   // MARK :- ModelItemDatasoursable
@@ -38,37 +38,25 @@ class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutpu
   // MARK :- RowFormComposite properties
   var visible: RowSettings.Visible
   var base: RowSettings.Base
-  var visualisation: RowSettings.Visualization
   var value: ValueTransformable
   var validation: RowSettings.Validation
   var didChangeData: DidChange?
+  var title: String
   
   init(composite: FromItemCompositeProtocol, value: ValueTransformable, visible: RowSettings.Visible,
-       base: RowSettings.Base, visualisation: RowSettings.Visualization, validation: RowSettings.Validation)
+       base: RowSettings.Base, validation: RowSettings.Validation, title: String)
   {
     self.decoratedComposite = composite
     self.visible = visible
-    self.visualisation = visualisation
     self.value = value
     self.validation = validation
     self.base = base
+    self.title = title
     
     validate(value: value)
   }
   
-  @discardableResult func validate(value: ValueTransformable) -> RowSettings.ValidationState {
-    let result = tryValid(value: value)
-    self.validation.change(state: result)
-    
-    if self.value.transformForDisplay() != value.transformForDisplay() {
-      self.value.change(originalValue: value.retriveOriginalValue())
-      didChangeData?(self)
-    }
-    
-    return result
-  }
-  
-  private func tryValid(value: ValueTransformable) -> RowSettings.ValidationState {
+  func makeValidation(value: ValueTransformable) -> RowSettings.ValidationState {
     var result: ValidationResult
     let start = PreparingMiddlewareValidation()
     
@@ -78,7 +66,7 @@ class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutpu
       result = start.check(value: value.transformForDisplay())
       
     default:
-      return .failed(message: "error")
+      return .failed(message: validation.errorText ?? "Error text is not defined")
     }
     
     switch result {
@@ -86,7 +74,7 @@ class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutpu
       return .valid
       
     case .error(let error):
-      let message = visualisation.errorText ?? error.localizedDescription
+      let message = validation.errorText ?? error.localizedDescription
       return .failed(message: message)
     }
   }

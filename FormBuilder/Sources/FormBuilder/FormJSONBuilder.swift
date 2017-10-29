@@ -103,7 +103,7 @@ struct FormJSONBuilder: FormJSONBuilderProtocol {
   }
   
   private func filter(by item: RowFormTextComposite) -> Bool {
-    switch item.visualisation.dataType {
+    switch item.base.dataType {
     case .radio:
       return true
     default:

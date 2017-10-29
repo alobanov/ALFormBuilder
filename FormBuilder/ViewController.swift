@@ -42,16 +42,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let value = StringValue(value: "lobanov.aw@gmail.com")
     let validation = RowSettings.Validation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
                                               state: .typing,
-                                              valueKeyPath: "mail")
-    let base1 = RowSettings.Base(cellType: FormBuilderCells.editField)
+                                              valueKeyPath: "mail", errorText: "Ошибка почты")
+    let base1 = RowSettings.Base(cellType: FormBuilderCells.editField, dataType: .string)
     
     let vsbl = RowSettings.Visible(interpreter: InterpreterConditions())
     let vsl = RowSettings.Visualization(placeholderText: "Почта",
                                           placeholderTopText: nil,
                                           detailsText: nil,
-                                          dataType: .string,
                                           isPassword: false,
-                                          errorText: "Ошибка почты",
                                           keyboardType: .defaultKeyboard,
                                           autocapitalizationType: .none)
     
@@ -60,36 +58,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     /// PASS
     let passValue = StringValue(value: "1234")
-    let validationPass = RowSettings.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass")
+    let validationPass = RowSettings.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass", errorText: "Ошибка Пароля")
     let vsblPass = RowSettings.Visible(interpreter: InterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
     let vslPass = RowSettings.Visualization(placeholderText: "Пароль",
                                               placeholderTopText: nil,
                                               detailsText: nil,
-                                              dataType: .string,
                                               isPassword: true,
-                                              errorText: "Ошибка Пароля",
                                               keyboardType: .defaultKeyboard,
                                               autocapitalizationType: .none)
     
-    let base2 = RowSettings.Base(cellType: FormBuilderCells.editField)
+    let base2 = RowSettings.Base(cellType: FormBuilderCells.editField, dataType: .string)
     
     let basePassComposite = BaseFormComposite(identifier: "Pass row", level: .item)
     let pass = RowFormTextComposite(composite: basePassComposite, value: passValue, validation: validationPass, visualisation: vslPass, visible: vsblPass, base: base2)
     
     /// PHONE
     let phoneValue = StringValue(value: "8480209")
-    let validationPhone = RowSettings.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone")
+    let validationPhone = RowSettings.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone", errorText: "Ошибка Phone")
     let vsblPhone = RowSettings.Visible(interpreter: InterpreterConditions())
     let vslPhone = RowSettings.Visualization(placeholderText: "Введите телефонный номер",
                                                placeholderTopText: nil,
                                                detailsText: nil,
-                                               dataType: .string,
                                                isPassword: true,
-                                               errorText: "Ошибка Phone",
                                                keyboardType: .defaultKeyboard,
                                                autocapitalizationType: .none)
     
-    let base3 = RowSettings.Base(cellType: FormBuilderCells.editField)
+    let base3 = RowSettings.Base(cellType: FormBuilderCells.editField, dataType: .string)
     
     let basePhoneComposite = BaseFormComposite(identifier: "Phone row", level: .item)
     let phone = RowFormTextComposite(composite: basePhoneComposite, value: phoneValue, validation: validationPhone, visualisation: vslPhone, visible: vsblPhone, base: base3)

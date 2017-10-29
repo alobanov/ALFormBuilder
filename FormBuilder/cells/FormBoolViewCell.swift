@@ -31,7 +31,7 @@ class FormBoolViewCell: UITableViewCell, RxCellReloadeble {
       return
     }
     
-    titleText?.text = formModel.visualisation.placeholderText
+    titleText?.text = formModel.title
     switchComponent.isOn = (formModel.value.retriveOriginalValue() as? Bool) ?? false
     
     if !alreadyInitialized {

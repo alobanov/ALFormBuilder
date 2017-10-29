@@ -121,6 +121,7 @@ class FormBuilder: FormBuilderProtocol {
       let isChanged = row.checkStates(by: obj)
       
       if isChanged {
+        row.base.needReloadModel()
         needReload = true
       }
     }

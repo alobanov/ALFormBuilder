@@ -10,7 +10,7 @@ import Foundation
 import UIKit.UITableViewCell
 
 enum FormBuilderCells: UniversalCellProtocol {
-  case editField, buttonField, boolField
+  case editField, buttonField, boolField, pickerField
   
   var type: UITableViewCell.Type {
     switch self {
@@ -20,6 +20,19 @@ enum FormBuilderCells: UniversalCellProtocol {
       return FormButtonViewCell.self
     case .boolField:
       return FormBoolViewCell.self
+    case .pickerField:
+      return FormPickerViewCell.self
+    }
+  }
+}
+
+enum FormCustomCells: UniversalCellProtocol {
+  case customField
+  
+  var type: UITableViewCell.Type {
+    switch self {
+    case .customField:
+      return FormTextInfoViewCell.self
     }
   }
 }

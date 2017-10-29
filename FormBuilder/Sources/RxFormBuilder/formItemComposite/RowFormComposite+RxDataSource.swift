@@ -28,3 +28,13 @@ extension RowFormBoolComposite: RxCellModelDatasoursable {
     return base.strictReload()
   }
 }
+
+extension RowCustomComposite: RxCellModelDatasoursable {
+  var diffIdentifier: String? {
+    return self.identifier
+  }
+  
+  func strictReload() -> Bool {
+    return base.strictReload()
+  }
+}

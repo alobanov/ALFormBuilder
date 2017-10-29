@@ -10,10 +10,9 @@ import Foundation
 import UIKit.UITableViewCell
 
 // Протокол с которым работает ячейка
-protocol RowFormTextCompositeOutput:
-  RowCompositeValueTransformable, RowCompositeVisibleSetting,
-  RowCompositeValidationSetting, RowCompositeVisualizationSetting
-{}
+protocol RowFormTextCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
+  var visualisation: RowSettings.Visualization {get}
+}
 
 class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextCompositeOutput {
   // MARK :- ModelItemDatasoursable
@@ -60,19 +59,7 @@ class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextCompositeOutpu
     validate(value: value)
   }
   
-  @discardableResult func validate(value: ValueTransformable) -> RowSettings.ValidationState {
-    let result = tryValid(value: value)
-    self.validation.change(state: result)
-    
-    if self.value.transformForDisplay() != value.transformForDisplay() {
-      self.value.change(originalValue: value.retriveOriginalValue())
-      didChangeData?(self)
-    }
-    
-    return result
-  }
-  
-  private func tryValid(value: ValueTransformable) -> RowSettings.ValidationState {
+  func makeValidation(value: ValueTransformable) -> RowSettings.ValidationState {
     var result: ValidationResult
     let start = PreparingMiddlewareValidation()
     
@@ -91,7 +78,7 @@ class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextCompositeOutpu
       return .valid
       
     case .error(let error):
-      let message = visualisation.errorText ?? error.localizedDescription
+      let message = validation.errorText ?? error.localizedDescription
       return .failed(message: message)
     }
   }

@@ -23,11 +23,11 @@ class RxViewController: UIViewController, UITableViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let d = BoolVvv(value: false)
-    d.change(originalValue: true)
-    logger.debug("first = \(d.transformForDisplay())")
-    d.change(originalValue: false)
-    logger.debug("first = \(d.transformForDisplay())")
+//    let d = BoolVvv(value: false)
+//    d.change(originalValue: true)
+//    logger.debug("first = \(d.transformForDisplay())")
+//    d.change(originalValue: false)
+//    logger.debug("first = \(d.transformForDisplay())")
 
     
     // Do any additional setup after loading the view.
@@ -97,6 +97,12 @@ class RxViewController: UIViewController, UITableViewDelegate {
     
     tableView.rx.modelSelected(RxSectionItemModel.self).asObservable().subscribe(onNext: { model in
       print(model.model.identifier)
+      guard let item = model.model as? RowFormTextComposite else {
+        return
+      }
+      
+      item.base.needReloadModel()
+      item.validate(value: PickerValue(value: PickerValueTuple("Екатеринбург", 23)))
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in
@@ -114,7 +120,9 @@ class RxViewController: UIViewController, UITableViewDelegate {
   
   func configureUI() {
     tableView.setupEstimatedRowHeight()
-    tableView.registerCells(by: [FormTextViewCell.cellIdentifier, FormButtonViewCell.cellIdentifier, FormBoolViewCell.cellIdentifier])
+    tableView.registerCells(by: [FormTextViewCell.cellIdentifier, FormButtonViewCell.cellIdentifier,
+                                 FormBoolViewCell.cellIdentifier, FormPickerViewCell.cellIdentifier,
+                                 FormTextInfoViewCell.cellIdentifier])
   }
   
   

@@ -32,7 +32,7 @@ class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOutput {
   }
   
   var datasource: [FromItemCompositeProtocol] {
-    return [self]
+    return self.visible.isVisible ? [self] : []
   }
   
   // MARK :- RowFormComposite properties
