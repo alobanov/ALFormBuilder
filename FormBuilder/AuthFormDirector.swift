@@ -60,7 +60,7 @@ class AuthFormDirector {
   }
   
   func town(builder: StringRowItemBuilderProtocol) {
-    builder.define(value: PickerValue(value: nil))
+    builder.define(value: TupleValue(value: nil))
     builder.defineValidation(validationType: .none, state: .failed(message: "Выберите город"), valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: ALFBCells.pickerField, identifier: "Town", level: .item, dataType: .picker)
@@ -84,6 +84,17 @@ class AuthFormDirector {
     builder.define(title: "Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types.")
     builder.defineBase(cellType: FormCustomCells.customField, identifier: "Descr info", level: .item, dataType: .informationContent)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "@model.mail != null", mandatory: "false", disable: "@model.agreements == true")
+  }
+  
+  func multiline(builder: StringRowItemBuilderProtocol) {
+    builder.define(value: StringValue(value: nil))
+    builder.defineValidation(validationType: .none,
+                             state: .typing, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
+    builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
+    builder.defineBase(cellType: TestCells.multilineCell, identifier: "Multiline", level: .item, dataType: .string)
+    builder.defineVisualization(placeholderText: "Почта", placeholderTopText: "Введите почту",
+                                detailsText: "Например example@gmail.com", isPassword: false,
+                                keyboardType: .emailAddress, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
   }
   
   func sectionFirst(builder: SectionItemBuilderProtocol) {
@@ -133,8 +144,11 @@ class AuthFormDirector {
     let phone2 = PhoneRowItemBuilder()
     director.phoneCustom(builder: phone2)
     
+    let multiline = StringRowItemBuilder()
+    director.multiline(builder: multiline)
+    
     root.add(authSection, buttonSection)
-    authSection.add(mail.result(), phone.result(), password.result(), agreement.result(), town.result(), phone2.result())
+    authSection.add(mail.result(), phone.result(), password.result(), agreement.result(), town.result(), phone2.result(), multiline.result())
     buttonSection.add(login.result(), descr.result())
     
     return root

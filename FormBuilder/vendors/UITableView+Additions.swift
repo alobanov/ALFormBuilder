@@ -31,9 +31,9 @@ extension UITableView {
          forCellReuseIdentifier: identifier)
   }
   
-  func registerCells(by identifiers: [String]) {
+  func registerCells(by identifiers: [String], bundle: Bundle? = nil) {
     for identifier in identifiers {
-      register(UINib(nibName: identifier, bundle: nil),
+      register(UINib(nibName: identifier, bundle: bundle),
                forCellReuseIdentifier: identifier)
     }
   }

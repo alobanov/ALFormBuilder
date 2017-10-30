@@ -67,6 +67,8 @@ public class BaseFormComposite: FromItemCompositeProtocol {
     return children
   }
   
+  public required init() {}
+  
   public init(identifier: String, level: ALFB.FormModelLevel) {
     self.identifier = identifier
     self.level = level

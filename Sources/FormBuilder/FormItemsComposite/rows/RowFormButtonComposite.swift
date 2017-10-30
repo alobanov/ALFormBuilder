@@ -8,41 +8,41 @@
 
 import Foundation
 
-protocol RowFormButtonCompositeOutput: RowCompositeVisibleSetting {
+public protocol RowFormButtonCompositeOutput: RowCompositeVisibleSetting {
   var title: String {get}
 }
 
-class RowFormButtonComposite: FromItemCompositeProtocol, RowFormButtonCompositeOutput {
+public class RowFormButtonComposite: FromItemCompositeProtocol, RowFormButtonCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel = .item
   
-  var identifier: String {
+  public var identifier: String {
     return self.decoratedComposite.identifier
   }
   
-  var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FromItemCompositeProtocol] {
     return [self]
   }
   
-  var children: [FromItemCompositeProtocol] {
+  public var children: [FromItemCompositeProtocol] {
     return []
   }
   
-  var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FromItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
   // MARK :- RowFormComposite properties
-  var visible: ALFB.Visible
-  var base: ALFB.Base
+  public var visible: ALFB.Visible
+  public var base: ALFB.Base
   
   // private properties
-  var title: String
+  public var title: String
   
-  init(composite: FromItemCompositeProtocol, visible: ALFB.Visible, base: ALFB.Base, title: String)
+  public init(composite: FromItemCompositeProtocol, visible: ALFB.Visible, base: ALFB.Base, title: String)
   {
     self.decoratedComposite = composite
     self.visible = visible

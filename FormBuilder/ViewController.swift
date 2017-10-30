@@ -9,6 +9,19 @@
 import UIKit
 import ALFormBuilder
 
+enum TestCells: FBUniversalCellProtocol {
+  case defaultCell, multilineCell
+  
+  var type: UITableViewCell.Type {
+    switch self {
+    case .defaultCell:
+      return TestTableViewCell.self
+    case .multilineCell:
+      return ALFBTextMultilineViewCell.self
+    }
+  }
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
@@ -32,7 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
 
   @discardableResult func test2() -> FromItemCompositeProtocol {
-    let root = BaseFormComposite(identifier: "d", level: .item)
+    let root = BaseFormComposite()
     
     // all sections
     let section1 = SectionFormComposite(composite: BaseFormComposite(identifier: "Common section", level: .section), header: "Common header", footer: "Common footer")
@@ -44,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let validation = ALFB.Validation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
                                               state: .typing,
                                               valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
-    let base1 = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
+    let base1 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
     let vsbl = ALFB.Visible(interpreter: InterpreterConditions())
     let vsl = ALFB.Visualization(placeholderText: "Почта",
@@ -68,7 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                               keyboardType: .defaultKeyboard,
                                               autocapitalizationType: .none, keyboardOptions: .none)
     
-    let base2 = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
+    let base2 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
     let basePassComposite = BaseFormComposite(identifier: "Pass row", level: .item)
     let pass = RowFormTextComposite(composite: basePassComposite, value: passValue, validation: validationPass, visualisation: vslPass, visible: vsblPass, base: base2)
@@ -84,7 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                                keyboardType: .defaultKeyboard,
                                                autocapitalizationType: .none, keyboardOptions: .none)
     
-    let base3 = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
+    let base3 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
     let basePhoneComposite = BaseFormComposite(identifier: "Phone row", level: .item)
     let phone = RowFormTextComposite(composite: basePhoneComposite, value: phoneValue, validation: validationPhone, visualisation: vslPhone, visible: vsblPhone, base: base3)
@@ -132,7 +145,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let section = self.item.datasource[indexPath.section]
     if let cellModel = section.datasource[indexPath.row] as? RowFormTextComposite {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.base.cellType.type.cellIdentifier, for: indexPath)
       cell.textLabel?.text = cellModel.value.transformForDisplay()
       cell.detailTextLabel?.text = cellModel.visualisation.placeholderText
       return cell

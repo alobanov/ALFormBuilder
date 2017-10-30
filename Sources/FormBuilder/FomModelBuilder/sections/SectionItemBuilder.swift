@@ -17,7 +17,7 @@ public class SectionItemBuilder: SectionItemBuilderProtocol {
   private var header: String = ""
   private var footer: String = ""
   private var identifier: String = ""
-  private var cellType: FBUniversalCellProtocol = ALFBCells.editField
+  private var cellType: FBUniversalCellProtocol = ALFB.Cells.emptyField
   
   public init() {}
   

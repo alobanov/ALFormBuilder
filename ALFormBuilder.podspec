@@ -13,10 +13,10 @@ Pod::Spec.new do |s|
     s.social_media_url      = "https://twitter.com/alobanov"
     s.ios.deployment_target = '9.0'
     s.default_subspec = "Core"
-    s.source_files = 'Sources/**/*'
+    s.source_files = 'Sources/FormBuilder/**/*.swift'
 
   s.subspec "Core" do |ss|
-    ss.source_files  = "Sources/FormBuilder/**/*"
+    ss.source_files  = "Sources/FormBuilder/**/*.swift"
     ss.dependency "SwiftyJSON"
     ss.dependency "ObjectMapper"
     ss.framework  = "Foundation"
@@ -24,9 +24,9 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "RxSwift" do |ss|
-    ss.source_files = "Sources/RxFormBuilder/**/*"
+    ss.source_files = "Sources/RxFormBuilder/**/*.swift"
     ss.dependency "ALFormBuilder/Core"
-    ss.resource_bundles = {'ALFormBuilder' => ['Sources/RxFormBuilder/**/*']}
+    ss.resource_bundles = {'ALFormBuilder' => ['Sources/RxFormBuilder/Components/cells/*.xib']}
     ss.dependency 'RxSwift', '~> 3'
     ss.dependency 'RxCocoa', '~> 3'
     ss.dependency 'RxDataSources'

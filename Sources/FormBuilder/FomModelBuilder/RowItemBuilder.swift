@@ -31,7 +31,7 @@ public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderPr
   var value: ALValueTransformable = StringValue(value: nil)
   var identifier: String = ""
   var level = ALFB.FormModelLevel.item
-  var base = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
+  var base = ALFB.Base(cellType: ALFB.Cells.emptyField, dataType: .string)
   
   public func defineVisible(interpreter: InterpreterConditions, visible: String, mandatory: String, disable: String) {
     visibleSetting = ALFB.Visible(interpreter: interpreter, visible: visible, mandatory: mandatory, disable: disable)

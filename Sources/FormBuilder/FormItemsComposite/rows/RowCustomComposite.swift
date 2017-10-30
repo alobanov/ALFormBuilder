@@ -8,41 +8,41 @@
 
 import Foundation
 
-protocol RowCustomCompositeOutput: RowCompositeVisibleSetting {
+public protocol RowCustomCompositeOutput: RowCompositeVisibleSetting {
   var data: Any {get}
 }
 
-class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOutput {
+public class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel = .item
   
-  var identifier: String {
+  public var identifier: String {
     return self.decoratedComposite.identifier
   }
   
-  var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FromItemCompositeProtocol] {
     return [self]
   }
   
-  var children: [FromItemCompositeProtocol] {
+  public var children: [FromItemCompositeProtocol] {
     return []
   }
   
-  var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FromItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
   // MARK :- RowFormComposite properties
-  var visible: ALFB.Visible
-  var base: ALFB.Base
+  public var visible: ALFB.Visible
+  public var base: ALFB.Base
   
   // private properties
-  var data: Any
+  public var data: Any
   
-  init(composite: FromItemCompositeProtocol, visible: ALFB.Visible, base: ALFB.Base, data: Any)
+  public init(composite: FromItemCompositeProtocol, visible: ALFB.Visible, base: ALFB.Base, data: Any)
   {
     self.decoratedComposite = composite
     self.visible = visible

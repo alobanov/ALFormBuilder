@@ -1,9 +1,6 @@
 PODS:
   - ALFormBuilder/Core (0.9):
     - ObjectMapper
-    - RxCocoa (~> 3)
-    - RxDataSources
-    - RxSwift (~> 3)
     - SwiftyJSON
   - ALFormBuilder/RxSwift (0.9):
     - ALFormBuilder/Core
@@ -29,7 +26,7 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  ALFormBuilder: 51388f911760a339fe6034a454e898695000597a
+  ALFormBuilder: 1634f429bf6b4da6adf6ee398a2d6fbfc2f6b765
   Differentiator: caa9b3957981a2ac8e6b2eac8a676af461caa604
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690

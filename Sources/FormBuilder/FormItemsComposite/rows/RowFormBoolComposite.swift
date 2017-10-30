@@ -8,40 +8,40 @@
 
 import Foundation
 
-protocol RowFormBoolCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
+public protocol RowFormBoolCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
   var title: String {get}
 }
 
-class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutput {  
+public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel = .item
   
-  var identifier: String {
+  public var identifier: String {
     return self.decoratedComposite.identifier
   }
   
-  var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FromItemCompositeProtocol] {
     return [self]
   }
   
-  var children: [FromItemCompositeProtocol] {
+  public var children: [FromItemCompositeProtocol] {
     return []
   }
   
-  var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FromItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
   // MARK :- RowFormComposite properties
-  var visible: ALFB.Visible
-  var base: ALFB.Base
-  var value: ALValueTransformable
-  var validation: ALFB.Validation
-  var didChangeData: DidChange?
-  var title: String
+  public var visible: ALFB.Visible
+  public var base: ALFB.Base
+  public var value: ALValueTransformable
+  public var validation: ALFB.Validation
+  public var didChangeData: DidChange?
+  public var title: String
   
   init(composite: FromItemCompositeProtocol, value: ALValueTransformable, visible: ALFB.Visible,
        base: ALFB.Base, validation: ALFB.Validation, title: String)
@@ -56,7 +56,7 @@ class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutpu
     validate(value: value)
   }
   
-  func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
     let start = PreparingMiddlewareValidation()
     
@@ -79,11 +79,11 @@ class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutpu
     }
   }
   
-  func isValid() -> Bool {
+  public func isValid() -> Bool {
     return self.validation.state.isCompletelyValid
   }
   
-  func wasChanged() -> Bool {
+  public func wasChanged() -> Bool {
     return self.value.wasModify
   }
 }

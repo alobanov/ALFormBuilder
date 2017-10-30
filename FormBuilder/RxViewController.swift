@@ -47,10 +47,11 @@ class RxViewController: UIViewController, UITableViewDelegate {
     
     let datasource = BehaviorSubject<[RxSectionModel]>(value: [])
 
-    fb.rxDidChangeFormModel.subscribe(onNext: { item in
+    fb.rxDidChangeFormModel.subscribe(onNext: { [weak self] item in
       if let p = item as? RowCompositeValueTransformable {
         print("something change in \(item.identifier) to: \(p.value.transformForDisplay() ?? "")")
       }
+      self?.logger.debug(self?.fb.object(withoutNull: false) ?? [:])
     }).disposed(by: bag)
     fb.rxDidDatasource.bind(to: datasource).disposed(by: bag)
     
@@ -112,7 +113,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       }
       
       item.base.needReloadModel()
-      item.validate(value: PickerValue(value: PickerValueTuple("Екатеринбург", 23)))
+      item.validate(value: TupleValue(value: ALTupleValue("Екатеринбург", 23)))
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in
@@ -132,7 +133,8 @@ class RxViewController: UIViewController, UITableViewDelegate {
     tableView.setupEstimatedRowHeight()
     tableView.registerCells(by: [ALFBTextViewCell.cellIdentifier, ALFBButtonViewCell.cellIdentifier,
                                  ALFBBoolViewCell.cellIdentifier, ALFBPickerViewCell.cellIdentifier,
-                                 ALFBTextInfoViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier])
+                                 ALFBTextInfoViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier], bundle: Bundle.alfb_frameworkBundle())
+    tableView.registerCells(by: [ALFBTextMultilineViewCell.cellIdentifier])
   }
   
   

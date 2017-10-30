@@ -10,6 +10,17 @@ import Foundation
 import UIKit
 
 public extension ALFB {
+  enum Cells: Int, FBUniversalCellProtocol {
+    case emptyField
+    
+    public var type: UITableViewCell.Type {
+      switch self {
+      case .emptyField:
+        return UITableViewCell.self
+      }
+    }
+  }
+  
   enum FBKeyboardType: Int {
     case defaultKeyboard = 0 // Default type for the current input method.
     case numbersAndPunctuation = 1 // Numbers and assorted punctuation.

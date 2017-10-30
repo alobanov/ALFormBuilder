@@ -9,43 +9,43 @@
 import Foundation
 
 // Протокол с которым работает ячейка
-protocol RowFromPhoneCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
+public protocol RowFromPhoneCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
   var visualisation: ALFB.Visualization {get}
 }
 
-class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompositeOutput {
+public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel = .item
   
-  var identifier: String {
+  public var identifier: String {
     return self.decoratedComposite.identifier
   }
   
-  var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FromItemCompositeProtocol] {
     return [self]
   }
   
-  var children: [FromItemCompositeProtocol] {
+  public var children: [FromItemCompositeProtocol] {
     return []
   }
   
-  var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FromItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
-  var didChangeData: DidChange?
+  public var didChangeData: DidChange?
   
   // MARK :- RowFormComposite properties
-  var value: ALValueTransformable
-  var validation: ALFB.Validation
-  var visualisation: ALFB.Visualization
-  var visible: ALFB.Visible
-  var base: ALFB.Base
+  public var value: ALValueTransformable
+  public var validation: ALFB.Validation
+  public var visualisation: ALFB.Visualization
+  public var visible: ALFB.Visible
+  public var base: ALFB.Base
   
-  init(composite: FromItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
+  public init(composite: FromItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
        visualisation: ALFB.Visualization, visible: ALFB.Visible, base: ALFB.Base)
   {
     self.decoratedComposite = composite
@@ -58,7 +58,7 @@ class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompositeOut
     validate(value: value)
   }
   
-  func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
     let start = PreparingMiddlewareValidation()
     
@@ -88,11 +88,11 @@ class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompositeOut
   
   // MARK :- FromItemCompositeProtocol func
   
-  func isValid() -> Bool {
+  public func isValid() -> Bool {
     return self.validation.state.isCompletelyValid
   }
   
-  func wasChanged() -> Bool {
+  public func wasChanged() -> Bool {
     return self.value.wasModify
   }
 }

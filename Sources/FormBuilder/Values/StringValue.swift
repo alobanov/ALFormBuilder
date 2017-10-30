@@ -45,6 +45,6 @@ public class StringValue: ALValueTransformable {
       return NSNull()
     }
     
-    return str
+    return str.isEmpty ? NSNull() : str
   }
 }

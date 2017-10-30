@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 public protocol ALFormBuilderProtocol {
   var didDatasource: ALFormBuilder.DidDatasource? {set get}
@@ -25,6 +26,11 @@ public protocol ALFormBuilderProtocol {
   
   // Конфигурируем
   func configure(compositeFormData: FromItemCompositeProtocol)
+  
+  func apply(errors: [String: String]) -> Bool
+  
+  //маппинг динамического словаря в модель
+  func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T?
 }
 
 public class ALFormBuilder: ALFormBuilderProtocol {
@@ -187,6 +193,28 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     }
     
     return true
+  }
+  
+  public func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T? {
+    return jsonBuilder.mappedObject(parameters: parameters)
+  }
+  
+  public func apply(errors: [String: String]) -> Bool {
+    var isContainError = false
+    
+    for (formItentifier, message) in errors {
+      guard var model = model(by: formItentifier) as? RowCompositeValidationSetting else {
+        continue
+      }
+      
+      model.validation.change(state: .failed(message: message))
+      isContainError = true
+    }
+    
+    if isContainError {
+      didChangeCompletelyValidation?(!isContainError)
+    }
+    return isContainError
   }
   
   deinit {

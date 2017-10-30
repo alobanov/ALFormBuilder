@@ -8,14 +8,14 @@
 
 import Foundation
 
-public typealias PickerValueTuple = (display: String, value: Any)
+public typealias ALTupleValue = (display: String, value: Any)
 
-public class PickerValue: ALValueTransformable {
+public class TupleValue: ALValueTransformable {
   private var originalValue: Any?
   public var initialValue: String?
   public var wasModify: Bool = false
   
-  public init(value: PickerValueTuple?) {
+  public init(value: ALTupleValue?) {
     self.originalValue = value
     self.initialValue = transformForDisplay()
   }
@@ -35,7 +35,7 @@ public class PickerValue: ALValueTransformable {
   }
   
   public func transformForDisplay() -> DisplayValueType? {
-    guard let str = self.originalValue as? PickerValueTuple else {
+    guard let str = self.originalValue as? ALTupleValue else {
       return nil
     }
     
@@ -43,7 +43,7 @@ public class PickerValue: ALValueTransformable {
   }
   
   public func transformForJSON() -> JSONValueType {
-    guard let str = self.originalValue as? PickerValueTuple else {
+    guard let str = self.originalValue as? ALTupleValue else {
       return NSNull()
     }
     

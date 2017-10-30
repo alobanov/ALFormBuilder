@@ -69,3 +69,15 @@ extension String {
     return ""
   }
 }
+
+extension Bundle {
+  public static func alfb_frameworkBundle() -> Bundle {
+    let bundle = Bundle(for: ALFormBuilder.self)
+    if let path = bundle.path(forResource: "ALBormBuilder", ofType: "bundle") {
+      return Bundle(path: path)!
+    }
+    else {
+      return bundle
+    }
+  }
+}
