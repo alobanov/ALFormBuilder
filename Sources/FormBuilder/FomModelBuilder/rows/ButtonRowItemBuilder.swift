@@ -9,18 +9,22 @@
 import Foundation
 
 /// Button form item builder
-protocol ButtonRowItemBuilderProtocol: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol {
+public protocol ButtonRowItemBuilderProtocol: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol {
   func define(title: String)
 }
 
-class ButtonRowItemBuilder: RowItemBuilder, ButtonRowItemBuilderProtocol {
+public class ButtonRowItemBuilder: RowItemBuilder, ButtonRowItemBuilderProtocol {
   private var title = ""
   
-  func define(title: String) {
+  public override init() {
+    
+  }
+  
+  public func define(title: String) {
     self.title = title
   }
   
-  override func result() -> FromItemCompositeProtocol {
+  public override func result() -> FromItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
     return RowFormButtonComposite(composite: baseComposite, visible: visibleSetting, base: base, title: self.title)
   }

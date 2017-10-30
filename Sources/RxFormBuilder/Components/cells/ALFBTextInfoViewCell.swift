@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ALFBTextInfoViewCell: UITableViewCell, RxCellReloadeble {
+public class ALFBTextInfoViewCell: UITableViewCell, RxCellReloadeble {
   
   @IBOutlet weak var titleInfoLabel: UILabel!
   @IBOutlet weak var highlitedBackground: UIView!
   private var alreadyInitialized = false
   
-  override func awakeFromNib() {
+  public override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
     highlitedBackground.alpha = 0
     self.layoutIfNeeded()
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
+  public override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
     if !selected {
@@ -34,7 +34,7 @@ class ALFBTextInfoViewCell: UITableViewCell, RxCellReloadeble {
     }
   }
 
-  func reload(with model: RxCellModelDatasoursable) {
+  public func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
     guard let formModel = model as? RowCustomCompositeOutput else {
       return

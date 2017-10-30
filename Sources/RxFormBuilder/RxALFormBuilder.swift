@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol RxALFormBuilderProtocol {
+public protocol RxALFormBuilderProtocol {
   var rxDidDatasource: Observable<[RxSectionModel]> {get}
   var rxDidChangeFormModel: Observable<FromItemCompositeProtocol> {get}
   var rxDidChangeCompletelyValidation: Observable<Bool> {get}
@@ -28,37 +28,37 @@ protocol RxALFormBuilderProtocol {
   func configure(compositeFormData: FromItemCompositeProtocol)
 }
 
-class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
-  var rxDidDatasource: Observable<[RxSectionModel]> {
+public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
+  public var rxDidDatasource: Observable<[RxSectionModel]> {
     return _rxDidDatasource.asObservable()
   }
   
-  let _rxDidDatasource = BehaviorSubject<[RxSectionModel]>(value: [])
+  private let _rxDidDatasource = BehaviorSubject<[RxSectionModel]>(value: [])
   
-  var rxDidChangeFormModel: Observable<FromItemCompositeProtocol> {
+  public var rxDidChangeFormModel: Observable<FromItemCompositeProtocol> {
     return _didChangeFormModel.asObservable()
   }
   
-  let _didChangeFormModel = PublishSubject<FromItemCompositeProtocol>()
+  private let _didChangeFormModel = PublishSubject<FromItemCompositeProtocol>()
   
-  var rxDidChangeCompletelyValidation: Observable<Bool> {
+  public var rxDidChangeCompletelyValidation: Observable<Bool> {
     return _didChangeCompletelyValidation.asObservable()
   }
   
-  let _didChangeCompletelyValidation = BehaviorSubject<Bool>(value: false)
+  private let _didChangeCompletelyValidation = BehaviorSubject<Bool>(value: false)
   
-  var rxDidChangeFormState: Observable<Bool> {
+  public var rxDidChangeFormState: Observable<Bool> {
     return _didChangeFormState.asObservable()
   }
   
-  let _didChangeFormState = BehaviorSubject<Bool>(value: false)
+  private let _didChangeFormState = BehaviorSubject<Bool>(value: false)
   
-  override init(compositeFormData: FromItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
+  public override init(compositeFormData: FromItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
     super.init(compositeFormData: compositeFormData, jsonBuilder: jsonBuilder)
     defineRx()
   }
   
-  func defineRx() {
+  private func defineRx() {
     self.didChangeCompletelyValidation = { [weak self] isValid in
       self?._didChangeCompletelyValidation.onNext(isValid)
     }

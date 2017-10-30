@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public protocol ALFormBuilderProtocol {
   var didDatasource: ALFormBuilder.DidDatasource? {set get}
   var didChangeFormModel: ALFormBuilder.DidChangeFormModel? {set get}
@@ -46,11 +45,9 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   private var completelyValidation: Bool = false
   private var formWasModify: Bool = false
   
-  let logger = Atlantis.Logger()
-  
   // Инициализация с подготовленой структурой данных для таблицы
   // и зависимость в виде билдера для JSON
-  init(compositeFormData: FromItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
+  public init(compositeFormData: FromItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
     self.jsonBuilder = jsonBuilder
     
     if compositeFormData.level == .root {
@@ -106,8 +103,6 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     if isChanged || isChangedInCommonState {
       reloadDataSource()
     }
-    
-    logger.debug(self.object(withoutNull: false))
   }
   
   // Проврка всех состояний во всех полях таблицы, возвращает значение нужна ли перезагрузка таблицы или нет

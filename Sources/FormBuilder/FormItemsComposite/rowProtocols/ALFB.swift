@@ -10,26 +10,26 @@ import Foundation
 import UIKit.UITableViewCell
 
 public struct ALFB {
-  enum ValidationResult {
+  public enum ValidationResult {
     case error(String)
     case valid
   }
   
-  struct Base {
-    let cellType: FBUniversalCellProtocol
-    var isStrictReload: Bool = false
-    let dataType: DataType
+  public struct Base {
+    public let cellType: FBUniversalCellProtocol
+    public var isStrictReload: Bool = false
+    public let dataType: DataType
     
-    init(cellType: FBUniversalCellProtocol, dataType: DataType) {
+    public init(cellType: FBUniversalCellProtocol, dataType: DataType) {
       self.cellType = cellType
       self.dataType = dataType
     }
     
-    mutating func needReloadModel() {
+    public mutating func needReloadModel() {
       self.isStrictReload = true
     }
     
-    mutating func strictReload() -> Bool {
+    public mutating func strictReload() -> Bool {
       var needReload = false
       if self.isStrictReload != needReload {
         self.isStrictReload = false
@@ -40,49 +40,67 @@ public struct ALFB {
     }
   }
   
-  struct Visualization {
-    let placeholderText: String
-    let placeholderTopText: String?
-    let detailsText: String?
-    let isPassword: Bool?
-    let keyboardType: FBKeyboardType?
-    let autocapitalizationType: FBAutocapitalizationType?
-    let keyboardOptions: TextConstraintType
+  public struct Visualization {
+    public let placeholderText: String
+    public let placeholderTopText: String?
+    public let detailsText: String?
+    public let isPassword: Bool?
+    public let keyboardType: FBKeyboardType?
+    public let autocapitalizationType: FBAutocapitalizationType?
+    public let keyboardOptions: TextConstraintType
+    
+    public init(placeholderText: String, placeholderTopText: String?, detailsText: String?, isPassword: Bool?, keyboardType: FBKeyboardType?, autocapitalizationType: FBAutocapitalizationType?, keyboardOptions: TextConstraintType) {
+      self.placeholderText = placeholderText
+      self.placeholderTopText = placeholderTopText
+      self.detailsText = detailsText
+      self.isPassword = isPassword
+      self.keyboardType = keyboardType
+      self.autocapitalizationType = autocapitalizationType
+      self.keyboardOptions = keyboardOptions
+    }
   }
   
-  struct Validation {
-    let validationType: ValidationType
-    var state: ValidationState
-    var valueKeyPath: String?
-    let errorText: String?
-    let maxLength: Int?
+  public struct Validation {
+    public let validationType: ValidationType
+    public var state: ValidationState
+    public var valueKeyPath: String?
+    public let errorText: String?
+    public let maxLength: Int?
     
-    mutating func change(state: ValidationState) {
+    public init(validationType: ValidationType, state: ValidationState, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
+      self.validationType = validationType
+      self.state = state
+      self.valueKeyPath = valueKeyPath
+      self.errorText = errorText
+      self.maxLength = maxLength
+    }
+    
+    public mutating func change(state: ValidationState) {
       self.state = state
     }
   }
   
-  struct Visible {
-    static let fullValidation = "Full-Validation"
+  public struct Visible {
+    public static let fullValidation = "Full-Validation"
     
-    let interpreter: InterpreterConditions
+    public let interpreter: InterpreterConditions
     
-    let visibleExp: String
-    let mandatoryExp: String
-    let disabledExp: String
+    public let visibleExp: String
+    public let mandatoryExp: String
+    public let disabledExp: String
     
-    var isVisible: Bool = true
-    var isMandatory: Bool = true
-    var isDisabled: Bool = false
+    public var isVisible: Bool = true
+    public var isMandatory: Bool = true
+    public var isDisabled: Bool = false
     
-    init(interpreter: InterpreterConditions, visible: String = "true", mandatory: String = "true", disable: String = "false") {
+    public init(interpreter: InterpreterConditions, visible: String = "true", mandatory: String = "true", disable: String = "false") {
       self.interpreter = interpreter
       visibleExp = visible
       mandatoryExp = mandatory
       disabledExp = disable
     }
     
-    mutating func checkDisableState(model: [String: Any]) -> Bool {
+    public mutating func checkDisableState(model: [String: Any]) -> Bool {
       if disabledExp == Visible.fullValidation {
         return false
       }
@@ -93,7 +111,7 @@ public struct ALFB {
       return isChanged
     }
     
-    mutating func checkMandatoryState(model: [String: Any]) -> Bool {
+    public mutating func checkMandatoryState(model: [String: Any]) -> Bool {
       let newState = interpreter.calculateExpression(expression: mandatoryExp, json: model)
       let realMandatory = (newState && isVisible)
       let isChanged = (realMandatory != isMandatory)
@@ -101,19 +119,19 @@ public struct ALFB {
       return isChanged
     }
     
-    mutating func checkVisibleState(model: [String: Any]) -> Bool {
+    public mutating func checkVisibleState(model: [String: Any]) -> Bool {
       let newState = interpreter.calculateExpression(expression: visibleExp, json: model)
       let isChanged = (newState != isVisible)
       isVisible = newState
       return isChanged
     }
     
-    mutating func changeDisabled(state: Bool) {
+    public mutating func changeDisabled(state: Bool) {
       self.isDisabled = state
     }
   }
   
-  enum TextConstraintType: Int {
+  public enum TextConstraintType: Int {
     case none = 0,
     removeWhitespaces = 1,
     onlyNumbers = 2,
@@ -140,6 +158,6 @@ public struct ALFB {
   }
 }
 
-protocol FBUniversalCellProtocol {
+public protocol FBUniversalCellProtocol {
   var type: UITableViewCell.Type { get }
 }

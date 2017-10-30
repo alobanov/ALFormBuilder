@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ALValueTransformable {
+public protocol ALValueTransformable {
   typealias DisplayValueType = String
   typealias JSONValueType = Any
   

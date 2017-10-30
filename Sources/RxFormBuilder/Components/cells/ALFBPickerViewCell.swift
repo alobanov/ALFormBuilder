@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
+public class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   
   @IBOutlet weak var textField: ALValidatedTextField!
   @IBOutlet weak var descriptionValueLabel: UILabel!
@@ -21,7 +21,7 @@ class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   fileprivate var storedModel: RowFormTextCompositeOutput!
   var alreadyInitialized = false
   
-  override func awakeFromNib() {
+  public override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
     textField.isUserInteractionEnabled = false
@@ -32,7 +32,7 @@ class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     descriptionValueLabel.textColor = UIColor.lightText
   }
   
-  func reload(with model: RxCellModelDatasoursable) {
+  public func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
     guard let vm = model as? RowFormTextCompositeOutput else {
       return
@@ -73,8 +73,7 @@ class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     }
   }
   
-  func configureRx() {
-    
+  private func configureRx() {
     // Check validation all of text stream
     let validationState = textField.rx.text.asDriver().skip(1)
       .map({[weak self] text in

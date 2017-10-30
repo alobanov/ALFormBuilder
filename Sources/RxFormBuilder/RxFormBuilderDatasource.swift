@@ -8,7 +8,7 @@
 
 import RxDataSources
 
-protocol RxCellModelDatasoursable: class {
+public protocol RxCellModelDatasoursable: class {
   var diffIdentifier: String? { get }
   var cellType: FBUniversalCellProtocol { get }
   var identifier: String {get}
@@ -24,7 +24,7 @@ extension RxCellModelDatasoursable {
 /**
  *  Reloadeble protocol for all registration cell
  */
-protocol RxCellReloadeble {
+public protocol RxCellReloadeble {
   func reload(with model: RxCellModelDatasoursable)
 }
 
@@ -34,12 +34,12 @@ protocol RxCellReloadeble {
  - PersonalInformationSection: section of personal information
  */
 
-struct RxSectionModel {
-  var items: [RxSectionItemModel]
-  var identifier: String
-  var model: SectionFormComposite
+public struct RxSectionModel {
+  public var items: [RxSectionItemModel]
+  public var identifier: String
+  public var model: SectionFormComposite
 
-  init(items: [RxSectionItemModel], model: SectionFormComposite) {
+  public init(items: [RxSectionItemModel], model: SectionFormComposite) {
     self.items = items
     self.identifier = model.identifier
     self.model = model
@@ -47,40 +47,40 @@ struct RxSectionModel {
 }
 
 extension RxSectionModel: AnimatableSectionModelType {
-  typealias Item = RxSectionItemModel
-  typealias Identity = String
+  public typealias Item = RxSectionItemModel
+  public typealias Identity = String
 
-  var identity: String {
+  public var identity: String {
     return identifier
   }
 
-  init(original: RxSectionModel, items: [Item]) {
+  public init(original: RxSectionModel, items: [Item]) {
     self = original
     self.items = items
   }
 }
 
-struct RxSectionItemModel {
-  var model: RxCellModelDatasoursable
+public struct RxSectionItemModel {
+  public var model: RxCellModelDatasoursable
 
-  init(model: RxCellModelDatasoursable) {
+  public init(model: RxCellModelDatasoursable) {
     self.model = model
   }
 }
 
 extension RxSectionItemModel: IdentifiableType, Equatable {
-  typealias Identity = String
+  public typealias Identity = String
 
-  var identity: String {
+  public var identity: String {
       return model.diffIdentifier ?? ""
   }
   
-  func strictReload() -> Bool {
+  public func strictReload() -> Bool {
     return model.strictReload()
   }
 }
 
 // equatable, this is needed to detect changes
-func == (lhs: RxSectionItemModel, rhs: RxSectionItemModel) -> Bool {
+public func == (lhs: RxSectionItemModel, rhs: RxSectionItemModel) -> Bool {
   return lhs.identity == rhs.identity && !lhs.strictReload()
 }

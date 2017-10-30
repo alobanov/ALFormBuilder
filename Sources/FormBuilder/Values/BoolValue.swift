@@ -8,17 +8,17 @@
 
 import UIKit
 
-class BoolValue: ALValueTransformable {
-  var originalValue: Any?
-  var initialValue: String?
-  var wasModify: Bool = false
+public class BoolValue: ALValueTransformable {
+  private var originalValue: Any?
+  public var initialValue: String?
+  public var wasModify: Bool = false
   
-  init(value: Bool = false) {
+  public init(value: Bool = false) {
     self.originalValue = value
     self.initialValue = transformForDisplay()
   }
   
-  func transformForDisplay() -> DisplayValueType? {
+  public func transformForDisplay() -> DisplayValueType? {
     guard let bool = self.originalValue as? Bool else {
       return nil
     }
@@ -26,16 +26,16 @@ class BoolValue: ALValueTransformable {
     return bool ? "true" : "false"
   }
   
-  func change(originalValue: Any?) {
+  public func change(originalValue: Any?) {
     self.originalValue = originalValue
     wasModify = (initialValue != transformForDisplay())
   }
   
-  func retriveOriginalValue() -> Any? {
+  public func retriveOriginalValue() -> Any? {
     return originalValue
   }
   
-  func transformForJSON() -> JSONValueType {
+  public func transformForJSON() -> JSONValueType {
     guard let bool = self.originalValue as? Bool else {
       return NSNull()
     }

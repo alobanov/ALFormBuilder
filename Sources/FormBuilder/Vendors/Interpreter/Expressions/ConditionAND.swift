@@ -8,17 +8,17 @@
 
 import Foundation
 
-class ConditionAND: Expression {
+public class ConditionAND: Expression {
 
   var leftOperand: Expression
   var rightOperand: Expression
 
-  init(leftOperand: Expression, rightOperand: Expression) {
+  public init(leftOperand: Expression, rightOperand: Expression) {
     self.leftOperand = leftOperand
     self.rightOperand = rightOperand
   }
 
-  func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String : Expression]) -> Bool {
     return leftOperand.interpret(variables) && rightOperand.interpret(variables)
   }
 }

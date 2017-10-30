@@ -26,8 +26,9 @@ Pod::Spec.new do |s|
   s.subspec "RxSwift" do |ss|
     ss.source_files = "Sources/RxFormBuilder/**/*"
     ss.dependency "ALFormBuilder/Core"
-    s.dependency 'RxSwift', '~> 3'
-    s.dependency 'RxCocoa', '~> 3'
-    s.dependency 'RxDataSources'
+    ss.resource_bundles = {'ALFormBuilder' => ['Sources/RxFormBuilder/**/*']}
+    ss.dependency 'RxSwift', '~> 3'
+    ss.dependency 'RxCocoa', '~> 3'
+    ss.dependency 'RxDataSources'
   end
 end

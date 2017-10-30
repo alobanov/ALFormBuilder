@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Stack<T> {
+public struct Stack<T> {
 
   var items = [T]()
 

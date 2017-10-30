@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
+public class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
   
   @IBOutlet weak var switchComponent: UISwitch!
   @IBOutlet weak var titleText: UILabel!
@@ -19,13 +19,13 @@ class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
   private var alreadyInitialized = false
   private let bag = DisposeBag()
   
-  override func awakeFromNib() {
+  public override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
     layoutIfNeeded()
   }
   
-  func reload(with model: RxCellModelDatasoursable) {
+  public func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
     guard let formModel = model as? RowFormBoolCompositeOutput else {
       return
@@ -42,7 +42,7 @@ class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
     }
   }
   
-  func configureRx() {
+  private func configureRx() {
     // configure rx
     let checkButtonSelected = self.switchComponent.rx
       .controlEvent(UIControlEvents.valueChanged)

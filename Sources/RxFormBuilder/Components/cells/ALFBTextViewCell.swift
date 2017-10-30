@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
+public class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   
   @IBOutlet weak var textField: ALValidatedTextField!
   @IBOutlet weak var descriptionValueLabel: UILabel!
@@ -23,7 +23,7 @@ class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   
   let bag = DisposeBag()
    
-  override func awakeFromNib() {
+  public override func awakeFromNib() {
     super.awakeFromNib()
     // base configuration
     validateBtn.setImage(ALFBStyle.imageOfTfAlertIconStar, for: UIControlState())
@@ -39,7 +39,7 @@ class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
     self.layoutIfNeeded()
   }
   
-  func reload(with model: RxCellModelDatasoursable) {
+  public func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
     guard let vm = model as? RowFormTextCompositeOutput else {
       return
@@ -103,7 +103,7 @@ class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   }
   
   // MARK: - UITextFieldDelegate
-  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+  public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                  replacementString string: String) -> Bool {
     return textField.filtred(self.storedModel.visualisation.keyboardOptions.options,
                              string: string,
@@ -112,7 +112,7 @@ class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   }
   
   // MARK: - Additional helpers
-  func showValidationWarning(text: String) {
+  open func showValidationWarning(text: String) {
     // need override
   }
   

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 import SwiftyJSON
 
-protocol ALFormJSONBuilderProtocol {
+public protocol ALFormJSONBuilderProtocol {
   
   /// Подготовить JSON билдер на основе моделей билдера форм
   ///
@@ -44,14 +44,14 @@ protocol ALFormJSONBuilderProtocol {
   func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T?
 }
 
-struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
+public struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
   private var creationObject: [String: Any]
   
-  init(predefinedObject: [String: Any] = [:]) {
+  public init(predefinedObject: [String: Any] = [:]) {
     creationObject = predefinedObject
   }
   
-  mutating func prepareObject(tree: FromItemCompositeProtocol) {
+  public mutating func prepareObject(tree: FromItemCompositeProtocol) {
     for item in tree.leaves {
       if let i = item as? RowCompositeValidationSetting & RowCompositeValueTransformable {
         let value = prepare(item: i)
@@ -62,7 +62,7 @@ struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
     }
   }
   
-  mutating func updateValue(item: FromItemCompositeProtocol) {
+  public mutating func updateValue(item: FromItemCompositeProtocol) {
     
     guard let field = item as? RowCompositeValidationSetting & RowCompositeValueTransformable else {
       return
@@ -74,11 +74,11 @@ struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
     }
   }
   
-  mutating func updateValue(byPath: String, value: Any?) {
+  public mutating func updateValue(byPath: String, value: Any?) {
     self.creationObject = creationObject.setOrUpdate(value: value ?? NSNull(), path: byPath)
   }
   
-  func object(withoutNull: Bool) -> [String: Any] {
+  public func object(withoutNull: Bool) -> [String: Any] {
     if withoutNull {
       if let jsonWithoutNull = creationObject.nullKeyRemoval() as? [String: Any] {
         return jsonWithoutNull
@@ -88,7 +88,7 @@ struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
     return creationObject
   }
   
-  func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T? {
+  public func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T? {
     var obj = self.object(withoutNull: false)
     if let parameters = parameters {
       for (key, element) in parameters {

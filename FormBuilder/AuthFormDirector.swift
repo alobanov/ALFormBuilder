@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ALFormBuilder
 
 class AuthFormDirector {  
   func mail(builder: StringRowItemBuilderProtocol) {
@@ -96,7 +97,7 @@ class AuthFormDirector {
   static func build() -> FromItemCompositeProtocol {
     let director = AuthFormDirector()
     
-    let root = BaseFormComposite()
+    let root = BaseFormComposite(identifier: "asd", level: .root)
     
     // Sections
     let secBuilder1 = SectionItemBuilder()

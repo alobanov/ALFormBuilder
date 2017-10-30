@@ -24,7 +24,7 @@ public protocol FromItemCompositeProtocol {
 }
 
 public extension FromItemCompositeProtocol {
-  func isValid() -> Bool {
+  public func isValid() -> Bool {
     for model in children {
       if !model.isValid() {
         return false
@@ -34,7 +34,7 @@ public extension FromItemCompositeProtocol {
     return true
   }
   
-  func wasChanged() -> Bool {
+  public func wasChanged() -> Bool {
     for model in children {
       if model.wasChanged() {
         return true
@@ -44,11 +44,11 @@ public extension FromItemCompositeProtocol {
     return false
   }
   
-  func add(_ model: FromItemCompositeProtocol...) {
+  public func add(_ model: FromItemCompositeProtocol...) {
     print("Implement this method if you want to add new child")
   }
   
-  func remove(_ model: FromItemCompositeProtocol) {
+  public func remove(_ model: FromItemCompositeProtocol) {
     print("Implement this method if you want to remove child")
   }
 }
@@ -67,9 +67,7 @@ public class BaseFormComposite: FromItemCompositeProtocol {
     return children
   }
   
-  init() {}
-  
-  init(identifier: String, level: ALFB.FormModelLevel) {
+  public init(identifier: String, level: ALFB.FormModelLevel) {
     self.identifier = identifier
     self.level = level
   }
@@ -85,6 +83,6 @@ public class BaseFormComposite: FromItemCompositeProtocol {
   }
 }
 
-func == (lhs: FromItemCompositeProtocol, rhs: FromItemCompositeProtocol) -> Bool {
+public func == (lhs: FromItemCompositeProtocol, rhs: FromItemCompositeProtocol) -> Bool {
   return lhs.identifier == rhs.identifier
 }

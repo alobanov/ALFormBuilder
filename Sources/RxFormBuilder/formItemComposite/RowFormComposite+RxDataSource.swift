@@ -10,52 +10,52 @@ import Foundation
 
 extension RowFormTextComposite: RxCellModelDatasoursable {
   // MARK :- ModelItemDatasoursable
-  var diffIdentifier: String? {
+  public var diffIdentifier: String? {
     return self.identifier
   }
   
-  func strictReload() -> Bool {
+  public func strictReload() -> Bool {
     return base.strictReload()
   }
 }
 
 extension RowFormBoolComposite: RxCellModelDatasoursable {
-  var diffIdentifier: String? {
+  public var diffIdentifier: String? {
     return self.identifier
   }
   
-  func strictReload() -> Bool {
+  public func strictReload() -> Bool {
     return base.strictReload()
   }
 }
 
 extension RowCustomComposite: RxCellModelDatasoursable {
-  var diffIdentifier: String? {
+  public var diffIdentifier: String? {
     return self.identifier
   }
   
-  func strictReload() -> Bool {
+  public func strictReload() -> Bool {
     return base.strictReload()
   }
 }
 
 extension RowFromPhoneComposite: RxCellModelDatasoursable {
-  var diffIdentifier: String? {
+  public var diffIdentifier: String? {
     return self.identifier
   }
   
-  func strictReload() -> Bool {
+  public func strictReload() -> Bool {
     return base.strictReload()
   }
 }
 
 extension RowFormButtonComposite: RxCellModelDatasoursable {
   // MARK :- ModelItemDatasoursable
-  var diffIdentifier: String? {
+  public var diffIdentifier: String? {
     return self.identifier
   }
   
-  func strictReload() -> Bool {
+  public func strictReload() -> Bool {
     return base.strictReload()
   }
 }

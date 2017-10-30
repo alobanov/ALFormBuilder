@@ -8,8 +8,10 @@
 
 import Foundation
 
-class InterpreterConditions {
-  func calculateExpression(expression: String, json: [String: Any]) -> Bool {
+public class InterpreterConditions {
+  public init() {}
+  
+  public func calculateExpression(expression: String, json: [String: Any]) -> Bool {
     var exp = expression
 
     // Keys
@@ -35,7 +37,7 @@ class InterpreterConditions {
 
 // Precalculation of bitwise & expressions
 extension InterpreterConditions {
-  func precalculateBitwiseExp(exp: String) -> String {
+  public func precalculateBitwiseExp(exp: String) -> String {
     var updatedExp = exp
     let exps = exp.regex(pattern: "(\\w+\\s)[ & ]{1}(\\s\\w+)")
 

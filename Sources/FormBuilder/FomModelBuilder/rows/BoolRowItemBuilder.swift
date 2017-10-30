@@ -9,19 +9,23 @@
 import Foundation
 
 /// Bool form item builder
-protocol BoolRowItemBuilderProtocol: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol,
+public protocol BoolRowItemBuilderProtocol: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol,
 RowItemValueBuilderProtocol, RowItemValidationBuilderProtocol {
   func define(title: String)
 }
 
-class BoolRowItemBuilder: RowItemBuilder, BoolRowItemBuilderProtocol {
+public class BoolRowItemBuilder: RowItemBuilder, BoolRowItemBuilderProtocol {
   private var title = ""
   
-  func define(title: String) {
+  public override init() {
+    
+  }
+  
+  public func define(title: String) {
     self.title = title
   }
   
-  override func result() -> FromItemCompositeProtocol {
+  public override func result() -> FromItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
     return RowFormBoolComposite(composite: baseComposite, value: self.value, visible: visibleSetting, base: base, validation: validation, title: title)
   }

@@ -8,18 +8,18 @@
 
 import Foundation
 
-enum ContextType {
+public enum ContextType {
   case bool, number, string
 }
 
-protocol Expression {
+public protocol Expression {
   func numberValue() -> Int?
   func stringValue() -> String?
   func interpret(_ variables: [String: Expression]) -> Bool
   func context() -> ContextType
 }
 
-extension Expression {
+public extension Expression {
   // default
   func numberValue() -> Int? {
     return nil

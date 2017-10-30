@@ -8,17 +8,17 @@
 
 import Foundation
 
-class ConditionTrue: Expression {
+public class ConditionTrue: Expression {
 
-  var leftOperand: Expression
-  var rightOperand: Expression
+  public var leftOperand: Expression
+  public var rightOperand: Expression
 
-  init(leftOperand: Expression, rightOperand: Expression) {
+  public init(leftOperand: Expression, rightOperand: Expression) {
     self.leftOperand = leftOperand
     self.rightOperand = rightOperand
   }
 
-  func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String : Expression]) -> Bool {
     // Check on number type
     switch rightOperand.context() {
     case .bool:

@@ -8,14 +8,14 @@
 
 import Foundation
 
-class VariableExpression: Expression {
+public class VariableExpression: Expression {
   fileprivate var name: String
 
-  init(name: String) {
+  public init(name: String) {
     self.name = name
   }
 
-  func context() -> ContextType {
+  public func context() -> ContextType {
     if self.name.contains("`") {
       return .string
     }
@@ -23,7 +23,7 @@ class VariableExpression: Expression {
     return self.numberValue() != nil ? .number : .bool
   }
 
-  func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String : Expression]) -> Bool {
     if let expression = variables[name] {
       return expression.interpret(variables)
     } else {
@@ -36,7 +36,7 @@ class VariableExpression: Expression {
     }
   }
   
-  func stringValue() -> String? {
+  public func stringValue() -> String? {
     if self.name.contains("`") {
       return self.name.replace(string: "`", replacement: "")
     } else {
@@ -44,7 +44,7 @@ class VariableExpression: Expression {
     }
   }
 
-  func numberValue() -> Int? {
+  public func numberValue() -> Int? {
     switch self.name {
     case "true", "false":
       return nil

@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit.UITableViewCell
+import ALFormBuilder
 
-enum ALFBCells: FBUniversalCellProtocol {
+public enum ALFBCells: FBUniversalCellProtocol {
   case editField, buttonField, boolField, pickerField, phoneField
   
-  var type: UITableViewCell.Type {
+  public var type: UITableViewCell.Type {
     switch self {
     case .editField:
       return ALFBTextViewCell.self
@@ -28,10 +29,10 @@ enum ALFBCells: FBUniversalCellProtocol {
   }
 }
 
-enum FormCustomCells: FBUniversalCellProtocol {
+public enum FormCustomCells: FBUniversalCellProtocol {
   case customField
   
-  var type: UITableViewCell.Type {
+  public var type: UITableViewCell.Type {
     switch self {
     case .customField:
       return ALFBTextInfoViewCell.self

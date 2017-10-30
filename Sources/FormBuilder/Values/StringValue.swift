@@ -8,17 +8,17 @@
 
 import Foundation
 
-class StringValue: ALValueTransformable {
+public class StringValue: ALValueTransformable {
   private var originalValue: Any?
-  var initialValue: String?
-  var wasModify: Bool = false
+  public var initialValue: String?
+  public var wasModify: Bool = false
   
-  init(value: String?) {
+  public init(value: String?) {
     self.originalValue = value
     self.initialValue = transformForDisplay()
   }
   
-  func change(originalValue: Any?) {
+  public func change(originalValue: Any?) {
     self.originalValue = originalValue
     
     if initialValue == nil, let newValue = transformForDisplay() {
@@ -28,11 +28,11 @@ class StringValue: ALValueTransformable {
     }
   }
   
-  func retriveOriginalValue() -> Any? {
+  public func retriveOriginalValue() -> Any? {
     return originalValue
   }
   
-  func transformForDisplay() -> DisplayValueType? {
+  public func transformForDisplay() -> DisplayValueType? {
     guard let str = self.originalValue as? String else {
       return nil
     }
@@ -40,7 +40,7 @@ class StringValue: ALValueTransformable {
     return str
   }
   
-  func transformForJSON() -> JSONValueType {
+  public func transformForJSON() -> JSONValueType {
     guard let str = self.originalValue as? String else {
       return NSNull()
     }

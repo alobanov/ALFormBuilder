@@ -8,37 +8,37 @@
 
 import Foundation
 
-protocol SectionFormCompositeOutput {
+public protocol SectionFormCompositeOutput {
   var header: String {get}
   var footer: String {get}
 }
 
-class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutput {
+public class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutput {
   private let decoratedComposite: FromItemCompositeProtocol
   
-  var header: String = ""
-  var footer: String = ""
+  public var header: String = ""
+  public var footer: String = ""
   
   // MARK :- FromItemCompositeProtocol properties
-  var identifier: String {
+  public var identifier: String {
     return self.decoratedComposite.identifier
   }
   
-  var children: [FromItemCompositeProtocol] {
+  public var children: [FromItemCompositeProtocol] {
     return self.decoratedComposite.children
   }
   
-  var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FromItemCompositeProtocol] {
     return self.decoratedComposite.children.flatMap {$0.datasource}
   }
   
-  var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FromItemCompositeProtocol] {
     return self.decoratedComposite.leaves.flatMap{ $0.leaves }
   }
   
-  var level: ALFB.FormModelLevel = .section
+  public var level: ALFB.FormModelLevel = .section
   
-  init(composite: FromItemCompositeProtocol, header: String = "", footer: String = "") {
+  public init(composite: FromItemCompositeProtocol, header: String = "", footer: String = "") {
     self.decoratedComposite = composite
     self.header = header
     self.footer = footer
@@ -46,7 +46,7 @@ class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutpu
   
   // MARK :- FromItemCompositeProtocol methods
   
-  func add(_ model: FromItemCompositeProtocol...) {
+  public func add(_ model: FromItemCompositeProtocol...) {
     for item in model {
       if item.level != .section {
         self.decoratedComposite.add(item)
@@ -56,7 +56,7 @@ class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutpu
     }
   }
   
-  func remove(_ model: FromItemCompositeProtocol) {
+  public func remove(_ model: FromItemCompositeProtocol) {
     self.decoratedComposite.remove(model)
   }
 }

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
+public class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
 
   enum PhonePart: Int {
     case baseCode = 0, cityCode = 1, phone = 2
@@ -44,7 +44,7 @@ class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate 
   private var storedModel: RowFromPhoneCompositeOutput!
   private var alreadyInitialized = false
   
-  override func awakeFromNib() {
+  public override func awakeFromNib() {
     super.awakeFromNib()
     // base configuration
     validateBtn.setImage(ALFBStyle.imageOfTfAlertIconStar, for: UIControlState())
@@ -63,7 +63,7 @@ class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate 
     self.layoutIfNeeded()
   }
   
-  func reload(with model: RxCellModelDatasoursable) {
+  public func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
     guard let vm = model as? RowFromPhoneCompositeOutput else {
       return
@@ -143,7 +143,7 @@ class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate 
   }
   
   // MARK: - UITextFieldDelegate
-  internal func textField(_ textField: UITextField,
+  public func textField(_ textField: UITextField,
                           shouldChangeCharactersIn range: NSRange,
                           replacementString string: String) -> Bool {
     let maxLength = (textField.tag == 1) ? 5 : 9
@@ -155,7 +155,7 @@ class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate 
   }
   
   // MARK: - Additional helpers
-  private func showValidationWarning(text: String) {
+  open func showValidationWarning(text: String) {
     // need override
   }
   

@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import ALFormBuilder
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var item: FromItemCompositeProtocol = SectionFormComposite(composite: BaseFormComposite())
+  var item: FromItemCompositeProtocol = SectionFormComposite(composite: BaseFormComposite(identifier: "asd", level: .root))
   var fb: ALFormBuilderProtocol!
   
   let logger = Atlantis.Logger()
@@ -31,7 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
 
   @discardableResult func test2() -> FromItemCompositeProtocol {
-    let root = BaseFormComposite()
+    let root = BaseFormComposite(identifier: "d", level: .item)
     
     // all sections
     let section1 = SectionFormComposite(composite: BaseFormComposite(identifier: "Common section", level: .section), header: "Common header", footer: "Common footer")

@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Evaluator: Expression {
-  var syntaxTree: Expression = VariableExpression(name: "false")
-  var expression: String
+public class Evaluator: Expression {
+  public var syntaxTree: Expression = VariableExpression(name: "false")
+  public var expression: String
 
-  init (expression: String) {
+  public init (expression: String) {
     self.expression = expression
   }
 
@@ -96,7 +96,7 @@ class Evaluator: Expression {
     return result
   }
 
-  func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String : Expression]) -> Bool {
 
     if (expression.contains("||") || expression.contains("&&")) &&
       (expression.contains("==") || expression.contains("!=") || expression.contains("BitwiseAND")) {
