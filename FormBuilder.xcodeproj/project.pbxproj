@@ -59,7 +59,7 @@
 		E81E08FE1FA741D000CDB318 /* ALFBPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E81E08C01FA741D000CDB318 /* ALFBPickerViewCell.xib */; };
 		E81E08FF1FA741D000CDB318 /* ALFBPhoneViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81E08C11FA741D000CDB318 /* ALFBPhoneViewCell.swift */; };
 		E81E09001FA741D000CDB318 /* ALFBButtonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81E08C21FA741D000CDB318 /* ALFBButtonViewCell.swift */; };
-		E81E09011FA741D000CDB318 /* FormButtonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E81E08C31FA741D000CDB318 /* FormButtonViewCell.xib */; };
+		E81E09011FA741D000CDB318 /* ALFBButtonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E81E08C31FA741D000CDB318 /* ALFBButtonViewCell.xib */; };
 		E81E09021FA741D000CDB318 /* ALFBTextInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E81E08C41FA741D000CDB318 /* ALFBTextInfoViewCell.xib */; };
 		E81E09031FA741D000CDB318 /* ALFBBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81E08C51FA741D000CDB318 /* ALFBBoolViewCell.swift */; };
 		E81E09041FA741D000CDB318 /* ALFBCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81E08C61FA741D000CDB318 /* ALFBCells.swift */; };
@@ -146,7 +146,7 @@
 		E81E08C01FA741D000CDB318 /* ALFBPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBPickerViewCell.xib; sourceTree = "<group>"; };
 		E81E08C11FA741D000CDB318 /* ALFBPhoneViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBPhoneViewCell.swift; sourceTree = "<group>"; };
 		E81E08C21FA741D000CDB318 /* ALFBButtonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBButtonViewCell.swift; sourceTree = "<group>"; };
-		E81E08C31FA741D000CDB318 /* FormButtonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormButtonViewCell.xib; sourceTree = "<group>"; };
+		E81E08C31FA741D000CDB318 /* ALFBButtonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBButtonViewCell.xib; sourceTree = "<group>"; };
 		E81E08C41FA741D000CDB318 /* ALFBTextInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBTextInfoViewCell.xib; sourceTree = "<group>"; };
 		E81E08C51FA741D000CDB318 /* ALFBBoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBBoolViewCell.swift; sourceTree = "<group>"; };
 		E81E08C61FA741D000CDB318 /* ALFBCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBCells.swift; sourceTree = "<group>"; };
@@ -398,6 +398,7 @@
 		E81E08BB1FA741D000CDB318 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				E81E08C61FA741D000CDB318 /* ALFBCells.swift */,
 				E81E08BC1FA741D000CDB318 /* ALFBTextInfoViewCell.swift */,
 				E81E08BD1FA741D000CDB318 /* ALFBTextViewCell.swift */,
 				E81E08BE1FA741D000CDB318 /* ALFBTextViewCell.xib */,
@@ -405,10 +406,9 @@
 				E81E08C01FA741D000CDB318 /* ALFBPickerViewCell.xib */,
 				E81E08C11FA741D000CDB318 /* ALFBPhoneViewCell.swift */,
 				E81E08C21FA741D000CDB318 /* ALFBButtonViewCell.swift */,
-				E81E08C31FA741D000CDB318 /* FormButtonViewCell.xib */,
+				E81E08C31FA741D000CDB318 /* ALFBButtonViewCell.xib */,
 				E81E08C41FA741D000CDB318 /* ALFBTextInfoViewCell.xib */,
 				E81E08C51FA741D000CDB318 /* ALFBBoolViewCell.swift */,
-				E81E08C61FA741D000CDB318 /* ALFBCells.swift */,
 				E81E08C71FA741D000CDB318 /* ALFBPhoneViewCell.xib */,
 				E81E08C81FA741D000CDB318 /* ALFBBoolViewCell.xib */,
 			);
@@ -581,7 +581,7 @@
 				E81E09051FA741D000CDB318 /* ALFBPhoneViewCell.xib in Resources */,
 				E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */,
 				E81E08FE1FA741D000CDB318 /* ALFBPickerViewCell.xib in Resources */,
-				E81E09011FA741D000CDB318 /* FormButtonViewCell.xib in Resources */,
+				E81E09011FA741D000CDB318 /* ALFBButtonViewCell.xib in Resources */,
 				E8D3C6DE1FA070A70074FB28 /* Assets.xcassets in Resources */,
 				E81E09021FA741D000CDB318 /* ALFBTextInfoViewCell.xib in Resources */,
 				E81E08FC1FA741D000CDB318 /* ALFBTextViewCell.xib in Resources */,

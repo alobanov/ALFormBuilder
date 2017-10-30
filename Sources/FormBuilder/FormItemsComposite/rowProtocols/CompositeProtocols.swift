@@ -30,7 +30,7 @@ extension RowCompositeVisibleSetting {
 }
 
 /// Протокол отвечающий за возможность валидации
-protocol RowCompositeValidationSetting: class, RowCompositeValueTransformable {
+protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
   var validation: ALFB.Validation {set get}
   @discardableResult func validate(value: ALValueTransformable) -> ALFB.ValidationState
   func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState
