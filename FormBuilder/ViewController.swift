@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  FormBuilder
+//  ALFormBuilder
 //
 //  Created by Lobanov Aleksey on 25/10/2017.
 //  Copyright © 2017 Lobanov Aleksey. All rights reserved.
@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   @IBOutlet weak var tableView: UITableView!
   
   var item: FromItemCompositeProtocol = SectionFormComposite(composite: BaseFormComposite())
-  var fb: FormBuilderProtocol!
+  var fb: ALFormBuilderProtocol!
   
   let logger = Atlantis.Logger()
   
@@ -40,50 +40,50 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // all items
     /// MAIL
     let value = StringValue(value: "lobanov.aw@gmail.com")
-    let validation = RowSettings.Validation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
+    let validation = ALFB.Validation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
                                               state: .typing,
-                                              valueKeyPath: "mail", errorText: "Ошибка почты")
-    let base1 = RowSettings.Base(cellType: FormBuilderCells.editField, dataType: .string)
+                                              valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
+    let base1 = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
     
-    let vsbl = RowSettings.Visible(interpreter: InterpreterConditions())
-    let vsl = RowSettings.Visualization(placeholderText: "Почта",
+    let vsbl = ALFB.Visible(interpreter: InterpreterConditions())
+    let vsl = ALFB.Visualization(placeholderText: "Почта",
                                           placeholderTopText: nil,
                                           detailsText: nil,
                                           isPassword: false,
                                           keyboardType: .defaultKeyboard,
-                                          autocapitalizationType: .none)
+                                          autocapitalizationType: .none, keyboardOptions: .none)
     
     let baseMailComposite = BaseFormComposite(identifier: "Mail row", level: .item)
     let mail = RowFormTextComposite(composite: baseMailComposite, value: value, validation: validation, visualisation: vsl, visible: vsbl, base: base1)
     
     /// PASS
     let passValue = StringValue(value: "1234")
-    let validationPass = RowSettings.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass", errorText: "Ошибка Пароля")
-    let vsblPass = RowSettings.Visible(interpreter: InterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
-    let vslPass = RowSettings.Visualization(placeholderText: "Пароль",
+    let validationPass = ALFB.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass", errorText: "Ошибка Пароля", maxLength: nil)
+    let vsblPass = ALFB.Visible(interpreter: InterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
+    let vslPass = ALFB.Visualization(placeholderText: "Пароль",
                                               placeholderTopText: nil,
                                               detailsText: nil,
                                               isPassword: true,
                                               keyboardType: .defaultKeyboard,
-                                              autocapitalizationType: .none)
+                                              autocapitalizationType: .none, keyboardOptions: .none)
     
-    let base2 = RowSettings.Base(cellType: FormBuilderCells.editField, dataType: .string)
+    let base2 = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
     
     let basePassComposite = BaseFormComposite(identifier: "Pass row", level: .item)
     let pass = RowFormTextComposite(composite: basePassComposite, value: passValue, validation: validationPass, visualisation: vslPass, visible: vsblPass, base: base2)
     
     /// PHONE
     let phoneValue = StringValue(value: "8480209")
-    let validationPhone = RowSettings.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone", errorText: "Ошибка Phone")
-    let vsblPhone = RowSettings.Visible(interpreter: InterpreterConditions())
-    let vslPhone = RowSettings.Visualization(placeholderText: "Введите телефонный номер",
+    let validationPhone = ALFB.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone", errorText: "Ошибка Phone", maxLength: nil)
+    let vsblPhone = ALFB.Visible(interpreter: InterpreterConditions())
+    let vslPhone = ALFB.Visualization(placeholderText: "Введите телефонный номер",
                                                placeholderTopText: nil,
                                                detailsText: nil,
                                                isPassword: true,
                                                keyboardType: .defaultKeyboard,
-                                               autocapitalizationType: .none)
+                                               autocapitalizationType: .none, keyboardOptions: .none)
     
-    let base3 = RowSettings.Base(cellType: FormBuilderCells.editField, dataType: .string)
+    let base3 = ALFB.Base(cellType: ALFBCells.editField, dataType: .string)
     
     let basePhoneComposite = BaseFormComposite(identifier: "Phone row", level: .item)
     let phone = RowFormTextComposite(composite: basePhoneComposite, value: phoneValue, validation: validationPhone, visualisation: vslPhone, visible: vsblPhone, base: base3)
@@ -94,8 +94,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     logger.debug("test 2: \(root.isValid())")
     
-    let fbJson = FormJSONBuilder(predefinedObject: [:])
-    self.fb = FormBuilder(compositeFormData: root, jsonBuilder: fbJson)
+    let fbJson = ALFormJSONBuilder(predefinedObject: [:])
+    self.fb = ALFormBuilder(compositeFormData: root, jsonBuilder: fbJson)
     
     self.fb.prepareDatasource()
     logger.debug(fb.object(withoutNull: false))

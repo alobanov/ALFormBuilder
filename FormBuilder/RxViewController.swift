@@ -1,6 +1,6 @@
 //
 //  RxViewController.swift
-//  FormBuilder
+//  ALFormBuilder
 //
 //  Created by Lobanov Aleksey on 27/10/2017.
 //  Copyright © 2017 Lobanov Aleksey. All rights reserved.
@@ -14,7 +14,7 @@ import RxDataSources
 class RxViewController: UIViewController, UITableViewDelegate {
 
   var bag = DisposeBag()
-  var fb: RxFormBuilderProtocol!
+  var fb: RxALFormBuilderProtocol!
   let logger = Atlantis.Logger()
   
   // IBOutlet & UI
@@ -41,12 +41,18 @@ class RxViewController: UIViewController, UITableViewDelegate {
   }
 
   func configureTable() {
-    self.fb = RxFormBuilder(compositeFormData: AuthFormDirector.build(),
-                            jsonBuilder: FormJSONBuilder(predefinedObject: [:]))
+    self.fb = RxALFormBuilder(compositeFormData: AuthFormDirector.build(),
+                            jsonBuilder: ALFormJSONBuilder(predefinedObject: [:]))
     
     let datasource = BehaviorSubject<[RxSectionModel]>(value: [])
 
-    fb.rxDidChangeFormModel.bind(to: datasource).disposed(by: bag)
+    fb.rxDidChangeFormModel.subscribe(onNext: { item in
+      if let p = item as? RowCompositeValueTransformable {
+        print("something change in \(item.identifier) to: \(p.value.transformForDisplay() ?? "")")
+      }
+    }).disposed(by: bag)
+    fb.rxDidDatasource.bind(to: datasource).disposed(by: bag)
+    
     fb.rxDidChangeFormState.subscribe(onNext: { isChange in
       print("something change in all form to: \(isChange)")
     }).disposed(by: bag)
@@ -69,7 +75,10 @@ class RxViewController: UIViewController, UITableViewDelegate {
     self.fb.prepareDatasource()
     
     // Table view
-    let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>(configureCell: { (dataSource, table, idxPath, _) in
+    let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>()
+    
+    
+    rxDataSource.configureCell = { (dataSource, table, idxPath, _) in
       var item: RxSectionItemModel
       
       do {
@@ -87,7 +96,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       cell.selectionStyle = UITableViewCellSelectionStyle.none
       return cell
-    })
+    }
     
     rxDataSource.animationConfiguration =
       AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
@@ -120,9 +129,9 @@ class RxViewController: UIViewController, UITableViewDelegate {
   
   func configureUI() {
     tableView.setupEstimatedRowHeight()
-    tableView.registerCells(by: [FormTextViewCell.cellIdentifier, FormButtonViewCell.cellIdentifier,
-                                 FormBoolViewCell.cellIdentifier, FormPickerViewCell.cellIdentifier,
-                                 FormTextInfoViewCell.cellIdentifier])
+    tableView.registerCells(by: [ALFBTextViewCell.cellIdentifier, ALFBButtonViewCell.cellIdentifier,
+                                 ALFBBoolViewCell.cellIdentifier, ALFBPickerViewCell.cellIdentifier,
+                                 ALFBTextInfoViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier])
   }
   
   

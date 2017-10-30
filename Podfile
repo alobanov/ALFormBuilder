@@ -3,10 +3,10 @@ inhibit_all_warnings!
 platform :ios, '9.0'
 
 target 'FormBuilder' do
-  pod 'RxSwift', '~> 4'
-  pod 'RxCocoa', '~> 4'
+  pod 'RxSwift', '~> 3'
+  pod 'RxCocoa', '~> 3'
   pod 'SwiftyJSON'
-  pod 'RxDataSources', '~> 3.0'
-  pod 'ObjectMapper'
+  pod 'RxDataSources'
+  pod 'ObjectMapper', '~> 2.2.7'
 end
 

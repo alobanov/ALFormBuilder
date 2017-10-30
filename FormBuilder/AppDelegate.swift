@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FormBuilder
+//  ALFormBuilder
 //
 //  Created by Lobanov Aleksey on 25/10/2017.
 //  Copyright © 2017 Lobanov Aleksey. All rights reserved.
