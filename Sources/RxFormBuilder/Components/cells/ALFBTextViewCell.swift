@@ -91,10 +91,7 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     //
     cleareBtn.isHidden = true
     validateBtn.isHidden = !vm.validation.state.isVisibleValidationUI
-    
-    if !vm.visible.isMandatory {
-      validateBtn.isHidden = true
-    }
+    validateBtn.isHidden = !vm.visible.isMandatory
     
     // Configurate next only one
     if !alreadyInitialized {
