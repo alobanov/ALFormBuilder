@@ -23,6 +23,66 @@
 		E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3C6DF1FA070A70074FB28 /* LaunchScreen.storyboard */; };
 		E8D3C6EC1FA070A70074FB28 /* FormBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */; };
 		E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */; };
+		E8FFFE3F1FA8671000E7A820 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */; };
+		E8FFFE401FA8671000E7A820 /* InterpreterConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */; };
+		E8FFFE411FA8671000E7A820 /* StackArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF41FA8670F00E7A820 /* StackArray.swift */; };
+		E8FFFE421FA8671000E7A820 /* ConditionBitwiseAND.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF61FA8670F00E7A820 /* ConditionBitwiseAND.swift */; };
+		E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF71FA8670F00E7A820 /* Expression.swift */; };
+		E8FFFE441FA8671000E7A820 /* ConditionFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */; };
+		E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF91FA8670F00E7A820 /* ConditionOR.swift */; };
+		E8FFFE461FA8671000E7A820 /* ConditionAND.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDFA1FA8670F00E7A820 /* ConditionAND.swift */; };
+		E8FFFE471FA8671000E7A820 /* VariableExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDFB1FA8670F00E7A820 /* VariableExpression.swift */; };
+		E8FFFE481FA8671000E7A820 /* ConditionTrue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDFC1FA8670F00E7A820 /* ConditionTrue.swift */; };
+		E8FFFE491FA8671000E7A820 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDFE1FA8670F00E7A820 /* Dictionary+Ext.swift */; };
+		E8FFFE4A1FA8671000E7A820 /* UITextField+TypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDFF1FA8670F00E7A820 /* UITextField+TypeFilter.swift */; };
+		E8FFFE4B1FA8671000E7A820 /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE001FA8670F00E7A820 /* String+Common.swift */; };
+		E8FFFE4C1FA8671000E7A820 /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE011FA8670F00E7A820 /* String+Regex.swift */; };
+		E8FFFE4D1FA8671000E7A820 /* SectionFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE041FA8670F00E7A820 /* SectionFormComposite.swift */; };
+		E8FFFE4E1FA8671000E7A820 /* BaseFormComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE051FA8670F00E7A820 /* BaseFormComposite.swift */; };
+		E8FFFE4F1FA8671000E7A820 /* RowFormTextComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE071FA8670F00E7A820 /* RowFormTextComposite.swift */; };
+		E8FFFE501FA8671000E7A820 /* RowFromPhoneComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE081FA8670F00E7A820 /* RowFromPhoneComposite.swift */; };
+		E8FFFE511FA8671000E7A820 /* RowFormButtonComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE091FA8670F00E7A820 /* RowFormButtonComposite.swift */; };
+		E8FFFE521FA8671000E7A820 /* RowCustomComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE0A1FA8670F00E7A820 /* RowCustomComposite.swift */; };
+		E8FFFE531FA8671000E7A820 /* RowFormBoolComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE0B1FA8670F00E7A820 /* RowFormBoolComposite.swift */; };
+		E8FFFE541FA8671000E7A820 /* ALFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE0D1FA8670F00E7A820 /* ALFB.swift */; };
+		E8FFFE551FA8671000E7A820 /* CompositeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE0E1FA8670F00E7A820 /* CompositeProtocols.swift */; };
+		E8FFFE561FA8671000E7A820 /* StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE101FA8670F00E7A820 /* StringValue.swift */; };
+		E8FFFE571FA8671000E7A820 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE111FA8670F00E7A820 /* BoolValue.swift */; };
+		E8FFFE581FA8671000E7A820 /* ALValueTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE121FA8670F00E7A820 /* ALValueTransformable.swift */; };
+		E8FFFE591FA8671000E7A820 /* TupleValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE131FA8670F00E7A820 /* TupleValue.swift */; };
+		E8FFFE5A1FA8671000E7A820 /* ALFBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE151FA8670F00E7A820 /* ALFBStyle.swift */; };
+		E8FFFE5B1FA8671000E7A820 /* SectionItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE181FA8670F00E7A820 /* SectionItemBuilder.swift */; };
+		E8FFFE5C1FA8671000E7A820 /* ButtonRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE1A1FA8670F00E7A820 /* ButtonRowItemBuilder.swift */; };
+		E8FFFE5D1FA8671000E7A820 /* BoolRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE1B1FA8670F00E7A820 /* BoolRowItemBuilder.swift */; };
+		E8FFFE5E1FA8671000E7A820 /* PhoneRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE1C1FA8670F00E7A820 /* PhoneRowItemBuilder.swift */; };
+		E8FFFE5F1FA8671000E7A820 /* CustomRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE1D1FA8670F00E7A820 /* CustomRowItemBuilder.swift */; };
+		E8FFFE601FA8671000E7A820 /* StringRowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE1E1FA8670F00E7A820 /* StringRowItemBuilder.swift */; };
+		E8FFFE611FA8671000E7A820 /* RowItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE1F1FA8670F00E7A820 /* RowItemBuilder.swift */; };
+		E8FFFE621FA8671000E7A820 /* FormBuilderEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE201FA8670F00E7A820 /* FormBuilderEnums.swift */; };
+		E8FFFE631FA8671000E7A820 /* ALFormJSONBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE211FA8670F00E7A820 /* ALFormJSONBuilder.swift */; };
+		E8FFFE641FA8671000E7A820 /* ALFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE221FA8670F00E7A820 /* ALFormBuilder.swift */; };
+		E8FFFE651FA8671000E7A820 /* PreparingMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE241FA8670F00E7A820 /* PreparingMiddlewareValidation.swift */; };
+		E8FFFE661FA8671000E7A820 /* PhoneMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE251FA8670F00E7A820 /* PhoneMiddlewareValidation.swift */; };
+		E8FFFE671FA8671000E7A820 /* RegExpMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE261FA8670F00E7A820 /* RegExpMiddlewareValidation.swift */; };
+		E8FFFE681FA8671000E7A820 /* FormModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE271FA8670F00E7A820 /* FormModelValidator.swift */; };
+		E8FFFE691FA8671000E7A820 /* NilMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE281FA8670F00E7A820 /* NilMiddlewareValidation.swift */; };
+		E8FFFE6A1FA8671000E7A820 /* RowFormComposite+RxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2B1FA8670F00E7A820 /* RowFormComposite+RxDataSource.swift */; };
+		E8FFFE6B1FA8671000E7A820 /* RxALFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2C1FA8670F00E7A820 /* RxALFormBuilder.swift */; };
+		E8FFFE6C1FA8671000E7A820 /* ALValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */; };
+		E8FFFE6D1FA8671000E7A820 /* ALFBTextInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE311FA8670F00E7A820 /* ALFBTextInfoViewCell.swift */; };
+		E8FFFE6E1FA8671000E7A820 /* ALFBTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE321FA8670F00E7A820 /* ALFBTextViewCell.swift */; };
+		E8FFFE6F1FA8671000E7A820 /* ALFBTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE331FA8670F00E7A820 /* ALFBTextViewCell.xib */; };
+		E8FFFE701FA8671000E7A820 /* ALFBPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE341FA8670F00E7A820 /* ALFBPickerViewCell.swift */; };
+		E8FFFE711FA8671000E7A820 /* ALFBPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE351FA8670F00E7A820 /* ALFBPickerViewCell.xib */; };
+		E8FFFE721FA8671000E7A820 /* ALFBPhoneViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE361FA8670F00E7A820 /* ALFBPhoneViewCell.swift */; };
+		E8FFFE731FA8671000E7A820 /* ALFBButtonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE371FA8670F00E7A820 /* ALFBButtonViewCell.swift */; };
+		E8FFFE741FA8671000E7A820 /* ALFBButtonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE381FA8670F00E7A820 /* ALFBButtonViewCell.xib */; };
+		E8FFFE751FA8671000E7A820 /* ALFBTextInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE391FA8670F00E7A820 /* ALFBTextInfoViewCell.xib */; };
+		E8FFFE761FA8671000E7A820 /* ALFBBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3A1FA8670F00E7A820 /* ALFBBoolViewCell.swift */; };
+		E8FFFE771FA8671000E7A820 /* ALFBCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3B1FA8670F00E7A820 /* ALFBCells.swift */; };
+		E8FFFE781FA8671000E7A820 /* ALFBPhoneViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE3C1FA8670F00E7A820 /* ALFBPhoneViewCell.xib */; };
+		E8FFFE791FA8671000E7A820 /* ALFBBoolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE3D1FA8670F00E7A820 /* ALFBBoolViewCell.xib */; };
+		E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +118,66 @@
 		E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilderTests.swift; sourceTree = "<group>"; };
 		E8D3C6ED1FA070A70074FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atlantis.swift; sourceTree = "<group>"; };
+		E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterConditions.swift; sourceTree = "<group>"; };
+		E8FFFDF41FA8670F00E7A820 /* StackArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackArray.swift; sourceTree = "<group>"; };
+		E8FFFDF61FA8670F00E7A820 /* ConditionBitwiseAND.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionBitwiseAND.swift; sourceTree = "<group>"; };
+		E8FFFDF71FA8670F00E7A820 /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionFalse.swift; sourceTree = "<group>"; };
+		E8FFFDF91FA8670F00E7A820 /* ConditionOR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionOR.swift; sourceTree = "<group>"; };
+		E8FFFDFA1FA8670F00E7A820 /* ConditionAND.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionAND.swift; sourceTree = "<group>"; };
+		E8FFFDFB1FA8670F00E7A820 /* VariableExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableExpression.swift; sourceTree = "<group>"; };
+		E8FFFDFC1FA8670F00E7A820 /* ConditionTrue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionTrue.swift; sourceTree = "<group>"; };
+		E8FFFDFE1FA8670F00E7A820 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
+		E8FFFDFF1FA8670F00E7A820 /* UITextField+TypeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+TypeFilter.swift"; sourceTree = "<group>"; };
+		E8FFFE001FA8670F00E7A820 /* String+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
+		E8FFFE011FA8670F00E7A820 /* String+Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regex.swift"; sourceTree = "<group>"; };
+		E8FFFE041FA8670F00E7A820 /* SectionFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionFormComposite.swift; sourceTree = "<group>"; };
+		E8FFFE051FA8670F00E7A820 /* BaseFormComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormComposite.swift; sourceTree = "<group>"; };
+		E8FFFE071FA8670F00E7A820 /* RowFormTextComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormTextComposite.swift; sourceTree = "<group>"; };
+		E8FFFE081FA8670F00E7A820 /* RowFromPhoneComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFromPhoneComposite.swift; sourceTree = "<group>"; };
+		E8FFFE091FA8670F00E7A820 /* RowFormButtonComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormButtonComposite.swift; sourceTree = "<group>"; };
+		E8FFFE0A1FA8670F00E7A820 /* RowCustomComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowCustomComposite.swift; sourceTree = "<group>"; };
+		E8FFFE0B1FA8670F00E7A820 /* RowFormBoolComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormBoolComposite.swift; sourceTree = "<group>"; };
+		E8FFFE0D1FA8670F00E7A820 /* ALFB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFB.swift; sourceTree = "<group>"; };
+		E8FFFE0E1FA8670F00E7A820 /* CompositeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeProtocols.swift; sourceTree = "<group>"; };
+		E8FFFE101FA8670F00E7A820 /* StringValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringValue.swift; sourceTree = "<group>"; };
+		E8FFFE111FA8670F00E7A820 /* BoolValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolValue.swift; sourceTree = "<group>"; };
+		E8FFFE121FA8670F00E7A820 /* ALValueTransformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALValueTransformable.swift; sourceTree = "<group>"; };
+		E8FFFE131FA8670F00E7A820 /* TupleValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleValue.swift; sourceTree = "<group>"; };
+		E8FFFE151FA8670F00E7A820 /* ALFBStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBStyle.swift; sourceTree = "<group>"; };
+		E8FFFE181FA8670F00E7A820 /* SectionItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE1A1FA8670F00E7A820 /* ButtonRowItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE1B1FA8670F00E7A820 /* BoolRowItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE1C1FA8670F00E7A820 /* PhoneRowItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE1D1FA8670F00E7A820 /* CustomRowItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE1E1FA8670F00E7A820 /* StringRowItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringRowItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE1F1FA8670F00E7A820 /* RowItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowItemBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE201FA8670F00E7A820 /* FormBuilderEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBuilderEnums.swift; sourceTree = "<group>"; };
+		E8FFFE211FA8670F00E7A820 /* ALFormJSONBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFormJSONBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE221FA8670F00E7A820 /* ALFormBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFormBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE241FA8670F00E7A820 /* PreparingMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreparingMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8FFFE251FA8670F00E7A820 /* PhoneMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8FFFE261FA8670F00E7A820 /* RegExpMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegExpMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8FFFE271FA8670F00E7A820 /* FormModelValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormModelValidator.swift; sourceTree = "<group>"; };
+		E8FFFE281FA8670F00E7A820 /* NilMiddlewareValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilMiddlewareValidation.swift; sourceTree = "<group>"; };
+		E8FFFE2B1FA8670F00E7A820 /* RowFormComposite+RxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RowFormComposite+RxDataSource.swift"; sourceTree = "<group>"; };
+		E8FFFE2C1FA8670F00E7A820 /* RxALFormBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxALFormBuilder.swift; sourceTree = "<group>"; };
+		E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALValidatedTextField.swift; sourceTree = "<group>"; };
+		E8FFFE311FA8670F00E7A820 /* ALFBTextInfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBTextInfoViewCell.swift; sourceTree = "<group>"; };
+		E8FFFE321FA8670F00E7A820 /* ALFBTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBTextViewCell.swift; sourceTree = "<group>"; };
+		E8FFFE331FA8670F00E7A820 /* ALFBTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBTextViewCell.xib; sourceTree = "<group>"; };
+		E8FFFE341FA8670F00E7A820 /* ALFBPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBPickerViewCell.swift; sourceTree = "<group>"; };
+		E8FFFE351FA8670F00E7A820 /* ALFBPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBPickerViewCell.xib; sourceTree = "<group>"; };
+		E8FFFE361FA8670F00E7A820 /* ALFBPhoneViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBPhoneViewCell.swift; sourceTree = "<group>"; };
+		E8FFFE371FA8670F00E7A820 /* ALFBButtonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBButtonViewCell.swift; sourceTree = "<group>"; };
+		E8FFFE381FA8670F00E7A820 /* ALFBButtonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBButtonViewCell.xib; sourceTree = "<group>"; };
+		E8FFFE391FA8670F00E7A820 /* ALFBTextInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBTextInfoViewCell.xib; sourceTree = "<group>"; };
+		E8FFFE3A1FA8670F00E7A820 /* ALFBBoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBBoolViewCell.swift; sourceTree = "<group>"; };
+		E8FFFE3B1FA8670F00E7A820 /* ALFBCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBCells.swift; sourceTree = "<group>"; };
+		E8FFFE3C1FA8670F00E7A820 /* ALFBPhoneViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBPhoneViewCell.xib; sourceTree = "<group>"; };
+		E8FFFE3D1FA8670F00E7A820 /* ALFBBoolViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBBoolViewCell.xib; sourceTree = "<group>"; };
+		E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +249,7 @@
 		E8D3C6D51FA070A70074FB28 /* FormBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				E8FFFDEE1FA8670F00E7A820 /* Sources */,
 				E8C25D741FA77C2300A0BFF6 /* CustomCellMultiline */,
 				E8D3C70D1FA0B16B0074FB28 /* vendors */,
 				E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */,
@@ -161,6 +282,233 @@
 				E82B50A21FA7708400F910F5 /* TestTableViewCell.swift */,
 			);
 			path = vendors;
+			sourceTree = "<group>";
+		};
+		E8FFFDEE1FA8670F00E7A820 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFDEF1FA8670F00E7A820 /* FormBuilder */,
+				E8FFFE291FA8670F00E7A820 /* RxFormBuilder */,
+			);
+			path = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		E8FFFDEF1FA8670F00E7A820 /* FormBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFDF01FA8670F00E7A820 /* Vendors */,
+				E8FFFE021FA8670F00E7A820 /* FormItemsComposite */,
+				E8FFFE0F1FA8670F00E7A820 /* Values */,
+				E8FFFE141FA8670F00E7A820 /* Style */,
+				E8FFFE161FA8670F00E7A820 /* FomModelBuilder */,
+				E8FFFE201FA8670F00E7A820 /* FormBuilderEnums.swift */,
+				E8FFFE211FA8670F00E7A820 /* ALFormJSONBuilder.swift */,
+				E8FFFE221FA8670F00E7A820 /* ALFormBuilder.swift */,
+				E8FFFE231FA8670F00E7A820 /* validation */,
+			);
+			path = FormBuilder;
+			sourceTree = "<group>";
+		};
+		E8FFFDF01FA8670F00E7A820 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFDF11FA8670F00E7A820 /* Interpreter */,
+				E8FFFDFD1FA8670F00E7A820 /* extension */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		E8FFFDF11FA8670F00E7A820 /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */,
+				E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */,
+				E8FFFDF41FA8670F00E7A820 /* StackArray.swift */,
+				E8FFFDF51FA8670F00E7A820 /* Expressions */,
+			);
+			path = Interpreter;
+			sourceTree = "<group>";
+		};
+		E8FFFDF51FA8670F00E7A820 /* Expressions */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFDF61FA8670F00E7A820 /* ConditionBitwiseAND.swift */,
+				E8FFFDF71FA8670F00E7A820 /* Expression.swift */,
+				E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */,
+				E8FFFDF91FA8670F00E7A820 /* ConditionOR.swift */,
+				E8FFFDFA1FA8670F00E7A820 /* ConditionAND.swift */,
+				E8FFFDFB1FA8670F00E7A820 /* VariableExpression.swift */,
+				E8FFFDFC1FA8670F00E7A820 /* ConditionTrue.swift */,
+			);
+			path = Expressions;
+			sourceTree = "<group>";
+		};
+		E8FFFDFD1FA8670F00E7A820 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFDFE1FA8670F00E7A820 /* Dictionary+Ext.swift */,
+				E8FFFDFF1FA8670F00E7A820 /* UITextField+TypeFilter.swift */,
+				E8FFFE001FA8670F00E7A820 /* String+Common.swift */,
+				E8FFFE011FA8670F00E7A820 /* String+Regex.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		E8FFFE021FA8670F00E7A820 /* FormItemsComposite */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE031FA8670F00E7A820 /* sections */,
+				E8FFFE051FA8670F00E7A820 /* BaseFormComposite.swift */,
+				E8FFFE061FA8670F00E7A820 /* rows */,
+				E8FFFE0C1FA8670F00E7A820 /* rowProtocols */,
+			);
+			path = FormItemsComposite;
+			sourceTree = "<group>";
+		};
+		E8FFFE031FA8670F00E7A820 /* sections */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE041FA8670F00E7A820 /* SectionFormComposite.swift */,
+			);
+			path = sections;
+			sourceTree = "<group>";
+		};
+		E8FFFE061FA8670F00E7A820 /* rows */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE071FA8670F00E7A820 /* RowFormTextComposite.swift */,
+				E8FFFE081FA8670F00E7A820 /* RowFromPhoneComposite.swift */,
+				E8FFFE091FA8670F00E7A820 /* RowFormButtonComposite.swift */,
+				E8FFFE0A1FA8670F00E7A820 /* RowCustomComposite.swift */,
+				E8FFFE0B1FA8670F00E7A820 /* RowFormBoolComposite.swift */,
+			);
+			path = rows;
+			sourceTree = "<group>";
+		};
+		E8FFFE0C1FA8670F00E7A820 /* rowProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE0D1FA8670F00E7A820 /* ALFB.swift */,
+				E8FFFE0E1FA8670F00E7A820 /* CompositeProtocols.swift */,
+			);
+			path = rowProtocols;
+			sourceTree = "<group>";
+		};
+		E8FFFE0F1FA8670F00E7A820 /* Values */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE101FA8670F00E7A820 /* StringValue.swift */,
+				E8FFFE111FA8670F00E7A820 /* BoolValue.swift */,
+				E8FFFE121FA8670F00E7A820 /* ALValueTransformable.swift */,
+				E8FFFE131FA8670F00E7A820 /* TupleValue.swift */,
+			);
+			path = Values;
+			sourceTree = "<group>";
+		};
+		E8FFFE141FA8670F00E7A820 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE151FA8670F00E7A820 /* ALFBStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		E8FFFE161FA8670F00E7A820 /* FomModelBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE171FA8670F00E7A820 /* sections */,
+				E8FFFE191FA8670F00E7A820 /* rows */,
+				E8FFFE1F1FA8670F00E7A820 /* RowItemBuilder.swift */,
+			);
+			path = FomModelBuilder;
+			sourceTree = "<group>";
+		};
+		E8FFFE171FA8670F00E7A820 /* sections */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE181FA8670F00E7A820 /* SectionItemBuilder.swift */,
+			);
+			path = sections;
+			sourceTree = "<group>";
+		};
+		E8FFFE191FA8670F00E7A820 /* rows */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE1A1FA8670F00E7A820 /* ButtonRowItemBuilder.swift */,
+				E8FFFE1B1FA8670F00E7A820 /* BoolRowItemBuilder.swift */,
+				E8FFFE1C1FA8670F00E7A820 /* PhoneRowItemBuilder.swift */,
+				E8FFFE1D1FA8670F00E7A820 /* CustomRowItemBuilder.swift */,
+				E8FFFE1E1FA8670F00E7A820 /* StringRowItemBuilder.swift */,
+			);
+			path = rows;
+			sourceTree = "<group>";
+		};
+		E8FFFE231FA8670F00E7A820 /* validation */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE241FA8670F00E7A820 /* PreparingMiddlewareValidation.swift */,
+				E8FFFE251FA8670F00E7A820 /* PhoneMiddlewareValidation.swift */,
+				E8FFFE261FA8670F00E7A820 /* RegExpMiddlewareValidation.swift */,
+				E8FFFE271FA8670F00E7A820 /* FormModelValidator.swift */,
+				E8FFFE281FA8670F00E7A820 /* NilMiddlewareValidation.swift */,
+			);
+			path = validation;
+			sourceTree = "<group>";
+		};
+		E8FFFE291FA8670F00E7A820 /* RxFormBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE2A1FA8670F00E7A820 /* formItemComposite */,
+				E8FFFE2C1FA8670F00E7A820 /* RxALFormBuilder.swift */,
+				E8FFFE2D1FA8670F00E7A820 /* Components */,
+				E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */,
+			);
+			path = RxFormBuilder;
+			sourceTree = "<group>";
+		};
+		E8FFFE2A1FA8670F00E7A820 /* formItemComposite */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE2B1FA8670F00E7A820 /* RowFormComposite+RxDataSource.swift */,
+			);
+			path = formItemComposite;
+			sourceTree = "<group>";
+		};
+		E8FFFE2D1FA8670F00E7A820 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE2E1FA8670F00E7A820 /* UI */,
+				E8FFFE301FA8670F00E7A820 /* cells */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E8FFFE2E1FA8670F00E7A820 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E8FFFE301FA8670F00E7A820 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFFE311FA8670F00E7A820 /* ALFBTextInfoViewCell.swift */,
+				E8FFFE321FA8670F00E7A820 /* ALFBTextViewCell.swift */,
+				E8FFFE331FA8670F00E7A820 /* ALFBTextViewCell.xib */,
+				E8FFFE341FA8670F00E7A820 /* ALFBPickerViewCell.swift */,
+				E8FFFE351FA8670F00E7A820 /* ALFBPickerViewCell.xib */,
+				E8FFFE361FA8670F00E7A820 /* ALFBPhoneViewCell.swift */,
+				E8FFFE371FA8670F00E7A820 /* ALFBButtonViewCell.swift */,
+				E8FFFE381FA8670F00E7A820 /* ALFBButtonViewCell.xib */,
+				E8FFFE391FA8670F00E7A820 /* ALFBTextInfoViewCell.xib */,
+				E8FFFE3A1FA8670F00E7A820 /* ALFBBoolViewCell.swift */,
+				E8FFFE3B1FA8670F00E7A820 /* ALFBCells.swift */,
+				E8FFFE3C1FA8670F00E7A820 /* ALFBPhoneViewCell.xib */,
+				E8FFFE3D1FA8670F00E7A820 /* ALFBBoolViewCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,9 +599,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */,
+				E8FFFE781FA8671000E7A820 /* ALFBPhoneViewCell.xib in Resources */,
+				E8FFFE711FA8671000E7A820 /* ALFBPickerViewCell.xib in Resources */,
+				E8FFFE751FA8671000E7A820 /* ALFBTextInfoViewCell.xib in Resources */,
+				E8FFFE6F1FA8671000E7A820 /* ALFBTextViewCell.xib in Resources */,
 				E8D3C6DE1FA070A70074FB28 /* Assets.xcassets in Resources */,
 				E8C25D781FA77DD000A0BFF6 /* ALFBTextMultilineViewCell.xib in Resources */,
+				E8FFFE791FA8671000E7A820 /* ALFBBoolViewCell.xib in Resources */,
 				E8D3C6DC1FA070A70074FB28 /* Main.storyboard in Resources */,
+				E8FFFE741FA8671000E7A820 /* ALFBButtonViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +628,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ALFormBuilder/ALFormBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -284,7 +637,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALFormBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -337,16 +689,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8FFFE5E1FA8671000E7A820 /* PhoneRowItemBuilder.swift in Sources */,
+				E8FFFE401FA8671000E7A820 /* InterpreterConditions.swift in Sources */,
+				E8FFFE681FA8671000E7A820 /* FormModelValidator.swift in Sources */,
+				E8FFFE691FA8671000E7A820 /* NilMiddlewareValidation.swift in Sources */,
+				E8FFFE5B1FA8671000E7A820 /* SectionItemBuilder.swift in Sources */,
+				E8FFFE461FA8671000E7A820 /* ConditionAND.swift in Sources */,
+				E8FFFE4C1FA8671000E7A820 /* String+Regex.swift in Sources */,
+				E8FFFE6D1FA8671000E7A820 /* ALFBTextInfoViewCell.swift in Sources */,
+				E8FFFE6E1FA8671000E7A820 /* ALFBTextViewCell.swift in Sources */,
+				E8FFFE571FA8671000E7A820 /* BoolValue.swift in Sources */,
+				E8FFFE441FA8671000E7A820 /* ConditionFalse.swift in Sources */,
+				E8FFFE551FA8671000E7A820 /* CompositeProtocols.swift in Sources */,
+				E8FFFE4A1FA8671000E7A820 /* UITextField+TypeFilter.swift in Sources */,
+				E8FFFE661FA8671000E7A820 /* PhoneMiddlewareValidation.swift in Sources */,
+				E8FFFE421FA8671000E7A820 /* ConditionBitwiseAND.swift in Sources */,
 				E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */,
+				E8FFFE721FA8671000E7A820 /* ALFBPhoneViewCell.swift in Sources */,
+				E8FFFE671FA8671000E7A820 /* RegExpMiddlewareValidation.swift in Sources */,
 				E82B50A61FA774A300F910F5 /* RxViewController.swift in Sources */,
 				E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */,
+				E8FFFE531FA8671000E7A820 /* RowFormBoolComposite.swift in Sources */,
+				E8FFFE631FA8671000E7A820 /* ALFormJSONBuilder.swift in Sources */,
+				E8FFFE601FA8671000E7A820 /* StringRowItemBuilder.swift in Sources */,
+				E8FFFE4B1FA8671000E7A820 /* String+Common.swift in Sources */,
+				E8FFFE6A1FA8671000E7A820 /* RowFormComposite+RxDataSource.swift in Sources */,
+				E8FFFE6B1FA8671000E7A820 /* RxALFormBuilder.swift in Sources */,
+				E8FFFE591FA8671000E7A820 /* TupleValue.swift in Sources */,
+				E8FFFE771FA8671000E7A820 /* ALFBCells.swift in Sources */,
+				E8FFFE5C1FA8671000E7A820 /* ButtonRowItemBuilder.swift in Sources */,
 				E82B50A71FA774A300F910F5 /* AuthFormDirector.swift in Sources */,
+				E8FFFE4F1FA8671000E7A820 /* RowFormTextComposite.swift in Sources */,
+				E8FFFE561FA8671000E7A820 /* StringValue.swift in Sources */,
+				E8FFFE641FA8671000E7A820 /* ALFormBuilder.swift in Sources */,
 				E8D3C6D91FA070A70074FB28 /* ViewController.swift in Sources */,
+				E8FFFE5A1FA8671000E7A820 /* ALFBStyle.swift in Sources */,
+				E8FFFE4E1FA8671000E7A820 /* BaseFormComposite.swift in Sources */,
 				E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */,
+				E8FFFE491FA8671000E7A820 /* Dictionary+Ext.swift in Sources */,
 				E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */,
+				E8FFFE3F1FA8671000E7A820 /* Evaluator.swift in Sources */,
+				E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */,
+				E8FFFE731FA8671000E7A820 /* ALFBButtonViewCell.swift in Sources */,
 				E82B50A91FA77EF100F910F5 /* RowFormTextMultilineComposite.swift in Sources */,
+				E8FFFE481FA8671000E7A820 /* ConditionTrue.swift in Sources */,
+				E8FFFE621FA8671000E7A820 /* FormBuilderEnums.swift in Sources */,
 				E8C25D771FA77DD000A0BFF6 /* ALFBTextMultilineViewCell.swift in Sources */,
 				E82B50A31FA7708400F910F5 /* TestTableViewCell.swift in Sources */,
+				E8FFFE411FA8671000E7A820 /* StackArray.swift in Sources */,
+				E8FFFE5D1FA8671000E7A820 /* BoolRowItemBuilder.swift in Sources */,
+				E8FFFE761FA8671000E7A820 /* ALFBBoolViewCell.swift in Sources */,
+				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
+				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
+				E8FFFE701FA8671000E7A820 /* ALFBPickerViewCell.swift in Sources */,
+				E8FFFE541FA8671000E7A820 /* ALFB.swift in Sources */,
+				E8FFFE521FA8671000E7A820 /* RowCustomComposite.swift in Sources */,
+				E8FFFE581FA8671000E7A820 /* ALValueTransformable.swift in Sources */,
+				E8FFFE651FA8671000E7A820 /* PreparingMiddlewareValidation.swift in Sources */,
+				E8FFFE6C1FA8671000E7A820 /* ALValidatedTextField.swift in Sources */,
+				E8FFFE471FA8671000E7A820 /* VariableExpression.swift in Sources */,
+				E8FFFE511FA8671000E7A820 /* RowFormButtonComposite.swift in Sources */,
+				E8FFFE611FA8671000E7A820 /* RowItemBuilder.swift in Sources */,
+				E8FFFE5F1FA8671000E7A820 /* CustomRowItemBuilder.swift in Sources */,
+				E8FFFE4D1FA8671000E7A820 /* SectionFormComposite.swift in Sources */,
+				E8FFFE501FA8671000E7A820 /* RowFromPhoneComposite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

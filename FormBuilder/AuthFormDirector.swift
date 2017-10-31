@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ALFormBuilder
 
 class AuthFormDirector {  
   func mail(builder: StringRowItemBuilderProtocol) {

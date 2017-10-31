@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ALFormBuilder
 
 enum TestCells: FBUniversalCellProtocol {
   case defaultCell, multilineCell

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ALFormBuilder
 
 // Протокол с которым работает ячейка
 protocol RowFormTextMultilineCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {

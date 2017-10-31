@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ALFormBuilder
 
 protocol TableReloadable {
   var reload: (() -> Void)? {set get}
