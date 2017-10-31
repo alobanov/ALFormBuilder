@@ -36,8 +36,8 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"),
                              state: .typing, valueKeyPath: "phone", errorText: "Ошибка телефона", maxLength: 11)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "@model.mail != null",
-                          mandatory: "true", disable: "false")
-    builder.defineBase(cellType: ALFBCells.textField, identifier: "Phone", level: .item, dataType: .string)
+                          mandatory: "@model.mail == `al@al.ru`", disable: "false")
+    builder.defineBase(cellType: ALFBCells.editField, identifier: "Phone", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Введите телефонный номер", placeholderTopText: "Введите телефонный номер",
                                 detailsText: "Например 89634480209", isPassword: false,
                                 keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .phoneNumber)
@@ -89,7 +89,7 @@ class AuthFormDirector {
     builder.define(value: StringValue(value: nil))
     builder.defineValidation(validationType: .none,
                              state: .typing, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
-    builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
+    builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "false", disable: "false")
     builder.defineBase(cellType: TestCells.multilineCell, identifier: "Multiline", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",
                                 detailsText: "Например example@gmail.com", isPassword: false,
@@ -147,7 +147,7 @@ class AuthFormDirector {
     director.multiline(builder: multiline)
     
     root.add(authSection, buttonSection)
-    authSection.add(mail.result(), phone.result(), password.result(), agreement.result(), town.result(), phone2.result(), multiline.result())
+    authSection.add(mail.result(), phone.result(), password.result(), agreement.result(), town.result(), phone2.result())
     buttonSection.add(login.result(), descr.result())
     
     return root

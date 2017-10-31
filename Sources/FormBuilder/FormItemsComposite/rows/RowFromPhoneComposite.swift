@@ -89,6 +89,10 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
   // MARK :- FromItemCompositeProtocol func
   
   public func isValid() -> Bool {
+    if !self.visible.isMandatory {
+      return true
+    }
+    
     return self.validation.state.isCompletelyValid
   }
   

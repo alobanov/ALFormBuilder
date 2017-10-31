@@ -1,9 +1,9 @@
 import UIKit
 
 extension String {
-  func contains(find: String) -> Bool {
-    return self.range(of: find) != nil
-  }
+//  func contains(find: String) -> Bool {
+//    return self.range(of: find) != nil
+//  }
   
   func replace(string:String, replacement:String) -> String {
     return self.replacingOccurrences(of: string, with: replacement, options: String.CompareOptions.literal, range: nil)

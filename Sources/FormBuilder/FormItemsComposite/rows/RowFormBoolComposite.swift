@@ -80,6 +80,10 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
   }
   
   public func isValid() -> Bool {
+    if !self.visible.isMandatory {
+      return true
+    }
+    
     return self.validation.state.isCompletelyValid
   }
   
