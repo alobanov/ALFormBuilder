@@ -8,17 +8,17 @@
 
 import Foundation
 
-public class ConditionBitwiseAND: Expression {
+public class ALConditionBitwiseAND:ALExpression {
 
-  public var leftOperand: Expression
-  public var rightOperand: Expression
+  public var leftOperand:ALExpression
+  public var rightOperand:ALExpression
 
-  init(leftOperand: Expression, rightOperand: Expression) {
+  init(leftOperand:ALExpression, rightOperand:ALExpression) {
     self.leftOperand = leftOperand
     self.rightOperand = rightOperand
   }
 
-  public func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String :ALExpression]) -> Bool {
     // Bitwise &
     guard let r = leftOperand.numberValue(), let l = rightOperand.numberValue() else {
       return false

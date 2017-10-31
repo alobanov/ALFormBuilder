@@ -8,17 +8,17 @@
 
 import Foundation
 
-public class ConditionOR: Expression {
+public class ALConditionOR: ALExpression {
 
-  public var leftOperand: Expression
-  public var rightOperand: Expression
+  public var leftOperand: ALExpression
+  public var rightOperand: ALExpression
 
-  public init(leftOperand: Expression, rightOperand: Expression) {
+  public init(leftOperand: ALExpression, rightOperand: ALExpression) {
     self.leftOperand = leftOperand
     self.rightOperand = rightOperand
   }
 
-  public func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String : ALExpression]) -> Bool {
     return leftOperand.interpret(variables) || rightOperand.interpret(variables)
   }
 }

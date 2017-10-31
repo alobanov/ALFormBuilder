@@ -8,14 +8,14 @@
 
 import Foundation
 
-public typealias ALTupleValue = (display: String, value: Any)
+public typealias ALTitledTuple = (title: String, value: Any?)
 
-public class TupleValue: ALValueTransformable {
+public class ALTitledValue: ALValueTransformable {
   private var originalValue: Any?
   public var initialValue: String?
   public var wasModify: Bool = false
   
-  public init(value: ALTupleValue?) {
+  public init(value: ALTitledTuple?) {
     self.originalValue = value
     self.initialValue = transformForDisplay()
   }
@@ -35,18 +35,19 @@ public class TupleValue: ALValueTransformable {
   }
   
   public func transformForDisplay() -> DisplayValueType? {
-    guard let str = self.originalValue as? ALTupleValue else {
+    guard let str = self.originalValue as? ALTitledTuple else {
       return nil
     }
     
-    return str.display
+    return str.title
   }
   
   public func transformForJSON() -> JSONValueType {
-    guard let str = self.originalValue as? ALTupleValue else {
+    guard let tuple = self.originalValue as? ALTitledTuple,
+          let value = tuple.value
+    else {
       return NSNull()
     }
-    
-    return str.value
+    return value
   }
 }

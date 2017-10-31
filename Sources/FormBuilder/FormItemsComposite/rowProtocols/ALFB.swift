@@ -90,7 +90,7 @@ public struct ALFB {
   public struct Visible {
     public static let fullValidation = "Full-Validation"
     
-    public let interpreter: InterpreterConditions
+    public let interpreter: ALInterpreterConditions
     
     public let visibleExp: String
     public let mandatoryExp: String
@@ -100,7 +100,7 @@ public struct ALFB {
     public var isMandatory: Bool = true
     public var isDisabled: Bool = false
     
-    public init(interpreter: InterpreterConditions, visible: String = "true", mandatory: String = "true", disable: String = "false") {
+    public init(interpreter: ALInterpreterConditions, visible: String = "true", mandatory: String = "true", disable: String = "false") {
       self.interpreter = interpreter
       visibleExp = visible
       mandatoryExp = mandatory

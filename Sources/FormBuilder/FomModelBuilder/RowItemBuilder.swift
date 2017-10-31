@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol RowItemVisibleBuilderProtocol {
-  func defineVisible(interpreter: InterpreterConditions, visible: String, mandatory: String, disable: String)
+  func defineVisible(interpreter: ALInterpreterConditions, visible: String, mandatory: String, disable: String)
 }
   
 public protocol RowItemBaseBuilderProtocol {
@@ -26,14 +26,14 @@ public protocol RowItemValueBuilderProtocol {
 }
 
 public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol, RowItemValidationBuilderProtocol, RowItemValueBuilderProtocol {
-  var visibleSetting = ALFB.Visible(interpreter: InterpreterConditions())
+  var visibleSetting = ALFB.Visible(interpreter: ALInterpreterConditions())
   var validation = ALFB.Validation(validationType: .none, state: .valid, valueKeyPath: nil, errorText: nil, maxLength: nil)
-  var value: ALValueTransformable = StringValue(value: nil)
+  var value: ALValueTransformable = ALStringValue(value: nil)
   var identifier: String = ""
   var level = ALFB.FormModelLevel.item
   var base = ALFB.Base(cellType: ALFB.Cells.emptyField, dataType: .string)
   
-  public func defineVisible(interpreter: InterpreterConditions, visible: String, mandatory: String, disable: String) {
+  public func defineVisible(interpreter: ALInterpreterConditions, visible: String, mandatory: String, disable: String) {
     visibleSetting = ALFB.Visible(interpreter: interpreter, visible: visible, mandatory: mandatory, disable: disable)
   }
   

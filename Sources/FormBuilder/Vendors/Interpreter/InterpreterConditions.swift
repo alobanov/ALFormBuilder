@@ -1,5 +1,5 @@
 //
-//  InterpreterConditions.swift
+//  ALInterpreterConditions.swift
 //  Pulse
 //
 //  Created by Lobanov Aleksey on 16.03.17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class InterpreterConditions {
+public class ALInterpreterConditions {
   public init() {}
   
   public func calculateExpression(expression: String, json: [String: Any]) -> Bool {
@@ -30,13 +30,13 @@ public class InterpreterConditions {
 
     exp = precalculateBitwiseExp(exp: exp)
 
-    let evaluator = Evaluator(expression: exp)
-    return evaluator.interpret([String: Expression]())
+    let evaluator = ALEvaluator(expression: exp)
+    return evaluator.interpret([String: ALExpression]())
   }
 }
 
 // Precalculation of bitwise & expressions
-extension InterpreterConditions {
+extension ALInterpreterConditions {
   public func precalculateBitwiseExp(exp: String) -> String {
     var updatedExp = exp
     let exps = exp.regex(pattern: "(\\w+\\s)[ & ]{1}(\\s\\w+)")

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
+open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
   
   @IBOutlet weak var textField: ALValidatedTextField!
   @IBOutlet weak var descriptionValueLabel: UILabel!
@@ -23,7 +23,7 @@ public class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDel
   
   let bag = DisposeBag()
    
-  public override func awakeFromNib() {
+  open override func awakeFromNib() {
     super.awakeFromNib()
     // base configuration
     validateBtn.setImage(ALFBStyle.imageOfTfAlertIconStar, for: UIControlState())
@@ -140,7 +140,7 @@ extension ALFBTextViewCell {
             return (text != self?.storedModel.value.transformForDisplay())
         })
         .map({[weak self] text in
-          return self?.storedModel.validate(value: StringValue(value: text))
+          return self?.storedModel.validate(value: ALStringValue(value: text))
         }).startWith(self.storedModel.validation.state)
     
     // Show validation only on end editing

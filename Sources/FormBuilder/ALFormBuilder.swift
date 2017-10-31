@@ -203,7 +203,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     var isContainError = false
     
     for (formItentifier, message) in errors {
-      guard var model = model(by: formItentifier) as? RowCompositeValidationSetting else {
+      guard let model = model(by: formItentifier) as? RowCompositeValidationSetting else {
         continue
       }
       
