@@ -139,7 +139,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     var phoneArr = phoneParts()
     phoneArr[byType.rawValue] = text
     let value = phoneArr.joined(separator: " ")
-    return storedModel.validate(value: StringValue(value: value))
+    return storedModel.validate(value: ALStringValue(value: value))
   }
   
   // MARK: - UITextFieldDelegate

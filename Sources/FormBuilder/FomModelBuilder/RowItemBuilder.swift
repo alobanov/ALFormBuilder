@@ -28,7 +28,7 @@ public protocol RowItemValueBuilderProtocol {
 public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol, RowItemValidationBuilderProtocol, RowItemValueBuilderProtocol {
   var visibleSetting = ALFB.Visible(interpreter: ALInterpreterConditions())
   var validation = ALFB.Validation(validationType: .none, state: .valid, valueKeyPath: nil, errorText: nil, maxLength: nil)
-  var value: ALValueTransformable = StringValue(value: nil)
+  var value: ALValueTransformable = ALStringValue(value: nil)
   var identifier: String = ""
   var level = ALFB.FormModelLevel.item
   var base = ALFB.Base(cellType: ALFB.Cells.emptyField, dataType: .string)

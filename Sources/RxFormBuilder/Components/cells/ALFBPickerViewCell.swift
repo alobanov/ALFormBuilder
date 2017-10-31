@@ -77,7 +77,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     // Check validation all of text stream
     let validationState = textField.rx.text.asDriver().skip(1)
       .map({[weak self] text in
-        return self?.storedModel.validate(value: StringValue(value: text))
+        return self?.storedModel.validate(value: ALStringValue(value: text))
       }).startWith(self.storedModel.validation.state)
     
     validationState.drive(onNext: {[weak self] result in

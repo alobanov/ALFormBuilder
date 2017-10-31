@@ -124,7 +124,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       }
       
       item.base.needReloadModel()
-      item.validate(value: TupleValue(value: ALTupleValue("Екатеринбург", 23)))
+      item.validate(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in

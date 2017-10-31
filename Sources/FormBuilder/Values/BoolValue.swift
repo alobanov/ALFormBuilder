@@ -1,5 +1,5 @@
 //
-//  BoolValue.swift
+//  ALBoolValue.swift
 //  ALFormBuilder
 //
 //  Created by Lobanov Aleksey on 29/10/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class BoolValue: ALValueTransformable {
+public class ALBoolValue: ALValueTransformable {
   private var originalValue: Any?
   public var initialValue: String?
   public var wasModify: Bool = false

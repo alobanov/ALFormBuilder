@@ -53,7 +53,7 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
     
     checkButtonSelected.drive(onNext: {[weak self] state in
       self?.switchComponent.isSelected = state
-      self?.storedModel.validate(value: BoolValue(value: state))
+      self?.storedModel.validate(value: ALBoolValue(value: state))
     }).disposed(by: bag)
   }
 }

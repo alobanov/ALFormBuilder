@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // all items
     /// MAIL
-    let value = StringValue(value: "lobanov.aw@gmail.com")
+    let value = ALStringValue(value: "lobanov.aw@gmail.com")
     let validation = ALFB.Validation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
                                               state: .typing,
                                               valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let mail = RowFormTextComposite(composite: baseMailComposite, value: value, validation: validation, visualisation: vsl, visible: vsbl, base: base1)
     
     /// PASS
-    let passValue = StringValue(value: "1234")
+    let passValue = ALStringValue(value: "1234")
     let validationPass = ALFB.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass", errorText: "Ошибка Пароля", maxLength: nil)
     let vsblPass = ALFB.Visible(interpreter: ALInterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
     let vslPass = ALFB.Visualization(placeholderText: "Пароль",
@@ -86,7 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let pass = RowFormTextComposite(composite: basePassComposite, value: passValue, validation: validationPass, visualisation: vslPass, visible: vsblPass, base: base2)
     
     /// PHONE
-    let phoneValue = StringValue(value: "8480209")
+    let phoneValue = ALStringValue(value: "8480209")
     let validationPhone = ALFB.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone", errorText: "Ошибка Phone", maxLength: nil)
     let vsblPhone = ALFB.Visible(interpreter: ALInterpreterConditions())
     let vslPhone = ALFB.Visualization(placeholderText: "Введите телефонный номер",
@@ -157,7 +157,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let section = self.item.datasource[indexPath.section]
     if let cellModel = section.datasource[indexPath.row] as? RowFormTextComposite {
       if cellModel.identifier == "Mail row" {
-        cellModel.validate(value: StringValue(value: "lobanov.aw@gmail.com1"))
+        cellModel.validate(value: ALStringValue(value: "lobanov.aw@gmail.com1"))
       }
     }
     

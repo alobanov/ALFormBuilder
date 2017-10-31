@@ -138,7 +138,7 @@ extension ALFBTextViewCell {
             return (text != self?.storedModel.value.transformForDisplay())
         })
         .map({[weak self] text in
-          return self?.storedModel.validate(value: StringValue(value: text))
+          return self?.storedModel.validate(value: ALStringValue(value: text))
         }).startWith(self.storedModel.validation.state)
     
     // Hide warning ico while typing

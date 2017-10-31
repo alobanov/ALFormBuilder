@@ -1,5 +1,5 @@
 //
-//  StringValue.swift
+//  ALStringValue.swift
 //  ALFormBuilder
 //
 //  Created by Lobanov Aleksey on 25/10/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StringValue: ALValueTransformable {
+public class ALStringValue: ALValueTransformable {
   private var originalValue: Any?
   public var initialValue: String?
   public var wasModify: Bool = false
