@@ -48,7 +48,7 @@ extension String {
   }
   
   subscript (i: Int) -> String {
-    if self.characters.isEmpty {
+    if self.isEmpty {
       return ""
     } else {
       return String(self[i] as Character)

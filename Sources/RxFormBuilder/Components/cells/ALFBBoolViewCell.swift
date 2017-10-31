@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
+open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
   
   @IBOutlet weak var switchComponent: UISwitch!
   @IBOutlet weak var titleText: UILabel!
@@ -19,7 +19,7 @@ public class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
   private var alreadyInitialized = false
   private let bag = DisposeBag()
   
-  public override func awakeFromNib() {
+  open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
     layoutIfNeeded()

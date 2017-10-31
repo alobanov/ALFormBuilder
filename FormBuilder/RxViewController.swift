@@ -96,9 +96,14 @@ class RxViewController: UIViewController, UITableViewDelegate {
       }
       
       if var c = cell as? TableReloadable {
-        c.reload = { _ in
-          table.beginUpdates()
-          table.endUpdates()
+        c.reload = { [weak self] _ in
+          guard let sSelf = self else {
+            return
+          }
+          let currentOffset = sSelf.tableView.contentOffset
+          sSelf.tableView.beginUpdates()
+          sSelf.tableView.endUpdates()
+          sSelf.tableView.setContentOffset(currentOffset, animated: false)
         }
       }
       
@@ -139,7 +144,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     tableView.setupEstimatedRowHeight()
     tableView.registerCells(by: [ALFBTextViewCell.cellIdentifier, ALFBButtonViewCell.cellIdentifier,
                                  ALFBBoolViewCell.cellIdentifier, ALFBPickerViewCell.cellIdentifier,
-                                 ALFBTextInfoViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier], bundle: Bundle.alfb_frameworkBundle())
+                                 ALFBStaticTextViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier], bundle: Bundle.alfb_frameworkBundle())
     tableView.registerCells(by: [ALFBTextMultilineViewCell.cellIdentifier])
   }
   

@@ -1,5 +1,5 @@
 //
-//  FormTextInfoViewCell.swift
+//  ALFBStaticTextViewCell.swift
 //  Puls
 //
 //  Created by MOPC on 26/06/2017.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-public class ALFBTextInfoViewCell: UITableViewCell, RxCellReloadeble {
+open class ALFBStaticTextViewCell: UITableViewCell, RxCellReloadeble {
   
   @IBOutlet weak var titleInfoLabel: UILabel!
   @IBOutlet weak var highlitedBackground: UIView!
   private var alreadyInitialized = false
   
-  public override func awakeFromNib() {
+  open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
     highlitedBackground.alpha = 0
     self.layoutIfNeeded()
   }
   
-  public override func setSelected(_ selected: Bool, animated: Bool) {
+  open override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
     if !selected {

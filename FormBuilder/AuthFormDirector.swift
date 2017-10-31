@@ -14,7 +14,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
                              state: .typing, valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
-    builder.defineBase(cellType: ALFBCells.editField, identifier: "Mail", level: .item, dataType: .string)
+    builder.defineBase(cellType: ALFBCells.textField, identifier: "Mail", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Почта", placeholderTopText: "Введите почту",
                                 detailsText: "Например example@gmail.com", isPassword: false,
                                 keyboardType: .emailAddress, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
@@ -25,7 +25,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"),
                              state: .typing, valueKeyPath: "pass", errorText: "Ошибка пароля", maxLength: nil)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
-    builder.defineBase(cellType: ALFBCells.editField, identifier: "Pass", level: .item, dataType: .string)
+    builder.defineBase(cellType: ALFBCells.textField, identifier: "Pass", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Пароль", placeholderTopText: "Пароль",
                                 detailsText: "Должен быть длиннее 4 семволов", isPassword: true,
                                 keyboardType: .defaultKeyboard, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
@@ -37,7 +37,7 @@ class AuthFormDirector {
                              state: .typing, valueKeyPath: "phone", errorText: "Ошибка телефона", maxLength: 11)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "@model.mail != null",
                           mandatory: "true", disable: "false")
-    builder.defineBase(cellType: ALFBCells.editField, identifier: "Phone", level: .item, dataType: .string)
+    builder.defineBase(cellType: ALFBCells.textField, identifier: "Phone", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Введите телефонный номер", placeholderTopText: "Введите телефонный номер",
                                 detailsText: "Например 89634480209", isPassword: false,
                                 keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .phoneNumber)
@@ -81,7 +81,7 @@ class AuthFormDirector {
   
   func descrInfo(builder: CustomRowItemBuilderProtocol) {
     builder.define(title: "Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types.")
-    builder.defineBase(cellType: FormCustomCells.customField, identifier: "Descr info", level: .item, dataType: .informationContent)
+    builder.defineBase(cellType: ALFBCells.staticText, identifier: "Descr info", level: .item, dataType: .informationContent)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "@model.mail != null", mandatory: "false", disable: "@model.agreements == true")
   }
   
@@ -91,9 +91,9 @@ class AuthFormDirector {
                              state: .typing, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
     builder.defineVisible(interpreter: InterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: TestCells.multilineCell, identifier: "Multiline", level: .item, dataType: .string)
-    builder.defineVisualization(placeholderText: "Почта", placeholderTopText: "Введите почту",
+    builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",
                                 detailsText: "Например example@gmail.com", isPassword: false,
-                                keyboardType: .emailAddress, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
+                                keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none)
   }
   
   func sectionFirst(builder: SectionItemBuilderProtocol) {

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-public class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
+open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDelegate {
 
   enum PhonePart: Int {
     case baseCode = 0, cityCode = 1, phone = 2
@@ -44,7 +44,7 @@ public class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDe
   private var storedModel: RowFromPhoneCompositeOutput!
   private var alreadyInitialized = false
   
-  public override func awakeFromNib() {
+  open override func awakeFromNib() {
     super.awakeFromNib()
     // base configuration
     validateBtn.setImage(ALFBStyle.imageOfTfAlertIconStar, for: UIControlState())

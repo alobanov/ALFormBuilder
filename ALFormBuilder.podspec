@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
     s.name                  = "ALFormBuilder"
     s.version               = "0.9"
     s.summary               = "Provides convenient work with TableView"
-    s.description           = <<-DESC
+    s.description           = ""
     FormBuilder
     DESC
 

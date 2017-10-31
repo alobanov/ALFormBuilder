@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-public class ALFBButtonViewCell: UITableViewCell, RxCellReloadeble {
+open class ALFBButtonViewCell: UITableViewCell, RxCellReloadeble {
 
   @IBOutlet weak var actionButton: UIButton!
   @IBOutlet weak var highlitedBackground: UIView!
@@ -18,7 +18,7 @@ public class ALFBButtonViewCell: UITableViewCell, RxCellReloadeble {
   private var storedModel: RowFormButtonCompositeOutput!
   private var alreadyInitialized = false
   
-  public override func awakeFromNib() {
+  open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
     
@@ -26,7 +26,7 @@ public class ALFBButtonViewCell: UITableViewCell, RxCellReloadeble {
     layoutIfNeeded()
   }
   
-  public override func setSelected(_ selected: Bool, animated: Bool) {
+  open override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
     if !selected {

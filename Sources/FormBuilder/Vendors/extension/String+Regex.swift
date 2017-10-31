@@ -59,7 +59,7 @@ extension String {
 
       if firstMatch.numberOfRanges >= 1 {
         let range = firstMatch.rangeAt(1)
-        let newRange = searchString.characters.index(searchString.startIndex, offsetBy: range.location) ..< searchString.characters.index(searchString.startIndex, offsetBy: range.location + range.length)
+        let newRange = searchString.index(searchString.startIndex, offsetBy: range.location) ..< searchString.index(searchString.startIndex, offsetBy: range.location + range.length)
         let string = searchString.substring(with: newRange)
         return string
       }

@@ -10,12 +10,14 @@ import Foundation
 import UIKit.UITableViewCell
 
 public enum ALFBCells: Int, FBUniversalCellProtocol {
-  case editField = 0, buttonField, boolField, pickerField, phoneField
+  case textField = 0, multilineTextField, buttonField, boolField, pickerField, phoneField, staticText
   
   public var type: UITableViewCell.Type {
     switch self {
-    case .editField:
+    case .textField:
       return ALFBTextViewCell.self
+    case .multilineTextField:
+      return ALFBTextMultilineViewCell.self
     case .buttonField:
       return ALFBButtonViewCell.self
     case .boolField:
@@ -24,17 +26,8 @@ public enum ALFBCells: Int, FBUniversalCellProtocol {
       return ALFBPickerViewCell.self
     case .phoneField:
       return ALFBPhoneViewCell.self
-    }
-  }
-}
-
-public enum FormCustomCells: Int, FBUniversalCellProtocol {
-  case customField
-  
-  public var type: UITableViewCell.Type {
-    switch self {
-    case .customField:
-      return ALFBTextInfoViewCell.self
+    case .staticText:
+      return ALFBStaticTextViewCell.self
     }
   }
 }
