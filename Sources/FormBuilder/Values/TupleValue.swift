@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias ALTitledTuple = (title: String, value: Any?)
+public typealias ALTitledTuple = (title: String?, value: Any?)
 
 public class ALTitledValue: ALValueTransformable {
   private var originalValue: Any?
@@ -35,11 +35,12 @@ public class ALTitledValue: ALValueTransformable {
   }
   
   public func transformForDisplay() -> DisplayValueType? {
-    guard let str = self.originalValue as? ALTitledTuple else {
+    guard let tuple = self.originalValue as? ALTitledTuple,
+          let title = tuple.title
+    else {
       return nil
     }
-    
-    return str.title
+    return title
   }
   
   public func transformForJSON() -> JSONValueType {
