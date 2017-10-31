@@ -96,6 +96,13 @@ class RxViewController: UIViewController, UITableViewDelegate {
         c.reload(with: item.model)
       }
       
+      if var c = cell as? TableReloadable {
+        c.reload = { _ in
+          table.beginUpdates()
+          table.endUpdates()
+        }
+      }
+      
       cell.selectionStyle = UITableViewCellSelectionStyle.none
       return cell
     }
@@ -136,8 +143,6 @@ class RxViewController: UIViewController, UITableViewDelegate {
                                  ALFBTextInfoViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier], bundle: Bundle.alfb_frameworkBundle())
     tableView.registerCells(by: [ALFBTextMultilineViewCell.cellIdentifier])
   }
-  
-  
   
   deinit {
     print("RxViewController dead")

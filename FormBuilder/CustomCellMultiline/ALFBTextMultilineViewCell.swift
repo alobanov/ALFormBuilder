@@ -9,12 +9,17 @@
 import UIKit
 import ALFormBuilder
 
+protocol TableReloadable {
+  var reload: (() -> Void)? {set get}
+}
 
+class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDelegate, TableReloadable {
 
-class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDelegate {
-
+  var reload: (() -> Void)?
+  
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var heightValue: NSLayoutConstraint!
+  @IBOutlet weak var heightTextValue: NSLayoutConstraint!
   
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +39,12 @@ class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDe
   func textViewDidChange(_ textView: UITextView) {
     print(self.textView.contentSize.height)
     self.heightValue.constant = self.textView.contentSize.height
+    self.heightTextValue.constant = self.textView.contentSize.height
     textView.layoutIfNeeded()
-    self.layoutIfNeeded()
+    textView.sizeToFit()
+    
+    self.contentView.setNeedsLayout()
+    self.contentView.layoutIfNeeded()
+    self.reload?()
   }
 }
