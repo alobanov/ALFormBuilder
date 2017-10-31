@@ -72,8 +72,8 @@ extension String {
 
 extension Bundle {
   public static func alfb_frameworkBundle() -> Bundle {
-    let bundle = Bundle(for: ALFormBuilder.self)
-    if let path = bundle.path(forResource: "ALBormBuilder", ofType: "bundle") {
+    let bundle = Bundle(for: ALFBBoolViewCell.self)
+    if let path = bundle.path(forResource: "ALFormBuilder", ofType: "bundle") {
       return Bundle(path: path)!
     }
     else {

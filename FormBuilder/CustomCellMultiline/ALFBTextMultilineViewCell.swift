@@ -32,6 +32,7 @@ class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDe
 
         // Configure the view for the selected state
     }
+  
   func reload(with model: RxCellModelDatasoursable) {
     
   }
@@ -39,12 +40,8 @@ class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDe
   func textViewDidChange(_ textView: UITextView) {
     print(self.textView.contentSize.height)
     self.heightValue.constant = self.textView.contentSize.height
-    self.heightTextValue.constant = self.textView.contentSize.height
-    textView.layoutIfNeeded()
-    textView.sizeToFit()
-    
-    self.contentView.setNeedsLayout()
-    self.contentView.layoutIfNeeded()
+    self.heightTextValue.constant = self.textView.contentSize.height + 10
+    self.textView.layoutIfNeeded()
     self.reload?()
   }
 }
