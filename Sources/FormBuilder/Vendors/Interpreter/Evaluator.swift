@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class Evaluator: Expression {
-  public var syntaxTree: Expression = VariableExpression(name: "false")
+public class ALEvaluator: ALExpression {
+  public var syntaxTree: ALExpression = ALVariableExpression(name: "false")
   public var expression: String
 
   public init (expression: String) {
@@ -17,7 +17,7 @@ public class Evaluator: Expression {
   }
 
   fileprivate func buildSyntaxTree() {
-    var expressionStack = Stack<Expression>()
+    var expressionStack = ALStack<ALExpression>()
 
     var items = expression.components(separatedBy: " ")
 
@@ -28,35 +28,35 @@ public class Evaluator: Expression {
       switch items[index] {
       case "==":
         let nextExpression = getNextExpression(items, index: index)
-        expressionStack.push(ConditionTrue(leftOperand: expressionStack.pop(),
+        expressionStack.push(ALConditionTrue(leftOperand: expressionStack.pop(),
                                       rightOperand: nextExpression))
         index += 2
       case "!=":
         let nextExpression = getNextExpression(items, index: index)
-        expressionStack.push(ConditionFalse(leftOperand: expressionStack.pop(),
+        expressionStack.push(ALConditionFalse(leftOperand: expressionStack.pop(),
                                     rightOperand: nextExpression))
         index += 2
 
       case "||":
         let nextExpression = getNextExpression(items, index: index)
-        expressionStack.push(ConditionOR(leftOperand: expressionStack.pop(),
+        expressionStack.push(ALConditionOR(leftOperand: expressionStack.pop(),
                                             rightOperand: nextExpression))
         index += 2
 
       case "&&":
         let nextExpression = getNextExpression(items, index: index)
-        expressionStack.push(ConditionAND(leftOperand: expressionStack.pop(),
+        expressionStack.push(ALConditionAND(leftOperand: expressionStack.pop(),
                                             rightOperand: nextExpression))
         index += 2
 
       case "BitwiseAND":
         let nextExpression = getNextExpression(items, index: index)
-        expressionStack.push(ConditionBitwiseAND(leftOperand: expressionStack.pop(),
+        expressionStack.push(ALConditionBitwiseAND(leftOperand: expressionStack.pop(),
                                                  rightOperand: nextExpression))
         index += 2
 
       default:
-          expressionStack.push(VariableExpression(name: items[index]))
+          expressionStack.push(ALVariableExpression(name: items[index]))
           index += 1
       }
 
@@ -64,10 +64,10 @@ public class Evaluator: Expression {
     syntaxTree = expressionStack.pop()
   }
 
-  fileprivate func getNextExpression(_ items: [String], index: Int) -> Expression {
+  fileprivate func getNextExpression(_ items: [String], index: Int) ->ALExpression {
     let next = items[index + 1]
-    var nextExpression: Expression
-    nextExpression = VariableExpression(name: next)
+    var nextExpression:ALExpression
+    nextExpression = ALVariableExpression(name: next)
 
     return nextExpression
   }
@@ -96,7 +96,7 @@ public class Evaluator: Expression {
     return result
   }
 
-  public func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String: ALExpression]) -> Bool {
 
     if (expression.contains("||") || expression.contains("&&")) &&
       (expression.contains("==") || expression.contains("!=") || expression.contains("BitwiseAND")) {
@@ -108,7 +108,7 @@ public class Evaluator: Expression {
         if expression == "||" || expression == "&&" {
           newExpression += expression
         } else {
-          let eval = Evaluator(expression: expression)
+          let eval = ALEvaluator(expression: expression)
           let result = eval.interpret(variables)
           newExpression += String(result)
         }
@@ -118,7 +118,7 @@ public class Evaluator: Expression {
         }
         index += 1
       }
-      let evaluator = Evaluator(expression: newExpression)
+      let evaluator = ALEvaluator(expression: newExpression)
       return evaluator.interpret(variables)
     } else {
       buildSyntaxTree()

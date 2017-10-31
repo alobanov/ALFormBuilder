@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Stack<T> {
+public struct ALStack<T> {
 
   var items = [T]()
 

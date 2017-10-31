@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class VariableExpression: Expression {
+public class ALVariableExpression: ALExpression {
   fileprivate var name: String
 
   public init(name: String) {
     self.name = name
   }
 
-  public func context() -> ContextType {
+  public func context() -> ALContextType {
     if self.name.contains("`") {
       return .string
     }
@@ -23,7 +23,7 @@ public class VariableExpression: Expression {
     return self.numberValue() != nil ? .number : .bool
   }
 
-  public func interpret(_ variables: [String : Expression]) -> Bool {
+  public func interpret(_ variables: [String : ALExpression]) -> Bool {
     if let expression = variables[name] {
       return expression.interpret(variables)
     } else {

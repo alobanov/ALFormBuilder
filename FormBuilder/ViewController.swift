@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                               valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
     let base1 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
-    let vsbl = ALFB.Visible(interpreter: InterpreterConditions())
+    let vsbl = ALFB.Visible(interpreter: ALInterpreterConditions())
     let vsl = ALFB.Visualization(placeholderText: "Почта",
                                           placeholderTopText: nil,
                                           detailsText: nil,
@@ -72,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     /// PASS
     let passValue = StringValue(value: "1234")
     let validationPass = ALFB.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass", errorText: "Ошибка Пароля", maxLength: nil)
-    let vsblPass = ALFB.Visible(interpreter: InterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
+    let vsblPass = ALFB.Visible(interpreter: ALInterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
     let vslPass = ALFB.Visualization(placeholderText: "Пароль",
                                               placeholderTopText: nil,
                                               detailsText: nil,
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     /// PHONE
     let phoneValue = StringValue(value: "8480209")
     let validationPhone = ALFB.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone", errorText: "Ошибка Phone", maxLength: nil)
-    let vsblPhone = ALFB.Visible(interpreter: InterpreterConditions())
+    let vsblPhone = ALFB.Visible(interpreter: ALInterpreterConditions())
     let vslPhone = ALFB.Visualization(placeholderText: "Введите телефонный номер",
                                                placeholderTopText: nil,
                                                detailsText: nil,

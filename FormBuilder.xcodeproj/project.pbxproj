@@ -22,7 +22,7 @@
 		E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */; };
 		E8FFFE3F1FA8671000E7A820 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */; };
 		E8FFFE401FA8671000E7A820 /* InterpreterConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */; };
-		E8FFFE411FA8671000E7A820 /* StackArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF41FA8670F00E7A820 /* StackArray.swift */; };
+		E8FFFE411FA8671000E7A820 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF41FA8670F00E7A820 /* Stack.swift */; };
 		E8FFFE421FA8671000E7A820 /* ConditionBitwiseAND.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF61FA8670F00E7A820 /* ConditionBitwiseAND.swift */; };
 		E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF71FA8670F00E7A820 /* Expression.swift */; };
 		E8FFFE441FA8671000E7A820 /* ConditionFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */; };
@@ -67,6 +67,7 @@
 		E8FFFE6B1FA8671000E7A820 /* RxALFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2C1FA8670F00E7A820 /* RxALFormBuilder.swift */; };
 		E8FFFE6C1FA8671000E7A820 /* ALValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */; };
 		E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */; };
+		E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */; };
 		FB4028AB1FA889A8000865AD /* RowFormTextMultilineComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AA1FA889A8000865AD /* RowFormTextMultilineComposite.swift */; };
 		FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AC1FA889C0000865AD /* ALFBBoolViewCell.swift */; };
 		FB4028BC1FA889C1000865AD /* ALFBStaticTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AD1FA889C0000865AD /* ALFBStaticTextViewCell.swift */; };
@@ -83,7 +84,6 @@
 		FB4028C71FA889C1000865AD /* ALFBPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB4028B81FA889C1000865AD /* ALFBPickerViewCell.xib */; };
 		FB4028C81FA889C1000865AD /* ALFBTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB4028B91FA889C1000865AD /* ALFBTextViewCell.xib */; };
 		FB4028C91FA889C1000865AD /* ALFBTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */; };
-		E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +118,7 @@
 		E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atlantis.swift; sourceTree = "<group>"; };
 		E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
 		E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterConditions.swift; sourceTree = "<group>"; };
-		E8FFFDF41FA8670F00E7A820 /* StackArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackArray.swift; sourceTree = "<group>"; };
+		E8FFFDF41FA8670F00E7A820 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		E8FFFDF61FA8670F00E7A820 /* ConditionBitwiseAND.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionBitwiseAND.swift; sourceTree = "<group>"; };
 		E8FFFDF71FA8670F00E7A820 /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionFalse.swift; sourceTree = "<group>"; };
@@ -163,6 +163,7 @@
 		E8FFFE2C1FA8670F00E7A820 /* RxALFormBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxALFormBuilder.swift; sourceTree = "<group>"; };
 		E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALValidatedTextField.swift; sourceTree = "<group>"; };
 		E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
+		E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ALFBAdditions.swift"; sourceTree = "<group>"; };
 		FB4028AA1FA889A8000865AD /* RowFormTextMultilineComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormTextMultilineComposite.swift; sourceTree = "<group>"; };
 		FB4028AC1FA889C0000865AD /* ALFBBoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBBoolViewCell.swift; sourceTree = "<group>"; };
 		FB4028AD1FA889C0000865AD /* ALFBStaticTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBStaticTextViewCell.swift; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		FB4028B81FA889C1000865AD /* ALFBPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBPickerViewCell.xib; sourceTree = "<group>"; };
 		FB4028B91FA889C1000865AD /* ALFBTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBTextViewCell.xib; sourceTree = "<group>"; };
 		FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBTextViewCell.swift; sourceTree = "<group>"; };
-		E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ALFBAdditions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +314,7 @@
 			children = (
 				E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */,
 				E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */,
-				E8FFFDF41FA8670F00E7A820 /* StackArray.swift */,
+				E8FFFDF41FA8670F00E7A820 /* Stack.swift */,
 				E8FFFDF51FA8670F00E7A820 /* Expressions */,
 			);
 			path = Interpreter;
@@ -732,9 +732,8 @@
 				E8FFFE481FA8671000E7A820 /* ConditionTrue.swift in Sources */,
 				E8FFFE621FA8671000E7A820 /* FormBuilderEnums.swift in Sources */,
 				E82B50A31FA7708400F910F5 /* TestTableViewCell.swift in Sources */,
-				E8FFFE411FA8671000E7A820 /* StackArray.swift in Sources */,
+				E8FFFE411FA8671000E7A820 /* Stack.swift in Sources */,
 				E8FFFE5D1FA8671000E7A820 /* BoolRowItemBuilder.swift in Sources */,
-				E8FFFE761FA8671000E7A820 /* ALFBBoolViewCell.swift in Sources */,
 				E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */,
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
 				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
