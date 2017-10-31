@@ -91,7 +91,9 @@ public class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDel
     //
     cleareBtn.isHidden = true
     validateBtn.isHidden = !vm.validation.state.isVisibleValidationUI
-    validateBtn.isHidden = !vm.visible.isMandatory
+    if !validateBtn.isHidden {
+      validateBtn.isHidden = !vm.visible.isMandatory
+    }
     
     // Configurate next only one
     if !alreadyInitialized {
@@ -141,17 +143,14 @@ extension ALFBTextViewCell {
           return self?.storedModel.validate(value: StringValue(value: text))
         }).startWith(self.storedModel.validation.state)
     
-    // Hide warning ico while typing
-    textField.rx.controlEvent(.editingDidBegin).asDriver().drive(onNext: {[weak self] _ in
-      self?.validateBtn.isHidden = true
-    }).disposed(by: bag)
-    
     // Show validation only on end editing
     let endEditing = textField.rx.controlEvent(.editingDidEnd).asDriver()
       .withLatestFrom(validationState)
     
     // Show cleare button on start editting textfield
     textField.rx.controlEvent(.editingDidBegin).asDriver().drive(onNext: {[weak self] _ in
+      self?.storedModel.base.changeisEditingNow(true)
+      self?.validateBtn.isHidden = true
       self?.cleareBtn.isHidden = false
     }).disposed(by: bag)
     
@@ -170,7 +169,12 @@ extension ALFBTextViewCell {
     endEditing.drive(onNext: {[weak self] valid in
       guard let v = valid else { return }
       
+      self?.storedModel.base.changeisEditingNow(false)
       self?.validateBtn.isHidden = v.isValidWithTyping
+      let isMandatory = self?.storedModel.visible.isMandatory ?? false
+      if !isMandatory {
+        self?.validateBtn.isHidden = !isMandatory
+      }
       self?.cleareBtn.isHidden = true
       if !v.isValidWithTyping {
 //        self?.highlightField()

@@ -19,6 +19,7 @@ public struct ALFB {
     public let cellType: FBUniversalCellProtocol
     public var isStrictReload: Bool = false
     public let dataType: DataType
+    public var isEditingNow: Bool = false
     
     public init(cellType: FBUniversalCellProtocol, dataType: DataType) {
       self.cellType = cellType
@@ -29,11 +30,17 @@ public struct ALFB {
       self.isStrictReload = true
     }
     
+    public mutating func changeisEditingNow(_ state: Bool) {
+      self.isEditingNow = state
+    }
+    
     public mutating func strictReload() -> Bool {
       var needReload = false
       if self.isStrictReload != needReload {
         self.isStrictReload = false
-        needReload = true
+        if !isEditingNow {
+          needReload = true
+        }
       }
       
       return needReload
