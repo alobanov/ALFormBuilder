@@ -83,6 +83,7 @@
 		E8FFFE781FA8671000E7A820 /* ALFBPhoneViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE3C1FA8670F00E7A820 /* ALFBPhoneViewCell.xib */; };
 		E8FFFE791FA8671000E7A820 /* ALFBBoolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8FFFE3D1FA8670F00E7A820 /* ALFBBoolViewCell.xib */; };
 		E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */; };
+		E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		E8FFFE3C1FA8670F00E7A820 /* ALFBPhoneViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBPhoneViewCell.xib; sourceTree = "<group>"; };
 		E8FFFE3D1FA8670F00E7A820 /* ALFBBoolViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBBoolViewCell.xib; sourceTree = "<group>"; };
 		E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
+		E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ALFBAdditions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 				E8FFFDFF1FA8670F00E7A820 /* UITextField+TypeFilter.swift */,
 				E8FFFE001FA8670F00E7A820 /* String+Common.swift */,
 				E8FFFE011FA8670F00E7A820 /* String+Regex.swift */,
+				E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				E8FFFE411FA8671000E7A820 /* StackArray.swift in Sources */,
 				E8FFFE5D1FA8671000E7A820 /* BoolRowItemBuilder.swift in Sources */,
 				E8FFFE761FA8671000E7A820 /* ALFBBoolViewCell.swift in Sources */,
+				E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */,
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
 				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
 				E8FFFE701FA8671000E7A820 /* ALFBPickerViewCell.swift in Sources */,
