@@ -33,10 +33,16 @@ extension RowCompositeVisibleSetting {
 public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
   var validation: ALFB.Validation {set get}
   @discardableResult func validate(value: ALValueTransformable) -> ALFB.ValidationState
+  func validateAndReload(value: ALValueTransformable)
   func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState
 }
 
-extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol {
+extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol & RowCompositeVisibleSetting {
+  public func validateAndReload(value: ALValueTransformable) {
+    self.base.needReloadModel()
+    self.validate(value: value)
+  }
+  
   @discardableResult public func validate(value: ALValueTransformable) -> ALFB.ValidationState {
     let result = makeValidation(value: value)
     self.validation.change(state: result)
