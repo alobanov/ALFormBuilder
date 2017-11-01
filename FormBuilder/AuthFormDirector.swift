@@ -8,7 +8,20 @@
 
 import Foundation
 
-class AuthFormDirector {  
+class AuthFormDirector {
+  
+  func decimalField(builder: StringRowItemBuilderProtocol) {
+    builder.define(value: ALStringValue(value: nil))
+    builder.defineValidation(validationType: .none,
+                             dNVU: false,
+                             valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
+    builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
+    builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
+    builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
+                                detailsText: "Например 1.0", isPassword: false,
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals)
+  }
+  
   func mail(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
@@ -125,6 +138,9 @@ class AuthFormDirector {
     let password = StringRowItemBuilder()
     director.pass(builder: password)
     
+    let decimalField = StringRowItemBuilder()
+    director.decimalField(builder: decimalField)
+    
     let phone = StringRowItemBuilder()
     director.phone(builder: phone)
     
@@ -147,7 +163,7 @@ class AuthFormDirector {
     director.multiline(builder: multiline)
     
     root.add(authSection, buttonSection)
-    authSection.add(mail.result(), phone.result(), password.result(), agreement.result(), town.result(), phone2.result(), multiline.result())
+    authSection.add(mail.result(), phone.result(), password.result(), decimalField.result(), agreement.result(), town.result(), phone2.result(), multiline.result())
     buttonSection.add(login.result(), descr.result())
     
     return root

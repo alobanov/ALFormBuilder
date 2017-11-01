@@ -48,11 +48,11 @@ public struct ALFB {
   }
   
   public struct Visualization {
-    public let placeholderText: String
-    public let placeholderTopText: String?
-    public let detailsText: String?
-    public let isPassword: Bool?
-    public let keyboardType: FBKeyboardType?
+    public var placeholderText: String
+    public var placeholderTopText: String?
+    public var detailsText: String?
+    public var isPassword: Bool?
+    public var keyboardType: FBKeyboardType?
     public let autocapitalizationType: FBAutocapitalizationType?
     public let keyboardOptions: TextConstraintType
     
@@ -68,7 +68,7 @@ public struct ALFB {
   }
   
   public struct Validation {
-    public let validationType: ValidationType
+    public var validationType: ValidationType
     public var state: ValidationState
     public var valueKeyPath: String?
     public let errorText: String?
@@ -94,9 +94,9 @@ public struct ALFB {
     
     public let interpreter: ALInterpreterConditions
     
-    public let visibleExp: String
-    public let mandatoryExp: String
-    public let disabledExp: String
+    public var visibleExp: String
+    public var mandatoryExp: String
+    public var disabledExp: String
     
     public var isVisible: Bool = true
     public var isMandatory: Bool = true
