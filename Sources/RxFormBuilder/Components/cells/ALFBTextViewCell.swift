@@ -89,6 +89,10 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     //
     // Configure buttons and components
     //
+//    if !vm.visible.isValid {
+//      vm.validation.change(state: .failed(message: "Условие по выражению не "))
+//    }
+    
     cleareBtn.isHidden = true
     validateBtn.isHidden = !vm.validation.state.isVisibleValidationUI
     if !validateBtn.isHidden {
@@ -154,13 +158,10 @@ extension ALFBTextViewCell {
       self?.cleareBtn.isHidden = false
     }).disposed(by: bag)
     
-    validationState.scan(ALFB.ValidationState.valid) { [weak self] (_, newState) -> ALFB.ValidationState? in
-      guard let new = newState else {
-        return .valid
-      }
-      
+    validationState.scan(ALFB.ValidationState.typing) { [weak self] (oldState, newState) -> ALFB.ValidationState? in
+      guard let new = newState, let old = oldState else { return .valid }
+      if old == new { return old }
       self?.textField.validate(new)
-      
       return new
     }.drive()
      .disposed(by: bag)

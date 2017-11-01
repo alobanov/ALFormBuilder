@@ -77,6 +77,10 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
       result = .valid
     }
     
+    if !self.visible.isValid {
+      result = .error("dwjdoweijw")
+    }
+    
     switch result {
     case .valid:
       return .valid

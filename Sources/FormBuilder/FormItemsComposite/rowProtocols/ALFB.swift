@@ -97,16 +97,20 @@ public struct ALFB {
     public let visibleExp: String
     public let mandatoryExp: String
     public let disabledExp: String
+    public let validateExp: String?
     
     public var isVisible: Bool = true
     public var isMandatory: Bool = true
     public var isDisabled: Bool = false
+    public var isValid: Bool = true
     
-    public init(interpreter: ALInterpreterConditions, visible: String = "true", mandatory: String = "true", disable: String = "false") {
+    public init(interpreter: ALInterpreterConditions, visible: String = "true",
+                mandatory: String = "true", disable: String = "false", valid: String? = nil) {
       self.interpreter = interpreter
       visibleExp = visible
       mandatoryExp = mandatory
       disabledExp = disable
+      validateExp = valid
     }
     
     public mutating func checkDisableState(model: [String: Any]) -> Bool {
@@ -132,6 +136,17 @@ public struct ALFB {
       let newState = interpreter.calculateExpression(expression: visibleExp, json: model)
       let isChanged = (newState != isVisible)
       isVisible = newState
+      return isChanged
+    }
+    
+    public mutating func checkValidState(model: [String: Any]) -> Bool {
+      guard let expression = validateExp else {
+        return false
+      }
+      
+      let newState = interpreter.calculateExpression(expression: expression, json: model)
+      let isChanged = (newState != isValid)
+      isValid = newState
       return isChanged
     }
     

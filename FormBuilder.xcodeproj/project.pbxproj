@@ -20,6 +20,8 @@
 		E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3C6DF1FA070A70074FB28 /* LaunchScreen.storyboard */; };
 		E8D3C6EC1FA070A70074FB28 /* FormBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */; };
 		E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */; };
+		E8E8FAA61FAA047E00716016 /* ALConditionMoreThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E8FAA51FAA047E00716016 /* ALConditionMoreThen.swift */; };
+		E8E8FAA81FAA049200716016 /* ALConditionLessThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E8FAA71FAA049200716016 /* ALConditionLessThen.swift */; };
 		E8FFFE3F1FA8671000E7A820 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */; };
 		E8FFFE401FA8671000E7A820 /* InterpreterConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */; };
 		E8FFFE411FA8671000E7A820 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF41FA8670F00E7A820 /* Stack.swift */; };
@@ -117,6 +119,8 @@
 		E8D3C6EB1FA070A70074FB28 /* FormBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilderTests.swift; sourceTree = "<group>"; };
 		E8D3C6ED1FA070A70074FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atlantis.swift; sourceTree = "<group>"; };
+		E8E8FAA51FAA047E00716016 /* ALConditionMoreThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALConditionMoreThen.swift; sourceTree = "<group>"; };
+		E8E8FAA71FAA049200716016 /* ALConditionLessThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALConditionLessThen.swift; sourceTree = "<group>"; };
 		E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
 		E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterConditions.swift; sourceTree = "<group>"; };
 		E8FFFDF41FA8670F00E7A820 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				E8FFFDFA1FA8670F00E7A820 /* ConditionAND.swift */,
 				E8FFFDFB1FA8670F00E7A820 /* VariableExpression.swift */,
 				E8FFFDFC1FA8670F00E7A820 /* ConditionTrue.swift */,
+				E8E8FAA51FAA047E00716016 /* ALConditionMoreThen.swift */,
+				E8E8FAA71FAA049200716016 /* ALConditionLessThen.swift */,
 			);
 			path = Expressions;
 			sourceTree = "<group>";
@@ -710,6 +716,7 @@
 				E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */,
 				E8FFFE531FA8671000E7A820 /* RowFormBoolComposite.swift in Sources */,
 				E8FFFE631FA8671000E7A820 /* ALFormJSONBuilder.swift in Sources */,
+				E8E8FAA81FAA049200716016 /* ALConditionLessThen.swift in Sources */,
 				E8FFFE601FA8671000E7A820 /* StringRowItemBuilder.swift in Sources */,
 				E8FFFE4B1FA8671000E7A820 /* String+Common.swift in Sources */,
 				E8FFFE6A1FA8671000E7A820 /* RowFormComposite+RxDataSource.swift in Sources */,
@@ -742,6 +749,7 @@
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
 				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
 				FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */,
+				E8E8FAA61FAA047E00716016 /* ALConditionMoreThen.swift in Sources */,
 				E8FFFE541FA8671000E7A820 /* ALFB.swift in Sources */,
 				E8FFFE521FA8671000E7A820 /* RowCustomComposite.swift in Sources */,
 				E8FFFE581FA8671000E7A820 /* ValueTransformable.swift in Sources */,

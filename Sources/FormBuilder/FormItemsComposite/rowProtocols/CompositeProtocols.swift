@@ -14,11 +14,16 @@ public protocol RowCompositeVisibleSetting: class {
   var base: ALFB.Base {set get}
   var cellType: FBUniversalCellProtocol {get}
   func checkStates(by source: [String: Any]) -> Bool
+  func checkValidState(by source: [String: Any]) -> Bool
 }
 
 extension RowCompositeVisibleSetting {
   public var cellType: FBUniversalCellProtocol {
     return self.base.cellType
+  }
+  
+  public func checkValidState(by source: [String: Any]) -> Bool {
+    return visible.checkValidState(model: source)
   }
   
   public func checkStates(by source: [String: Any]) -> Bool {

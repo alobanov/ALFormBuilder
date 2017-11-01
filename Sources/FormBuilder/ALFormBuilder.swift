@@ -122,9 +122,14 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     }
     
     for row in rows  {
-      let isChanged = row.checkStates(by: obj)
+      if row.checkValidState(by: obj) {
+        if let validatebleRow = row as? RowCompositeValidationSetting {
+          validatebleRow.validateAndReload(value: validatebleRow.value)
+          needReload = true
+        }
+      }
       
-      if isChanged {
+      if row.checkStates(by: obj) {
         row.base.needReloadModel()
         needReload = true
       }

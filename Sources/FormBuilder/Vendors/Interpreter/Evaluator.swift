@@ -54,6 +54,18 @@ public class ALEvaluator: ALExpression {
         expressionStack.push(ALConditionBitwiseAND(leftOperand: expressionStack.pop(),
                                                  rightOperand: nextExpression))
         index += 2
+        
+      case ">":
+        let nextExpression = getNextExpression(items, index: index)
+        expressionStack.push(ALConditionMoreThen(leftOperand: expressionStack.pop(),
+                                                   rightOperand: nextExpression))
+        index += 2
+      
+      case "<":
+        let nextExpression = getNextExpression(items, index: index)
+        expressionStack.push(ALConditionLessThen(leftOperand: expressionStack.pop(),
+                                                 rightOperand: nextExpression))
+        index += 2
 
       default:
           expressionStack.push(ALVariableExpression(name: items[index]))
@@ -99,7 +111,7 @@ public class ALEvaluator: ALExpression {
   public func interpret(_ variables: [String: ALExpression]) -> Bool {
 
     if (expression.contains("||") || expression.contains("&&")) &&
-      (expression.contains("==") || expression.contains("!=") || expression.contains("BitwiseAND")) {
+      (expression.contains("==") || expression.contains("!=") || expression.contains("BitwiseAND") || expression.contains("<") || expression.contains(">")) {
 
       let expressions = parseoutAdditionsAndSubtractions(expression)
       var newExpression = ""
@@ -118,6 +130,9 @@ public class ALEvaluator: ALExpression {
         }
         index += 1
       }
+      
+      print(newExpression)
+      
       let evaluator = ALEvaluator(expression: newExpression)
       return evaluator.interpret(variables)
     } else {
