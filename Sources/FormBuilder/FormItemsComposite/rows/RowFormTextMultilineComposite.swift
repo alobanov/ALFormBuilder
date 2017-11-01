@@ -58,9 +58,22 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
     validate(value: value)
   }
   
-  func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
-    result = .valid
+    let start = PreparingMiddlewareValidation()
+    
+    switch validation.validationType {
+    case .none:
+      result = .valid
+    case .nonNil:
+      start.link(with: NilMiddlewareValidation())
+      result = start.check(value: value.transformForDisplay())
+    case .regexp(let regexpstr):
+      start.link(with: RegExpMiddlewareValidation(regexp: regexpstr))
+      result = start.check(value: value.transformForDisplay())
+    default:
+      result = .valid
+    }
     
     switch result {
     case .valid:

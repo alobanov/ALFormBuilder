@@ -64,13 +64,13 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
     
     switch validation.validationType {
     case .none:
+      result = .valid
+    case .nonNil:
       start.link(with: NilMiddlewareValidation())
       result = start.check(value: value.transformForDisplay())
-      
     case .phone:
       start.link(with: PhoneMiddlewareValidation())
-      result = start.check(value: value.transformForDisplay())
-    
+      result = start.check(value: value.transformForDisplay())    
     default:
       let message = validation.errorText ?? ""
       return .failed(message: message)

@@ -82,6 +82,7 @@ public extension ALFB {
   }
   enum ValidationType {
     case none
+    case nonNil
     case regexp(String)
     case phone
   }

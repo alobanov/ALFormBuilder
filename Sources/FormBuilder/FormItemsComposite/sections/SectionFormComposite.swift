@@ -9,15 +9,15 @@
 import Foundation
 
 public protocol SectionFormCompositeOutput {
-  var header: String {get}
-  var footer: String {get}
+  var header: String? {get}
+  var footer: String? {get}
 }
 
 public class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutput {
   private let decoratedComposite: FromItemCompositeProtocol
   
-  public var header: String = ""
-  public var footer: String = ""
+  public var header: String?
+  public var footer: String?
   
   // MARK :- FromItemCompositeProtocol properties
   public var identifier: String {
@@ -38,7 +38,7 @@ public class SectionFormComposite: FromItemCompositeProtocol, SectionFormComposi
   
   public var level: ALFB.FormModelLevel = .section
   
-  public init(composite: FromItemCompositeProtocol, header: String = "", footer: String = "") {
+  public init(composite: FromItemCompositeProtocol, header: String?, footer: String?) {
     self.decoratedComposite = composite
     self.header = header
     self.footer = footer

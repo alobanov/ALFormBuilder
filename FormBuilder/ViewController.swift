@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   @IBOutlet weak var tableView: UITableView!
   
-  var item: FromItemCompositeProtocol = SectionFormComposite(composite: BaseFormComposite(identifier: "asd", level: .root))
+  var item: FromItemCompositeProtocol = SectionFormComposite(composite: BaseFormComposite(identifier: "asd", level: .root), header: nil, footer: nil)
   var fb: ALFormBuilderProtocol!
   
   let logger = Atlantis.Logger()
