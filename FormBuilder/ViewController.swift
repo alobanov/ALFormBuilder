@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     /// MAIL
     let value = ALStringValue(value: "lobanov.aw@gmail.com")
     let validation = ALFB.Validation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
-                                              state: .typing,
+                                              dNVU: false,
                                               valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
     let base1 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
@@ -71,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     /// PASS
     let passValue = ALStringValue(value: "1234")
-    let validationPass = ALFB.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), state: .typing, valueKeyPath: "common.pass", errorText: "Ошибка Пароля", maxLength: nil)
+    let validationPass = ALFB.Validation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"), dNVU: false, valueKeyPath: "common.pass", errorText: "Ошибка Пароля", maxLength: nil)
     let vsblPass = ALFB.Visible(interpreter: ALInterpreterConditions(), visible: "@model.mail == `lobanov.aw@gmail.com1`", mandatory: "true", disable: "false")
     let vslPass = ALFB.Visualization(placeholderText: "Пароль",
                                               placeholderTopText: nil,
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     /// PHONE
     let phoneValue = ALStringValue(value: "8480209")
-    let validationPhone = ALFB.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), state: .typing, valueKeyPath: "phone", errorText: "Ошибка Phone", maxLength: nil)
+    let validationPhone = ALFB.Validation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"), dNVU: false, valueKeyPath: "phone", errorText: "Ошибка Phone", maxLength: nil)
     let vsblPhone = ALFB.Visible(interpreter: ALInterpreterConditions())
     let vslPhone = ALFB.Visualization(placeholderText: "Введите телефонный номер",
                                                placeholderTopText: nil,

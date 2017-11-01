@@ -18,7 +18,7 @@ public protocol RowItemBaseBuilderProtocol {
 }
 
 public protocol RowItemValidationBuilderProtocol {
-  func defineValidation(validationType: ALFB.ValidationType, state: ALFB.ValidationState, valueKeyPath: String?, errorText: String?, maxLength: Int?)
+  func defineValidation(validationType: ALFB.ValidationType, dNVU: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?)
 }
 
 public protocol RowItemValueBuilderProtocol {
@@ -27,7 +27,7 @@ public protocol RowItemValueBuilderProtocol {
 
 public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol, RowItemValidationBuilderProtocol, RowItemValueBuilderProtocol {
   var visibleSetting = ALFB.Visible(interpreter: ALInterpreterConditions())
-  var validation = ALFB.Validation(validationType: .none, state: .valid, valueKeyPath: nil, errorText: nil, maxLength: nil)
+  var validation = ALFB.Validation(validationType: .none, dNVU: false, valueKeyPath: nil, errorText: nil, maxLength: nil)
   var value: ALValueTransformable = ALStringValue(value: nil)
   var identifier: String = ""
   var level = ALFB.FormModelLevel.item
@@ -43,8 +43,8 @@ public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderPr
     self.level = level
   }
   
-  public func defineValidation(validationType: ALFB.ValidationType, state: ALFB.ValidationState, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
-    validation = ALFB.Validation(validationType: validationType, state: state, valueKeyPath: valueKeyPath, errorText: errorText, maxLength: maxLength)
+  public func defineValidation(validationType: ALFB.ValidationType, dNVU: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
+    validation = ALFB.Validation(validationType: validationType, dNVU: dNVU, valueKeyPath: valueKeyPath, errorText: errorText, maxLength: maxLength)
   }
   
   public func define(value: ALValueTransformable) {

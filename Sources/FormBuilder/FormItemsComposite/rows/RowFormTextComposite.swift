@@ -55,7 +55,9 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     self.visible = visible
     self.base = base
     
-    validate(value: value)
+    if !validation.doNotValidateUntilInteract {
+      validate(value: value)
+    }
   }
   
   public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
