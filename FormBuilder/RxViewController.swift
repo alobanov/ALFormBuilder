@@ -112,7 +112,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     }
     
     rxDataSource.animationConfiguration =
-      AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
+      AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .none, deleteAnimation: .fade)
     
     tableView.rx.setDelegate(self)
       .disposed(by: bag)

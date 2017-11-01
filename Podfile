@@ -10,5 +10,6 @@ pod 'ObjectMapper'
 pod 'RxDataSources'
 pod 'RxCocoa', '~> 3'
 pod 'RxSwift', '~> 3'
+pod 'IQKeyboardManagerSwift'
 end
 

@@ -75,6 +75,10 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
       result = .valid
     }
     
+    if !self.visible.isValid {
+      result = .error("Валидация по выражению не пройдена")
+    }
+    
     switch result {
     case .valid:
       return .valid

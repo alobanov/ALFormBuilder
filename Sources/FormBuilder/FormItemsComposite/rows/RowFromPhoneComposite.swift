@@ -76,6 +76,10 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
       return .failed(message: message)
     }
     
+    if !self.visible.isValid {
+      result = .error("Валидация по выражению не пройдена")
+    }
+    
     switch result {
     case .valid:
       return .valid

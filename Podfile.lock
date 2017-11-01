@@ -1,5 +1,6 @@
 PODS:
   - Differentiator (2.0.2)
+  - IQKeyboardManagerSwift (5.0.4)
   - ObjectMapper (3.0.0)
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
@@ -11,6 +12,7 @@ PODS:
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - ObjectMapper
   - RxCocoa (~> 3)
   - RxDataSources
@@ -19,12 +21,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Differentiator: caa9b3957981a2ac8e6b2eac8a676af461caa604
+  IQKeyboardManagerSwift: a0592bb636b10a9a1cf75d2b2c61144226226c84
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxDataSources: 7f190474a93a206c082c2d74c4cc9c8f7bea4feb
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 2eb6cef6365df4b33cab155593ef68d3c20cb4cd
+PODFILE CHECKSUM: 3f08294f60242798ff32d99fa313b03fdba51848
 
 COCOAPODS: 1.3.1

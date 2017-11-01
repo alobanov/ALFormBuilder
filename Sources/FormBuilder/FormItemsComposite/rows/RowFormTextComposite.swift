@@ -78,7 +78,7 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     }
     
     if !self.visible.isValid {
-      result = .error("dwjdoweijw")
+      result = .error("Валидация по выражению не пройдена")
     }
     
     switch result {

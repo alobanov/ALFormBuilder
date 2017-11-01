@@ -22,6 +22,7 @@
 		E8D3C70F1FA0B1710074FB28 /* Atlantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */; };
 		E8E8FAA61FAA047E00716016 /* ALConditionMoreThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E8FAA51FAA047E00716016 /* ALConditionMoreThen.swift */; };
 		E8E8FAA81FAA049200716016 /* ALConditionLessThen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E8FAA71FAA049200716016 /* ALConditionLessThen.swift */; };
+		E8E8FAAA1FAA48A900716016 /* IntValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E8FAA91FAA48A900716016 /* IntValue.swift */; };
 		E8FFFE3F1FA8671000E7A820 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */; };
 		E8FFFE401FA8671000E7A820 /* InterpreterConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */; };
 		E8FFFE411FA8671000E7A820 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFDF41FA8670F00E7A820 /* Stack.swift */; };
@@ -121,6 +122,7 @@
 		E8D3C70E1FA0B1710074FB28 /* Atlantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atlantis.swift; sourceTree = "<group>"; };
 		E8E8FAA51FAA047E00716016 /* ALConditionMoreThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALConditionMoreThen.swift; sourceTree = "<group>"; };
 		E8E8FAA71FAA049200716016 /* ALConditionLessThen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALConditionLessThen.swift; sourceTree = "<group>"; };
+		E8E8FAA91FAA48A900716016 /* IntValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntValue.swift; sourceTree = "<group>"; };
 		E8FFFDF21FA8670F00E7A820 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
 		E8FFFDF31FA8670F00E7A820 /* InterpreterConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterConditions.swift; sourceTree = "<group>"; };
 		E8FFFDF41FA8670F00E7A820 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				E8FFFE111FA8670F00E7A820 /* BoolValue.swift */,
 				E8FFFE121FA8670F00E7A820 /* ValueTransformable.swift */,
 				E8FFFE131FA8670F00E7A820 /* TupleValue.swift */,
+				E8E8FAA91FAA48A900716016 /* IntValue.swift */,
 			);
 			path = Values;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -642,6 +646,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -748,6 +753,7 @@
 				E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */,
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
 				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
+				E8E8FAAA1FAA48A900716016 /* IntValue.swift in Sources */,
 				FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */,
 				E8E8FAA61FAA047E00716016 /* ALConditionMoreThen.swift in Sources */,
 				E8FFFE541FA8671000E7A820 /* ALFB.swift in Sources */,
