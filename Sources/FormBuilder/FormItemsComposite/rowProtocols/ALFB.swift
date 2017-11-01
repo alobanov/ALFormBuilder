@@ -48,11 +48,11 @@ public struct ALFB {
   }
   
   public struct Visualization {
-    public let placeholderText: String
-    public let placeholderTopText: String?
-    public let detailsText: String?
-    public let isPassword: Bool?
-    public let keyboardType: FBKeyboardType?
+    public var placeholderText: String
+    public var placeholderTopText: String?
+    public var detailsText: String?
+    public var isPassword: Bool?
+    public var keyboardType: FBKeyboardType?
     public let autocapitalizationType: FBAutocapitalizationType?
     public let keyboardOptions: TextConstraintType
     
@@ -68,20 +68,20 @@ public struct ALFB {
   }
   
   public struct Validation {
-    public let validationType: ValidationType
+    public var validationType: ValidationType
     public var state: ValidationState
     public var valueKeyPath: String?
     public let errorText: String?
     public let maxLength: Int?
-    internal let doNotValidateUntilInteract: Bool
+    internal let validateAtCreation: Bool
     
-    public init(validationType: ValidationType, dNVU: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
+    public init(validationType: ValidationType, validateAtCreation: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
       self.validationType = validationType
       self.state = .typing
       self.valueKeyPath = valueKeyPath
       self.errorText = errorText
       self.maxLength = maxLength
-      self.doNotValidateUntilInteract = dNVU
+      self.validateAtCreation = validateAtCreation
     }
     
     public mutating func change(state: ValidationState) {
@@ -91,7 +91,6 @@ public struct ALFB {
   
   public struct Visible {
     public static let fullValidation = "Full-Validation"
-    
     public let interpreter: ALInterpreterConditions
     
     public let visibleExp: String

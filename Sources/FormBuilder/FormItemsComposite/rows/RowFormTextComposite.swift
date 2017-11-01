@@ -10,7 +10,7 @@ import Foundation
 
 // Протокол с которым работает ячейка
 public protocol RowFormTextCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
-  var visualisation: ALFB.Visualization {get}
+  var visualisation: ALFB.Visualization {get set}
 }
 
 public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextCompositeOutput {
@@ -55,7 +55,7 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     self.visible = visible
     self.base = base
     
-    if !validation.doNotValidateUntilInteract {
+    if validation.validateAtCreation {
       validate(value: value)
     }
   }

@@ -82,7 +82,11 @@ extension UITextField {
   private func filterdOnlyDecimal(_ string: String) -> Bool {
     let s = self.text!
     let countOldChar = s.count
-    let string = string.replacingOccurrences(of: ",", with: ".")
+    
+    if string.contains(",") {
+//    if string.contains(find: ",") {
+      return false
+    }
     
     if (string == "." && countOldChar == 0) {
       return false

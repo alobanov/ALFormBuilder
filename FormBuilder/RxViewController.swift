@@ -122,7 +122,6 @@ class RxViewController: UIViewController, UITableViewDelegate {
       guard let item = model.model as? RowFormTextComposite else {
         return
       }
-      
       item.validateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
     }).disposed(by: bag)
     
