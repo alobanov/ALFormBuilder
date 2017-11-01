@@ -62,9 +62,10 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
     
     switch validation.validationType {
     case .none:
+      result = .valid
+    case .nonNil:
       start.link(with: NilMiddlewareValidation())
       result = start.check(value: value.transformForDisplay())
-      
     default:
       return .failed(message: validation.errorText ?? "Error text is not defined")
     }

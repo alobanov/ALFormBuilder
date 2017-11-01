@@ -60,8 +60,8 @@ class AuthFormDirector {
   
   func town(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALTitledValue(value: nil))
-    builder.defineValidation(validationType: .none, state: .failed(message: "Выберите город"), valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
-    builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
+    builder.defineValidation(validationType: .none, state: .valid, valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
+    builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "false", disable: "false")
     builder.defineBase(cellType: ALFBCells.pickerField, identifier: "Town", level: .item, dataType: .picker)
     builder.defineVisualization(placeholderText: "Выберите город", placeholderTopText: "Город",
                                 detailsText: "Нажмите на поле", isPassword: false,

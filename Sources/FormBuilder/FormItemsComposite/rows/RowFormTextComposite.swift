@@ -64,13 +64,13 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     
     switch validation.validationType {
     case .none:
+      result = .valid
+    case .nonNil:
       start.link(with: NilMiddlewareValidation())
       result = start.check(value: value.transformForDisplay())
-      
     case .regexp(let regexpstr):
       start.link(with: RegExpMiddlewareValidation(regexp: regexpstr))
       result = start.check(value: value.transformForDisplay())
-      
     default:
       result = .valid
     }
