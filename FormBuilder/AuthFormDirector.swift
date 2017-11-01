@@ -97,11 +97,11 @@ class AuthFormDirector {
   }
   
   func sectionFirst(builder: SectionItemBuilderProtocol) {
-    builder.define(identifier: "Common section", header: "Авторизация", footer: "Все поля помеченые звездочко являются обязательными")
+    builder.define(identifier: "Common section", header: "Авторизация", footer: nil)
   }
   
   func sectionSecond(builder: SectionItemBuilderProtocol) {
-    builder.define(identifier: "Settings section", header: "", footer: "")
+    builder.define(identifier: "Settings section", header: nil, footer: nil)
   }
   
   static func build() -> FromItemCompositeProtocol {

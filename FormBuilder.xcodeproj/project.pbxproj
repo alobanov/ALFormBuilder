@@ -68,6 +68,7 @@
 		E8FFFE6C1FA8671000E7A820 /* ALValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */; };
 		E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */; };
 		E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */; };
+		FB29E30A1FA9BE78007BD6BF /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29E3091FA9BE78007BD6BF /* DateValue.swift */; };
 		FB4028AB1FA889A8000865AD /* RowFormTextMultilineComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AA1FA889A8000865AD /* RowFormTextMultilineComposite.swift */; };
 		FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AC1FA889C0000865AD /* ALFBBoolViewCell.swift */; };
 		FB4028BC1FA889C1000865AD /* ALFBStaticTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AD1FA889C0000865AD /* ALFBStaticTextViewCell.swift */; };
@@ -164,6 +165,7 @@
 		E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALValidatedTextField.swift; sourceTree = "<group>"; };
 		E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
 		E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ALFBAdditions.swift"; sourceTree = "<group>"; };
+		FB29E3091FA9BE78007BD6BF /* DateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		FB4028AA1FA889A8000865AD /* RowFormTextMultilineComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormTextMultilineComposite.swift; sourceTree = "<group>"; };
 		FB4028AC1FA889C0000865AD /* ALFBBoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBBoolViewCell.swift; sourceTree = "<group>"; };
 		FB4028AD1FA889C0000865AD /* ALFBStaticTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBStaticTextViewCell.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		E8FFFE0F1FA8670F00E7A820 /* Values */ = {
 			isa = PBXGroup;
 			children = (
+				FB29E3091FA9BE78007BD6BF /* DateValue.swift */,
 				E8FFFE101FA8670F00E7A820 /* StringValue.swift */,
 				E8FFFE111FA8670F00E7A820 /* BoolValue.swift */,
 				E8FFFE121FA8670F00E7A820 /* ValueTransformable.swift */,
@@ -722,6 +725,7 @@
 				E8D3C6D91FA070A70074FB28 /* ViewController.swift in Sources */,
 				E8FFFE5A1FA8671000E7A820 /* ALFBStyle.swift in Sources */,
 				E8FFFE4E1FA8671000E7A820 /* BaseFormComposite.swift in Sources */,
+				FB29E30A1FA9BE78007BD6BF /* DateValue.swift in Sources */,
 				E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */,
 				E8FFFE491FA8671000E7A820 /* Dictionary+Ext.swift in Sources */,
 				E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */,
