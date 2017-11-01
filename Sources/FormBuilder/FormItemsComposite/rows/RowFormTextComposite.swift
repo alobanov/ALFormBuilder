@@ -55,7 +55,7 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     self.visible = visible
     self.base = base
     
-    if !validation.doNotValidateUntilInteract {
+    if validation.validateAtCreation {
       validate(value: value)
     }
   }

@@ -13,7 +13,7 @@ class AuthFormDirector {
   func decimalField(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .none,
-                             dNVU: false,
+                             validateAtCreation: false,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
@@ -25,7 +25,7 @@ class AuthFormDirector {
   func mail(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
-                             dNVU: true, valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
+                             validateAtCreation: true, valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Mail", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Почта", placeholderTopText: "Введите почту",
@@ -36,7 +36,7 @@ class AuthFormDirector {
   func pass(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .regexp("^[A-Za-z\\d$@$!%*?&_]{4,}$"),
-                             dNVU: false, valueKeyPath: "pass", errorText: "Ошибка пароля", maxLength: nil)
+                             validateAtCreation: false, valueKeyPath: "pass", errorText: "Ошибка пароля", maxLength: nil)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Pass", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Пароль", placeholderTopText: "Пароль",
@@ -47,7 +47,7 @@ class AuthFormDirector {
   func phone(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"),
-                             dNVU: false, valueKeyPath: "phone", errorText: "Ошибка телефона", maxLength: 11)
+                             validateAtCreation: false, valueKeyPath: "phone", errorText: "Ошибка телефона", maxLength: 11)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "@model.mail != null",
                           mandatory: "@model.mail == `al@al.ru`", disable: "false")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Phone", level: .item, dataType: .string)
@@ -66,14 +66,14 @@ class AuthFormDirector {
   func agreements(builder: BoolRowItemBuilderProtocol) {
     builder.defineBase(cellType: ALFBCells.boolField, identifier: "Agreements", level: .item, dataType: .bool)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
-    builder.defineValidation(validationType: .none, dNVU: false, valueKeyPath: "agreements", errorText: nil, maxLength: nil)
+    builder.defineValidation(validationType: .none, validateAtCreation: false, valueKeyPath: "agreements", errorText: nil, maxLength: nil)
     builder.define(title: "Включить уведомления")
     builder.define(value: ALBoolValue(value: false))
   }
   
   func town(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALTitledValue(value: nil))
-    builder.defineValidation(validationType: .none, dNVU: false, valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
+    builder.defineValidation(validationType: .none, validateAtCreation: false, valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: ALFBCells.pickerField, identifier: "Town", level: .item, dataType: .picker)
     builder.defineVisualization(placeholderText: "Выберите город", placeholderTopText: "Город",
@@ -84,7 +84,7 @@ class AuthFormDirector {
   func phoneCustom(builder: PhoneRowItemBuilder) {
     builder.define(value: ALStringValue(value: "343"))
     builder.defineValidation(validationType: .phone,
-                             dNVU: false, valueKeyPath: "phoneCustom", errorText: "Ошибка Телефона", maxLength: nil)
+                             validateAtCreation: false, valueKeyPath: "phoneCustom", errorText: "Ошибка Телефона", maxLength: nil)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
     builder.defineBase(cellType: ALFBCells.phoneField, identifier: "Phone2", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Телефон", placeholderTopText: "Введите телефон",
@@ -101,7 +101,7 @@ class AuthFormDirector {
   func multiline(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .none,
-                             dNVU: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
+                             validateAtCreation: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
     builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "false", disable: "false")
     builder.defineBase(cellType: TestCells.multilineCell, identifier: "Multiline", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",

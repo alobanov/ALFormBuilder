@@ -73,15 +73,15 @@ public struct ALFB {
     public var valueKeyPath: String?
     public let errorText: String?
     public let maxLength: Int?
-    internal let doNotValidateUntilInteract: Bool
+    internal let validateAtCreation: Bool
     
-    public init(validationType: ValidationType, dNVU: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
+    public init(validationType: ValidationType, validateAtCreation: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
       self.validationType = validationType
       self.state = .typing
       self.valueKeyPath = valueKeyPath
       self.errorText = errorText
       self.maxLength = maxLength
-      self.doNotValidateUntilInteract = dNVU
+      self.validateAtCreation = validateAtCreation
     }
     
     public mutating func change(state: ValidationState) {
