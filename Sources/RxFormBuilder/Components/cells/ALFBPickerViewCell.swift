@@ -29,7 +29,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     validationBorder.isHidden = true
     self.layoutIfNeeded()
     
-    descriptionValueLabel.textColor = UIColor.lightText
+//    descriptionValueLabel.textColor = ALFBStyle.fbDarkGray
   }
   
   public func reload(with model: RxCellModelDatasoursable) {

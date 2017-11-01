@@ -12,10 +12,10 @@ class AuthFormDirector {
   
   func decimalField(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
-    builder.defineValidation(validationType: .none,
-                             validateAtCreation: false,
+    builder.defineValidation(validationType: .nonNil,
+                             validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "true", disable: "false")
+    builder.defineVisible(interpreter: ALInterpreterConditions(), visible: "true", mandatory: "false", disable: "false")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
@@ -134,34 +134,37 @@ class AuthFormDirector {
     // Fields
     let mail = StringRowItemBuilder()
     director.mail(builder: mail)
-    
+
     let password = StringRowItemBuilder()
     director.pass(builder: password)
-    
+
     let decimalField = StringRowItemBuilder()
     director.decimalField(builder: decimalField)
-    
+
     let phone = StringRowItemBuilder()
     director.phone(builder: phone)
-    
+
     let login = ButtonRowItemBuilder()
     director.login(builder: login)
-    
+
     let agreement = BoolRowItemBuilder()
     director.agreements(builder: agreement)
-    
+
     let town = StringRowItemBuilder()
     director.town(builder: town)
-    
+
     let descr = CustomRowItemBuilder()
     director.descrInfo(builder: descr)
-    
+
     let phone2 = PhoneRowItemBuilder()
     director.phoneCustom(builder: phone2)
     
     let multiline = StringRowItemBuilder()
     director.multiline(builder: multiline)
     
+//    root.add(authSection)
+//    authSection.add(decimalField.result())
+//
     root.add(authSection, buttonSection)
     authSection.add(mail.result(), phone.result(), password.result(), decimalField.result(), agreement.result(), town.result(), phone2.result(), multiline.result())
     buttonSection.add(login.result(), descr.result())
