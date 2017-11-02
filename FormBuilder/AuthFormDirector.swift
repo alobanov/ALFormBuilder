@@ -17,7 +17,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .nonNil,
                              validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: "@model.decimal > 34")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
