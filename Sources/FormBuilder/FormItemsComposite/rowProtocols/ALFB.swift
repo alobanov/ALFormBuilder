@@ -71,8 +71,8 @@ public struct ALFB {
     public var validationType: ValidationType
     public var state: ValidationState
     public var valueKeyPath: String?
-    public let errorText: String?
-    public let maxLength: Int?
+    public var errorText: String?
+    public var maxLength: Int?
     internal let validateAtCreation: Bool
     
     public init(validationType: ValidationType, validateAtCreation: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
@@ -93,10 +93,10 @@ public struct ALFB {
     public static let fullValidation = "Full-Validation"
     public let interpreter: ALInterpreterConditions
     
-    public let visibleExp: String
-    public let mandatoryExp: String
-    public let disabledExp: String
-    public let validateExp: String?
+    public var visibleExp: String
+    public var mandatoryExp: String
+    public var disabledExp: String
+    public var validateExp: String?
     
     public var isVisible: Bool = true
     public var isMandatory: Bool = true
