@@ -97,7 +97,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   }
 
   // Проверка всех состояний в моделях таблицы и пересозлание
-  private func rebuildFields() {
+  private func rebuildFields(item1: FromItemCompositeProtocol) {
     guard let item = self.compositeFormData else {
       return
     }
@@ -117,21 +117,29 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     let obj = jsonBuilder.object(withoutNull: false)
     
     guard let rows = compositeFormData.leaves
-      .filter({ $0 is RowCompositeVisibleSetting }) as? [RowCompositeVisibleSetting] else {
+      .filter({ $0 is RowCompositeVisibleSetting & FromItemCompositeProtocol }) as? [RowCompositeVisibleSetting & FromItemCompositeProtocol] else {
       return needReload
     }
     
-    for row in rows  {
-      if row.checkValidState(by: obj) {
-        if let validatebleRow = row as? RowCompositeValidationSetting {
-          validatebleRow.validateAndReload(value: validatebleRow.value)
-          needReload = true
-        }
-      }
-      
+    for row in rows  {      
       if row.checkStates(by: obj) {
         row.base.needReloadModel()
         needReload = true
+      }
+    }
+    
+    for row in rows where row is RowCompositeValidationSetting  {
+      guard let validatebleRow = row as? RowCompositeValidationSetting else {
+        continue
+      }
+      
+      let prew = validatebleRow.validation.state
+      let new = validatebleRow.validate(value: validatebleRow.value)
+      if !(prew == new) {
+        validatebleRow.validation.change(state: new)
+        if let block = validatebleRow.didChangeValidation[row.identifier] {
+          block?()
+        }
       }
     }
     
@@ -147,7 +155,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   private func updateChanged(item: FromItemCompositeProtocol) {
     jsonBuilder.updateValue(item: item)
     didChangeFormModel?(item)
-    rebuildFields()
+    rebuildFields(item1: item)
   }
   
   // Получить модель по уникальному идентификатору

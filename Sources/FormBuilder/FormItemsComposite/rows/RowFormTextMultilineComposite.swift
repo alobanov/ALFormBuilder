@@ -14,6 +14,8 @@ protocol RowFormTextMultilineCompositeOutput: RowCompositeVisibleSetting, RowCom
 }
 
 class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompositeOutput {
+  var didChangeValidation: [String : DidChangeValidation?] = [:]
+  
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
@@ -55,10 +57,10 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
     self.visible = visible
     self.base = base
     
-    validate(value: value)
+    update(value: value)
   }
   
-  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func validate(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
     let start = PreparingMiddlewareValidation()
     

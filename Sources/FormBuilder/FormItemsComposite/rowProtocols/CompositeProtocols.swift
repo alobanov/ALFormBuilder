@@ -14,7 +14,6 @@ public protocol RowCompositeVisibleSetting: class {
   var base: ALFB.Base {set get}
   var cellType: FBUniversalCellProtocol {get}
   func checkStates(by source: [String: Any]) -> Bool
-  func checkValidState(by source: [String: Any]) -> Bool
 }
 
 extension RowCompositeVisibleSetting {
@@ -22,49 +21,43 @@ extension RowCompositeVisibleSetting {
     return self.base.cellType
   }
   
-  public func checkValidState(by source: [String: Any]) -> Bool {
-    return visible.checkValidState(model: source)
-  }
-  
   public func checkStates(by source: [String: Any]) -> Bool {
     let isChangeVisible = visible.checkVisibleState(model: source)
     let isChangeMandatory = visible.checkMandatoryState(model: source)
     let isChangeDisable = visible.checkDisableState(model: source)
-    return (isChangeVisible || isChangeMandatory || isChangeDisable) || base.isStrictReload
+    let isChangeValid = visible.checkValidState(model: source)
+    return (isChangeVisible || isChangeMandatory || isChangeDisable || isChangeValid) || base.isStrictReload
   }
 }
 
 /// Протокол отвечающий за возможность валидации
 public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
   var validation: ALFB.Validation {set get}
+  func update(value: ALValueTransformable)
+  func updateAndReload(value: ALValueTransformable)
   @discardableResult func validate(value: ALValueTransformable) -> ALFB.ValidationState
-  func validateAndReload(value: ALValueTransformable)
-  func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState
 }
 
 extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol & RowCompositeVisibleSetting {
-  public func validateAndReload(value: ALValueTransformable) {
+  public func updateAndReload(value: ALValueTransformable) {
     self.base.needReloadModel()
-    self.validate(value: value)
+    self.update(value: value)
   }
   
-  @discardableResult public func validate(value: ALValueTransformable) -> ALFB.ValidationState {
-    let result = makeValidation(value: value)
-    self.validation.change(state: result)
-    
+  public func update(value: ALValueTransformable) {
     if self.value.transformForDisplay() != value.transformForDisplay() {
       self.value.change(originalValue: value.retriveOriginalValue())
       didChangeData?(self)
     }
-    
-    return result
   }
 }
 
 public typealias DidChange = (FromItemCompositeProtocol) -> Void
+public typealias DidChangeValidation = () -> Void
 
 /// Протокол отвечающий за возможность хранить заначение типа ValueTransformable
 public protocol RowCompositeValueTransformable: class {
   var value: ALValueTransformable {get}
   var didChangeData: DidChange? {set get}
+  var didChangeValidation: [String: DidChangeValidation?] {set get}
 }

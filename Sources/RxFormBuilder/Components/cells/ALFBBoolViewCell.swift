@@ -21,7 +21,6 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
   
   open override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
     layoutIfNeeded()
   }
   
@@ -53,7 +52,7 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
     
     checkButtonSelected.drive(onNext: {[weak self] state in
       self?.switchComponent.isSelected = state
-      self?.storedModel.validate(value: ALBoolValue(value: state))
+      self?.storedModel.update(value: ALBoolValue(value: state))
     }).disposed(by: bag)
   }
 }

@@ -14,6 +14,8 @@ public protocol RowFormTextCompositeOutput: RowCompositeVisibleSetting, RowCompo
 }
 
 public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextCompositeOutput {
+  public var didChangeValidation: [String : DidChangeValidation?] = [:]
+  
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
@@ -56,11 +58,11 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     self.base = base
     
     if validation.validateAtCreation {
-      validate(value: value)
+      update(value: value)
     }
   }
   
-  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func validate(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
     let start = PreparingMiddlewareValidation()
     
@@ -78,7 +80,7 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
     }
     
     if !self.visible.isValid {
-      result = .error("Валидация по выражению не пройдена")
+      result = .error(validation.errorText ?? "")
     }
     
     switch result {

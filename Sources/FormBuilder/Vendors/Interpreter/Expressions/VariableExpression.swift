@@ -48,8 +48,10 @@ public class ALVariableExpression: ALExpression {
     switch self.name {
     case "true", "false":
       return nil
+      
     case "null", "<null>":
       return -1
+      
     default:
       if name.isEmpty {
         return -1

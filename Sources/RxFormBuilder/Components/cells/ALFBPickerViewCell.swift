@@ -16,6 +16,9 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   @IBOutlet weak var validateBtn: UIButton!
   @IBOutlet weak var validationBorder: UIView!
   
+  fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
+  fileprivate var didChangeValidation: DidChangeValidation!
+  
   let bag = DisposeBag()
   
   fileprivate var storedModel: RowFormTextCompositeOutput!
@@ -27,9 +30,14 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     textField.isUserInteractionEnabled = false
     validateBtn.isHidden = true
     validationBorder.isHidden = true
-    self.layoutIfNeeded()
     
-//    descriptionValueLabel.textColor = ALFBStyle.fbDarkGray
+    self.didChangeValidation = { [weak self] _ in
+      if let state = self?.storedModel.validation.state {
+        self?.validationState.onNext(state)
+      }
+    }
+    
+    self.layoutIfNeeded()
   }
   
   public func reload(with model: RxCellModelDatasoursable) {
@@ -65,6 +73,10 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     
     validationBorder.isHidden = !vm.validation.state.isVisibleValidationUI
     
+    if let s = self.storedModel as? FromItemCompositeProtocol {
+      self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
+    }
+    
     // Configurate Rx once!
     if !alreadyInitialized {
       self.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
@@ -74,17 +86,16 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   }
   
   private func configureRx() {
-    // Check validation all of text stream
-    let validationState = textField.rx.text.asDriver().skip(1)
-      .map({[weak self] text in
-        return self?.storedModel.validate(value: ALStringValue(value: text))
-      }).startWith(self.storedModel.validation.state)
+    self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
     
-    validationState.drive(onNext: {[weak self] result in
-      if let v = result {
-        self?.textField.validate(v)
-        self?.validationBorder.isHidden = v.isCompletelyValid
-      }
+    // Check validation all of text stream
+    textField.rx.text.asDriver().skip(1).drive(onNext: { [weak self] text in
+      self?.storedModel.update(value: ALStringValue(value: text))
+    }).disposed(by: bag)
+    
+    validationState.subscribe(onNext: { [weak self] result in
+      self?.textField.validate(result)
+      self?.validationBorder.isHidden = result.isCompletelyValid
     }).disposed(by: bag)
   }
 }

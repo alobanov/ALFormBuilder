@@ -157,7 +157,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let section = self.item.datasource[indexPath.section]
     if let cellModel = section.datasource[indexPath.row] as? RowFormTextComposite {
       if cellModel.identifier == "Mail row" {
-        cellModel.validate(value: ALStringValue(value: "lobanov.aw@gmail.com1"))
+        cellModel.update(value: ALStringValue(value: "lobanov.aw@gmail.com1"))
       }
     }
     

@@ -79,7 +79,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>()
     
     
-    rxDataSource.configureCell = { (dataSource, table, idxPath, _) in
+    rxDataSource.configureCell = { [weak self] (dataSource, table, idxPath, _) in
       var item: RxSectionItemModel
       
       do {
@@ -96,7 +96,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       }
       
       if var c = cell as? TableReloadable {
-        c.reload = { [weak self] _ in
+        c.reload = { _ in
           guard let sSelf = self else {
             return
           }
@@ -112,17 +112,16 @@ class RxViewController: UIViewController, UITableViewDelegate {
     }
     
     rxDataSource.animationConfiguration =
-      AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .none, deleteAnimation: .fade)
+      AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
     
     tableView.rx.setDelegate(self)
       .disposed(by: bag)
     
     tableView.rx.modelSelected(RxSectionItemModel.self).asObservable().subscribe(onNext: { model in
-      print(model.model.identifier)
       guard let item = model.model as? RowFormTextComposite else {
         return
       }
-      item.validateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
+      item.updateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in

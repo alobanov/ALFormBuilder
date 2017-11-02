@@ -21,6 +21,10 @@ extension String {
     return NumberFormatter().number(from: self)?.intValue
   }
   
+  var strToFloat: Float? {
+    return NumberFormatter().number(from: self)?.floatValue
+  }
+  
   func strToBool() -> Bool {
     switch self {
     case "1": return true

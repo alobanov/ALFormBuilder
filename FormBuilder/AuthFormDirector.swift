@@ -17,7 +17,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .nonNil,
                              validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal > @model.mail")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
@@ -28,7 +28,7 @@ class AuthFormDirector {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .regexp("^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"),
                              validateAtCreation: true, valueKeyPath: "mail", errorText: "Ошибка почты", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal > 34")
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal > 32")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Mail", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Почта", placeholderTopText: "Введите почту",
                                 detailsText: "Например example@gmail.com", isPassword: false,
@@ -95,7 +95,7 @@ class AuthFormDirector {
   }
   
   func descrInfo(builder: CustomRowItemBuilderProtocol) {
-    builder.define(title: "Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types.")
+    builder.define(title: "Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types. Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types.")
     builder.defineBase(cellType: ALFBCells.staticText, identifier: "Descr info", level: .item, dataType: .informationContent)
     builder.defineVisible(interpreter: interpreter, visible: "@model.mail != null", mandatory: "false", disable: "@model.agreements == true", valid: nil)
   }
@@ -168,7 +168,7 @@ class AuthFormDirector {
 //    authSection.add(decimalField.result())
 //
     root.add(authSection, buttonSection)
-    authSection.add(mail.result(), phone.result(), password.result(), decimalField.result(), agreement.result(), town.result(), phone2.result(), multiline.result())
+    authSection.add(mail.result(), decimalField.result(), agreement.result(), phone.result(), password.result(), town.result(), phone2.result(), multiline.result())
     buttonSection.add(login.result(), descr.result())
     
     return root

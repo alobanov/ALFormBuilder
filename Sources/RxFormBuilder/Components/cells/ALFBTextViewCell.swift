@@ -21,6 +21,9 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
   fileprivate var storedModel: RowFormTextCompositeOutput!
   fileprivate var alreadyInitialized = false
   
+  fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
+  fileprivate var didChangeValidation: DidChangeValidation!
+  
   let bag = DisposeBag()
    
   open override func awakeFromNib() {
@@ -35,6 +38,12 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     validateBtn.isHidden = true
     cleareBtn.isHidden = true
     clipsToBounds = true
+    
+    self.didChangeValidation = { [weak self] _ in
+      if let state = self?.storedModel.validation.state {
+        self?.validationState.onNext(state)
+      }
+    }
     
     self.layoutIfNeeded()
   }
@@ -89,14 +98,14 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     //
     // Configure buttons and components
     //
-//    if !vm.visible.isValid {
-//      vm.validation.change(state: .failed(message: "Условие по выражению не "))
-//    }
-    
     cleareBtn.isHidden = true
     validateBtn.isHidden = !vm.validation.state.isVisibleValidationUI
     if !validateBtn.isHidden {
       validateBtn.isHidden = !vm.visible.isMandatory
+    }
+    
+    if let s = self.storedModel as? FromItemCompositeProtocol {
+      self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     
     // Configurate next only one
@@ -136,19 +145,18 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
 
 extension ALFBTextViewCell {
   func configureRx() {
-  
+    self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
+    
     // Check validation all of text stream
-    let validationState =
-      textField.rx.text.asDriver().skip(1)
-        .filter({[weak self] text -> Bool in
-            return (text != self?.storedModel.value.transformForDisplay())
-        })
-        .map({[weak self] text in
-          return self?.storedModel.validate(value: ALStringValue(value: text))
-        }).startWith(self.storedModel.validation.state)
+    textField.rx.text.asDriver().skip(1)
+      .filter({ [weak self] text -> Bool in
+          return (text != self?.storedModel.value.transformForDisplay())
+      }).drive(onNext: { [weak self] text in
+        self?.storedModel.update(value: ALStringValue(value: text))
+      }).disposed(by: bag)
     
     // Show validation only on end editing
-    let endEditing = textField.rx.controlEvent(.editingDidEnd).asDriver()
+    let endEditing = textField.rx.controlEvent(.editingDidEnd).asObservable()
       .withLatestFrom(validationState)
     
     // Show cleare button on start editting textfield
@@ -158,26 +166,27 @@ extension ALFBTextViewCell {
       self?.cleareBtn.isHidden = false
     }).disposed(by: bag)
     
-    validationState.scan(ALFB.ValidationState.typing) { [weak self] (oldState, newState) -> ALFB.ValidationState? in
-      guard let new = newState, let old = oldState else { return .valid }
-      if old == new { return old }
-      self?.textField.validate(new)
-      return new
-    }.drive()
+    validationState.scan(ALFB.ValidationState.typing) { (oldState, newState) -> ALFB.ValidationState? in
+        guard let old = oldState else { return .valid }
+        if old == newState { return old }
+        return newState
+      }.subscribe(onNext: { [weak self] state in
+        self?.textField.validate(state ?? .valid)
+      })
      .disposed(by: bag)
     
     // validate value on end editing text field
-    endEditing.drive(onNext: {[weak self] valid in
-      guard let v = valid else { return }
+    endEditing.subscribe(onNext: {[weak self] valid in
+//      guard let v = valid else { return }
       
       self?.storedModel.base.changeisEditingNow(false)
-      self?.validateBtn.isHidden = v.isValidWithTyping
+      self?.validateBtn.isHidden = valid.isValidWithTyping
       let isMandatory = self?.storedModel.visible.isMandatory ?? false
       if !isMandatory {
         self?.validateBtn.isHidden = !isMandatory
       }
       self?.cleareBtn.isHidden = true
-      if !v.isValidWithTyping {
+      if !valid.isValidWithTyping {
 //        self?.highlightField()
       }
     }).disposed(by: bag)

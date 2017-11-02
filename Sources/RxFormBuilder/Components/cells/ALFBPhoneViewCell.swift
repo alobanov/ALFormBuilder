@@ -44,6 +44,9 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
   private var storedModel: RowFromPhoneCompositeOutput!
   private var alreadyInitialized = false
   
+  fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
+  fileprivate var didChangeValidation: DidChangeValidation!
+  
   open override func awakeFromNib() {
     super.awakeFromNib()
     // base configuration
@@ -59,6 +62,12 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     
     cityCodeField.tag = PhonePart.cityCode.rawValue
     phoneField.tag = PhonePart.phone.rawValue
+    
+    self.didChangeValidation = { [weak self] _ in
+      if let state = self?.storedModel.validation.state {
+        self?.validationState.onNext(state)
+      }
+    }
     
     self.layoutIfNeeded()
   }
@@ -108,6 +117,13 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     //
     cleareBtn.isHidden = true
     validateBtn.isHidden = !vm.validation.state.isVisibleValidationUI
+    if !validateBtn.isHidden {
+      validateBtn.isHidden = !vm.visible.isMandatory
+    }
+    
+    if let s = self.storedModel as? FromItemCompositeProtocol {
+      self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
+    }
     
     // Configurate next only one
     if !alreadyInitialized {
@@ -135,11 +151,11 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
             phonePartFrom(text: value, byType: .phone)]
   }
   
-  private func storePhonePart(text: String, byType: PhonePart) -> ALFB.ValidationState {
+  private func storePhonePart(text: String, byType: PhonePart) {
     var phoneArr = phoneParts()
     phoneArr[byType.rawValue] = text
     let value = phoneArr.joined(separator: " ")
-    return storedModel.validate(value: ALStringValue(value: value))
+    storedModel.update(value: ALStringValue(value: value))
   }
   
   // MARK: - UITextFieldDelegate
@@ -170,41 +186,47 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
   }
   
   func configureRx() {
+    self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
     
     // События начала ввода
     let startEditingCity = cityCodeField.rx.controlEvent(.editingDidBegin).asDriver()
     let startEditingPhone = phoneField.rx.controlEvent(.editingDidBegin).asDriver()
     
     // Сосотояние валидации полей при вводе
-    let validationCityCode = cityCodeField.rx.text.asDriver().skip(1)
+//    let validationCityCode =
+    cityCodeField.rx.text.asDriver().skip(1)
       .filter { [weak self] text -> Bool in
         let value = self?.storedModel.value.transformForDisplay() ?? ""
         return (text != self?.phonePartFrom(text: value, byType: .cityCode))
       }
-      .map({ [weak self] text in
+      .drive(onNext: { [weak self] text in
         return self?.storePhonePart(text: text ?? "", byType: .cityCode)
-      }).startWith(storedModel.validation.state)
+      }).disposed(by: bag)
+    //.startWith(storedModel.validation.state)
     
-    let validationPhone = phoneField.rx.text.asDriver().skip(1)
+    //let validationPhone =
+    phoneField.rx.text.asDriver().skip(1)
       .filter { [weak self] text -> Bool in
         let value = self?.storedModel.value.transformForDisplay() ?? ""
         return (text != self?.phonePartFrom(text: value,
                                             byType: .phone))
       }
-      .map({[weak self] text in
-        return self?.storePhonePart(text: text ?? "", byType: .phone)
-      }).startWith(storedModel.validation.state)
+      .drive(onNext: { [weak self] text in
+        self?.storePhonePart(text: text ?? "", byType: .phone)
+      }).disposed(by: bag)
+    //.startWith(storedModel.validation.state)
     
     // События конца ввода
-    let endEditingCity = cityCodeField.rx.controlEvent(.editingDidEnd).asDriver()
-      .withLatestFrom(validationCityCode)
+    let endEditingCity = cityCodeField.rx.controlEvent(.editingDidEnd).asObservable()
+      .withLatestFrom(validationState)
     
-    let endEditingPhone = phoneField.rx.controlEvent(.editingDidEnd).asDriver()
-      .withLatestFrom(validationPhone)
+    let endEditingPhone = phoneField.rx.controlEvent(.editingDidEnd).asObservable()
+      .withLatestFrom(validationState)
     
     // При активном фокусе полей показываем кнопку "отчистить"
     Driver.merge([startEditingCity, startEditingPhone])
       .do(onNext: { [weak self] _ in
+        self?.storedModel.base.changeisEditingNow(true)
         self?.cleareBtn.isHidden = false
         self?.validateBtn.isHidden = true
       })
@@ -212,27 +234,26 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
       .disposed(by: bag)
     
     // Проверяем последнее значение валидации и подсвечиваем верхний залоголов
-    Driver.merge([validationCityCode, validationPhone])
+    validationState
       .scan(ALFB.ValidationState.valid) { [weak self] (_, newState) -> ALFB.ValidationState? in
-        guard let new = newState else {
-          return .valid
-        }
-        
-        self?.topPlaceholderLabel.textColor = new.color
-        return new
-      }.drive()
+        self?.topPlaceholderLabel.textColor = newState.color
+        return newState
+      }.subscribe()
       .disposed(by: bag)
     
     // После потери фокуса показываем состояние валидации
-    Driver.merge([endEditingCity, endEditingPhone]).drive(onNext: { [weak self] valid in
-      guard let v = valid else { return }
-      
-      self?.validateBtn.isHidden = v.isValidWithTyping
+    Observable.merge([endEditingCity, endEditingPhone]).subscribe(onNext: { [weak self] valid in
+      self?.storedModel.base.changeisEditingNow(false)
+      self?.validateBtn.isHidden = valid.isValidWithTyping
       self?.cleareBtn.isHidden = true
+      let isMandatory = self?.storedModel.visible.isMandatory ?? false
+      if !isMandatory {
+        self?.validateBtn.isHidden = !isMandatory
+      }
       
-      if !v.isValidWithTyping {
-        if v.message != "" {
-          self?.showValidationWarning(text: v.message)
+      if !valid.isValidWithTyping {
+        if valid.message != "" {
+          self?.showValidationWarning(text: valid.message)
         }
       }
     }).disposed(by: bag)

@@ -13,6 +13,8 @@ public protocol RowFormBoolCompositeOutput: RowCompositeVisibleSetting, RowCompo
 }
 
 public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutput {
+  public var didChangeValidation: [String : DidChangeValidation?] = [:]
+  
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
@@ -53,10 +55,10 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
     self.base = base
     self.title = title
     
-    validate(value: value)
+    update(value: value)
   }
   
-  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func validate(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
     let start = PreparingMiddlewareValidation()
     

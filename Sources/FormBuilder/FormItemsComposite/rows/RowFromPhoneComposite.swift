@@ -14,6 +14,8 @@ public protocol RowFromPhoneCompositeOutput: RowCompositeVisibleSetting, RowComp
 }
 
 public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompositeOutput {
+  public var didChangeValidation: [String : DidChangeValidation?] = [:]
+  
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FromItemCompositeProtocol
   
@@ -55,10 +57,10 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
     self.visible = visible
     self.base = base
     
-    validate(value: value)
+    update(value: value)
   }
   
-  public func makeValidation(value: ALValueTransformable) -> ALFB.ValidationState {
+  public func validate(value: ALValueTransformable) -> ALFB.ValidationState {
     var result: ALFB.ValidationResult
     let start = PreparingMiddlewareValidation()
     
