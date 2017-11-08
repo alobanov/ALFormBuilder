@@ -13,7 +13,7 @@ class AuthFormDirector {
   let interpreter = ALInterpreterConditions()
   
   func decimalField(builder: StringRowItemBuilderProtocol) {
-    builder.define(value: ALIntValue(value: "34"))
+    builder.define(value: ALFloatValue(value: 34.34))
     builder.defineValidation(validationType: .nonNil,
                              validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
@@ -22,6 +22,18 @@ class AuthFormDirector {
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
                                 keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals)
+  }
+  
+  func intField(builder: StringRowItemBuilderProtocol) {
+    builder.define(value: ALIntValue(value: 34))
+    builder.defineValidation(validationType: .nonNil,
+                             validateAtCreation: true,
+                             valueKeyPath: "int", errorText: "Ошибка", maxLength: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
+    builder.defineBase(cellType: ALFBCells.textField, identifier: "int", level: .item, dataType: .integer)
+    builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
+                                detailsText: "Например 1", isPassword: false,
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyNumbers)
   }
   
   func mail(builder: StringRowItemBuilderProtocol) {
@@ -164,12 +176,15 @@ class AuthFormDirector {
     let multiline = StringRowItemBuilder()
     director.multiline(builder: multiline)
     
+    let int = StringRowItemBuilder()
+    director.intField(builder: int)
+    
 //    root.add(authSection)
 //    authSection.add(decimalField.result())
 //
     root.add(authSection, buttonSection)
     authSection.add(mail.result(), decimalField.result(), agreement.result(), phone.result(), password.result(), town.result(), phone2.result(), multiline.result())
-    buttonSection.add(login.result(), descr.result())
+    buttonSection.add(login.result(), descr.result(), int.result())
     
     return root
   }

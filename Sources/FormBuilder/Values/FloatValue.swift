@@ -1,25 +1,41 @@
 //
-//  IntValue.swift
+//  FloatValue.swift
 //  FormBuilder
 //
-//  Created by Lobanov Aleksey on 01/11/2017.
+//  Created by Lobanov Aleksey on 08/11/2017.
 //  Copyright © 2017 Lobanov Aleksey. All rights reserved.
 //
 
 import Foundation
 
-public class ALIntValue: ALValueTransformable {
-  private var originalValue: Int?
+public class ALFloatValue: ALValueTransformable {
+  private var originalValue: Float?
   public var initialValue: String?
   public var wasModify: Bool = false
   
-  public init(value: Int?) {
+  private var dotsCount = 0
+  
+  public init(value: Float?) {
     self.originalValue = value
+    
+    if var val = value {
+      while val > 0.0 {
+        val /= 10.0
+        dotsCount += 1
+      }
+    }
+    
     self.initialValue = transformForDisplay()
   }
   
   public func change(originalValue: Any?) {
-    self.originalValue = (originalValue as? String)?.strToInt
+    if let str = originalValue as? String {
+      let comps = str.components(separatedBy: ".")
+      if comps.count > 1 {
+        dotsCount = comps[1].count
+      }
+    }
+    self.originalValue = Float(originalValue as? String ?? "0.0")
     
     if initialValue == nil, let newValue = transformForDisplay() {
       wasModify = !newValue.isEmpty
@@ -36,15 +52,18 @@ public class ALIntValue: ALValueTransformable {
     guard let value = self.originalValue else {
       return nil
     }
-    
     return String(value)
   }
   
   public func transformForJSON() -> JSONValueType {
-    guard let str = self.originalValue else {
+    guard let value = self.originalValue else {
       return NSNull()
     }
     
-    return str
+    let fmt = NumberFormatter()
+    fmt.locale = Locale(identifier: "en_US_POSIX")
+    fmt.maximumFractionDigits = 3
+    fmt.minimumFractionDigits = 0
+    return fmt.string(from: NSNumber(value: value)) ?? NSNull()
   }
 }

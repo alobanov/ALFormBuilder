@@ -11,6 +11,7 @@
 		E82B50A31FA7708400F910F5 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82B50A21FA7708400F910F5 /* TestTableViewCell.swift */; };
 		E82B50A61FA774A300F910F5 /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82B50A41FA774A200F910F5 /* RxViewController.swift */; };
 		E82B50A71FA774A300F910F5 /* AuthFormDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82B50A51FA774A200F910F5 /* AuthFormDirector.swift */; };
+		E85254F91FB341E0006328B8 /* FloatValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85254F81FB341DF006328B8 /* FloatValue.swift */; };
 		E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105781FA31173003FDF9B /* CellIdentifiable.swift */; };
 		E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105791FA31173003FDF9B /* UITableView+Additions.swift */; };
 		E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */; };
@@ -107,6 +108,7 @@
 		E82B50A21FA7708400F910F5 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		E82B50A41FA774A200F910F5 /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		E82B50A51FA774A200F910F5 /* AuthFormDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFormDirector.swift; sourceTree = "<group>"; };
+		E85254F81FB341DF006328B8 /* FloatValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatValue.swift; sourceTree = "<group>"; };
 		E8A105781FA31173003FDF9B /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		E8A105791FA31173003FDF9B /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		E8D3C6D31FA070A70074FB28 /* FormBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,6 +408,7 @@
 				E8FFFE121FA8670F00E7A820 /* ValueTransformable.swift */,
 				E8FFFE131FA8670F00E7A820 /* TupleValue.swift */,
 				E8E8FAA91FAA48A900716016 /* IntValue.swift */,
+				E85254F81FB341DF006328B8 /* FloatValue.swift */,
 			);
 			path = Values;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				E8FFFE5D1FA8671000E7A820 /* BoolRowItemBuilder.swift in Sources */,
 				E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */,
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
+				E85254F91FB341E0006328B8 /* FloatValue.swift in Sources */,
 				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
 				E8E8FAAA1FAA48A900716016 /* IntValue.swift in Sources */,
 				FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */,
