@@ -121,7 +121,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       guard let item = model.model as? RowFormTextComposite else {
         return
       }
-      item.updateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
+      item.updateAndReload(value: ALStringValue(value: "asdf"))//ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in

@@ -74,8 +74,8 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     }
     
     for row in rows {
-      row.didChangeData = { [weak self] f in
-        self?.updateChanged(item: f)
+      row.didChangeData = { [weak self] model, isSilent in
+        self?.updateChanged(item: model, isSilent: isSilent)
       }
     }
   }
@@ -152,9 +152,11 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   }
   
   // Обновить значение в JOSN передав просто композит модели ячейки
-  private func updateChanged(item: FromItemCompositeProtocol) {
+  private func updateChanged(item: FromItemCompositeProtocol, isSilent: Bool) {
     jsonBuilder.updateValue(item: item)
-    didChangeFormModel?(item)
+    if !isSilent {
+      didChangeFormModel?(item)
+    }
     rebuildFields(item1: item)
   }
   

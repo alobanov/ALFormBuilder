@@ -33,7 +33,10 @@ extension RowCompositeVisibleSetting {
 /// Протокол отвечающий за возможность валидации
 public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
   var validation: ALFB.Validation {set get}
+  
+  func update(value: ALValueTransformable, silent: Bool)
   func update(value: ALValueTransformable)
+  
   func updateAndReload(value: ALValueTransformable)
   @discardableResult func validate(value: ALValueTransformable) -> ALFB.ValidationState
 }
@@ -41,18 +44,22 @@ public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
 extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol & RowCompositeVisibleSetting {
   public func updateAndReload(value: ALValueTransformable) {
     self.base.needReloadModel()
-    self.update(value: value)
+    self.update(value: value, silent: true)
   }
   
   public func update(value: ALValueTransformable) {
+    self.update(value: value, silent: false)
+  }
+  
+  public func update(value: ALValueTransformable, silent: Bool = false) {
     if self.value.transformForDisplay() != value.transformForDisplay() {
       self.value.change(originalValue: value.retriveOriginalValue())
-      didChangeData?(self)
+      didChangeData?(self, silent)
     }
   }
 }
 
-public typealias DidChange = (FromItemCompositeProtocol) -> Void
+public typealias DidChange = (FromItemCompositeProtocol, Bool) -> Void
 public typealias DidChangeValidation = () -> Void
 
 /// Протокол отвечающий за возможность хранить заначение типа ValueTransformable
