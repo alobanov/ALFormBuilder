@@ -2,8 +2,8 @@
 //  UITextField+TypeFilter.swift
 //  Pulse
 //
-//  Created by MOPC on 11.08.16.
-//  Copyright © 2016 MOPC Lab. All rights reserved.
+//  Created by Aleksey Lobanov on 11.08.16.
+//  Copyright © 2016 Aleksey Lobanov All rights reserved.
 //
 
 import UIKit
@@ -84,7 +84,6 @@ extension UITextField {
     let countOldChar = s.count
     
     if string.contains(",") {
-//    if string.contains(find: ",") {
       return false
     }
     

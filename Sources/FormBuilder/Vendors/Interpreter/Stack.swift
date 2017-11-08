@@ -9,7 +9,6 @@
 import Foundation
 
 public struct ALStack<T> {
-
   var items = [T]()
 
   mutating func push(_ item: T) {

@@ -3,7 +3,7 @@
 //  Puls
 //
 //  Created by NVV on 01/11/2017.
-//  Copyright © 2017 MOPC. All rights reserved.
+//  Copyright © 2017 Aleksey Lobanov. All rights reserved.
 //
 
 import Foundation

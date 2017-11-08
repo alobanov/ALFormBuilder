@@ -27,6 +27,8 @@ public class ALConditionTrue: ALExpression {
       return leftOperand.numberValue() == rightOperand.numberValue()
     case .string:
       return leftOperand.stringValue() == rightOperand.stringValue()
+    case .undefined:
+      return false
     }
   }
 }

@@ -2,8 +2,8 @@
 //  UITableView+Additions.swift
 //  Pulse
 //
-//  Created by MOPC on 10.10.16.
-//  Copyright © 2016 MOPC Lab. All rights reserved.
+//  Created by Aleksey Lobanov on 10.10.16.
+//  Copyright © 2016 Aleksey Lobanov All rights reserved.
 //
 
 import UIKit

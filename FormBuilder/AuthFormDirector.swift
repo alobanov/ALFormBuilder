@@ -103,7 +103,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.phoneField, identifier: "Phone2", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Телефон", placeholderTopText: "Введите телефон",
                                 detailsText: "Например 343 355 25 90", isPassword: false,
-                                keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
+                                keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .onlyNumbers)
   }
   
   func descrInfo(builder: CustomRowItemBuilderProtocol) {
@@ -139,11 +139,11 @@ class AuthFormDirector {
     // Sections
     let secBuilder1 = SectionItemBuilder()
     director.sectionFirst(builder: secBuilder1)
-    let authSection = secBuilder1.result()
+    let section1 = secBuilder1.result()
     
     let secBuilder2 = SectionItemBuilder()
     director.sectionSecond(builder: secBuilder2)
-    let buttonSection = secBuilder2.result()
+    let section2 = secBuilder2.result()
     
     // Fields
     let mail = StringRowItemBuilder()
@@ -179,12 +179,12 @@ class AuthFormDirector {
     let int = StringRowItemBuilder()
     director.intField(builder: int)
     
-//    root.add(authSection)
-//    authSection.add(decimalField.result())
-//
-    root.add(authSection, buttonSection)
-    authSection.add(mail.result(), decimalField.result(), agreement.result(), phone.result(), password.result(), town.result(), phone2.result(), multiline.result())
-    buttonSection.add(login.result(), descr.result(), int.result())
+    root.add(section1, section2)
+    section1.add(mail.result(), decimalField.result(), agreement.result(),
+                 int.result(), phone.result(), password.result(), town.result(),
+                 phone2.result(), multiline.result())
+    
+    section2.add(login.result(), descr.result())
     
     return root
   }

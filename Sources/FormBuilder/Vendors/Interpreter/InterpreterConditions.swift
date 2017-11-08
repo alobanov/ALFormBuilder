@@ -33,17 +33,13 @@ public class ALInterpreterConditions {
     let evaluator = ALEvaluator(expression: exp)
     return evaluator.interpret([String: ALExpression]())
   }
-}
-
-// Precalculation of bitwise & expressions
-extension ALInterpreterConditions {
+  
   public func precalculateBitwiseExp(exp: String) -> String {
     var updatedExp = exp
     let exps = exp.regex(pattern: "(\\w+\\s)[ & ]{1}(\\s\\w+)")
-
+    
     for exp in exps {
       let variable = exp.components(separatedBy: " ")
-
       if variable.count == 3, let lhs = Int(variable[0]), let rhs = Int(variable[2]) {
         let result = lhs & rhs
         updatedExp = updatedExp.replacingOccurrences(of: "(\(exp))", with: String(result))
@@ -51,7 +47,7 @@ extension ALInterpreterConditions {
         updatedExp = updatedExp.replacingOccurrences(of: "(\(exp))", with: "0")
       }
     }
-
+    
     return updatedExp
   }
 }

@@ -80,6 +80,7 @@ public extension ALFB {
     case radio = 11
     case picker = 12
   }
+  
   enum ValidationType {
     case none
     case nonNil

@@ -29,11 +29,11 @@ public class SectionFormComposite: FromItemCompositeProtocol, SectionFormComposi
   }
   
   public var datasource: [FromItemCompositeProtocol] {
-    return self.decoratedComposite.children.flatMap {$0.datasource}
+    return self.decoratedComposite.children.flatMap { $0.datasource }
   }
   
   public var leaves: [FromItemCompositeProtocol] {
-    return self.decoratedComposite.leaves.flatMap{ $0.leaves }
+    return self.decoratedComposite.leaves.flatMap { $0.leaves }
   }
   
   public var level: ALFB.FormModelLevel = .section

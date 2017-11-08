@@ -3,7 +3,7 @@
 //  Puls
 //
 //  Created by Andrey Kuznetsov on 06.09.17.
-//  Copyright © 2017 MOPC. All rights reserved.
+//  Copyright © 2017 Aleksey Lobanov. All rights reserved.
 //
 
 import UIKit

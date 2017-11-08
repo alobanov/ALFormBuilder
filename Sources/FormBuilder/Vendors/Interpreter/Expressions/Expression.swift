@@ -9,12 +9,13 @@
 import Foundation
 
 public enum ALContextType {
-  case bool, number, string
+  case bool, number, string, undefined
 }
 
 public protocol ALExpression {
   func numberValue() -> Int?
   func stringValue() -> String?
+  
   func interpret(_ variables: [String: ALExpression]) -> Bool
   func context() -> ALContextType
 }
@@ -31,6 +32,6 @@ public extension ALExpression {
 
   // default context
   func context() -> ALContextType {
-    return .bool
+    return .undefined
   }
 }

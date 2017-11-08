@@ -2,8 +2,8 @@
 //  FormTextViewCell.swift
 //  Plus
 //
-//  Created by MOPC on 15.03.17.
-//  Copyright © 2017 MOPC Lab. All rights reserved.
+//  Created by Aleksey Lobanov on 15.03.17.
+//  Copyright © 2017 Aleksey Lobanov All rights reserved.
 //
 
 import UIKit

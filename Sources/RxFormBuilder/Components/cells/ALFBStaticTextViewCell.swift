@@ -2,8 +2,8 @@
 //  ALFBStaticTextViewCell.swift
 //  Puls
 //
-//  Created by MOPC on 26/06/2017.
-//  Copyright © 2017 MOPC. All rights reserved.
+//  Created by Aleksey Lobanov on 26/06/2017.
+//  Copyright © 2017 Aleksey Lobanov. All rights reserved.
 //
 
 import UIKit

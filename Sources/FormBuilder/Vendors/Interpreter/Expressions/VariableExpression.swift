@@ -16,18 +16,20 @@ public class ALVariableExpression: ALExpression {
   }
 
   public func context() -> ALContextType {
-    if self.name.contains("`") {
+    if name.contains("`") {
       return .string
+    } else if self.numberValue() != nil {
+      return .number
+    } else {
+      return .bool
     }
-    
-    return self.numberValue() != nil ? .number : .bool
   }
 
   public func interpret(_ variables: [String : ALExpression]) -> Bool {
     if let expression = variables[name] {
       return expression.interpret(variables)
     } else {
-      switch self.name {
+      switch name {
       case "true":
         return true
       default:
@@ -37,15 +39,15 @@ public class ALVariableExpression: ALExpression {
   }
   
   public func stringValue() -> String? {
-    if self.name.contains("`") {
-      return self.name.replace(string: "`", replacement: "")
+    if name.contains("`") {
+      return name.replace(string: "`", replacement: "")
     } else {
-      return self.name
+      return name
     }
   }
 
   public func numberValue() -> Int? {
-    switch self.name {
+    switch name {
     case "true", "false":
       return nil
       

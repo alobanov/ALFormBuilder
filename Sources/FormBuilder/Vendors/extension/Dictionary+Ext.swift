@@ -2,8 +2,8 @@
 //  Dictionary+Ext.swift
 //  Pulse
 //
-//  Created by MOPC on 19.04.17.
-//  Copyright © 2017 MOPC Lab. All rights reserved.
+//  Created by Aleksey Lobanov on 19.04.17.
+//  Copyright © 2017 Aleksey Lobanov All rights reserved.
 //
 
 import Foundation

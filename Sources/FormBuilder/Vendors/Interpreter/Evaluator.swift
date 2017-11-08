@@ -48,12 +48,6 @@ public class ALEvaluator: ALExpression {
         expressionStack.push(ALConditionAND(leftOperand: expressionStack.pop(),
                                             rightOperand: nextExpression))
         index += 2
-
-      case "BitwiseAND":
-        let nextExpression = getNextExpression(items, index: index)
-        expressionStack.push(ALConditionBitwiseAND(leftOperand: expressionStack.pop(),
-                                                 rightOperand: nextExpression))
-        index += 2
         
       case ">":
         let nextExpression = getNextExpression(items, index: index)
@@ -78,15 +72,12 @@ public class ALEvaluator: ALExpression {
 
   fileprivate func getNextExpression(_ items: [String], index: Int) ->ALExpression {
     let next = items[index + 1]
-    var nextExpression:ALExpression
-    nextExpression = ALVariableExpression(name: next)
-
+    let nextExpression = ALVariableExpression(name: next)
     return nextExpression
   }
 
   fileprivate func parseoutAdditionsAndSubtractions(_ input: String) -> [String] {
     var result = [String]()
-
     let items = input.components(separatedBy: " ")
 
     var sentence = ""
@@ -111,8 +102,9 @@ public class ALEvaluator: ALExpression {
   public func interpret(_ variables: [String: ALExpression]) -> Bool {
 
     if (expression.contains("||") || expression.contains("&&")) &&
-      (expression.contains("==") || expression.contains("!=") || expression.contains("BitwiseAND") || expression.contains("<") || expression.contains(">")) {
-
+       (expression.contains("==") || expression.contains("!=")
+      || expression.contains("<") || expression.contains(">"))
+    {
       let expressions = parseoutAdditionsAndSubtractions(expression)
       var newExpression = ""
       var index = 0

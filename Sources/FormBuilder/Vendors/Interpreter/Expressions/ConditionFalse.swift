@@ -19,7 +19,6 @@ public class ALConditionFalse: ALExpression {
   }
 
   public func interpret(_ variables: [String : ALExpression]) -> Bool {
-    // Check on number type
     switch rightOperand.context() {
     case .bool:
       return leftOperand.interpret(variables) != rightOperand.interpret(variables)
@@ -27,6 +26,8 @@ public class ALConditionFalse: ALExpression {
       return leftOperand.numberValue() != rightOperand.numberValue()
     case .string:
       return leftOperand.stringValue() != rightOperand.stringValue()
+    case .undefined:
+      return false
     }
   }
 }

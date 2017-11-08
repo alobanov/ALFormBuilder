@@ -2,8 +2,8 @@
 //  FormJSONBuilder.swift
 //  Puls
 //
-//  Created by MOPC on 22/06/2017.
-//  Copyright © 2017 MOPC. All rights reserved.
+//  Created by Aleksey Lobanov on 22/06/2017.
+//  Copyright © 2017 Aleksey Lobanov. All rights reserved.
 //
 
 import Foundation
