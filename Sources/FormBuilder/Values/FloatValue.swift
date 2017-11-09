@@ -29,7 +29,8 @@ public class ALFloatValue: ALValueTransformable {
   }
   
   public func change(originalValue: Any?) {
-    self.originalValue = Float(originalValue as? String ?? "0")
+    self.originalValue = originalValue as? Float
+    
     if initialValue == nil, let newValue = transformForDisplay() {
       wasModify = !newValue.isEmpty
     } else {

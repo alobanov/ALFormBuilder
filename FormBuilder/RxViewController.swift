@@ -121,6 +121,15 @@ class RxViewController: UIViewController, UITableViewDelegate {
       guard let item = model.model as? RowFormTextComposite else {
         return
       }
+      
+//      if let m = self.fb.model(by: "int") as? RowFormTextCompositeOutput {
+//        m.updateAndReload(value: ALIntValue(value: 23))
+//      }
+//
+//      if let m = self.fb.model(by: "decimal") as? RowFormTextCompositeOutput {
+//        m.updateAndReload(value: ALFloatValue(value: 23.4))
+//      }
+      
       item.updateAndReload(value: ALStringValue(value: "asdf"))//ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)
     }).disposed(by: bag)
     
