@@ -13,11 +13,11 @@ class AuthFormDirector {
   let interpreter = ALInterpreterConditions()
   
   func decimalField(builder: StringRowItemBuilderProtocol) {
-    builder.define(value: ALFloatValue(value: 34.34))
+    builder.define(value: ALFloatValue(value: 34.5, maximumFractionDigits: 3))
     builder.defineValidation(validationType: .nonNil,
                              validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal > 50.0")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,

@@ -9,12 +9,13 @@
 import Foundation
 
 public enum ALContextType {
-  case bool, number, string, undefined
+  case bool, integer, float, string, undefined
 }
 
 public protocol ALExpression {
-  func numberValue() -> Int?
+  func integerValue() -> Int?
   func stringValue() -> String?
+  func floatValue() -> Float?
   
   func interpret(_ variables: [String: ALExpression]) -> Bool
   func context() -> ALContextType
@@ -22,7 +23,11 @@ public protocol ALExpression {
 
 public extension ALExpression {
   // default
-  func numberValue() -> Int? {
+  func integerValue() -> Int? {
+    return nil
+  }
+  
+  func floatValue() -> Float? {
     return nil
   }
   

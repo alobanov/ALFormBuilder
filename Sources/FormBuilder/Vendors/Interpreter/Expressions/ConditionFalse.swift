@@ -22,10 +22,11 @@ public class ALConditionFalse: ALExpression {
     switch rightOperand.context() {
     case .bool:
       return leftOperand.interpret(variables) != rightOperand.interpret(variables)
-    case .number:
-      return leftOperand.numberValue() != rightOperand.numberValue()
-    case .string:
-      return leftOperand.stringValue() != rightOperand.stringValue()
+    case .integer:
+      return leftOperand.integerValue() != rightOperand.integerValue()
+    case .string,
+         .float:
+      return leftOperand.stringValue() != rightOperand.stringValue()    
     case .undefined:
       return false
     }

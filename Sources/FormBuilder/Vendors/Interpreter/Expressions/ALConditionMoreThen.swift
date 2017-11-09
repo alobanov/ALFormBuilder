@@ -23,8 +23,8 @@ public class ALConditionMoreThen: ALExpression {
     switch rightOperand.context() {
     case .bool, .string, .undefined:
       return false
-    case .number:
-      return leftOperand.numberValue() ?? 0 > rightOperand.numberValue() ?? 0
+    case .integer, .float:
+      return leftOperand.floatValue() ?? 0.0 > rightOperand.floatValue() ?? 0
     }
   }
 }
