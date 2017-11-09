@@ -10,7 +10,7 @@ import Foundation
 
 /// Протокол отвечающий за возможность пределить правила видимости для элемента таблицы
 public protocol RowCompositeVisibleSetting: class {
-  var visible: ALFB.Visible {set get}
+  var visible: ALFB.Condition {set get}
   var base: ALFB.Base {set get}
   var cellType: FBUniversalCellProtocol {get}
   func checkStates(by source: [String: Any]) -> Bool

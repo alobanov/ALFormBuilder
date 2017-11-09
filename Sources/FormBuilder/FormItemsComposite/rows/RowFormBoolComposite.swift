@@ -19,7 +19,9 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  public var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel {
+    return self.decoratedComposite.level
+  }
   
   public var identifier: String {
     return self.decoratedComposite.identifier
@@ -38,14 +40,14 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
   }
   
   // MARK :- RowFormComposite properties
-  public var visible: ALFB.Visible
+  public var visible: ALFB.Condition
   public var base: ALFB.Base
   public var value: ALValueTransformable
   public var validation: ALFB.Validation
   public var didChangeData: DidChange?
   public var title: String
   
-  init(composite: FromItemCompositeProtocol, value: ALValueTransformable, visible: ALFB.Visible,
+  init(composite: FromItemCompositeProtocol, value: ALValueTransformable, visible: ALFB.Condition,
        base: ALFB.Base, validation: ALFB.Validation, title: String)
   {
     self.decoratedComposite = composite

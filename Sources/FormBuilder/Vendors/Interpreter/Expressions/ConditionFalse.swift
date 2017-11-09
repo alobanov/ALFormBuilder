@@ -24,8 +24,7 @@ public class ALConditionFalse: ALExpression {
       return leftOperand.interpret(variables) != rightOperand.interpret(variables)
     case .integer:
       return leftOperand.integerValue() != rightOperand.integerValue()
-    case .string,
-         .float:
+    case .string, .float:
       return leftOperand.stringValue() != rightOperand.stringValue()    
     case .undefined:
       return false

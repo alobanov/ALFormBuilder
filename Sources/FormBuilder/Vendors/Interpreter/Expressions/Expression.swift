@@ -22,7 +22,6 @@ public protocol ALExpression {
 }
 
 public extension ALExpression {
-  // default
   func integerValue() -> Int? {
     return nil
   }
@@ -35,7 +34,6 @@ public extension ALExpression {
     return nil
   }
 
-  // default context
   func context() -> ALContextType {
     return .undefined
   }

@@ -17,7 +17,9 @@ public class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOu
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  public var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel {
+    return self.decoratedComposite.level
+  }
   
   public var identifier: String {
     return self.decoratedComposite.identifier
@@ -36,13 +38,13 @@ public class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOu
   }
   
   // MARK :- RowFormComposite properties
-  public var visible: ALFB.Visible
+  public var visible: ALFB.Condition
   public var base: ALFB.Base
   
   // private properties
   public var data: Any
   
-  public init(composite: FromItemCompositeProtocol, visible: ALFB.Visible, base: ALFB.Base, data: Any)
+  public init(composite: FromItemCompositeProtocol, visible: ALFB.Condition, base: ALFB.Base, data: Any)
   {
     self.decoratedComposite = composite
     self.visible = visible

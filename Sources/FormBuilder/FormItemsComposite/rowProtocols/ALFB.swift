@@ -89,7 +89,7 @@ public struct ALFB {
     }
   }
   
-  public struct Visible {
+  public struct Condition {
     public static let fullValidation = "Full-Validation"
     public let interpreter: ALInterpreterConditions
     
@@ -113,7 +113,7 @@ public struct ALFB {
     }
     
     public mutating func checkDisableState(model: [String: Any]) -> Bool {
-      if disabledExp == Visible.fullValidation {
+      if disabledExp == Condition.fullValidation {
         return false
       }
       

@@ -72,7 +72,7 @@ class AuthFormDirector {
   
   func login(builder: ButtonRowItemBuilderProtocol) {
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true",
-                          disable: ALFB.Visible.fullValidation, valid: nil)
+                          disable: ALFB.Condition.fullValidation, valid: nil)
     builder.define(title: "Войти")
     builder.defineBase(cellType: ALFBCells.buttonField, identifier: "loginbtn", level: .item, dataType: .button)
   }

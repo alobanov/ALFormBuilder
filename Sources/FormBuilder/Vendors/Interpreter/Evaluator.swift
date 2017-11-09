@@ -84,7 +84,7 @@ public class ALEvaluator: ALExpression {
     var index = 0
     for item in items {
       if item == "&&" || item == "||" {
-        result.append(sentence.trimmingCharacters(in: CharacterSet.whitespaces))
+        result.append(sentence.trim())
         result.append(item)
         sentence = ""
       } else {

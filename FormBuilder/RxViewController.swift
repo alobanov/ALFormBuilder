@@ -112,7 +112,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     }
     
     rxDataSource.animationConfiguration =
-      AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
+      AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .none, deleteAnimation: .fade)
     
     tableView.rx.setDelegate(self)
       .disposed(by: bag)
@@ -130,7 +130,9 @@ class RxViewController: UIViewController, UITableViewDelegate {
 //        m.updateAndReload(value: ALFloatValue(value: 23.4))
 //      }
       
-      item.updateAndReload(value: ALStringValue(value: "asdf"))//ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)
+      if item.identifier == "Town" {
+        item.updateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
+      }
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in

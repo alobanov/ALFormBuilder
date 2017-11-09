@@ -23,7 +23,8 @@ extension UITextField {
   
   static let decimalSeparators = [",", "."]
   
-  func filtred(_ options: UITextFieldFilterOptions, string: String = "", range: NSRange = NSRange(), maxLeng: Int? = nil, maxFractionDigits: Int = 0) -> Bool {
+  func filtred(_ options: UITextFieldFilterOptions, string: String = "", range: NSRange = NSRange(),
+               maxLeng: Int? = nil, maxFractionDigits: Int = 0) -> Bool {
     
     if options.contains(.RemoveWhitespacesOption) {
       if !self.filtredWhitespace(string) {

@@ -14,12 +14,14 @@ public protocol SectionFormCompositeOutput {
 }
 
 public class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutput {
-  private let decoratedComposite: FromItemCompositeProtocol
-  
+  // MARK: - SectionFormCompositeOutput
   public var header: String?
   public var footer: String?
   
-  // MARK :- FromItemCompositeProtocol properties
+  // MARK: - Provate propery
+  private let decoratedComposite: FromItemCompositeProtocol
+  
+  // MARK: - FromItemCompositeProtocol properties
   public var identifier: String {
     return self.decoratedComposite.identifier
   }

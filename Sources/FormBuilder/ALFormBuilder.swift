@@ -202,7 +202,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
       return false
     }
     
-    for field in fullValidationItems where field.visible.disabledExp == ALFB.Visible.fullValidation {
+    for field in fullValidationItems where field.visible.disabledExp == ALFB.Condition.fullValidation {
       field.base.needReloadModel()
       field.visible.changeDisabled(state: !completelyValidation)
     }

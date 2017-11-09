@@ -20,7 +20,9 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties
-  var level: ALFB.FormModelLevel = .item
+  var level: ALFB.FormModelLevel {
+    return self.decoratedComposite.level
+  }
   
   var identifier: String {
     return self.decoratedComposite.identifier
@@ -44,11 +46,11 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
   var value: ALValueTransformable
   var validation: ALFB.Validation
   var visualisation: ALFB.Visualization
-  var visible: ALFB.Visible
+  var visible: ALFB.Condition
   var base: ALFB.Base
   
   init(composite: FromItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
-              visualisation: ALFB.Visualization, visible: ALFB.Visible, base: ALFB.Base)
+              visualisation: ALFB.Visualization, visible: ALFB.Condition, base: ALFB.Base)
   {
     self.decoratedComposite = composite
     self.value = value

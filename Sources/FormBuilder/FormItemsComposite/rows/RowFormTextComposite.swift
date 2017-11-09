@@ -20,7 +20,9 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
   private let decoratedComposite: FromItemCompositeProtocol
   
   // MARK :- FromItemCompositeProtocol properties  
-  public var level: ALFB.FormModelLevel = .item
+  public var level: ALFB.FormModelLevel {
+    return self.decoratedComposite.level
+  }
   
   public var identifier: String {
     return self.decoratedComposite.identifier
@@ -44,11 +46,11 @@ public class RowFormTextComposite: FromItemCompositeProtocol, RowFormTextComposi
   public var value: ALValueTransformable
   public var validation: ALFB.Validation
   public var visualisation: ALFB.Visualization
-  public var visible: ALFB.Visible
+  public var visible: ALFB.Condition
   public var base: ALFB.Base
   
   public init(composite: FromItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
-       visualisation: ALFB.Visualization, visible: ALFB.Visible, base: ALFB.Base)
+       visualisation: ALFB.Visualization, visible: ALFB.Condition, base: ALFB.Base)
   {
     self.decoratedComposite = composite
     self.value = value
