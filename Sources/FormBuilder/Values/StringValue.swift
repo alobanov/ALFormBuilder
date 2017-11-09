@@ -19,7 +19,7 @@ public class ALStringValue: ALValueTransformable {
   }
   
   public func change(originalValue: Any?) {
-    self.originalValue = originalValue
+    self.originalValue = originalValue as? String
     
     if initialValue == nil, let newValue = transformForDisplay() {
       wasModify = !newValue.isEmpty

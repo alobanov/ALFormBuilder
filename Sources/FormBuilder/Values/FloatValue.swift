@@ -29,13 +29,14 @@ public class ALFloatValue: ALValueTransformable {
   }
   
   public func change(originalValue: Any?) {
-    if let str = originalValue as? String {
-      let comps = str.components(separatedBy: ".")
-      if comps.count > 1 {
-        dotsCount = comps[1].count
-      }
-    }
-    self.originalValue = Float(originalValue as? String ?? "0.0")
+//    if let str = originalValue as? String {
+//      let comps = str.components(separatedBy: ".")
+//      if comps.count > 1 {
+//        dotsCount = comps[1].count
+//      }
+//    }
+//    self.originalValue = Float(originalValue as? String ?? "0.0")
+    self.originalValue = originalValue as? Float
     
     if initialValue == nil, let newValue = transformForDisplay() {
       wasModify = !newValue.isEmpty

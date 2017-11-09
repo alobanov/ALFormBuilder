@@ -144,6 +144,21 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
 }
 
 extension ALFBTextViewCell {
+  
+  func change(value: String?) {
+    var newValue: ALValueTransformable
+    switch self.storedModel.base.dataType {
+    case .decimal:
+      newValue = ALFloatValue(value: Float(value ?? ""))
+    case .integer:
+      newValue = ALIntValue(value: Int(value ?? ""))
+    default:
+      newValue = ALStringValue(value: value)
+    }
+    
+    self.storedModel.update(value: newValue)
+  }
+  
   func configureRx() {
     self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
     
@@ -152,7 +167,7 @@ extension ALFBTextViewCell {
       .filter({ [weak self] text -> Bool in
           return (text != self?.storedModel.value.transformForDisplay())
       }).drive(onNext: { [weak self] text in
-        self?.storedModel.update(value: ALStringValue(value: text))
+        self?.change(value: text)
       }).disposed(by: bag)
     
     // Show validation only on end editing
