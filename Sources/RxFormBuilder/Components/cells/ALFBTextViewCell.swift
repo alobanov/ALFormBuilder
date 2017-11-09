@@ -124,7 +124,8 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     return textField.filtred(self.storedModel.visualisation.keyboardOptions.options,
                              string: string,
                              range: range,
-                             maxLeng: self.storedModel.validation.maxLength)
+                             maxLeng: self.storedModel.validation.maxLength,
+                             maxFractionDigits: self.storedModel.visualisation.keyboardOptions.maxFractionDigits)
   }
   
   // MARK: - Additional helpers

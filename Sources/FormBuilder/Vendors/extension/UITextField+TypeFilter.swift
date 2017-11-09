@@ -20,7 +20,10 @@ struct UITextFieldFilterOptions : OptionSet {
 }
 
 extension UITextField {
-  func filtred(_ options: UITextFieldFilterOptions, string: String = "", range: NSRange = NSRange(), maxLeng: Int? = nil) -> Bool {
+  
+  static let decimalSeparators = [",", "."]
+  
+  func filtred(_ options: UITextFieldFilterOptions, string: String = "", range: NSRange = NSRange(), maxLeng: Int? = nil, maxFractionDigits: Int = 0) -> Bool {
     
     if options.contains(.RemoveWhitespacesOption) {
       if !self.filtredWhitespace(string) {
@@ -41,7 +44,12 @@ extension UITextField {
     }
     
     if options.contains(.OnlyDecimalOption) {
-      if !self.filterdOnlyDecimal(string) {
+      if !self.filterdOnlyDecimal(range: range, string: string) {
+        return false
+      }
+      if maxFractionDigits > 0,
+        !self.filtredFractionDigits(maxFractionDigits, range: range, string: string)
+      {
         return false
       }
     }
@@ -73,25 +81,54 @@ extension UITextField {
     return newLength <= limitLength // Bool
   }
   
+  private func filtredFractionDigits(_ limit: Int, range: NSRange, string: String) -> Bool {
+    let text = self.text ?? ""
+    let oldStyleText: NSString = text as NSString
+    var updatedText = oldStyleText.replacingCharacters(in: range, with: string)
+    var componets: [String] = []
+    for separator in UITextField.decimalSeparators {
+      componets = updatedText.components(separatedBy: separator)
+      if componets.count > 1 {
+        break
+      }
+    }
+    let hasFraction = componets.count > 1
+    let fractionIsInLimit = hasFraction && componets[1].count <= limit
+    if fractionIsInLimit {
+      return true
+    } else if hasFraction {
+      if let selectedRange = self.selectedTextRange {
+        var indexToRemove = updatedText.index(updatedText.endIndex, offsetBy: -1)
+        if range.location + 1 < updatedText.count {
+          indexToRemove = updatedText.index(updatedText.startIndex, offsetBy: range.location+1)
+        }
+        updatedText.remove(at: indexToRemove)
+        self.text = updatedText
+        if let newPosition = self.position(from: selectedRange.start, offset: 1) {
+          self.selectedTextRange = self.textRange(from: newPosition, to: newPosition)
+        }
+      }
+      return false
+    }
+    return true
+  }
+  
   private func filtredOnlyNumbers(_ string: String) -> Bool {
     let allowedCharacters = CharacterSet.decimalDigits
     let characterSet = CharacterSet(charactersIn: string)
     return allowedCharacters.isSuperset(of: characterSet)
   }
   
-  private func filterdOnlyDecimal(_ string: String) -> Bool {
-    let s = self.text!
-    let countOldChar = s.count
+  private func filterdOnlyDecimal(range: NSRange, string: String) -> Bool {
+    let oldText = self.text ?? ""
     
-    if string.contains(",") {
-      return false
+    for separator in UITextField.decimalSeparators {
+      if string == separator && oldText.count == 0 {
+        return false
+      }
     }
     
-    if (string == "." && countOldChar == 0) {
-      return false
-    }
-    
-    if (s == "0" && (string != "." && string != "")) {
+    if (oldText == "0" && !UITextField.decimalSeparators.contains(string) && string != "") {
       return false
     }
     
@@ -102,20 +139,43 @@ extension UITextField {
     if boolIsNumber == true {
       return true
     } else {
-      if string == "." {
-        let countdots = s.components(separatedBy: ".").count-1
-        if countdots == 0 {
-          return true
-        } else {
-          if countdots > 0 && string == "." {
-            return false
-          } else {
-            return true
+      var oldTextContainsNoSeparators = true
+      for separator in UITextField.decimalSeparators {
+        if oldText.contains(separator) {
+          oldTextContainsNoSeparators = false
+          break
+        }
+      }
+      if oldTextContainsNoSeparators {
+        var stringContainsSingleSeparator = true
+        var stringSeparator: String?
+        for separator in UITextField.decimalSeparators {
+          if string.contains(separator) {
+            if stringSeparator != nil {
+              stringContainsSingleSeparator = false
+            }
+            stringSeparator = separator
           }
         }
+        return stringSeparator != nil && stringContainsSingleSeparator ? true : false
       } else {
         return false
       }
+      //---------
+//      if string == "." {
+//        let countdots = oldText.components(separatedBy: ".").count-1
+//        if countdots == 0 {
+//          return true
+//        } else {
+//          if countdots > 0 && string == "." {
+//            return false
+//          } else {
+//            return true
+//          }
+//        }
+//      } else {
+//        return false
+//      }
     }
   }
   

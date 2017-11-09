@@ -13,30 +13,23 @@ public class ALFloatValue: ALValueTransformable {
   public var initialValue: String?
   public var wasModify: Bool = false
   
-  private var dotsCount = 0
+  private let formatter: NumberFormatter = {
+    let fmt = NumberFormatter()
+    fmt.locale = Locale(identifier: "en_US_POSIX")
+    fmt.numberStyle = NumberFormatter.Style.decimal
+    fmt.roundingMode = NumberFormatter.RoundingMode.halfUp
+    fmt.minimumFractionDigits = 0
+    return fmt
+  }()
   
-  public init(value: Float?) {
+  public init(value: Float?, maximumFractionDigits: Int = Int.max) {
     self.originalValue = value
-    
-    if var val = value {
-      while val > 0.0 {
-        val /= 10.0
-        dotsCount += 1
-      }
-    }
-    
+    self.formatter.maximumFractionDigits = maximumFractionDigits
     self.initialValue = transformForDisplay()
   }
   
   public func change(originalValue: Any?) {
-    if let str = originalValue as? String {
-      let comps = str.components(separatedBy: ".")
-      if comps.count > 1 {
-        dotsCount = comps[1].count
-      }
-    }
-    self.originalValue = Float(originalValue as? String ?? "0.0")
-    
+    self.originalValue = Float(originalValue as? String ?? "0")
     if initialValue == nil, let newValue = transformForDisplay() {
       wasModify = !newValue.isEmpty
     } else {
@@ -59,11 +52,6 @@ public class ALFloatValue: ALValueTransformable {
     guard let value = self.originalValue else {
       return NSNull()
     }
-    
-    let fmt = NumberFormatter()
-    fmt.locale = Locale(identifier: "en_US_POSIX")
-    fmt.maximumFractionDigits = 3
-    fmt.minimumFractionDigits = 0
-    return fmt.string(from: NSNumber(value: value)) ?? NSNull()
+    return formatter.string(from: NSNumber(value: value)) ?? NSNull()
   }
 }

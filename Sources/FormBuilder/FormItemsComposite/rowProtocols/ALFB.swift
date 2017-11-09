@@ -154,19 +154,28 @@ public struct ALFB {
     }
   }
   
-  public enum TextConstraintType: Int {
-    case none = 0,
-    removeWhitespaces = 1,
-    onlyNumbers = 2,
-    onlyDecimals = 3,
-    phoneNumber = 4,
-    cellularPhoneNumber = 5
+  public enum TextConstraintType {
+    case none,
+    removeWhitespaces,
+    onlyNumbers,
+    onlyDecimals(maxFractionDigits: Int),
+    phoneNumber,
+    cellularPhoneNumber
+    
+    var maxFractionDigits: Int {
+      switch self {
+      case .onlyDecimals(let maxFractionDigits):
+        return maxFractionDigits
+      default:
+        return 0
+      }
+    }
     
     var options: UITextFieldFilterOptions {
       switch self {
       case .none:
         return [.None]
-      case .onlyDecimals:
+      case .onlyDecimals(_):
         return [.OnlyDecimalOption, .RemoveWhitespacesOption]
       case .onlyNumbers:
         return [.OnlyNumbersOption, .RemoveWhitespacesOption]
