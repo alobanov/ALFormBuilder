@@ -150,7 +150,8 @@ extension ALFBTextViewCell {
     var newValue: ALValueTransformable
     switch self.storedModel.base.dataType {
     case .decimal:
-      newValue = ALFloatValue(value: Float(value ?? ""))
+      let value = (value ?? "").replace(string: ",", replacement: ".")
+      newValue = ALFloatValue(value: Float(value))
     case .integer:
       newValue = ALIntValue(value: Int(value ?? ""))
     default:

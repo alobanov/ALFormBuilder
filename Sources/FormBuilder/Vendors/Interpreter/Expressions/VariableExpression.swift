@@ -18,8 +18,10 @@ public class ALVariableExpression: ALExpression {
   public func context() -> ALContextType {
     if name.contains("`") {
       return .string
-    } else if self.numberValue() != nil {
-      return .number
+    } else if name.contains(".") {
+      return .float
+    } else if self.integerValue() != nil {
+      return .integer
     } else {
       return .bool
     }
@@ -46,7 +48,7 @@ public class ALVariableExpression: ALExpression {
     }
   }
 
-  public func numberValue() -> Int? {
+  public func integerValue() -> Int? {
     switch name {
     case "true", "false":
       return nil
@@ -65,5 +67,9 @@ public class ALVariableExpression: ALExpression {
         }
       }
     }
+  }
+  
+  public func floatValue() -> Float? {
+    return name.strToFloat
   }
 }

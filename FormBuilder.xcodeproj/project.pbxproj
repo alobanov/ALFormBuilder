@@ -332,10 +332,10 @@
 			isa = PBXGroup;
 			children = (
 				E8FFFDF71FA8670F00E7A820 /* Expression.swift */,
-				E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */,
 				E8FFFDF91FA8670F00E7A820 /* ConditionOR.swift */,
 				E8FFFDFA1FA8670F00E7A820 /* ConditionAND.swift */,
 				E8FFFDFB1FA8670F00E7A820 /* VariableExpression.swift */,
+				E8FFFDF81FA8670F00E7A820 /* ConditionFalse.swift */,
 				E8FFFDFC1FA8670F00E7A820 /* ConditionTrue.swift */,
 				E8E8FAA51FAA047E00716016 /* ALConditionMoreThen.swift */,
 				E8E8FAA71FAA049200716016 /* ALConditionLessThen.swift */,

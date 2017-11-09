@@ -19,6 +19,7 @@ public class ALFloatValue: ALValueTransformable {
     fmt.numberStyle = NumberFormatter.Style.decimal
     fmt.roundingMode = NumberFormatter.RoundingMode.halfUp
     fmt.minimumFractionDigits = 0
+    fmt.decimalSeparator = "."
     return fmt
   }()
   
