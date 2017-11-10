@@ -13,15 +13,27 @@ class AuthFormDirector {
   let interpreter = ALInterpreterConditions()
   
   func decimalField(builder: StringRowItemBuilderProtocol) {
-    builder.define(value: ALFloatValue(value: 34.5, maximumFractionDigits: 3))
-    builder.defineValidation(validationType: .nonNil,
-                             validateAtCreation: true,
+    builder.define(value: ALFloatValue(value: 34.5, maximumFractionDigits: 2))
+    builder.defineValidation(validationType: .none,
+                             validateAtCreation: false,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal > 50.0")
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: "@model.decimal2 == <null> || @model.decimal < @model.decimal2")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
-                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 3))
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 2))
+  }
+  
+  func decimalField2(builder: StringRowItemBuilderProtocol) {
+    builder.define(value: ALFloatValue(value: 34.5, maximumFractionDigits: 2))
+    builder.defineValidation(validationType: .none,
+                             validateAtCreation: false,
+                             valueKeyPath: "decimal2", errorText: "Ошибка", maxLength: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: "@model.decimal == <null> || @model.decimal > @model.decimal2")
+    builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal2", level: .item, dataType: .decimal)
+    builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
+                                detailsText: "Например 1.0", isPassword: false,
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 2))
   }
   
   func intField(builder: StringRowItemBuilderProtocol) {
@@ -155,6 +167,9 @@ class AuthFormDirector {
     let decimalField = StringRowItemBuilder()
     director.decimalField(builder: decimalField)
 
+    let decimalField2 = StringRowItemBuilder()
+    director.decimalField2(builder: decimalField2)
+    
     let phone = StringRowItemBuilder()
     director.phone(builder: phone)
 
@@ -180,9 +195,16 @@ class AuthFormDirector {
     director.intField(builder: int)
     
     root.add(section1, section2)
-    section1.add(mail.result(), decimalField.result(), agreement.result(),
-                 int.result(), phone.result(), password.result(), town.result(),
-                 phone2.result(), multiline.result())
+    section1.add(mail.result(),
+                 decimalField.result(),
+                 decimalField2.result(),
+                 agreement.result(),
+                 int.result(),
+                 phone.result(),
+                 password.result(),
+                 town.result(),
+                 phone2.result(),
+                 multiline.result())
     
     section2.add(login.result(), descr.result())
     
