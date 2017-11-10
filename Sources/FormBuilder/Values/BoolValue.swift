@@ -9,7 +9,7 @@
 import UIKit
 
 public class ALBoolValue: ALValueTransformable {
-  private var originalValue: Any?
+  private var originalValue: Bool?
   public var initialValue: String?
   public var wasModify: Bool = false
   
@@ -19,7 +19,7 @@ public class ALBoolValue: ALValueTransformable {
   }
   
   public func transformForDisplay() -> DisplayValueType? {
-    guard let bool = self.originalValue as? Bool else {
+    guard let bool = self.originalValue else {
       return nil
     }
     
@@ -27,7 +27,7 @@ public class ALBoolValue: ALValueTransformable {
   }
   
   public func change(originalValue: Any?) {
-    self.originalValue = originalValue
+    self.originalValue = originalValue as? Bool
     wasModify = (initialValue != transformForDisplay())
   }
   
@@ -36,7 +36,7 @@ public class ALBoolValue: ALValueTransformable {
   }
   
   public func transformForJSON() -> JSONValueType {
-    guard let bool = self.originalValue as? Bool else {
+    guard let bool = self.originalValue else {
       return NSNull()
     }
     

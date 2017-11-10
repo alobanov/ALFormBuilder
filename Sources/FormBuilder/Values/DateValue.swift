@@ -10,7 +10,7 @@ import Foundation
 
 public class ALDateValue: ALValueTransformable {
   
-  private var originalValue: Any?
+  private var originalValue: Date?
   public var initialValue: String?
   public var wasModify: Bool = false
   
@@ -38,7 +38,7 @@ public class ALDateValue: ALValueTransformable {
   }
   
   public func change(originalValue: Any?) {
-    self.originalValue = originalValue
+    self.originalValue = originalValue as? Date
     
     if initialValue == nil, let newValue = transformForDisplay() {
       wasModify = !newValue.isEmpty
@@ -52,14 +52,14 @@ public class ALDateValue: ALValueTransformable {
   }
   
   public func transformForDisplay() -> DisplayValueType? {
-    guard let date = self.originalValue as? Date else {
+    guard let date = self.originalValue else {
       return nil
     }
     return formatterForDisplay.string(from: date)
   }
   
   public func transformForJSON() -> JSONValueType {
-    guard let date = self.originalValue as? Date else {
+    guard let date = self.originalValue else {
       return NSNull()
     }
     return formatterForJson.string(from: date)

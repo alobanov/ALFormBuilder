@@ -21,5 +21,3 @@ public protocol ALValueTransformable {
   func change(originalValue: Any?)
   func retriveOriginalValue() -> Any?
 }
-
-

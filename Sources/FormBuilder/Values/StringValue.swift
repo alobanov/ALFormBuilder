@@ -9,7 +9,7 @@
 import Foundation
 
 public class ALStringValue: ALValueTransformable {
-  private var originalValue: Any?
+  private var originalValue: String?
   public var initialValue: String?
   public var wasModify: Bool = false
   
@@ -33,7 +33,7 @@ public class ALStringValue: ALValueTransformable {
   }
   
   public func transformForDisplay() -> DisplayValueType? {
-    guard let str = self.originalValue as? String else {
+    guard let str = self.originalValue else {
       return nil
     }
     
@@ -41,7 +41,7 @@ public class ALStringValue: ALValueTransformable {
   }
   
   public func transformForJSON() -> JSONValueType {
-    guard let str = self.originalValue as? String else {
+    guard let str = self.originalValue else {
       return NSNull()
     }
     
