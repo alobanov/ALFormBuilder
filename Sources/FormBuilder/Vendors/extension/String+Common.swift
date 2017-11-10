@@ -5,6 +5,12 @@ extension String {
 //    return self.range(of: find) != nil
 //  }
   
+  static let numberFormatter: NumberFormatter = {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.decimalSeparator = "."
+    return numberFormatter
+  }()
+  
   func replace(string:String, replacement:String) -> String {
     return self.replacingOccurrences(of: string, with: replacement, options: String.CompareOptions.literal, range: nil)
   }
@@ -18,11 +24,11 @@ extension String {
   }
   
   var strToInt: Int? {
-    return NumberFormatter().number(from: self)?.intValue
+    return String.numberFormatter.number(from: self)?.intValue
   }
   
   var strToFloat: Float? {
-    return NumberFormatter().number(from: self)?.floatValue
+    return String.numberFormatter.number(from: self)?.floatValue
   }
   
   func strToBool() -> Bool {
