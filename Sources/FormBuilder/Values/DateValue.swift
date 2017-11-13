@@ -14,17 +14,17 @@ public class ALDateValue: ALValueTransformable {
   public var initialValue: String?
   public var wasModify: Bool = false
   
-  private var formatterForDisplay: DateFormatter {
+  private var formatterForDisplay: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "E, d MMM, HH:mm"
     return formatter
-  }
+  }()
   
-  private var formatterForJson: DateFormatter {
+  private var formatterForJson: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     return formatter
-  }
+  }()
   
   public init(value: Date?, displayFormat: String? = nil, jsonFormat: String? = nil) {
     if let displayFormat = displayFormat {

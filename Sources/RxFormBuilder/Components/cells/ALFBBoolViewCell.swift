@@ -33,6 +33,8 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
     titleText?.text = formModel.title
     switchComponent.isOn = (formModel.value.retriveOriginalValue() as? Bool) ?? false
     
+    switchComponent.isEnabled = !formModel.visible.isDisabled
+    
     if !alreadyInitialized {
       storedModel = formModel
       alreadyInitialized = true

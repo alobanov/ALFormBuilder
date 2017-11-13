@@ -39,6 +39,7 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       return
     }
     textView.text = vm.value.transformForDisplay() ?? ""
+    textView.isEditable = !vm.visible.isDisabled
     titleLabel.text = vm.visualisation.placeholderTopText
   }
   
