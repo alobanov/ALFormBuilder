@@ -10,7 +10,7 @@ import Foundation
 import UIKit.UITableViewCell
 
 public enum ALFBCells: Int, FBUniversalCellProtocol {
-  case textField = 0, multilineTextField, buttonField, boolField, pickerField, phoneField, staticText
+  case textField = 0, multilineTextField, buttonField, boolField, pickerField, phoneField, staticText, htmlText
   
   public var type: UITableViewCell.Type {
     switch self {
@@ -28,6 +28,8 @@ public enum ALFBCells: Int, FBUniversalCellProtocol {
       return ALFBPhoneViewCell.self
     case .staticText:
       return ALFBStaticTextViewCell.self
+    case .htmlText:
+      return ALFBHtmlTextViewCell.self
     }
   }
 }

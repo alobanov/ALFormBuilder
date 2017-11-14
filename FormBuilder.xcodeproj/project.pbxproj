@@ -89,6 +89,8 @@
 		FB4028C71FA889C1000865AD /* ALFBPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB4028B81FA889C1000865AD /* ALFBPickerViewCell.xib */; };
 		FB4028C81FA889C1000865AD /* ALFBTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB4028B91FA889C1000865AD /* ALFBTextViewCell.xib */; };
 		FB4028C91FA889C1000865AD /* ALFBTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */; };
+		FB6FD5E81FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */; };
+		FB6FD5EE1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,9 @@
 		FB4028B81FA889C1000865AD /* ALFBPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBPickerViewCell.xib; sourceTree = "<group>"; };
 		FB4028B91FA889C1000865AD /* ALFBTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBTextViewCell.xib; sourceTree = "<group>"; };
 		FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBTextViewCell.swift; sourceTree = "<group>"; };
+		FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALFBHtmlTextViewCell.swift; sourceTree = "<group>"; };
+		FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBHtmlTextViewCell.xib; sourceTree = "<group>"; };
+		FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +228,7 @@
 		CF26A54751E239131186AE36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */,
 				06D9F48D95B089817870450D /* Pods_FormBuilder.framework */,
 			);
 			name = Frameworks;
@@ -517,6 +523,8 @@
 				FB4028B01FA889C0000865AD /* ALFBTextMultilineViewCell.xib */,
 				FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */,
 				FB4028B91FA889C1000865AD /* ALFBTextViewCell.xib */,
+				FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */,
+				FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -612,6 +620,7 @@
 				FB4028C71FA889C1000865AD /* ALFBPickerViewCell.xib in Resources */,
 				FB4028C61FA889C1000865AD /* ALFBBoolViewCell.xib in Resources */,
 				FB4028BF1FA889C1000865AD /* ALFBTextMultilineViewCell.xib in Resources */,
+				FB6FD5EE1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib in Resources */,
 				E8D3C6E11FA070A70074FB28 /* LaunchScreen.storyboard in Resources */,
 				E8D3C6DE1FA070A70074FB28 /* Assets.xcassets in Resources */,
 				FB4028C81FA889C1000865AD /* ALFBTextViewCell.xib in Resources */,
@@ -757,6 +766,7 @@
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
 				E85254F91FB341E0006328B8 /* FloatValue.swift in Sources */,
 				E8FFFE451FA8671000E7A820 /* ConditionOR.swift in Sources */,
+				FB6FD5E81FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift in Sources */,
 				E8E8FAAA1FAA48A900716016 /* IntValue.swift in Sources */,
 				FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */,
 				E8E8FAA61FAA047E00716016 /* ALConditionMoreThen.swift in Sources */,

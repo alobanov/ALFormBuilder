@@ -152,7 +152,9 @@ class RxViewController: UIViewController, UITableViewDelegate {
     tableView.setupEstimatedRowHeight()
     tableView.registerCells(by: [ALFBTextViewCell.cellIdentifier, ALFBButtonViewCell.cellIdentifier,
                                  ALFBBoolViewCell.cellIdentifier, ALFBPickerViewCell.cellIdentifier,
-                                 ALFBStaticTextViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier], bundle: Bundle.alfb_frameworkBundle())
+                                 ALFBStaticTextViewCell.cellIdentifier, ALFBPhoneViewCell.cellIdentifier,
+                                 ALFBHtmlTextViewCell.cellIdentifier],
+                            bundle: Bundle.alfb_frameworkBundle())
     tableView.registerCells(by: [ALFBTextMultilineViewCell.cellIdentifier])
   }
   

@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol TableReloadable {
+public protocol TableReloadable {
   var reload: (() -> Void)? {set get}
 }
 
 open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDelegate, TableReloadable {
   
-  var reload: (() -> Void)?
+  public var reload: (() -> Void)?
   
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var titleLabel: UILabel!

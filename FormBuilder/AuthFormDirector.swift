@@ -129,9 +129,21 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .none,
                              validateAtCreation: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: nil)
-    builder.defineBase(cellType: TestCells.multilineCell, identifier: "Multiline", level: .item, dataType: .string)
+    builder.defineBase(cellType: ALFBCells.multilineTextField, identifier: "Multiline", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",
                                 detailsText: "Например example@gmail.com", isPassword: false,
+                                keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none)
+  }
+  
+  func html(builder: StringRowItemBuilderProtocol) {
+    let html = "<p>\\n\\t\\u043e\\u0432\\u0430\\u0437\\u043e\\u0432fglbjnfglbjnflgbknflgkbnflkgbnldgkbndlkbndlfkbndlfkbndflbkndlfbkndlkbndlfkbndlkbndlfbkndlfkbndflkb</p>\\n"
+    builder.define(value: ALStringValue(value:html))
+    builder.defineValidation(validationType: .none,
+                             validateAtCreation: false, valueKeyPath: "html", errorText: "Ошибка поля", maxLength: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "true", valid: nil)
+    builder.defineBase(cellType: ALFBCells.htmlText, identifier: "html", level: .item, dataType: .string)
+    builder.defineVisualization(placeholderText: "HTML", placeholderTopText: nil,
+                                detailsText: nil, isPassword: false,
                                 keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none)
   }
   
@@ -191,6 +203,9 @@ class AuthFormDirector {
     let multiline = StringRowItemBuilder()
     director.multiline(builder: multiline)
     
+    let html = StringRowItemBuilder()
+    director.html(builder: html)
+    
     let int = StringRowItemBuilder()
     director.intField(builder: int)
     
@@ -205,6 +220,7 @@ class AuthFormDirector {
                  town.result(),
                  phone2.result(),
                  multiline.result())
+//                 html.result())
     
     section2.add(login.result(), descr.result())
     
