@@ -11,7 +11,7 @@ import RxSwift
 
 open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   
-  @IBOutlet weak var textField: ALValidatedTextField!
+  @IBOutlet weak var lblText: UILabel!
   @IBOutlet weak var descriptionValueLabel: UILabel!
   @IBOutlet weak var validateBtn: UIButton!
   @IBOutlet weak var validationBorder: UIView!
@@ -27,7 +27,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    textField.isUserInteractionEnabled = false
+    lblText.isUserInteractionEnabled = false
     validateBtn.isHidden = true
     validationBorder.isHidden = true
     
@@ -52,24 +52,16 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
       break
     default: return
     }
-    
-    // Configurate text field
-    textField.keyboardType = vm.visualisation.keyboardType?.value ?? .default
-    
+   
     // Value
-    textField.text = vm.value.transformForDisplay() ?? ""
-    
-    // Additional placeholder above the input text
-    textField.textPlaceholder = vm.visualisation.placeholderTopText
-    
-    // Just placeholder
-    textField.placeholder = vm.visualisation.placeholderText
+    let value = vm.value.transformForDisplay() ?? ""
+    lblText.text = value.isEmpty ? vm.visualisation.placeholderText : value
     
     // addidional description information field under the text field
     descriptionValueLabel.text = vm.visualisation.detailsText
     
     // Fill by color for validation state
-    textField.validate(vm.validation.state)
+    lblText.textColor = vm.validation.state.color
     
     validationBorder.isHidden = !vm.validation.state.isVisibleValidationUI
     
@@ -87,14 +79,8 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   
   private func configureRx() {
     self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
-    
-    // Check validation all of text stream
-    textField.rx.text.asDriver().skip(1).drive(onNext: { [weak self] text in
-      self?.storedModel.update(value: ALStringValue(value: text))
-    }).disposed(by: bag)
-    
     validationState.subscribe(onNext: { [weak self] result in
-      self?.textField.validate(result)
+      self?.lblText.textColor = result.color
       self?.validationBorder.isHidden = result.isCompletelyValid
     }).disposed(by: bag)
   }

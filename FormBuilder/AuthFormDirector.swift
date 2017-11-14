@@ -99,7 +99,7 @@ class AuthFormDirector {
   
   func town(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALTitledValue(value: nil))
-    builder.defineValidation(validationType: .none, validateAtCreation: false, valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
+    builder.defineValidation(validationType: .none, validateAtCreation: true, valueKeyPath: "area.town", errorText: "Обязательно выберите город", maxLength: nil)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.pickerField, identifier: "Town", level: .item, dataType: .picker)
     builder.defineVisualization(placeholderText: "Выберите город", placeholderTopText: "Город",
