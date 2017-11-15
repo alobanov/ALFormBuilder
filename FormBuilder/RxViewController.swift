@@ -90,7 +90,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       let cellType = item.model.cellType.type
       let cell = table.dequeueReusableTableCell(forIndexPath: idxPath, andtype: cellType)
-      
+
       if let c = cell as? RxCellReloadeble {
         c.reload(with: item.model)
       }

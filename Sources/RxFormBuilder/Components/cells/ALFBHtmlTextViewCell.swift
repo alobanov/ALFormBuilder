@@ -18,19 +18,24 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
   private var webView: WKWebView?
   private var webViewHeight: NSLayoutConstraint?
   private let contentSizePath = "contentSize"
-  
+  private let loadingPath = "loading"
+  private var wvHeight: CGFloat = 1.0
+  private var htmlStr: String?
   
   open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-//    textView.textColor = ALFBStyle.fbDarkGray
     titleLabel.textColor = ALFBStyle.fbDarkGray
     
     //disable auto shrink
-    let jScript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
-    let wkUScript = WKUserScript(source: jScript, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: true)
+    let scaleJS = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'initial-scale=1, width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
+    let cssString = "body { font-family: Helvetica; font-size: 14px; word-break:break-all }"
+    let defaultStyleJS = "var style = document.createElement('style'); style.innerHTML = '\(cssString)'; document.getElementsByTagName('head')[0].appendChild(style);"
+    let wkUScript1 = WKUserScript(source: scaleJS, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: true)
+    let wkUScript2 = WKUserScript(source: defaultStyleJS, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: true)
     let wkUController = WKUserContentController()
-    wkUController.addUserScript(wkUScript)
+    wkUController.addUserScript(wkUScript1)
+    wkUController.addUserScript(wkUScript2)
     let wkWebConfig = WKWebViewConfiguration()
     wkWebConfig.userContentController = wkUController;
     
@@ -45,7 +50,7 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
     //setup constraints
     contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[wv]-12-|", options: [], metrics: nil, views: ["wv" : webView]))
     contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[title]-5-[wv]-8@999-|", options: [], metrics: nil, views: ["title" : titleLabel, "wv" : webView]))
-    let h = NSLayoutConstraint(item: webView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: 0.0)
+    let h = NSLayoutConstraint(item: webView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: 1.0)
     h.priority = 999
     webView.addConstraint(h)
     self.webViewHeight = h
@@ -53,6 +58,7 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
     
     //observe contentSize to change height
     webView.scrollView.addObserver(self, forKeyPath: contentSizePath, options: [.new], context: nil)
+    webView.addObserver(self, forKeyPath: loadingPath, options: [.new], context: nil)
     
     contentView.clipsToBounds = true
     clipsToBounds = true
@@ -62,24 +68,34 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
   
   deinit {
     self.webView?.scrollView.removeObserver(self, forKeyPath: contentSizePath)
+    self.webView?.removeObserver(self, forKeyPath: loadingPath)
   }
   
   // MARK: - KVO
   
   open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-    if keyPath == contentSizePath {
-      DispatchQueue.main.async {
-        let height = self.webView?.scrollView.contentSize.height ?? 0.0
-        if self.webViewHeight?.constant ?? 0 != height {
-          self.webViewHeight?.constant = height
-          self.webView?.alpha = 0.0
-          self.reload?()
-          UIView.animate(withDuration: 0.3, animations: {
-            self.webView?.alpha = 1.0
-            self.layoutIfNeeded()
-          })
+    guard let keyPath = keyPath else { return }
+    guard let change = change else { return }
+    
+    switch keyPath {
+    case loadingPath:
+      if let val = change[NSKeyValueChangeKey.newKey] as? Bool {
+        if !val {
+          
         }
       }
+    case contentSizePath:
+      let height = self.webView?.scrollView.contentSize.height ?? 0.0
+      if self.wvHeight != height && htmlStr != nil {
+        print("\(self.wvHeight) == \(height)")
+        self.wvHeight = height
+        self.webViewHeight?.constant = self.wvHeight
+        self.reload?()
+      }
+      break
+      
+    default:
+      break
     }
   }
   
@@ -91,8 +107,16 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
       return
     }
     let htmlString = vm.value.transformForDisplay() ?? ""
-    webView?.loadHTMLString(htmlString, baseURL: nil)
+    if self.htmlStr == htmlString {
+      return
+    }
+    
+    DispatchQueue.main.async {
+      self.htmlStr = htmlString
+      self.webView?.loadHTMLString(htmlString, baseURL: nil)
+    }
     titleLabel.text = vm.visualisation.placeholderTopText
+    webView?.isUserInteractionEnabled = !vm.visible.isDisabled
   }
   
   // MARK: - WKNavigationDelegate

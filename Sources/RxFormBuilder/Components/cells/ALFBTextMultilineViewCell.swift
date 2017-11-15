@@ -44,6 +44,8 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   }
   
   public func textViewDidChange(_ textView: UITextView) {
-    self.reload?()
+    DispatchQueue.main.async {
+      self.reload?()
+    }
   }
 }

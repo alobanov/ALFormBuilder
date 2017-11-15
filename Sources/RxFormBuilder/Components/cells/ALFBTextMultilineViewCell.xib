@@ -37,9 +37,9 @@
                     <constraint firstItem="ewe-OI-TwK" firstAttribute="top" secondItem="Q2k-Op-KGH" secondAttribute="bottom" constant="5" id="FMR-j3-TYV"/>
                     <constraint firstItem="Q2k-Op-KGH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="FRV-ZD-MGu"/>
                     <constraint firstAttribute="trailing" secondItem="ewe-OI-TwK" secondAttribute="trailing" constant="16" id="WcN-Iv-s3f"/>
-                    <constraint firstItem="Q2k-Op-KGH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="8" id="nkf-Dj-g9a"/>
+                    <constraint firstItem="Q2k-Op-KGH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="nkf-Dj-g9a"/>
                     <constraint firstAttribute="trailing" secondItem="Q2k-Op-KGH" secondAttribute="trailing" constant="12" id="pi4-qs-zPa"/>
-                    <constraint firstAttribute="bottom" secondItem="ewe-OI-TwK" secondAttribute="bottom" constant="11" id="uwk-QG-Zsb"/>
+                    <constraint firstAttribute="bottom" secondItem="ewe-OI-TwK" secondAttribute="bottom" priority="999" constant="11" id="uwk-QG-Zsb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -119,9 +119,9 @@ class AuthFormDirector {
   }
   
   func descrInfo(builder: CustomRowItemBuilderProtocol) {
-    builder.define(title: "Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types. Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types.")
+    builder.define(title: "Protocols can be adopted by classes, structs and enums. Base classes and inheritance are restricted to class types. Protocols can be adopted by classes, structs and enums.")
     builder.defineBase(cellType: ALFBCells.staticText, identifier: "Descr info", level: .item, dataType: .informationContent)
-    builder.defineVisible(interpreter: interpreter, visible: "@model.mail != null", mandatory: "false", disable: "@model.agreements == true", valid: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "@model.agreements == true", valid: nil)
   }
   
   func multiline(builder: StringRowItemBuilderProtocol) {
@@ -136,11 +136,12 @@ class AuthFormDirector {
   }
   
   func html(builder: StringRowItemBuilderProtocol) {
-    let html = "<!DOCTYPE html><html><body><p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p></body></html>"
+//    let html = "<!DOCTYPE html><html><body><p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p></body></html>"
+    let html = "<html><p>овазовfglbjnfglbjnflgbknflgkbnflkgbnldgkbndlkbndlfkbndlfk bndflbkndlfbkndlkbndlfkbndlkbndlfbkndlfkbndflkb</p><html/>"
     builder.define(value: ALStringValue(value:html))
     builder.defineValidation(validationType: .none,
                              validateAtCreation: false, valueKeyPath: "html", errorText: "Ошибка поля", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "true", valid: nil)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.htmlText, identifier: "html", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "HTML", placeholderTopText: "HTML",
                                 detailsText: nil, isPassword: false,
@@ -152,7 +153,7 @@ class AuthFormDirector {
   }
   
   func sectionSecond(builder: SectionItemBuilderProtocol) {
-    builder.define(identifier: "Settings section", header: nil, footer: nil)
+    builder.define(identifier: "Settings section", header: nil, footer: "123")
   }
   
   static func build() -> FromItemCompositeProtocol {
@@ -181,7 +182,7 @@ class AuthFormDirector {
 
     let decimalField2 = StringRowItemBuilder()
     director.decimalField2(builder: decimalField2)
-    
+
     let phone = StringRowItemBuilder()
     director.phone(builder: phone)
 
@@ -199,7 +200,7 @@ class AuthFormDirector {
 
     let phone2 = PhoneRowItemBuilder()
     director.phoneCustom(builder: phone2)
-    
+
     let multiline = StringRowItemBuilder()
     director.multiline(builder: multiline)
     
@@ -208,10 +209,9 @@ class AuthFormDirector {
     
     let int = StringRowItemBuilder()
     director.intField(builder: int)
-    
+
     root.add(section1, section2)
-    section1.add(html.result(),
-                 mail.result(),
+    section1.add(mail.result(),
                  decimalField.result(),
                  decimalField2.result(),
                  agreement.result(),
@@ -222,7 +222,7 @@ class AuthFormDirector {
                  phone2.result(),
                  multiline.result())
     
-    section2.add(login.result(), descr.result())
+    section2.add(html.result())
     
     return root
   }
