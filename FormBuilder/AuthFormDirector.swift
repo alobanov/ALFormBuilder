@@ -136,13 +136,13 @@ class AuthFormDirector {
   }
   
   func html(builder: StringRowItemBuilderProtocol) {
-    let html = "<p>\\n\\t\\u043e\\u0432\\u0430\\u0437\\u043e\\u0432fglbjnfglbjnflgbknflgkbnflkgbnldgkbndlkbndlfkbndlfkbndflbkndlfbkndlkbndlfkbndlkbndlfbkndlfkbndflkb</p>\\n"
+    let html = "<!DOCTYPE html><html><body><p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p></body></html>"
     builder.define(value: ALStringValue(value:html))
     builder.defineValidation(validationType: .none,
                              validateAtCreation: false, valueKeyPath: "html", errorText: "Ошибка поля", maxLength: nil)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "true", valid: nil)
     builder.defineBase(cellType: ALFBCells.htmlText, identifier: "html", level: .item, dataType: .string)
-    builder.defineVisualization(placeholderText: "HTML", placeholderTopText: nil,
+    builder.defineVisualization(placeholderText: "HTML", placeholderTopText: "HTML",
                                 detailsText: nil, isPassword: false,
                                 keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none)
   }
@@ -210,7 +210,8 @@ class AuthFormDirector {
     director.intField(builder: int)
     
     root.add(section1, section2)
-    section1.add(mail.result(),
+    section1.add(html.result(),
+                 mail.result(),
                  decimalField.result(),
                  decimalField2.result(),
                  agreement.result(),
@@ -220,7 +221,6 @@ class AuthFormDirector {
                  town.result(),
                  phone2.result(),
                  multiline.result())
-//                 html.result())
     
     section2.add(login.result(), descr.result())
     

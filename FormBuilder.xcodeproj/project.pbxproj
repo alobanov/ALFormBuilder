@@ -91,6 +91,7 @@
 		FB4028C91FA889C1000865AD /* ALFBTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */; };
 		FB6FD5E81FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */; };
 		FB6FD5EE1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */; };
+		FBAD5EC41FBC0C7F00362B75 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBAD5EC41FBC0C7F00362B75 /* WebKit.framework in Frameworks */,
 				D3E1F3F34C9A0E44E301727A /* Pods_FormBuilder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
