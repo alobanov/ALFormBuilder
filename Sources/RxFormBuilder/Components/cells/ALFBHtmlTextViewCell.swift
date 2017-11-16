@@ -13,8 +13,6 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
   
   public var reload: (() -> Void)?
   
-  @IBOutlet weak var titleLabel: UILabel!
-  
   private var webView: WKWebView?
   private var webViewHeight: NSLayoutConstraint?
   private let contentSizePath = "contentSize"
@@ -25,7 +23,6 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
   open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    titleLabel.textColor = ALFBStyle.fbDarkGray
     
     //disable auto shrink
     let scaleJS = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'initial-scale=1, width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
@@ -49,7 +46,7 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
     
     //setup constraints
     contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[wv]-12-|", options: [], metrics: nil, views: ["wv" : webView]))
-    contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[title]-5-[wv]-8@999-|", options: [], metrics: nil, views: ["title" : titleLabel, "wv" : webView]))
+    contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[wv]-8@999-|", options: [], metrics: nil, views: ["wv" : webView]))
     let h = NSLayoutConstraint(item: webView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: 1.0)
     h.priority = 999
     webView.addConstraint(h)
@@ -115,7 +112,6 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
       self.htmlStr = htmlString
       self.webView?.loadHTMLString(htmlString, baseURL: nil)
     }
-    titleLabel.text = vm.visualisation.placeholderTopText
     webView?.isUserInteractionEnabled = !vm.visible.isDisabled
   }
   
