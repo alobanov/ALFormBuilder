@@ -8,20 +8,20 @@
 
 import Foundation
 
-/// Base implementation of FromItemCompositeProtocol
+/// Base implementation of FormItemCompositeProtocol
 /// For creation new model you should use Decorator pattern for
 /// extended it
-public class BaseFormComposite: FromItemCompositeProtocol {
+public class BaseFormComposite: FormItemCompositeProtocol {
   
-  public var children: [FromItemCompositeProtocol] = []
+  public var children: [FormItemCompositeProtocol] = []
   public var level: ALFB.FormModelLevel = .root
   public var identifier: String = "root"
   
-  public var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FormItemCompositeProtocol] {
     return children.flatMap{ $0.leaves }
   }
   
-  public var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FormItemCompositeProtocol] {
     return children
   }
   
@@ -32,17 +32,17 @@ public class BaseFormComposite: FromItemCompositeProtocol {
     self.level = level
   }
   
-  public func add(_ model: FromItemCompositeProtocol...) {
+  public func add(_ model: FormItemCompositeProtocol...) {
     self.children.append(contentsOf: model)
   }
   
-  public func remove(_ model: FromItemCompositeProtocol) {
+  public func remove(_ model: FormItemCompositeProtocol) {
     if let index = self.children.index(where: { $0 == model }) {
       children.remove(at: index)
     }
   }
 }
 
-public func == (lhs: FromItemCompositeProtocol, rhs: FromItemCompositeProtocol) -> Bool {
+public func == (lhs: FormItemCompositeProtocol, rhs: FormItemCompositeProtocol) -> Bool {
   return lhs.identifier == rhs.identifier
 }

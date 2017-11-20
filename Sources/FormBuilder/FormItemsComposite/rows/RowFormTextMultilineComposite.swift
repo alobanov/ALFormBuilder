@@ -13,13 +13,13 @@ protocol RowFormTextMultilineCompositeOutput: RowCompositeVisibleSetting, RowCom
   var visualisation: ALFB.Visualization {get}
 }
 
-class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompositeOutput {
+class RowFormTextMultilineComposite: FormItemCompositeProtocol, RowFormTextCompositeOutput {
   var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable
-  private let decoratedComposite: FromItemCompositeProtocol
+  private let decoratedComposite: FormItemCompositeProtocol
   
-  // MARK :- FromItemCompositeProtocol properties
+  // MARK :- FormItemCompositeProtocol properties
   var level: ALFB.FormModelLevel {
     return self.decoratedComposite.level
   }
@@ -28,15 +28,15 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
     return self.decoratedComposite.identifier
   }
   
-  var leaves: [FromItemCompositeProtocol] {
+  var leaves: [FormItemCompositeProtocol] {
     return [self]
   }
   
-  var children: [FromItemCompositeProtocol] {
+  var children: [FormItemCompositeProtocol] {
     return []
   }
   
-  var datasource: [FromItemCompositeProtocol] {
+  var datasource: [FormItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
@@ -49,7 +49,7 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
   var visible: ALFB.Condition
   var base: ALFB.Base
   
-  init(composite: FromItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
+  init(composite: FormItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
               visualisation: ALFB.Visualization, visible: ALFB.Condition, base: ALFB.Base)
   {
     self.decoratedComposite = composite
@@ -93,7 +93,7 @@ class RowFormTextMultilineComposite: FromItemCompositeProtocol, RowFormTextCompo
     }
   }
   
-  // MARK :- FromItemCompositeProtocol func
+  // MARK :- FormItemCompositeProtocol func
   
   func isValid() -> Bool {
     return self.validation.state.isCompletelyValid

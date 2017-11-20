@@ -10,7 +10,7 @@ import Foundation
 
 public protocol SectionItemBuilderProtocol {
   func define(identifier: String, header: String?, footer: String?)
-  func result() -> FromItemCompositeProtocol
+  func result() -> FormItemCompositeProtocol
 }
 
 public class SectionItemBuilder: SectionItemBuilderProtocol {
@@ -27,7 +27,7 @@ public class SectionItemBuilder: SectionItemBuilderProtocol {
     self.footer = footer
   }
   
-  public func result() -> FromItemCompositeProtocol {
+  public func result() -> FormItemCompositeProtocol {
     let base = BaseFormComposite(identifier: identifier, level: .section)
     return SectionFormComposite(composite: base, header: header, footer: footer)
   }

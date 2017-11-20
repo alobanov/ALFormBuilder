@@ -13,13 +13,13 @@ public protocol RowFromPhoneCompositeOutput: RowCompositeVisibleSetting, RowComp
   var visualisation: ALFB.Visualization {get}
 }
 
-public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompositeOutput {
+public class RowFromPhoneComposite: FormItemCompositeProtocol, RowFromPhoneCompositeOutput {
   public var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable
-  private let decoratedComposite: FromItemCompositeProtocol
+  private let decoratedComposite: FormItemCompositeProtocol
   
-  // MARK :- FromItemCompositeProtocol properties
+  // MARK :- FormItemCompositeProtocol properties
   public var level: ALFB.FormModelLevel {
     return self.decoratedComposite.level
   }
@@ -28,15 +28,15 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
     return self.decoratedComposite.identifier
   }
   
-  public var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FormItemCompositeProtocol] {
     return [self]
   }
   
-  public var children: [FromItemCompositeProtocol] {
+  public var children: [FormItemCompositeProtocol] {
     return []
   }
   
-  public var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FormItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
@@ -49,7 +49,7 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
   public var visible: ALFB.Condition
   public var base: ALFB.Base
   
-  public init(composite: FromItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
+  public init(composite: FormItemCompositeProtocol, value: ALValueTransformable, validation: ALFB.Validation,
        visualisation: ALFB.Visualization, visible: ALFB.Condition, base: ALFB.Base)
   {
     self.decoratedComposite = composite
@@ -94,7 +94,7 @@ public class RowFromPhoneComposite: FromItemCompositeProtocol, RowFromPhoneCompo
     }
   }
   
-  // MARK :- FromItemCompositeProtocol func
+  // MARK :- FormItemCompositeProtocol func
   
   public func isValid() -> Bool {
     if !self.visible.isMandatory {

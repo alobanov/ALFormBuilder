@@ -25,7 +25,7 @@ public class PhoneRowItemBuilder: RowItemBuilder, PhoneRowItemBuilderProtocol {
     visualization = ALFB.Visualization(placeholderText: placeholderText, placeholderTopText: placeholderTopText, detailsText: detailsText, isPassword: isPassword, keyboardType: keyboardType, autocapitalizationType: autocapitalizationType, keyboardOptions: keyboardOptions)
   }
   
-  public override func result() -> FromItemCompositeProtocol {
+  public override func result() -> FormItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
     return RowFromPhoneComposite(composite: baseComposite, value: self.value, validation: validation,
                                 visualisation: visualization, visible: visibleSetting, base: base)

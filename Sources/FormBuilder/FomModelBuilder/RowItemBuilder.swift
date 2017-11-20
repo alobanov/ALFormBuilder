@@ -14,7 +14,7 @@ public protocol RowItemVisibleBuilderProtocol {
   
 public protocol RowItemBaseBuilderProtocol {
   func defineBase(cellType: FBUniversalCellProtocol, identifier: String, level: ALFB.FormModelLevel, dataType: ALFB.DataType)
-  func result() -> FromItemCompositeProtocol
+  func result() -> FormItemCompositeProtocol
 }
 
 public protocol RowItemValidationBuilderProtocol {
@@ -56,7 +56,7 @@ public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderPr
     self.value = value
   }
   
-  public func result() -> FromItemCompositeProtocol {
+  public func result() -> FormItemCompositeProtocol {
     return BaseFormComposite(identifier: "uncnown", level: .root)
   }
 }

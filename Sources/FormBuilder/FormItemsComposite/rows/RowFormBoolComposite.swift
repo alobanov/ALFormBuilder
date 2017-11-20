@@ -12,13 +12,13 @@ public protocol RowFormBoolCompositeOutput: RowCompositeVisibleSetting, RowCompo
   var title: String {get}
 }
 
-public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolCompositeOutput {
+public class RowFormBoolComposite: FormItemCompositeProtocol, RowFormBoolCompositeOutput {
   public var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable
-  private let decoratedComposite: FromItemCompositeProtocol
+  private let decoratedComposite: FormItemCompositeProtocol
   
-  // MARK :- FromItemCompositeProtocol properties
+  // MARK :- FormItemCompositeProtocol properties
   public var level: ALFB.FormModelLevel {
     return self.decoratedComposite.level
   }
@@ -27,15 +27,15 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
     return self.decoratedComposite.identifier
   }
   
-  public var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FormItemCompositeProtocol] {
     return [self]
   }
   
-  public var children: [FromItemCompositeProtocol] {
+  public var children: [FormItemCompositeProtocol] {
     return []
   }
   
-  public var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FormItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
@@ -47,7 +47,7 @@ public class RowFormBoolComposite: FromItemCompositeProtocol, RowFormBoolComposi
   public var didChangeData: DidChange?
   public var title: String
   
-  init(composite: FromItemCompositeProtocol, value: ALValueTransformable, visible: ALFB.Condition,
+  init(composite: FormItemCompositeProtocol, value: ALValueTransformable, visible: ALFB.Condition,
        base: ALFB.Base, validation: ALFB.Validation, title: String)
   {
     self.decoratedComposite = composite

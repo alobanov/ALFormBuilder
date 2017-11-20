@@ -22,10 +22,10 @@ public protocol ALFormBuilderProtocol {
   func object(withoutNull: Bool) -> [String: Any]
   
   // Запросить модель по уникальному идентификатору
-  func model(by identifier: String) -> FromItemCompositeProtocol?
+  func model(by identifier: String) -> FormItemCompositeProtocol?
   
   // Конфигурируем
-  func configure(compositeFormData: FromItemCompositeProtocol)
+  func configure(compositeFormData: FormItemCompositeProtocol)
   
   func apply(errors: [String: String]) -> Bool
   
@@ -34,8 +34,8 @@ public protocol ALFormBuilderProtocol {
 }
 
 public class ALFormBuilder: ALFormBuilderProtocol {
-  public typealias DidDatasource = (FromItemCompositeProtocol) -> Void
-  public typealias DidChangeFormModel = (FromItemCompositeProtocol) -> Void
+  public typealias DidDatasource = (FormItemCompositeProtocol) -> Void
+  public typealias DidChangeFormModel = (FormItemCompositeProtocol) -> Void
   public typealias DidChangeCompletelyValidation = (Bool) -> Void
   public typealias DidChangeFormState = (Bool) -> Void
   
@@ -45,7 +45,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   public var didChangeFormState: ALFormBuilder.DidChangeFormState?
   
   private var jsonBuilder: ALFormJSONBuilderProtocol
-  private var compositeFormData: FromItemCompositeProtocol?
+  private var compositeFormData: FormItemCompositeProtocol?
   
   // Состояния
   private var completelyValidation: Bool = false
@@ -53,7 +53,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   
   // Инициализация с подготовленой структурой данных для таблицы
   // и зависимость в виде билдера для JSON
-  public init(compositeFormData: FromItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
+  public init(compositeFormData: FormItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
     self.jsonBuilder = jsonBuilder
     
     if compositeFormData.level == .root {
@@ -64,7 +64,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   // Ручная конфигурация с новой структурой
   // Метод перезапускает инициализацию FormJSONBuilder
   // Также выполняется подписка на изменение всех полей в форме
-  public func configure(compositeFormData: FromItemCompositeProtocol) {
+  public func configure(compositeFormData: FormItemCompositeProtocol) {
     self.compositeFormData = compositeFormData
     self.jsonBuilder.prepareObject(tree: compositeFormData)
     
@@ -97,7 +97,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   }
 
   // Проверка всех состояний в моделях таблицы и пересозлание
-  private func rebuildFields(item1: FromItemCompositeProtocol) {
+  private func rebuildFields(item1: FormItemCompositeProtocol) {
     guard let item = self.compositeFormData else {
       return
     }
@@ -112,12 +112,12 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   }
   
   // Проврка всех состояний во всех полях таблицы, возвращает значение нужна ли перезагрузка таблицы или нет
-  @discardableResult private func checkAllStates(in compositeFormData: FromItemCompositeProtocol) -> Bool {
+  @discardableResult private func checkAllStates(in compositeFormData: FormItemCompositeProtocol) -> Bool {
     var needReload = false
     let obj = jsonBuilder.object(withoutNull: false)
     
     guard let rows = compositeFormData.leaves
-      .filter({ $0 is RowCompositeVisibleSetting & FromItemCompositeProtocol }) as? [RowCompositeVisibleSetting & FromItemCompositeProtocol] else {
+      .filter({ $0 is RowCompositeVisibleSetting & FormItemCompositeProtocol }) as? [RowCompositeVisibleSetting & FormItemCompositeProtocol] else {
       return needReload
     }
     
@@ -152,7 +152,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   }
   
   // Обновить значение в JOSN передав просто композит модели ячейки
-  private func updateChanged(item: FromItemCompositeProtocol, isSilent: Bool) {
+  private func updateChanged(item: FormItemCompositeProtocol, isSilent: Bool) {
     jsonBuilder.updateValue(item: item)
     if !isSilent {
       didChangeFormModel?(item)
@@ -161,7 +161,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   }
   
   // Получить модель по уникальному идентификатору
-  public func model(by identifier: String) -> FromItemCompositeProtocol? {
+  public func model(by identifier: String) -> FormItemCompositeProtocol? {
     guard let rows = self.compositeFormData?.leaves else {
       return nil
     }
@@ -173,7 +173,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     return nil
   }
   
-  @discardableResult private func checkCommonFormState(in item: FromItemCompositeProtocol) -> Bool {
+  @discardableResult private func checkCommonFormState(in item: FormItemCompositeProtocol) -> Bool {
     var needReload = false
     
     if item.wasChanged() != formWasModify {
@@ -197,7 +197,7 @@ public class ALFormBuilder: ALFormBuilderProtocol {
     }
   }
   
-  @discardableResult private func itemsWithFullValidation(in item: FromItemCompositeProtocol, isFullValidState: Bool) -> Bool {
+  @discardableResult private func itemsWithFullValidation(in item: FormItemCompositeProtocol, isFullValidState: Bool) -> Bool {
     guard let fullValidationItems = item.leaves.filter({$0 is RowCompositeVisibleSetting}) as? [RowCompositeVisibleSetting] else {
       return false
     }

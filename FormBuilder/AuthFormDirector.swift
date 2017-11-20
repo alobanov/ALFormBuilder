@@ -156,7 +156,7 @@ class AuthFormDirector {
     builder.define(identifier: "Settings section", header: nil, footer: "123")
   }
   
-  static func build() -> FromItemCompositeProtocol {
+  static func build() -> FormItemCompositeProtocol {
     let director = AuthFormDirector()
     
     let root = BaseFormComposite()
@@ -211,7 +211,8 @@ class AuthFormDirector {
     director.intField(builder: int)
 
     root.add(section1, section2)
-    section1.add(mail.result(),
+    section1.add(descr.result(),
+                 mail.result(),
                  decimalField.result(),
                  decimalField2.result(),
                  agreement.result(),

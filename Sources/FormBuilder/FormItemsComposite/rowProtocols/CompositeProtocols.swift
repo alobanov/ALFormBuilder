@@ -41,7 +41,7 @@ public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
   @discardableResult func validate(value: ALValueTransformable) -> ALFB.ValidationState
 }
 
-extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol & RowCompositeVisibleSetting {
+extension RowCompositeValidationSetting where Self: FormItemCompositeProtocol & RowCompositeVisibleSetting {
   public func updateAndReload(value: ALValueTransformable) {
     self.base.needReloadModel()
     self.update(value: value, silent: true)
@@ -59,7 +59,7 @@ extension RowCompositeValidationSetting where Self: FromItemCompositeProtocol & 
   }
 }
 
-public typealias DidChange = (FromItemCompositeProtocol, Bool) -> Void
+public typealias DidChange = (FormItemCompositeProtocol, Bool) -> Void
 public typealias DidChangeValidation = () -> Void
 
 /// Протокол отвечающий за возможность хранить заначение типа ValueTransformable

@@ -65,7 +65,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     
     validationBorder.isHidden = !vm.validation.state.isVisibleValidationUI
     
-    if let s = self.storedModel as? FromItemCompositeProtocol {
+    if let s = self.storedModel as? FormItemCompositeProtocol {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     

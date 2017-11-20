@@ -16,7 +16,7 @@ public protocol ALFormJSONBuilderProtocol {
   ///
   /// - Parameter items: Array<FormItemModel>
   /// - Returns: Void
-  mutating func prepareObject(tree: FromItemCompositeProtocol)
+  mutating func prepareObject(tree: FormItemCompositeProtocol)
   
   /// Обновить значение в словаре по пути
   ///
@@ -30,7 +30,7 @@ public protocol ALFormJSONBuilderProtocol {
   ///
   /// - Parameter item: модель билдера форм FormItemModel
   /// - Returns: Void
-  mutating func updateValue(item: FromItemCompositeProtocol)
+  mutating func updateValue(item: FormItemCompositeProtocol)
   
   /// Динамически формируемый словарь на основе моделей билдера форм
   ///
@@ -51,7 +51,7 @@ public struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
     creationObject = predefinedObject
   }
   
-  public mutating func prepareObject(tree: FromItemCompositeProtocol) {
+  public mutating func prepareObject(tree: FormItemCompositeProtocol) {
     for item in tree.leaves {
       if let i = item as? RowCompositeValidationSetting & RowCompositeValueTransformable {
         let value = prepare(item: i)
@@ -62,7 +62,7 @@ public struct ALFormJSONBuilder: ALFormJSONBuilderProtocol {
     }
   }
   
-  public mutating func updateValue(item: FromItemCompositeProtocol) {
+  public mutating func updateValue(item: FormItemCompositeProtocol) {
     
     guard let field = item as? RowCompositeValidationSetting & RowCompositeValueTransformable else {
       return

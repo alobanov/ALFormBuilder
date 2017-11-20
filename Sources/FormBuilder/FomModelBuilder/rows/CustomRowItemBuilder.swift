@@ -24,7 +24,7 @@ public class CustomRowItemBuilder: RowItemBuilder, CustomRowItemBuilderProtocol 
     self.title = title
   }
   
-  public override func result() -> FromItemCompositeProtocol {
+  public override func result() -> FormItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
     return RowCustomComposite(composite: baseComposite, visible: visibleSetting, base: base, data: title)
   }

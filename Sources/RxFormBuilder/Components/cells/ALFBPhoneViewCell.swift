@@ -121,7 +121,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
       validateBtn.isHidden = !vm.visible.isMandatory
     }
     
-    if let s = self.storedModel as? FromItemCompositeProtocol {
+    if let s = self.storedModel as? FormItemCompositeProtocol {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     

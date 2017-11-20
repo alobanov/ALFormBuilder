@@ -12,11 +12,11 @@ public protocol RowCustomCompositeOutput: RowCompositeVisibleSetting {
   var data: Any {get}
 }
 
-public class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOutput {
+public class RowCustomComposite: FormItemCompositeProtocol, RowCustomCompositeOutput {
   // MARK :- ModelItemDatasoursable
-  private let decoratedComposite: FromItemCompositeProtocol
+  private let decoratedComposite: FormItemCompositeProtocol
   
-  // MARK :- FromItemCompositeProtocol properties
+  // MARK :- FormItemCompositeProtocol properties
   public var level: ALFB.FormModelLevel {
     return self.decoratedComposite.level
   }
@@ -25,15 +25,15 @@ public class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOu
     return self.decoratedComposite.identifier
   }
   
-  public var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FormItemCompositeProtocol] {
     return [self]
   }
   
-  public var children: [FromItemCompositeProtocol] {
+  public var children: [FormItemCompositeProtocol] {
     return []
   }
   
-  public var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FormItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
   
@@ -44,7 +44,7 @@ public class RowCustomComposite: FromItemCompositeProtocol, RowCustomCompositeOu
   // private properties
   public var data: Any
   
-  public init(composite: FromItemCompositeProtocol, visible: ALFB.Condition, base: ALFB.Base, data: Any)
+  public init(composite: FormItemCompositeProtocol, visible: ALFB.Condition, base: ALFB.Base, data: Any)
   {
     self.decoratedComposite = composite
     self.visible = visible

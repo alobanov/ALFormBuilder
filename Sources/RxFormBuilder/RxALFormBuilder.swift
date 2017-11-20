@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol RxALFormBuilderProtocol {
   var rxDidDatasource: Observable<[RxSectionModel]> {get}
-  var rxDidChangeFormModel: Observable<FromItemCompositeProtocol> {get}
+  var rxDidChangeFormModel: Observable<FormItemCompositeProtocol> {get}
   var rxDidChangeCompletelyValidation: Observable<Bool> {get}
   var rxDidChangeFormState: Observable<Bool> {get}
   
@@ -22,10 +22,10 @@ public protocol RxALFormBuilderProtocol {
   func object(withoutNull: Bool) -> [String: Any]
   
   // Запросить модель по уникальному идентификатору
-  func model(by identifier: String) -> FromItemCompositeProtocol?
+  func model(by identifier: String) -> FormItemCompositeProtocol?
   
   // Конфигурируем
-  func configure(compositeFormData: FromItemCompositeProtocol)
+  func configure(compositeFormData: FormItemCompositeProtocol)
 }
 
 public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
@@ -35,11 +35,11 @@ public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
   
   private let _rxDidDatasource = BehaviorSubject<[RxSectionModel]>(value: [])
   
-  public var rxDidChangeFormModel: Observable<FromItemCompositeProtocol> {
+  public var rxDidChangeFormModel: Observable<FormItemCompositeProtocol> {
     return _didChangeFormModel.asObservable()
   }
   
-  private let _didChangeFormModel = PublishSubject<FromItemCompositeProtocol>()
+  private let _didChangeFormModel = PublishSubject<FormItemCompositeProtocol>()
   
   public var rxDidChangeCompletelyValidation: Observable<Bool> {
     return _didChangeCompletelyValidation.asObservable()
@@ -53,7 +53,7 @@ public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
   
   private let _didChangeFormState = BehaviorSubject<Bool>(value: false)
   
-  public override init(compositeFormData: FromItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
+  public override init(compositeFormData: FormItemCompositeProtocol, jsonBuilder: ALFormJSONBuilderProtocol) {
     super.init(compositeFormData: compositeFormData, jsonBuilder: jsonBuilder)
     defineRx()
   }
@@ -78,7 +78,7 @@ public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
     }
   }
   
-  private func buildRxDataSource(item: FromItemCompositeProtocol) -> [RxSectionModel] {
+  private func buildRxDataSource(item: FormItemCompositeProtocol) -> [RxSectionModel] {
     /// Sections
     var sections: [RxSectionModel] = []
     for section in item.datasource {

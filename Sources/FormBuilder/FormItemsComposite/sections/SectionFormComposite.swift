@@ -13,42 +13,42 @@ public protocol SectionFormCompositeOutput {
   var footer: String? {get}
 }
 
-public class SectionFormComposite: FromItemCompositeProtocol, SectionFormCompositeOutput {
+public class SectionFormComposite: FormItemCompositeProtocol, SectionFormCompositeOutput {
   // MARK: - SectionFormCompositeOutput
   public var header: String?
   public var footer: String?
   
   // MARK: - Provate propery
-  private let decoratedComposite: FromItemCompositeProtocol
+  private let decoratedComposite: FormItemCompositeProtocol
   
-  // MARK: - FromItemCompositeProtocol properties
+  // MARK: - FormItemCompositeProtocol properties
   public var identifier: String {
     return self.decoratedComposite.identifier
   }
   
-  public var children: [FromItemCompositeProtocol] {
+  public var children: [FormItemCompositeProtocol] {
     return self.decoratedComposite.children
   }
   
-  public var datasource: [FromItemCompositeProtocol] {
+  public var datasource: [FormItemCompositeProtocol] {
     return self.decoratedComposite.children.flatMap { $0.datasource }
   }
   
-  public var leaves: [FromItemCompositeProtocol] {
+  public var leaves: [FormItemCompositeProtocol] {
     return self.decoratedComposite.leaves.flatMap { $0.leaves }
   }
   
   public var level: ALFB.FormModelLevel = .section
   
-  public init(composite: FromItemCompositeProtocol, header: String?, footer: String?) {
+  public init(composite: FormItemCompositeProtocol, header: String?, footer: String?) {
     self.decoratedComposite = composite
     self.header = header
     self.footer = footer
   }
   
-  // MARK :- FromItemCompositeProtocol methods
+  // MARK :- FormItemCompositeProtocol methods
   
-  public func add(_ model: FromItemCompositeProtocol...) {
+  public func add(_ model: FormItemCompositeProtocol...) {
     for item in model {
       if item.level != .section {
         self.decoratedComposite.add(item)
@@ -58,7 +58,7 @@ public class SectionFormComposite: FromItemCompositeProtocol, SectionFormComposi
     }
   }
   
-  public func remove(_ model: FromItemCompositeProtocol) {
+  public func remove(_ model: FormItemCompositeProtocol) {
     self.decoratedComposite.remove(model)
   }
 }
