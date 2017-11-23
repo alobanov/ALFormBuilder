@@ -93,7 +93,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.boolField, identifier: "Agreements", level: .item, dataType: .bool)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
     builder.defineValidation(validationType: .none, validateAtCreation: false, valueKeyPath: "agreements", errorText: nil, maxLength: nil)
-    builder.define(title: "Включить уведомления")
+    builder.define(title: "Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления ")
     builder.define(value: ALBoolValue(value: false))
   }
   
