@@ -122,9 +122,7 @@ public class ALEvaluator: ALExpression {
         }
         index += 1
       }
-      
-      print(newExpression)
-      
+
       let evaluator = ALEvaluator(expression: newExpression)
       return evaluator.interpret(variables)
     } else {

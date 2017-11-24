@@ -117,7 +117,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     tableView.rx.setDelegate(self)
       .disposed(by: bag)
     
-    tableView.rx.modelSelected(RxSectionItemModel.self).asObservable().subscribe(onNext: { model in
+    tableView.rx.modelSelected(RxSectionItemModel.self).asObservable().subscribe(onNext: { [weak self] model in
       guard let item = model.model as? RowFormTextComposite else {
         return
       }
@@ -132,6 +132,8 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       if item.identifier == "Town" {
         item.updateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
+        let vc = UIViewController()
+        self?.navigationController?.pushViewController(vc, animated: true)
       }
     }).disposed(by: bag)
     

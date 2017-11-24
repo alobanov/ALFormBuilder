@@ -17,7 +17,7 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
   
   private var storedModel: RowFormBoolCompositeOutput!
   private var alreadyInitialized = false
-  private let bag = DisposeBag()
+  private var bag = DisposeBag()
   
   open override func awakeFromNib() {
     super.awakeFromNib()
@@ -34,14 +34,19 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
     switchComponent.isOn = (formModel.value.retriveOriginalValue() as? Bool) ?? false
     
     switchComponent.isEnabled = !formModel.visible.isDisabled
-    
+    storedModel = formModel
     if !alreadyInitialized {
-      storedModel = formModel
       alreadyInitialized = true
       accessoryType = UITableViewCellAccessoryType.none
       configureRx()
     }
   }
+  
+//  open override func prepareForReuse() {
+//    super.prepareForReuse()
+//    bag = DisposeBag()
+//    alreadyInitialized = false
+//  }
   
   private func configureRx() {
     // configure rx

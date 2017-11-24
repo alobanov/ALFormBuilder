@@ -93,7 +93,15 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.boolField, identifier: "Agreements", level: .item, dataType: .bool)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
     builder.defineValidation(validationType: .none, validateAtCreation: false, valueKeyPath: "agreements", errorText: nil, maxLength: nil)
-    builder.define(title: "Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления Включить уведомления ")
+    builder.define(title: "Включить уведомления")
+    builder.define(value: ALBoolValue(value: false))
+  }
+  
+  func agreements2(builder: BoolRowItemBuilderProtocol) {
+    builder.defineBase(cellType: ALFBCells.boolField, identifier: "Agreements2", level: .item, dataType: .bool)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
+    builder.defineValidation(validationType: .none, validateAtCreation: false, valueKeyPath: "agreements2", errorText: nil, maxLength: nil)
+    builder.define(title: "Включить уведомления 2")
     builder.define(value: ALBoolValue(value: false))
   }
   
@@ -191,6 +199,9 @@ class AuthFormDirector {
 
     let agreement = BoolRowItemBuilder()
     director.agreements(builder: agreement)
+    
+    let agreement2 = BoolRowItemBuilder()
+    director.agreements2(builder: agreement2)
 
     let town = StringRowItemBuilder()
     director.town(builder: town)
@@ -212,10 +223,11 @@ class AuthFormDirector {
 
     root.add(section1, section2)
     section1.add(descr.result(),
+                 agreement.result(),
+                 agreement2.result(),
                  mail.result(),
                  decimalField.result(),
                  decimalField2.result(),
-                 agreement.result(),
                  int.result(),
                  phone.result(),
                  password.result(),
@@ -223,7 +235,7 @@ class AuthFormDirector {
                  phone2.result(),
                  multiline.result())
     
-    section2.add(html.result())
+//    section2.add(html.result())
     
     return root
   }
