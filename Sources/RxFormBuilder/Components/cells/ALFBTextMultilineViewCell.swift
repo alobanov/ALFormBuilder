@@ -18,6 +18,7 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var titleLabel: UILabel!
+  fileprivate var storedModel: RowFormTextCompositeOutput?
   
   open override func awakeFromNib() {
     super.awakeFromNib()
@@ -27,25 +28,29 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     textView.delegate = self
   }
   
-  open override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
-  }
-  
   public func reload(with model: RxCellModelDatasoursable) {
     // check visuzlization model
     guard let vm = model as? RowFormTextCompositeOutput else {
       return
     }
-    textView.text = vm.value.transformForDisplay() ?? ""
-    textView.isEditable = !vm.visible.isDisabled
+    storedModel = vm
+    let newText = vm.value.transformForDisplay()
+    if textView.text != newText {
+      textView.text = vm.value.transformForDisplay() ?? ""
+    }
+    let isEditable = !vm.visible.isDisabled
+    if textView.isEditable != isEditable {
+      textView.isEditable = isEditable
+    }
     titleLabel.text = vm.visualisation.placeholderTopText
   }
   
   public func textViewDidChange(_ textView: UITextView) {
-    DispatchQueue.main.async {
-      self.reload?()
-    }
+//    DispatchQueue.main.async {
+//      self.storedModel?.update(value: ALStringValue(value: textView.text))
+////      self.reload?()
+//    }
+    storedModel?.update(value: ALStringValue(value: textView.text), silent: true)
+//    storedModel?.update(value: ALStringValue(value: textView.text))
   }
 }
