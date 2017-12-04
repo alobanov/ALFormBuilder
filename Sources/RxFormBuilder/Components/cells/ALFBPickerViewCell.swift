@@ -12,6 +12,7 @@ import RxSwift
 open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   
   @IBOutlet weak var lblText: UILabel!
+  @IBOutlet weak var topPlaceholderLabel: UILabel!
   @IBOutlet weak var descriptionValueLabel: UILabel!
   @IBOutlet weak var validateBtn: UIButton!
   @IBOutlet weak var validationBorder: UIView!
@@ -59,6 +60,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     
     // addidional description information field under the text field
     descriptionValueLabel.text = vm.visualisation.detailsText
+    topPlaceholderLabel.text = vm.visualisation.placeholderTopText
     
     // Fill by color for validation state
     lblText.textColor = vm.validation.state.color
