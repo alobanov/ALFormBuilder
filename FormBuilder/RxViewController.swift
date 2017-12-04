@@ -19,6 +19,9 @@ class RxViewController: UIViewController, UITableViewDelegate {
   
   // IBOutlet & UI
   @IBOutlet weak var tableView: UITableView!
+  var testBtn: UIBarButtonItem = {
+    return UIBarButtonItem(title: "Test", style: .plain, target: nil, action: nil)
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -148,6 +151,14 @@ class RxViewController: UIViewController, UITableViewDelegate {
     datasource
       .bind(to: tableView.rx.items(dataSource: rxDataSource))
       .disposed(by: bag)
+    
+    testBtn.rx.tap
+      .subscribe(onNext: { [weak self] in
+        if let model = self?.fb.model(by: "Town") as? RowFormTextComposite {
+          model.visualisation.detailsText = "Description changed"
+          model.updateAndReload(value: model.value)
+        }
+      }).disposed(by: bag)
   }
   
   func configureUI() {
@@ -158,6 +169,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
                                  ALFBHtmlTextViewCell.cellIdentifier],
                             bundle: Bundle.alfb_frameworkBundle())
     tableView.registerCells(by: [ALFBTextMultilineViewCell.cellIdentifier])
+    navigationItem.rightBarButtonItem = testBtn
   }
   
   deinit {

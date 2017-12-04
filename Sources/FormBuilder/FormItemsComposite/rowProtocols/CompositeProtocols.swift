@@ -34,7 +34,7 @@ extension RowCompositeVisibleSetting {
 public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
   var validation: ALFB.Validation {set get}
   
-  func update(value: ALValueTransformable, silent: Bool)
+  func update(value: ALValueTransformable, silent: Bool, forceUpdate: Bool)
   func update(value: ALValueTransformable)
   
   func updateAndReload(value: ALValueTransformable)
@@ -44,15 +44,15 @@ public protocol RowCompositeValidationSetting: RowCompositeValueTransformable {
 extension RowCompositeValidationSetting where Self: FormItemCompositeProtocol & RowCompositeVisibleSetting {
   public func updateAndReload(value: ALValueTransformable) {
     self.base.needReloadModel()
-    self.update(value: value, silent: true)
+    self.update(value: value, silent: true, forceUpdate: true)
   }
   
   public func update(value: ALValueTransformable) {
-    self.update(value: value, silent: false)
+    self.update(value: value, silent: false, forceUpdate: false)
   }
   
-  public func update(value: ALValueTransformable, silent: Bool = false) {
-    if self.value.transformForDisplay() != value.transformForDisplay() {
+  public func update(value: ALValueTransformable, silent: Bool = false, forceUpdate: Bool = false) {
+    if forceUpdate || self.value.transformForDisplay() != value.transformForDisplay() {
       self.value.change(originalValue: value.retriveOriginalValue())
       didChangeData?(self, silent)
     }
