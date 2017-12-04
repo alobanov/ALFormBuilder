@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 public protocol TableReloadable {
   var reload: (() -> Void)? {set get}
@@ -15,10 +17,13 @@ public protocol TableReloadable {
 open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextViewDelegate, TableReloadable {
   
   public var reload: (() -> Void)?
+  let bag = DisposeBag()
+  
+  fileprivate var alreadyInitialized = false
   
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var titleLabel: UILabel!
-  fileprivate var storedModel: RowFormTextCompositeOutput?
+  fileprivate var storedModel: RowFormTextCompositeOutput!
   
   open override func awakeFromNib() {
     super.awakeFromNib()
@@ -26,6 +31,8 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     textView.textColor = ALFBStyle.fbDarkGray
     titleLabel.textColor = ALFBStyle.fbDarkGray
     textView.delegate = self
+    
+    self.layoutIfNeeded()
   }
   
   public func reload(with model: RxCellModelDatasoursable) {
@@ -43,14 +50,36 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       textView.isEditable = isEditable
     }
     titleLabel.text = vm.visualisation.placeholderTopText
+    
+    
+    // Configurate next only one
+    if !alreadyInitialized {
+      configureRx()      
+      alreadyInitialized = true
+    }
   }
   
-  public func textViewDidChange(_ textView: UITextView) {
+  
+  func configureRx() {
+    // Check validation all of text stream
+    textView.rx.text.asDriver().skip(1)
+      .filter({ [weak self] text -> Bool in
+        return (text != self?.storedModel.value.transformForDisplay())
+      }).drive(onNext: { [weak self] text in
+        self?.storedModel.update(value: ALStringValue(value: text))
+      }).disposed(by: bag)
+  }
+  
+  public func textViewDidBeginEditing(_ textView: UITextView) {
+    self.storedModel.base.changeisEditingNow(true)
+  }
+  
+//  public func textViewDidChange(_ textView: UITextView) {
 //    DispatchQueue.main.async {
 //      self.storedModel?.update(value: ALStringValue(value: textView.text))
 ////      self.reload?()
 //    }
-    storedModel?.update(value: ALStringValue(value: textView.text), silent: true)
+//    storedModel?.update(value: ALStringValue(value: textView.text), silent: true)
 //    storedModel?.update(value: ALStringValue(value: textView.text))
-  }
+//  }
 }
