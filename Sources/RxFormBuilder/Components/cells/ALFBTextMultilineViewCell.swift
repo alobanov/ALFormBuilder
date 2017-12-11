@@ -74,12 +74,9 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     self.storedModel.base.changeisEditingNow(true)
   }
   
-//  public func textViewDidChange(_ textView: UITextView) {
-//    DispatchQueue.main.async {
-//      self.storedModel?.update(value: ALStringValue(value: textView.text))
-////      self.reload?()
-//    }
-//    storedModel?.update(value: ALStringValue(value: textView.text), silent: true)
-//    storedModel?.update(value: ALStringValue(value: textView.text))
-//  }
+  public func textViewDidChange(_ textView: UITextView) {
+    DispatchQueue.main.async {
+      self.reload?()
+    }
+  }
 }
