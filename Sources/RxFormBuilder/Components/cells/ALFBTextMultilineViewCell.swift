@@ -55,7 +55,10 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       textView.isEditable = isEditable
     }
     titleLabel.text = vm.visualisation.placeholderTopText
-    
+    if textView.text.isEmpty {
+      textView.text = placeholder
+      textView.textColor = UIColor.lightGray
+    }
     
     // Configurate next only one
     if !alreadyInitialized {
