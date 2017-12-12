@@ -29,9 +29,22 @@ public class ALInterpreterConditions {
     }
 
     exp = precalculateBitwiseExp(exp: exp)
-
+    
+    exp = unwrapLogicalOperators(expression: exp)
+    
     let evaluator = ALEvaluator(expression: exp)
-    return evaluator.interpret([String: ALExpression]())
+    return evaluator.interpret([:])
+  }
+  
+  public func unwrapLogicalOperators(expression: String) -> String {
+    var groups: [String] = []
+    for exp in expression.components(separatedBy: "||") {
+      let exp = exp.trim()
+      let evaluator = ALEvaluator(expression: exp)
+      let result = evaluator.interpret([:])
+      groups.append("\(result)")
+    }
+    return groups.joined(separator: " || ")
   }
   
   public func precalculateBitwiseExp(exp: String) -> String {

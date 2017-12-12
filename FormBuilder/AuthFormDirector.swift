@@ -17,7 +17,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .none,
                              validateAtCreation: false,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal2 == <null> || @model.decimal < @model.decimal2")
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "1 == 1 && 2 == 2 || 3 == 3 && 4 == 4 && 5 == 5 || 6 == 6 && 7 != 7 && 8 != 8")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
@@ -221,19 +221,20 @@ class AuthFormDirector {
     let int = StringRowItemBuilder()
     director.intField(builder: int)
 
-    root.add(section1, section2)
-    section1.add(descr.result(),
-                 agreement.result(),
-                 agreement2.result(),
+    root.add(section1)
+    section1.add(decimalField.result())
+//    section1.add(descr.result(),
+//                 agreement.result(),
+//                 agreement2.result(),
 //                 mail.result(),
-                 decimalField.result(),
-                 decimalField2.result(),
-                 int.result(),
-//                 phone.result(),
-//                 password.result(),
-//                 town.result(),
-//                 phone2.result(),
-                 multiline.result())
+//                 decimalField.result(),
+////                 decimalField2.result(),
+////                 int.result(),
+////                 phone.result(),
+////                 password.result(),
+////                 town.result(),
+////                 phone2.result(),
+//                 multiline.result())
     
 //    section2.add(html.result())
     
