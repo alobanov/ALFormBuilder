@@ -101,8 +101,9 @@ public class RowFormTextComposite: FormItemCompositeProtocol, RowFormTextComposi
     if !self.visible.isMandatory {
       return true
     }
-    
-    return self.validation.state.isCompletelyValid
+    let isCompletelyValid = self.validation.state.isCompletelyValid
+    let visibleValid = self.visible.isValid
+    return isCompletelyValid && visibleValid
   }
   
   public func wasChanged() -> Bool {

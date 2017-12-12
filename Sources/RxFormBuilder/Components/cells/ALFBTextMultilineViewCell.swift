@@ -24,6 +24,8 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var titleLabel: UILabel!
   fileprivate var storedModel: RowFormTextCompositeOutput!
+  private var maxLength: Int?
+  private var placeholder: String = ""
   
   open override func awakeFromNib() {
     super.awakeFromNib()
@@ -41,6 +43,9 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       return
     }
     storedModel = vm
+    self.maxLength = self.storedModel.validation.maxLength
+    self.placeholder = vm.visualisation.placeholderText
+    
     let newText = vm.value.transformForDisplay()
     if textView.text != newText {
       textView.text = vm.value.transformForDisplay() ?? ""
@@ -59,7 +64,6 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     }
   }
   
-  
   func configureRx() {
     // Check validation all of text stream
     textView.rx.text.asDriver().skip(1)
@@ -70,8 +74,27 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       }).disposed(by: bag)
   }
   
-  public func textViewDidBeginEditing(_ textView: UITextView) {
-    self.storedModel.base.changeisEditingNow(true)
+  // MARK: - UITextViewDelegate
+  
+  public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    if let max = maxLength {
+      var newText = (textView.text as NSString).replacingCharacters(in: range, with: text).trim()
+      if newText == placeholder {
+        newText = ""
+      }
+      let numberOfChars = newText.count
+      if numberOfChars > max {
+        if text.count > 1 {
+          let lastIndex = newText.index(newText.startIndex, offsetBy: max)
+          textView.text = newText.substring(to: lastIndex)
+        }
+        return false
+      } else {
+        return true
+      }
+    } else {
+      return true
+    }
   }
   
   public func textViewDidChange(_ textView: UITextView) {
@@ -79,4 +102,24 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       self.reload?()
     }
   }
+  
+  public func textViewDidBeginEditing(_ textView: UITextView) {
+    let text = textView.text.trim()
+    if text == placeholder {
+      textView.text = ""
+      textView.textColor = UIColor.black
+    }
+    textView.becomeFirstResponder()
+    self.storedModel.base.changeisEditingNow(true)
+  }
+  
+  public func textViewDidEndEditing(_ textView: UITextView) {
+    let text = textView.text.trim()
+    if text.isEmpty {
+      textView.text = placeholder
+      textView.textColor = UIColor.lightGray
+    }
+    textView.resignFirstResponder()
+  }
+  
 }

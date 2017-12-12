@@ -17,7 +17,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .none,
                              validateAtCreation: false,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: "@model.decimal2 == <null> || @model.decimal < @model.decimal2")
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal2 == <null> || @model.decimal < @model.decimal2")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
@@ -29,7 +29,7 @@ class AuthFormDirector {
     builder.defineValidation(validationType: .none,
                              validateAtCreation: false,
                              valueKeyPath: "decimal2", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: "@model.decimal == <null> || @model.decimal > @model.decimal2")
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "@model.decimal == <null> || @model.decimal < @model.decimal2")
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal2", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
@@ -135,7 +135,7 @@ class AuthFormDirector {
   func multiline(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
     builder.defineValidation(validationType: .none,
-                             validateAtCreation: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
+                             validateAtCreation: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 10)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.multilineTextField, identifier: "Multiline", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",
@@ -225,14 +225,14 @@ class AuthFormDirector {
     section1.add(descr.result(),
                  agreement.result(),
                  agreement2.result(),
-                 mail.result(),
+//                 mail.result(),
                  decimalField.result(),
                  decimalField2.result(),
                  int.result(),
-                 phone.result(),
-                 password.result(),
-                 town.result(),
-                 phone2.result(),
+//                 phone.result(),
+//                 password.result(),
+//                 town.result(),
+//                 phone2.result(),
                  multiline.result())
     
 //    section2.add(html.result())

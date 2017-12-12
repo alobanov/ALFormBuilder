@@ -55,13 +55,16 @@ class RxViewController: UIViewController, UITableViewDelegate {
       }
       self?.logger.debug(self?.fb.object(withoutNull: false) ?? [:])
     }).disposed(by: bag)
+    
     fb.rxDidDatasource.bind(to: datasource).disposed(by: bag)
     
     fb.rxDidChangeFormState.subscribe(onNext: { isChange in
       print("something change in all form to: \(isChange)")
     }).disposed(by: bag)
-    fb.rxDidChangeCompletelyValidation.subscribe(onNext: { state in
+    
+    fb.rxDidChangeCompletelyValidation.subscribe(onNext: { [weak self] state in
       print("all form completely valid: \(state)")
+      self?.testBtn.isEnabled = state
     }).disposed(by: bag)
     
 //    fb.didChangeFormModel = { item in
