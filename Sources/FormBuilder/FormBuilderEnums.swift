@@ -86,6 +86,7 @@ public extension ALFB {
     case nonNil
     case regexp(String)
     case phone
+    case closure(ALFBClosureValidation)
   }
   
   enum ValidationState {

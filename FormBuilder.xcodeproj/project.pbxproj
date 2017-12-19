@@ -92,6 +92,7 @@
 		FB6FD5E81FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */; };
 		FB6FD5EE1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */; };
 		FBAD5EC41FBC0C7F00362B75 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */; };
+		FBE9411B1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE9411A1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +197,7 @@
 		FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALFBHtmlTextViewCell.swift; sourceTree = "<group>"; };
 		FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBHtmlTextViewCell.xib; sourceTree = "<group>"; };
 		FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FBE9411A1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureMiddlewareValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +469,7 @@
 				E8FFFE261FA8670F00E7A820 /* RegExpMiddlewareValidation.swift */,
 				E8FFFE271FA8670F00E7A820 /* FormModelValidator.swift */,
 				E8FFFE281FA8670F00E7A820 /* NilMiddlewareValidation.swift */,
+				FBE9411A1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift */,
 			);
 			path = validation;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				E8FFFE6B1FA8671000E7A820 /* RxALFormBuilder.swift in Sources */,
 				FB4028BE1FA889C1000865AD /* ALFBPhoneViewCell.swift in Sources */,
 				FB4028C51FA889C1000865AD /* ALFBCells.swift in Sources */,
+				FBE9411B1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift in Sources */,
 				E8FFFE591FA8671000E7A820 /* TupleValue.swift in Sources */,
 				E8FFFE5C1FA8671000E7A820 /* ButtonRowItemBuilder.swift in Sources */,
 				E82B50A71FA774A300F910F5 /* AuthFormDirector.swift in Sources */,

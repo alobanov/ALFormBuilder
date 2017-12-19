@@ -74,7 +74,10 @@ public class RowFromPhoneComposite: FormItemCompositeProtocol, RowFromPhoneCompo
       result = start.check(value: value.transformForDisplay())
     case .phone:
       start.link(with: PhoneMiddlewareValidation())
-      result = start.check(value: value.transformForDisplay())    
+      result = start.check(value: value.transformForDisplay())
+    case .closure(let model):
+      start.link(with: ClosureMiddlewareValidation(model: model))
+      result = start.check(value: value.transformForDisplay())
     default:
       let message = validation.errorText ?? ""
       return .failed(message: message)

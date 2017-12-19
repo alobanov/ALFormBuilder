@@ -14,10 +14,16 @@ class AuthFormDirector {
   
   func decimalField(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALFloatValue(value: 34.5, maximumFractionDigits: 2))
-    builder.defineValidation(validationType: .none,
-                             validateAtCreation: false,
+    let validation = ALFBClosureValidation(closure: { value -> Bool in
+      if (value ?? "").count > 2 {
+        return true
+      }
+      return false
+    }, error: "Неверное значение")
+    builder.defineValidation(validationType: .closure(validation),
+                             validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: "1 == 1 && 2 == 2 || 3 == 3 && 4 == 4 && 5 == 5 || 6 == 6 && 7 != 7 && 8 != 8")
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
