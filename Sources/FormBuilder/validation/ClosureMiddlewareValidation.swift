@@ -9,8 +9,8 @@
 import Foundation
 
 public struct ALFBClosureValidation {
-  let closure: (String?) -> Bool
-  let error: String
+  public let closure: (String?) -> Bool
+  public let error: String
 }
 
 class ClosureMiddlewareValidation: MiddlewareValidation {
