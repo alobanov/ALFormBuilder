@@ -11,6 +11,10 @@ import Foundation
 public struct ALFBClosureValidation {
   public let closure: (String?) -> Bool
   public let error: String
+  public init(closure: @escaping (String?) -> Bool, error: String) {
+    self.closure = closure
+    self.error = error
+  }
 }
 
 class ClosureMiddlewareValidation: MiddlewareValidation {
