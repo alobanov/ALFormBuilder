@@ -15,11 +15,12 @@ class AuthFormDirector {
   func decimalField(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALFloatValue(value: 34.5, maximumFractionDigits: 2))
     let validation = ALFBClosureValidation(closure: { value -> Bool in
-      if (value ?? "").count > 2 {
+      let number = Float(value ?? "") ?? 0.0
+      if number > 10.0 {
         return true
       }
       return false
-    }, error: "Неверное значение")
+    }, error: "Неверное значение") //
     builder.defineValidation(validationType: .closure(validation),
                              validateAtCreation: true,
                              valueKeyPath: "decimal", errorText: "Ошибка", maxLength: nil)

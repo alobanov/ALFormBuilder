@@ -77,6 +77,9 @@ public class RowFormTextComposite: FormItemCompositeProtocol, RowFormTextComposi
     case .regexp(let regexpstr):
       start.link(with: RegExpMiddlewareValidation(regexp: regexpstr))
       result = start.check(value: value.transformForDisplay())
+    case .closure(let model):
+      start.link(with: ClosureMiddlewareValidation(model: model))
+      result = start.check(value: value.transformForDisplay())
     default:
       result = .valid
     }

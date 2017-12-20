@@ -23,7 +23,7 @@ class ClosureMiddlewareValidation: MiddlewareValidation {
   
   override func check(value: String?) -> ALFB.ValidationResult {
     let isValid = model.closure(value)
-    if isValid {
+    if !isValid {
       return .error(model.error)
     }
     return self.checkNext(value: value)

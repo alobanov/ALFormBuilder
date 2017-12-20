@@ -70,6 +70,9 @@ public class RowFormBoolComposite: FormItemCompositeProtocol, RowFormBoolComposi
     case .nonNil:
       start.link(with: NilMiddlewareValidation())
       result = start.check(value: value.transformForDisplay())
+    case .closure(let model):
+      start.link(with: ClosureMiddlewareValidation(model: model))
+      result = start.check(value: value.transformForDisplay())
     default:
       return .failed(message: validation.errorText ?? "Error text is not defined")
     }
