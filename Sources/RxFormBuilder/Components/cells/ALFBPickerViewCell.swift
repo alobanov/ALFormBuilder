@@ -63,7 +63,12 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     topPlaceholderLabel.text = vm.visualisation.placeholderTopText
     
     // Fill by color for validation state
-    lblText.textColor = vm.validation.state.color
+    switch vm.validation.validationType {
+    case .none:
+      lblText.textColor = UIColor.darkGray
+    default:
+      lblText.textColor = vm.validation.state.color
+    }
     
     validationBorder.isHidden = !vm.validation.state.isVisibleValidationUI
     
@@ -82,8 +87,16 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   private func configureRx() {
     self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
     validationState.subscribe(onNext: { [weak self] result in
-      self?.lblText.textColor = result.color
-      self?.validationBorder.isHidden = result.isCompletelyValid
+      guard let sSelf = self else {
+        return
+      }
+      switch sSelf.storedModel.validation.validationType {
+      case .none:
+        sSelf.lblText.textColor = UIColor.darkGray
+      default:
+        sSelf.lblText.textColor = result.color
+      }
+      sSelf.validationBorder.isHidden = result.isCompletelyValid
     }).disposed(by: bag)
   }
 }
