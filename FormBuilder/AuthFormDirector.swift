@@ -229,19 +229,19 @@ class AuthFormDirector {
     director.intField(builder: int)
 
     root.add(section1)
-    section1.add(decimalField.result())
-//    section1.add(descr.result(),
-//                 agreement.result(),
-//                 agreement2.result(),
-//                 mail.result(),
-//                 decimalField.result(),
-////                 decimalField2.result(),
-////                 int.result(),
-////                 phone.result(),
-////                 password.result(),
-////                 town.result(),
-////                 phone2.result(),
-//                 multiline.result())
+//    section1.add(decimalField.result())
+    section1.add(descr.result(),
+                 agreement.result(),
+                 agreement2.result(),
+                 mail.result(),
+                 decimalField.result(),
+                 decimalField2.result(),
+                 int.result(),
+                 phone.result(),
+                 password.result(),
+                 town.result(),
+                 phone2.result(),
+                 multiline.result())
     
 //    section2.add(html.result())
     

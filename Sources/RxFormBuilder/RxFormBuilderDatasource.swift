@@ -75,6 +75,10 @@ extension RxSectionItemModel: IdentifiableType, Equatable {
       return model.diffIdentifier ?? ""
   }
   
+  var diff: String {
+    return model.diffIdentifier ?? ""
+  }
+  
   public func strictReload() -> Bool {
     return model.strictReload()
   }
@@ -82,5 +86,5 @@ extension RxSectionItemModel: IdentifiableType, Equatable {
 
 // equatable, this is needed to detect changes
 public func == (lhs: RxSectionItemModel, rhs: RxSectionItemModel) -> Bool {
-  return lhs.identity == rhs.identity && !lhs.strictReload()
+  return lhs.identity == rhs.identity && !lhs.strictReload() && lhs.diff == rhs.diff
 }
