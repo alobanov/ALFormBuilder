@@ -30,6 +30,8 @@ open class ALFBBoolViewCell: UITableViewCell, RxCellReloadeble {
       return
     }
     
+    switchComponent.accessibilityIdentifier = formModel.identifier
+    
     titleText?.text = formModel.title
     switchComponent.isOn = (formModel.value.retriveOriginalValue() as? Bool) ?? false
     

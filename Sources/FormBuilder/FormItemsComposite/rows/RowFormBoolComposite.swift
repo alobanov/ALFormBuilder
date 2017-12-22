@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol RowFormBoolCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
+public protocol RowFormBoolCompositeOutput: FormItemCompositeProtocol, RowCompositeVisibleSetting, RowCompositeValidationSetting {
   var title: String {get}
 }
 
-public class RowFormBoolComposite: FormItemCompositeProtocol, RowFormBoolCompositeOutput {
+public class RowFormBoolComposite: RowFormBoolCompositeOutput {
   public var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable

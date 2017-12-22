@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol RowCustomCompositeOutput: RowCompositeVisibleSetting {
+public protocol RowCustomCompositeOutput: FormItemCompositeProtocol, RowCompositeVisibleSetting {
   var data: Any {get}
 }
 
-public class RowCustomComposite: FormItemCompositeProtocol, RowCustomCompositeOutput {
+public class RowCustomComposite: RowCustomCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FormItemCompositeProtocol
   

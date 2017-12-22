@@ -78,6 +78,11 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
       return
     }
     
+    cityCodeField.accessibilityIdentifier = "code_\(vm.identifier)"
+    phoneField.accessibilityIdentifier = "phone_\(vm.identifier)"
+    cleareBtn.accessibilityIdentifier = "clear_\(vm.identifier)"
+    validateBtn.accessibilityIdentifier = "validate_\(vm.identifier)"
+    
     storedModel = vm
     
     // Configurate text field

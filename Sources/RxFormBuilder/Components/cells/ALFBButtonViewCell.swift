@@ -20,8 +20,7 @@ open class ALFBButtonViewCell: UITableViewCell, RxCellReloadeble {
   
   open override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
-    
+    actionButton.isAccessibilityElement = false
     highlitedBackground.alpha = 0
     layoutIfNeeded()
   }
@@ -44,7 +43,7 @@ open class ALFBButtonViewCell: UITableViewCell, RxCellReloadeble {
     guard let formModel = model as? RowFormButtonCompositeOutput else {
       return
     }
-    
+    accessibilityIdentifier = formModel.identifier
     actionButton.setTitle(formModel.title, for: UIControlState.normal)
     actionButton.alpha = formModel.visible.isDisabled ? 0.3 : 1
     self.isUserInteractionEnabled = !formModel.visible.isDisabled

@@ -61,6 +61,8 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
     clipsToBounds = true
     webView.clipsToBounds = true
     webView.scrollView.clipsToBounds = true
+    
+    webView.isAccessibilityElement = false
   }
   
   deinit {
@@ -107,6 +109,7 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
     if self.htmlStr == htmlString {
       return
     }
+    accessibilityIdentifier = vm.identifier
     
     DispatchQueue.main.async {
       self.htmlStr = htmlString

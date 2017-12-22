@@ -42,6 +42,9 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     guard let vm = model as? RowFormTextCompositeOutput else {
       return
     }
+    
+    textView.accessibilityIdentifier = vm.identifier
+    
     storedModel = vm
     self.maxLength = self.storedModel.validation.maxLength
     self.placeholder = vm.visualisation.placeholderText

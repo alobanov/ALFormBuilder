@@ -9,11 +9,11 @@
 import Foundation
 
 // Протокол с которым работает ячейка
-public protocol RowFromPhoneCompositeOutput: RowCompositeVisibleSetting, RowCompositeValidationSetting {
+public protocol RowFromPhoneCompositeOutput: FormItemCompositeProtocol, RowCompositeVisibleSetting, RowCompositeValidationSetting {
   var visualisation: ALFB.Visualization {get}
 }
 
-public class RowFromPhoneComposite: FormItemCompositeProtocol, RowFromPhoneCompositeOutput {
+public class RowFromPhoneComposite: RowFromPhoneCompositeOutput {
   public var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable

@@ -14,7 +14,6 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   @IBOutlet weak var lblText: UILabel!
   @IBOutlet weak var topPlaceholderLabel: UILabel!
   @IBOutlet weak var descriptionValueLabel: UILabel!
-  @IBOutlet weak var validateBtn: UIButton!
   @IBOutlet weak var validationBorder: UIView!
   
   fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
@@ -29,7 +28,6 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     super.awakeFromNib()
     // Initialization code
     lblText.isUserInteractionEnabled = false
-    validateBtn.isHidden = true
     validationBorder.isHidden = true
     
     self.didChangeValidation = { [weak self] _ in
@@ -54,6 +52,8 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     default: return
     }
    
+    accessibilityIdentifier = vm.identifier
+    
     // Value
     let value = vm.value.transformForDisplay() ?? ""
     lblText.text = value.isEmpty ? vm.visualisation.placeholderText : value
@@ -72,7 +72,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     
     validationBorder.isHidden = !vm.validation.state.isVisibleValidationUI
     
-    if let s = self.storedModel as? FormItemCompositeProtocol {
+    if let s = self.storedModel {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     

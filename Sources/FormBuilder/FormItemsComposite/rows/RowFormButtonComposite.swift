@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol RowFormButtonCompositeOutput: RowCompositeVisibleSetting {
+public protocol RowFormButtonCompositeOutput: FormItemCompositeProtocol, RowCompositeVisibleSetting {
   var title: String {get}
 }
 
-public class RowFormButtonComposite: FormItemCompositeProtocol, RowFormButtonCompositeOutput {
+public class RowFormButtonComposite: RowFormButtonCompositeOutput {
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FormItemCompositeProtocol
   
