@@ -53,10 +53,8 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     guard let vm = model as? RowFormTextCompositeOutput else {
       return
     }
-//    contentView.isAccessibilityElement = false
-//    isAccessibilityElement = false
-//    accessibilityElements = [textField, validateBtn, cleareBtn]
-    textField.accessibilityTraits = UIAccessibilityTraitStaticText
+    textField.isAccessibilityElement = true
+    textField.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently
     textField.accessibilityIdentifier = vm.identifier
     validateBtn.accessibilityIdentifier = "validate_\(vm.identifier)"
     cleareBtn.accessibilityIdentifier = "clear_\(vm.identifier)"
