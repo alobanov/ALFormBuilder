@@ -54,7 +54,6 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
       return
     }
     textField.isAccessibilityElement = true
-    textField.accessibilityTraits = UIAccessibilityTraitUpdatesFrequently
     textField.accessibilityIdentifier = vm.identifier
     validateBtn.accessibilityIdentifier = "validate_\(vm.identifier)"
     cleareBtn.accessibilityIdentifier = "clear_\(vm.identifier)"
