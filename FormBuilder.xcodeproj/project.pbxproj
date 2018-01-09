@@ -72,6 +72,11 @@
 		E8FFFE6C1FA8671000E7A820 /* ALValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */; };
 		E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */; };
 		E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */; };
+		FB16D6D92004C69E00E536CE /* FBLoginFormDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16D6D32004C69D00E536CE /* FBLoginFormDirector.swift */; };
+		FB16D6DA2004C69E00E536CE /* FBValidationClosures+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16D6D52004C69D00E536CE /* FBValidationClosures+Email.swift */; };
+		FB16D6DB2004C69E00E536CE /* FBValidationClosures+Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16D6D62004C69D00E536CE /* FBValidationClosures+Phone.swift */; };
+		FB16D6DC2004C69E00E536CE /* FBValidationClosures+PhoneOrEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16D6D72004C69D00E536CE /* FBValidationClosures+PhoneOrEmail.swift */; };
+		FB16D6DD2004C69E00E536CE /* FBValidationClosures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16D6D82004C69D00E536CE /* FBValidationClosures.swift */; };
 		FB29E30A1FA9BE78007BD6BF /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29E3091FA9BE78007BD6BF /* DateValue.swift */; };
 		FB4028AB1FA889A8000865AD /* RowFormTextMultilineComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AA1FA889A8000865AD /* RowFormTextMultilineComposite.swift */; };
 		FB4028BB1FA889C1000865AD /* ALFBBoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028AC1FA889C0000865AD /* ALFBBoolViewCell.swift */; };
@@ -91,6 +96,7 @@
 		FB4028C91FA889C1000865AD /* ALFBTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4028BA1FA889C1000865AD /* ALFBTextViewCell.swift */; };
 		FB6FD5E81FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */; };
 		FB6FD5EE1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */; };
+		FB865F272004C76F00603BB5 /* FBLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB865F262004C76F00603BB5 /* FBLoginModel.swift */; };
 		FBAD5EC41FBC0C7F00362B75 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */; };
 		FBE9411B1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE9411A1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift */; };
 /* End PBXBuildFile section */
@@ -177,6 +183,11 @@
 		E8FFFE2F1FA8670F00E7A820 /* ALValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALValidatedTextField.swift; sourceTree = "<group>"; };
 		E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFormBuilderDatasource.swift; sourceTree = "<group>"; };
 		E8FFFE7B1FA887B100E7A820 /* Bundle+ALFBAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+ALFBAdditions.swift"; sourceTree = "<group>"; };
+		FB16D6D32004C69D00E536CE /* FBLoginFormDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginFormDirector.swift; sourceTree = "<group>"; };
+		FB16D6D52004C69D00E536CE /* FBValidationClosures+Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FBValidationClosures+Email.swift"; sourceTree = "<group>"; };
+		FB16D6D62004C69D00E536CE /* FBValidationClosures+Phone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FBValidationClosures+Phone.swift"; sourceTree = "<group>"; };
+		FB16D6D72004C69D00E536CE /* FBValidationClosures+PhoneOrEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FBValidationClosures+PhoneOrEmail.swift"; sourceTree = "<group>"; };
+		FB16D6D82004C69D00E536CE /* FBValidationClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBValidationClosures.swift; sourceTree = "<group>"; };
 		FB29E3091FA9BE78007BD6BF /* DateValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		FB4028AA1FA889A8000865AD /* RowFormTextMultilineComposite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowFormTextMultilineComposite.swift; sourceTree = "<group>"; };
 		FB4028AC1FA889C0000865AD /* ALFBBoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALFBBoolViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +208,7 @@
 		FB6FD5E71FBB1BB8007FCAF4 /* ALFBHtmlTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALFBHtmlTextViewCell.swift; sourceTree = "<group>"; };
 		FB6FD5ED1FBB1DBA007FCAF4 /* ALFBHtmlTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALFBHtmlTextViewCell.xib; sourceTree = "<group>"; };
 		FB6FD5F11FBB2CC4007FCAF4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FB865F262004C76F00603BB5 /* FBLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginModel.swift; sourceTree = "<group>"; };
 		FBE9411A1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureMiddlewareValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +277,7 @@
 				E8D3C70D1FA0B16B0074FB28 /* vendors */,
 				E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */,
 				E82B50A51FA774A200F910F5 /* AuthFormDirector.swift */,
+				FB16D6D22004C69D00E536CE /* loginForm */,
 				E82B50A41FA774A200F910F5 /* RxViewController.swift */,
 				E8D3C6D81FA070A70074FB28 /* ViewController.swift */,
 				E8D3C6DA1FA070A70074FB28 /* Main.storyboard */,
@@ -534,6 +547,27 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		FB16D6D22004C69D00E536CE /* loginForm */ = {
+			isa = PBXGroup;
+			children = (
+				FB16D6D32004C69D00E536CE /* FBLoginFormDirector.swift */,
+				FB865F262004C76F00603BB5 /* FBLoginModel.swift */,
+				FB16D6D42004C69D00E536CE /* validation */,
+			);
+			path = loginForm;
+			sourceTree = "<group>";
+		};
+		FB16D6D42004C69D00E536CE /* validation */ = {
+			isa = PBXGroup;
+			children = (
+				FB16D6D52004C69D00E536CE /* FBValidationClosures+Email.swift */,
+				FB16D6D62004C69D00E536CE /* FBValidationClosures+Phone.swift */,
+				FB16D6D72004C69D00E536CE /* FBValidationClosures+PhoneOrEmail.swift */,
+				FB16D6D82004C69D00E536CE /* FBValidationClosures.swift */,
+			);
+			path = validation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -726,6 +760,7 @@
 				E8FFFE4C1FA8671000E7A820 /* String+Regex.swift in Sources */,
 				E8FFFE571FA8671000E7A820 /* BoolValue.swift in Sources */,
 				E8FFFE441FA8671000E7A820 /* ConditionFalse.swift in Sources */,
+				FB865F272004C76F00603BB5 /* FBLoginModel.swift in Sources */,
 				E8FFFE551FA8671000E7A820 /* CompositeProtocols.swift in Sources */,
 				E8FFFE4A1FA8671000E7A820 /* UITextField+TypeFilter.swift in Sources */,
 				E8FFFE661FA8671000E7A820 /* PhoneMiddlewareValidation.swift in Sources */,
@@ -738,6 +773,7 @@
 				E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */,
 				E8FFFE531FA8671000E7A820 /* RowFormBoolComposite.swift in Sources */,
 				E8FFFE631FA8671000E7A820 /* ALFormJSONBuilder.swift in Sources */,
+				FB16D6DC2004C69E00E536CE /* FBValidationClosures+PhoneOrEmail.swift in Sources */,
 				E8E8FAA81FAA049200716016 /* ALConditionLessThen.swift in Sources */,
 				E8FFFE601FA8671000E7A820 /* StringRowItemBuilder.swift in Sources */,
 				E8FFFE4B1FA8671000E7A820 /* String+Common.swift in Sources */,
@@ -746,6 +782,7 @@
 				FB4028BE1FA889C1000865AD /* ALFBPhoneViewCell.swift in Sources */,
 				FB4028C51FA889C1000865AD /* ALFBCells.swift in Sources */,
 				FBE9411B1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift in Sources */,
+				FB16D6DD2004C69E00E536CE /* FBValidationClosures.swift in Sources */,
 				E8FFFE591FA8671000E7A820 /* TupleValue.swift in Sources */,
 				E8FFFE5C1FA8671000E7A820 /* ButtonRowItemBuilder.swift in Sources */,
 				E82B50A71FA774A300F910F5 /* AuthFormDirector.swift in Sources */,
@@ -759,14 +796,17 @@
 				E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */,
 				E8FFFE491FA8671000E7A820 /* Dictionary+Ext.swift in Sources */,
 				E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */,
+				FB16D6DB2004C69E00E536CE /* FBValidationClosures+Phone.swift in Sources */,
 				FB4028C11FA889C1000865AD /* ALFBButtonViewCell.swift in Sources */,
 				E8FFFE3F1FA8671000E7A820 /* Evaluator.swift in Sources */,
+				FB16D6DA2004C69E00E536CE /* FBValidationClosures+Email.swift in Sources */,
 				E8FFFE7A1FA8671000E7A820 /* RxFormBuilderDatasource.swift in Sources */,
 				FB4028C31FA889C1000865AD /* ALFBTextMultilineViewCell.swift in Sources */,
 				E8FFFE481FA8671000E7A820 /* ConditionTrue.swift in Sources */,
 				E8FFFE621FA8671000E7A820 /* FormBuilderEnums.swift in Sources */,
 				E82B50A31FA7708400F910F5 /* TestTableViewCell.swift in Sources */,
 				E8FFFE411FA8671000E7A820 /* Stack.swift in Sources */,
+				FB16D6D92004C69E00E536CE /* FBLoginFormDirector.swift in Sources */,
 				E8FFFE5D1FA8671000E7A820 /* BoolRowItemBuilder.swift in Sources */,
 				E8FFFE7C1FA887B100E7A820 /* Bundle+ALFBAdditions.swift in Sources */,
 				E8FFFE431FA8671000E7A820 /* Expression.swift in Sources */,
@@ -941,10 +981,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D9W2XCDBH5;
+				DEVELOPMENT_TEAM = Z6MDUXH66B;
 				INFOPLIST_FILE = FormBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.lobanov.FormBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvv.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -957,10 +997,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D9W2XCDBH5;
+				DEVELOPMENT_TEAM = Z6MDUXH66B;
 				INFOPLIST_FILE = FormBuilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.lobanov.FormBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvv.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

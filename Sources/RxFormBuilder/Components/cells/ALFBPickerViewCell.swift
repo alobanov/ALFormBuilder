@@ -11,10 +11,10 @@ import RxSwift
 
 open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   
-  @IBOutlet weak var lblText: UILabel!
-  @IBOutlet weak var topPlaceholderLabel: UILabel!
-  @IBOutlet weak var descriptionValueLabel: UILabel!
-  @IBOutlet weak var validationBorder: UIView!
+  @IBOutlet weak var lblText: UILabel?
+  @IBOutlet weak var topPlaceholderLabel: UILabel?
+  @IBOutlet weak var descriptionValueLabel: UILabel?
+  @IBOutlet weak var validationBorder: UIView?
   
   fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
   fileprivate var didChangeValidation: DidChangeValidation!
@@ -27,16 +27,17 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   open override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    lblText.isUserInteractionEnabled = false
-    validationBorder.isHidden = true
+    
+    validationBorder?.isHidden = true
     
     self.didChangeValidation = { [weak self] _ in
       if let state = self?.storedModel.validation.state {
         self?.validationState.onNext(state)
       }
     }
-    
-    self.layoutIfNeeded()
+    isUserInteractionEnabled = true
+    contentView.isUserInteractionEnabled = true
+//    self.layoutIfNeeded()
   }
   
   public func reload(with model: RxCellModelDatasoursable) {
@@ -56,21 +57,21 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     
     // Value
     let value = vm.value.transformForDisplay() ?? ""
-    lblText.text = value.isEmpty ? vm.visualisation.placeholderText : value
+    lblText?.text = value.isEmpty ? vm.visualisation.placeholderText : value
     
     // addidional description information field under the text field
-    descriptionValueLabel.text = vm.visualisation.detailsText
-    topPlaceholderLabel.text = vm.visualisation.placeholderTopText
+    descriptionValueLabel?.text = vm.visualisation.detailsText
+    topPlaceholderLabel?.text = vm.visualisation.placeholderTopText
     
     // Fill by color for validation state
     switch vm.validation.validationType {
     case .none:
-      lblText.textColor = UIColor.darkGray
+      lblText?.textColor = UIColor.darkGray
     default:
-      lblText.textColor = vm.validation.state.color
+      lblText?.textColor = vm.validation.state.color
     }
     
-    validationBorder.isHidden = !vm.validation.state.isVisibleValidationUI
+    validationBorder?.isHidden = !vm.validation.state.isVisibleValidationUI
     
     if let s = self.storedModel {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
@@ -82,6 +83,8 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
       alreadyInitialized = true
       configureRx()
     }
+    isUserInteractionEnabled = true
+    contentView.isUserInteractionEnabled = true
   }
   
   private func configureRx() {
@@ -92,11 +95,11 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
       }
       switch sSelf.storedModel.validation.validationType {
       case .none:
-        sSelf.lblText.textColor = UIColor.darkGray
+        sSelf.lblText?.textColor = UIColor.darkGray
       default:
-        sSelf.lblText.textColor = result.color
+        sSelf.lblText?.textColor = result.color
       }
-      sSelf.validationBorder.isHidden = result.isCompletelyValid
+      sSelf.validationBorder?.isHidden = result.isCompletelyValid
     }).disposed(by: bag)
   }
 }

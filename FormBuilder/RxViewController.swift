@@ -36,6 +36,12 @@ class RxViewController: UIViewController, UITableViewDelegate {
     // Do any additional setup after loading the view.
     self.configureUI()
     self.configureTable()
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -44,7 +50,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
   }
 
   func configureTable() {
-    self.fb = RxALFormBuilder(compositeFormData: AuthFormDirector.build(),
+    self.fb = RxALFormBuilder(compositeFormData: FBLoginFormDirector.build(email: nil),
                             jsonBuilder: ALFormJSONBuilder(predefinedObject: [:]))
     
     let datasource = BehaviorSubject<[RxSectionModel]>(value: [])
@@ -64,7 +70,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     
     fb.rxDidChangeCompletelyValidation.subscribe(onNext: { [weak self] state in
       print("all form completely valid: \(state)")
-      self?.testBtn.isEnabled = state
+//      self?.testBtn.isEnabled = state
     }).disposed(by: bag)
     
 //    fb.didChangeFormModel = { item in
@@ -123,7 +129,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     tableView.rx.setDelegate(self)
       .disposed(by: bag)
     
-    tableView.rx.modelSelected(RxSectionItemModel.self).asObservable().subscribe(onNext: { [weak self] model in
+    tableView.rx.modelSelected(RxSectionItemModel.self).subscribe(onNext: { [weak self] model in
       guard let item = model.model as? RowFormTextComposite else {
         return
       }
@@ -138,9 +144,11 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       if item.identifier == "Town" {
         item.updateAndReload(value: ALTitledValue(value: ALTitledTuple("Екатеринбург", 23)))
-        let vc = UIViewController()
-        self?.navigationController?.pushViewController(vc, animated: true)
       }
+      let vc = UIViewController()
+      vc.view.backgroundColor = UIColor.white
+      vc.title = item.identifier
+      self?.navigationController?.pushViewController(vc, animated: true)
     }).disposed(by: bag)
     
     rxDataSource.titleForHeaderInSection = { ds, index in
@@ -157,10 +165,11 @@ class RxViewController: UIViewController, UITableViewDelegate {
     
     testBtn.rx.tap
       .subscribe(onNext: { [weak self] in
-        if let model = self?.fb.model(by: "Town") as? RowFormTextComposite {
-          model.visualisation.detailsText = "Description changed"
-          model.updateAndReload(value: model.value)
-        }
+        self?.dismiss(animated: true, completion: nil)
+//        if let model = self?.fb.model(by: "Town") as? RowFormTextComposite {
+//          model.visualisation.detailsText = "Description changed"
+//          model.updateAndReload(value: model.value)
+//        }
       }).disposed(by: bag)
   }
   
