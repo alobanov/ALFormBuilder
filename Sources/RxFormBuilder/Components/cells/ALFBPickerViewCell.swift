@@ -29,6 +29,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     // Initialization code
     lblText.isUserInteractionEnabled = false
     validationBorder.isHidden = true
+    accessibilityTraits = UIAccessibilityTraitButton
     
     self.didChangeValidation = { [weak self] _ in
       if let state = self?.storedModel.validation.state {
@@ -52,11 +53,13 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     default: return
     }
    
-    accessibilityIdentifier = vm.identifier
-    
     // Value
     let value = vm.value.transformForDisplay() ?? ""
     lblText.text = value.isEmpty ? vm.visualisation.placeholderText : value
+   
+    accessibilityIdentifier = vm.identifier
+    accessibilityValue = lblText.text
+    accessibilityLabel = lblText.text
     
     // addidional description information field under the text field
     descriptionValueLabel.text = vm.visualisation.detailsText

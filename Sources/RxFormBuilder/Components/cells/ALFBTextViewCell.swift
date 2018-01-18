@@ -53,10 +53,6 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     guard let vm = model as? RowFormTextCompositeOutput else {
       return
     }
-    textField.isAccessibilityElement = true
-    textField.accessibilityIdentifier = vm.identifier
-    validateBtn.accessibilityIdentifier = "validate_\(vm.identifier)"
-    cleareBtn.accessibilityIdentifier = "clear_\(vm.identifier)"
     
     // check type of model data
     switch vm.base.dataType {
@@ -120,6 +116,12 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
       
       alreadyInitialized = true
     }
+    
+    textField.isAccessibilityElement = true
+    textField.accessibilityIdentifier = vm.identifier
+    textField.accessibilityLabel = textField.text
+    validateBtn.accessibilityIdentifier = "validate_\(vm.identifier)"
+    cleareBtn.accessibilityIdentifier = "clear_\(vm.identifier)"
   }
   
   // MARK: - UITextFieldDelegate

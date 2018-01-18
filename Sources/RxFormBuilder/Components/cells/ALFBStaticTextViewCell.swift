@@ -39,7 +39,6 @@ open class ALFBStaticTextViewCell: UITableViewCell, RxCellReloadeble {
     guard let formModel = model as? RowCustomCompositeOutput else {
       return
     }
-    accessibilityIdentifier = formModel.identifier
     titleInfoLabel.text = formModel.data as? String ?? ""
     titleInfoLabel.isEnabled = !formModel.visible.isDisabled
     titleInfoLabel.alpha = formModel.visible.isDisabled ? 0.3 : 1
@@ -48,5 +47,8 @@ open class ALFBStaticTextViewCell: UITableViewCell, RxCellReloadeble {
       alreadyInitialized = true
       accessoryType = UITableViewCellAccessoryType.none
     }
+    
+    accessibilityIdentifier = formModel.identifier
+    accessibilityValue = titleInfoLabel.text
   }
 }

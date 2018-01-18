@@ -43,8 +43,6 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       return
     }
     
-    textView.accessibilityIdentifier = vm.identifier
-    
     storedModel = vm
     self.maxLength = self.storedModel.validation.maxLength
     self.placeholder = vm.visualisation.placeholderText
@@ -68,6 +66,9 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       configureRx()      
       alreadyInitialized = true
     }
+    
+    textView.accessibilityIdentifier = vm.identifier
+    textView.accessibilityLabel = textView.text
   }
   
   func configureRx() {
