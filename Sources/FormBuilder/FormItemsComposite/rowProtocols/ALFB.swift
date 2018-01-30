@@ -191,5 +191,5 @@ public struct ALFB {
 }
 
 public protocol FBUniversalCellProtocol {
-  public var type: UITableViewCell.Type { get }
+  var type: UITableViewCell.Type { get }
 }
