@@ -33,7 +33,7 @@ public protocol ALFormBuilderProtocol {
   func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T?
 }
 
-public class ALFormBuilder: ALFormBuilderProtocol {
+open class ALFormBuilder: ALFormBuilderProtocol {
   public typealias DidDatasource = (FormItemCompositeProtocol) -> Void
   public typealias DidChangeFormModel = (FormItemCompositeProtocol) -> Void
   public typealias DidChangeCompletelyValidation = (Bool) -> Void
