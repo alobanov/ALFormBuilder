@@ -1,33 +1,33 @@
 PODS:
-  - Differentiator (2.0.2)
+  - Differentiator (3.0.2)
   - IQKeyboardManagerSwift (5.0.7)
   - ObjectMapper (3.1.0)
-  - RxCocoa (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxDataSources (2.0.2):
-    - Differentiator (~> 2.0)
-    - RxCocoa (>= 3.6.1)
-    - RxSwift (>= 3.6.1)
-  - RxSwift (3.6.1)
+  - RxCocoa (4.1.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.2):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.1)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - ObjectMapper
-  - RxCocoa (~> 3)
+  - RxCocoa
   - RxDataSources
-  - RxSwift (~> 3)
+  - RxSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Differentiator: caa9b3957981a2ac8e6b2eac8a676af461caa604
+  Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxDataSources: 7f190474a93a206c082c2d74c4cc9c8f7bea4feb
-  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
+  RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
+  RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 3f08294f60242798ff32d99fa313b03fdba51848
+PODFILE CHECKSUM: 07bf490732601fdcdeda94ad7f8fa7e5ae77b87c
 
 COCOAPODS: 1.3.1

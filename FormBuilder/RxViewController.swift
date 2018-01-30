@@ -82,10 +82,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
     self.fb.prepareDatasource()
     
     // Table view
-    let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>()
-    
-    
-    rxDataSource.configureCell = { [weak self] (dataSource, table, idxPath, _) in
+    let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>(configureCell: { [weak self] (dataSource, table, idxPath, _) in
       var item: RxSectionItemModel
       
       do {
@@ -96,13 +93,13 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       let cellType = item.model.cellType.type
       let cell = table.dequeueReusableTableCell(forIndexPath: idxPath, andtype: cellType)
-
+      
       if let c = cell as? RxCellReloadeble {
         c.reload(with: item.model)
       }
       
       if var c = cell as? TableReloadable {
-        c.reload = { _ in
+        c.reload = {
           guard let sSelf = self else {
             return
           }
@@ -115,7 +112,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       cell.selectionStyle = UITableViewCellSelectionStyle.none
       return cell
-    }
+    })
     
     rxDataSource.animationConfiguration =
       AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .none, deleteAnimation: .fade)

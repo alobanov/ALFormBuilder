@@ -224,9 +224,9 @@ public class ALFBStyle : NSObject {
         let tfAlertStarStyle = NSMutableParagraphStyle()
         tfAlertStarStyle.alignment = .center
         let tfAlertStarFontAttributes = [
-            NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 26)!,
-            NSForegroundColorAttributeName: colorErrorValidation,
-            NSParagraphStyleAttributeName: tfAlertStarStyle,
+            NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 26)!,
+            NSAttributedStringKey.foregroundColor: colorErrorValidation,
+            NSAttributedStringKey.paragraphStyle: tfAlertStarStyle,
         ]
 
         "*".draw(in: tfAlertStarRect, withAttributes: tfAlertStarFontAttributes)

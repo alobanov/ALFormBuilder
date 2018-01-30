@@ -39,7 +39,7 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     cleareBtn.isHidden = true
     clipsToBounds = true
     
-    self.didChangeValidation = { [weak self] _ in
+    self.didChangeValidation = { [weak self] in
       if let state = self?.storedModel.validation.state {
         self?.validationState.onNext(state)
       }
@@ -104,7 +104,7 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
       validateBtn.isHidden = !vm.visible.isMandatory
     }
     
-    if let s = self.storedModel as? FormItemCompositeProtocol {
+    if let s = self.storedModel {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     

@@ -63,7 +63,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     cityCodeField.tag = PhonePart.cityCode.rawValue
     phoneField.tag = PhonePart.phone.rawValue
     
-    self.didChangeValidation = { [weak self] _ in
+    self.didChangeValidation = { [weak self] in
       if let state = self?.storedModel.validation.state {
         self?.validationState.onNext(state)
       }
@@ -130,7 +130,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
       validateBtn.isHidden = !vm.visible.isMandatory
     }
     
-    if let s = self.storedModel as? FormItemCompositeProtocol {
+    if let s = self.storedModel {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     

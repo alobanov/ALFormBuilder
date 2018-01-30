@@ -31,7 +31,7 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
     validationBorder.isHidden = true
     accessibilityTraits = UIAccessibilityTraitButton
     
-    self.didChangeValidation = { [weak self] _ in
+    self.didChangeValidation = { [weak self] in
       if let state = self?.storedModel.validation.state {
         self?.validationState.onNext(state)
       }
