@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public extension ALFB {
-  enum Cells: Int, FBUniversalCellProtocol {
+  public enum Cells: Int, FBUniversalCellProtocol {
     case emptyField
     
     public var type: UITableViewCell.Type {
@@ -21,7 +21,7 @@ public extension ALFB {
     }
   }
   
-  enum FBKeyboardType: Int {
+  public enum FBKeyboardType: Int {
     case defaultKeyboard = 0 // Default type for the current input method.
     case numbersAndPunctuation = 1 // Numbers and assorted punctuation.
     case URL = 2 // A type optimized for URL entry (shows . / .com prominently).
@@ -45,7 +45,7 @@ public extension ALFB {
     }
   }
   
-  enum FBAutocapitalizationType: Int {
+  public enum FBAutocapitalizationType: Int {
     case none, sentences, words, allCharacters
     
     var value: UITextAutocapitalizationType {
@@ -58,13 +58,13 @@ public extension ALFB {
     }
   }
   
-  enum FormModelLevel {
+  public enum FormModelLevel {
     case root
     case section
     case item
   }
   
-  enum DataType: Int {
+  public enum DataType: Int {
     /// Строка
     case string =  0
     case integer = 1
@@ -81,7 +81,7 @@ public extension ALFB {
     case picker = 12
   }
   
-  enum ValidationType {
+  public enum ValidationType {
     case none
     case nonNil
     case regexp(String)
@@ -89,7 +89,7 @@ public extension ALFB {
     case closure(ALFBClosureValidation)
   }
   
-  enum ValidationState {
+  public enum ValidationState {
     case valid
     case failed(message: String)
     case typing
@@ -123,7 +123,7 @@ public func == (lhs: ALFB.FormModelLevel, rhs: ALFB.FormModelLevel) -> Bool {
 }
 
 public extension ALFB.ValidationState {
-  var isValidWithTyping: Bool {
+  public var isValidWithTyping: Bool {
     switch self {
     case .valid, .typing:
       return true
@@ -132,7 +132,7 @@ public extension ALFB.ValidationState {
     }
   }
   
-  var isCompletelyValid: Bool {
+  public var isCompletelyValid: Bool {
     switch self {
     case .valid:
       return true
@@ -141,7 +141,7 @@ public extension ALFB.ValidationState {
     }
   }
   
-  var isVisibleValidationUI: Bool {
+  public var isVisibleValidationUI: Bool {
     if !self.isCompletelyValid {
       switch self {
       case .typing:
@@ -154,7 +154,7 @@ public extension ALFB.ValidationState {
     }
   }
   
-  var color: UIColor {
+  public var color: UIColor {
     switch self {
     case .valid:
       return ALFBStyle.fbSuccess
@@ -165,7 +165,7 @@ public extension ALFB.ValidationState {
     }
   }
   
-  var message: String {
+  public var message: String {
     switch self {
     case let .failed(message):
       return message
