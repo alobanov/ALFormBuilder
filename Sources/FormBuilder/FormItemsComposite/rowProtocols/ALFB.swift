@@ -162,7 +162,7 @@ public struct ALFB {
     phoneNumber,
     cellularPhoneNumber
     
-    var maxFractionDigits: Int {
+    public var maxFractionDigits: Int {
       switch self {
       case .onlyDecimals(let maxFractionDigits):
         return maxFractionDigits
@@ -171,7 +171,7 @@ public struct ALFB {
       }
     }
     
-    var options: UITextFieldFilterOptions {
+    public var options: UITextFieldFilterOptions {
       switch self {
       case .none:
         return [.None]
@@ -191,5 +191,5 @@ public struct ALFB {
 }
 
 public protocol FBUniversalCellProtocol {
-  var type: UITableViewCell.Type { get }
+  public var type: UITableViewCell.Type { get }
 }
