@@ -64,11 +64,11 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
     
     // Configurate text field
     // keybord type
-    textField.keyboardType = vm.visualisation.keyboardType?.value ?? .default
+    textField.keyboardType = vm.visualisation.keyboardType?.keyboardType ?? .default
     
     // Additional placeholder above the input text
     textField.textPlaceholder = vm.visualisation.placeholderTopText
-    textField.autocapitalizationType = vm.visualisation.autocapitalizationType?.value ?? .none
+    textField.autocapitalizationType = vm.visualisation.autocapitalizationType?.autocapitalizationType ?? .none
     
     // Just place holder
     textField.placeholder = vm.visualisation.placeholderText

@@ -9,7 +9,11 @@
 import UIKit
 
 public struct UITextFieldFilterOptions : OptionSet {
-  let rawValue: Int
+  public let rawValue: Int
+  
+  public init(rawValue: Int) {
+    self.rawValue = rawValue
+  }
   
   static let None         = UITextFieldFilterOptions(rawValue: 0)
   static let RemoveWhitespacesOption  = UITextFieldFilterOptions(rawValue: 1 << 0)

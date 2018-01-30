@@ -31,7 +31,7 @@ public extension ALFB {
     case emailAddress = 6// A type optimized for multiple email
     case decimalPad = 7// A number pad with a decimal point.
     
-    public var value: UIKeyboardType {
+    public var keyboardType: UIKeyboardType {
       switch self {
       case .defaultKeyboard: return .default
       case .numbersAndPunctuation: return .numbersAndPunctuation
@@ -48,7 +48,7 @@ public extension ALFB {
   public enum FBAutocapitalizationType: Int {
     case none, sentences, words, allCharacters
     
-    public var value: UITextAutocapitalizationType {
+    public var autocapitalizationType: UITextAutocapitalizationType {
       switch self {
       case .none: return .none
       case .words: return .words

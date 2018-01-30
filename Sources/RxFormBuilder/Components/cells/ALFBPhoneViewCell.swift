@@ -91,8 +91,8 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     
     // Configurate text field
     // keybord type
-    cityCodeField.keyboardType = vm.visualisation.keyboardType?.value ?? .default
-    phoneField.keyboardType = vm.visualisation.keyboardType?.value ?? .default
+    cityCodeField.keyboardType = vm.visualisation.keyboardType?.keyboardType ?? .default
+    phoneField.keyboardType = vm.visualisation.keyboardType?.keyboardType ?? .default
     
     // Additional placeholder above the input text
     topPlaceholderLabel.text = vm.visualisation.placeholderText
