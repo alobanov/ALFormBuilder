@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UITextFieldFilterOptions : OptionSet {
+public struct UITextFieldFilterOptions : OptionSet {
   let rawValue: Int
   
   static let None         = UITextFieldFilterOptions(rawValue: 0)
@@ -19,11 +19,11 @@ struct UITextFieldFilterOptions : OptionSet {
   static let CellularPhoneNumberOption  = UITextFieldFilterOptions(rawValue: 1 << 4)
 }
 
-extension UITextField {
+public extension UITextField {
   
   static let decimalSeparators = [",", "."]
   
-  func filtred(_ options: UITextFieldFilterOptions, string: String = "", range: NSRange = NSRange(),
+  public func filtred(_ options: UITextFieldFilterOptions, string: String = "", range: NSRange = NSRange(),
                maxLeng: Int? = nil, maxFractionDigits: Int = 0) -> Bool {
     
     if options.contains(.RemoveWhitespacesOption) {
