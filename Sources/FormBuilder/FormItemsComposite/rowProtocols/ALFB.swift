@@ -73,7 +73,7 @@ public struct ALFB {
     public var valueKeyPath: String?
     public var errorText: String?
     public var maxLength: Int?
-    internal let validateAtCreation: Bool
+    internal var validateAtCreation: Bool
     
     public init(validationType: ValidationType, validateAtCreation: Bool, valueKeyPath: String?, errorText: String?, maxLength: Int?) {
       self.validationType = validationType
@@ -85,6 +85,11 @@ public struct ALFB {
     }
     
     public mutating func change(state: ValidationState) {
+      if !validateAtCreation {
+        validateAtCreation = true
+        return
+      }
+      
       self.state = state
     }
   }
