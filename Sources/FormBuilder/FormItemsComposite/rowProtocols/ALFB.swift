@@ -86,11 +86,14 @@ public struct ALFB {
     
     public mutating func change(state: ValidationState) {
       if !validateAtCreation {
-        validateAtCreation = true
         return
       }
       
       self.state = state
+    }
+    
+    public mutating func canValidate() {
+      self.validateAtCreation = true
     }
   }
   
