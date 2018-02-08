@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3E1F3F34C9A0E44E301727A /* Pods_FormBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D9F48D95B089817870450D /* Pods_FormBuilder.framework */; };
+		E8257711202C9B3700B36090 /* AZTextFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8257710202C9B3600B36090 /* AZTextFrame.swift */; };
 		E82B50A31FA7708400F910F5 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82B50A21FA7708400F910F5 /* TestTableViewCell.swift */; };
 		E82B50A61FA774A300F910F5 /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82B50A41FA774A200F910F5 /* RxViewController.swift */; };
 		E82B50A71FA774A300F910F5 /* AuthFormDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82B50A51FA774A200F910F5 /* AuthFormDirector.swift */; };
@@ -109,6 +110,7 @@
 		062A44C8779DDAB2F68DBC61 /* Pods-FormBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder.release.xcconfig"; sourceTree = "<group>"; };
 		06D9F48D95B089817870450D /* Pods_FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9993D6E33986745D044A927 /* Pods-FormBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FormBuilder/Pods-FormBuilder.debug.xcconfig"; sourceTree = "<group>"; };
+		E8257710202C9B3600B36090 /* AZTextFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZTextFrame.swift; sourceTree = "<group>"; };
 		E82B50A21FA7708400F910F5 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		E82B50A41FA774A200F910F5 /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		E82B50A51FA774A200F910F5 /* AuthFormDirector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFormDirector.swift; sourceTree = "<group>"; };
@@ -238,6 +240,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E825770F202C9B3600B36090 /* AZText */ = {
+			isa = PBXGroup;
+			children = (
+				E8257710202C9B3600B36090 /* AZTextFrame.swift */,
+			);
+			path = AZText;
+			sourceTree = "<group>";
+		};
 		E8D3C6CA1FA070A70074FB28 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +333,7 @@
 		E8FFFDF01FA8670F00E7A820 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E825770F202C9B3600B36090 /* AZText */,
 				E8FFFDF11FA8670F00E7A820 /* Interpreter */,
 				E8FFFDFD1FA8670F00E7A820 /* extension */,
 			);
@@ -751,6 +762,7 @@
 				E82B50A71FA774A300F910F5 /* AuthFormDirector.swift in Sources */,
 				E8FFFE4F1FA8671000E7A820 /* RowFormTextComposite.swift in Sources */,
 				E8FFFE561FA8671000E7A820 /* StringValue.swift in Sources */,
+				E8257711202C9B3700B36090 /* AZTextFrame.swift in Sources */,
 				E8FFFE641FA8671000E7A820 /* ALFormBuilder.swift in Sources */,
 				E8D3C6D91FA070A70074FB28 /* ViewController.swift in Sources */,
 				E8FFFE5A1FA8671000E7A820 /* ALFBStyle.swift in Sources */,

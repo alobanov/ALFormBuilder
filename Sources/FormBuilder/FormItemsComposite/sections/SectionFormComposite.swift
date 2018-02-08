@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol SectionFormCompositeOutput {
   var header: String? {get}
@@ -60,5 +61,32 @@ public class SectionFormComposite: FormItemCompositeProtocol, SectionFormComposi
   
   public func remove(_ model: FormItemCompositeProtocol) {
     self.decoratedComposite.remove(model)
+  }
+  
+  public func heightHeader(byWidth: CGFloat, heightOffset: CGFloat, fontSize: CGFloat) -> CGFloat {
+    if header?.isEmpty ?? false || header == nil {
+      return 0
+    }
+    
+    return self.height(string: header ?? "", width: byWidth, heightOffset: heightOffset, fontSize: fontSize)
+  }
+  
+  public func heightFooter(byWidth: CGFloat, heightOffset: CGFloat, fontSize: CGFloat) -> CGFloat {
+    if footer?.isEmpty ?? false {
+      return 0
+    }
+    
+    return self.height(string: footer ?? "", width: byWidth, heightOffset: heightOffset, fontSize: fontSize)
+  }
+  
+  private func height(string: String, width: CGFloat, heightOffset: CGFloat, fontSize: CGFloat) -> CGFloat {
+    let attr = AZTextFrameAttributes(string: string, width: width, font: UIFont.systemFont(ofSize: fontSize))
+    return AZTextFrame(attributes: attr).height + heightOffset
+  }
+  
+  public func removeAll() {
+    for item in self.children {
+      self.remove(item)
+    }
   }
 }

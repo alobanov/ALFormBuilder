@@ -28,6 +28,14 @@ public protocol RxCellReloadeble {
   func reload(with model: RxCellModelDatasoursable)
 }
 
+public protocol RxCellImageCancelable {
+  func cancelImageLoading()
+}
+
+public protocol RxCellTappable {
+  var tap: ((_ data: Any?) -> Void)? {get set}
+}
+
 /**
  Datasource model (based on RxDatasource)
  
