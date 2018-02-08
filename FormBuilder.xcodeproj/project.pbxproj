@@ -324,6 +324,7 @@
 				E8FFFE161FA8670F00E7A820 /* FomModelBuilder */,
 				E8FFFE201FA8670F00E7A820 /* FormBuilderEnums.swift */,
 				E8FFFE211FA8670F00E7A820 /* ALFormJSONBuilder.swift */,
+				E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */,
 				E8FFFE221FA8670F00E7A820 /* ALFormBuilder.swift */,
 				E8FFFE231FA8670F00E7A820 /* validation */,
 			);
@@ -491,7 +492,6 @@
 				E8FFFE2A1FA8670F00E7A820 /* formItemComposite */,
 				E8FFFE2C1FA8670F00E7A820 /* RxALFormBuilder.swift */,
 				E8FFFE2D1FA8670F00E7A820 /* Components */,
-				E8FFFE3E1FA8670F00E7A820 /* RxFormBuilderDatasource.swift */,
 			);
 			path = RxFormBuilder;
 			sourceTree = "<group>";
