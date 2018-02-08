@@ -59,3 +59,14 @@ extension RowFormButtonComposite: RxCellModelDatasoursable {
     return base.strictReload()
   }
 }
+
+extension RowFormTextMultilineComposite: RxCellModelDatasoursable {
+  public var diffIdentifier: String? {
+    return self.identifier
+  }
+  
+  public func strictReload() -> Bool {
+    return base.strictReload()
+  }
+}
+

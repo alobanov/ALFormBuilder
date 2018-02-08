@@ -39,9 +39,20 @@ public class SectionFormComposite: FormItemCompositeProtocol, SectionFormComposi
     return self.decoratedComposite.leaves.flatMap { $0.leaves }
   }
   
+  public var items: [RxSectionItemModel] {
+    return self.decoratedComposite.children.flatMap {$0.items}
+  }
+  
   public var level: ALFB.FormModelLevel = .section
   
   public init(composite: FormItemCompositeProtocol, header: String?, footer: String?) {
+    self.decoratedComposite = composite
+    self.header = header
+    self.footer = footer
+  }
+  
+  public init(identifier: String, header: String? = nil, footer: String? = nil) {
+    let composite = BaseFormComposite(identifier: identifier, level: ALFB.FormModelLevel.section)
     self.decoratedComposite = composite
     self.header = header
     self.footer = footer

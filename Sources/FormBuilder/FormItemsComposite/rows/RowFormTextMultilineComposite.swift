@@ -32,6 +32,10 @@ class RowFormTextMultilineComposite: RowFormTextCompositeOutput {
     return [self]
   }
   
+  public var items: [RxSectionItemModel] {
+    return [RxSectionItemModel(model: self)]
+  }
+  
   var children: [FormItemCompositeProtocol] {
     return []
   }

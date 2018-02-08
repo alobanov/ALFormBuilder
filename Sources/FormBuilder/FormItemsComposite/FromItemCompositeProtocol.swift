@@ -19,8 +19,10 @@ public protocol FormItemCompositeProtocol {
   var children: [FormItemCompositeProtocol] {get}
   // Retrieve only leaves of all tree structure
   var leaves: [FormItemCompositeProtocol] {get}
-  // Retrieve items for render via table or collection view
+  // Retrieve items for render via table or collection view as raw type
   var datasource: [FormItemCompositeProtocol] {get}
+  // Retrieve items for render via table or collection view as render type
+  var items: [RxSectionItemModel] {get}
   
   // MARK: - Methods
   // Add child item

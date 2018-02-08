@@ -25,6 +25,10 @@ public class BaseFormComposite: FormItemCompositeProtocol {
     return children
   }
   
+  public var items: [RxSectionItemModel] {
+    return children.flatMap {$0.items}
+  }
+  
   public required init() {}
   
   public init(identifier: String, level: ALFB.FormModelLevel) {
