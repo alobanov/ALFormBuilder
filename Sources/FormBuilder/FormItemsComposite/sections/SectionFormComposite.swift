@@ -41,7 +41,7 @@ public class SectionFormComposite: FormItemCompositeProtocol, SectionFormComposi
   
   public var level: ALFB.FormModelLevel = .section
   
-  public init(composite: FormItemCompositeProtocol, header: String?, footer: String?) {
+  public init(composite: FormItemCompositeProtocol, header: String? = nil, footer: String? = nil) {
     self.decoratedComposite = composite
     self.header = header
     self.footer = footer
