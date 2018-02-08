@@ -77,6 +77,10 @@ public class RowFormBoolComposite: RowFormBoolCompositeOutput {
       return .failed(message: validation.errorText ?? "Error text is not defined")
     }
     
+    if !self.visible.isValid {
+      result = .error(validation.errorText ?? "")
+    }
+    
     switch result {
     case .valid:
       return .valid
