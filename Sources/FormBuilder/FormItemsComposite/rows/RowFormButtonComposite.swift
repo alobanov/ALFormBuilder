@@ -37,10 +37,6 @@ public class RowFormButtonComposite: RowFormButtonCompositeOutput {
     return self.visible.isVisible ? [self] : []
   }
   
-  public var items: [RxSectionItemModel] {
-    return [RxSectionItemModel(model: self)]
-  }
-  
   // MARK :- RowFormComposite properties
   public var visible: ALFB.Condition
   public var base: ALFB.Base

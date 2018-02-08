@@ -46,12 +46,6 @@ public struct RxSectionModel {
   public var items: [RxSectionItemModel]
   public var identifier: String
   public var model: SectionFormComposite
-  
-  public init(item: SectionFormComposite) {
-    self.items = item.items
-    self.identifier = item.identifier
-    self.model = item
-  }
 
   public init(items: [RxSectionItemModel], model: SectionFormComposite) {
     self.items = items

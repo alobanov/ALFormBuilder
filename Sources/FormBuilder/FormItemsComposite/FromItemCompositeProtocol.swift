@@ -21,8 +21,6 @@ public protocol FormItemCompositeProtocol {
   var leaves: [FormItemCompositeProtocol] {get}
   // Retrieve items for render via table or collection view as raw type
   var datasource: [FormItemCompositeProtocol] {get}
-  // Retrieve items for render via table or collection view as render type
-  var items: [RxSectionItemModel] {get}
   
   // MARK: - Methods
   // Add child item

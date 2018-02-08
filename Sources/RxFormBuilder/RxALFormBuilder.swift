@@ -82,8 +82,16 @@ public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {
     /// Sections
     var sections: [RxSectionModel] = []
     for section in item.datasource {
+      
+      var renderItemsData: [RxSectionItemModel] = []
+      for row in section.datasource {
+        if let rowModel = row as? RxCellModelDatasoursable {
+          renderItemsData.append(RxSectionItemModel(model: rowModel))
+        }
+      }
+      
       if let sectionModel = section as? SectionFormComposite {
-         sections.append(RxSectionModel(item: sectionModel))
+        sections.append(RxSectionModel(items: renderItemsData, model: sectionModel))
       }
     }
     

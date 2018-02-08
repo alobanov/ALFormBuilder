@@ -33,10 +33,6 @@ public class RowCustomComposite: RowCustomCompositeOutput {
     return []
   }
   
-  public var items: [RxSectionItemModel] {
-    return [RxSectionItemModel(model: self)]
-  }
-  
   public var datasource: [FormItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }

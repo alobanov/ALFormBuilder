@@ -32,10 +32,6 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
     return [self]
   }
   
-  public var items: [RxSectionItemModel] {
-    return [RxSectionItemModel(model: self)]
-  }
-  
   public var children: [FormItemCompositeProtocol] {
     return []
   }
