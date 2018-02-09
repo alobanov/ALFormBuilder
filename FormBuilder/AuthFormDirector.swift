@@ -79,14 +79,14 @@ class AuthFormDirector {
   
   func phone(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
-    builder.defineValidation(validationType: .regexp("(^$|^[+]?[0-9]{11}$)"),
-                             validateAtCreation: false, valueKeyPath: "phone", errorText: "Ошибка телефона", maxLength: 11)
+    builder.defineValidation(validationType: .phone(regexp: "(^$|^[+]?[0-9]{5,}$)"),
+                             validateAtCreation: false, valueKeyPath: "phone", errorText: "Ошибка телефона", maxLength: 122)
     builder.defineVisible(interpreter: interpreter, visible: "@model.mail != null",
                           mandatory: "@model.mail == `al@al.ru`", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Phone", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Введите телефонный номер", placeholderTopText: "Введите телефонный номер",
                                 detailsText: "Например 89634480209", isPassword: false,
-                                keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .phoneNumber)
+                                keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .none)
   }
   
   func login(builder: ButtonRowItemBuilderProtocol) {
@@ -124,7 +124,7 @@ class AuthFormDirector {
   
   func phoneCustom(builder: PhoneRowItemBuilder) {
     builder.define(value: ALStringValue(value: "343"))
-    builder.defineValidation(validationType: .phone,
+    builder.defineValidation(validationType: .phone(regexp: nil),
                              validateAtCreation: false, valueKeyPath: "phoneCustom", errorText: "Ошибка Телефона", maxLength: nil)
     builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.phoneField, identifier: "Phone2", level: .item, dataType: .string)

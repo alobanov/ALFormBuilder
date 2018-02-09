@@ -85,7 +85,7 @@ public extension ALFB {
     case none
     case nonNil
     case regexp(String)
-    case phone
+    case phone(regexp: String?)
     case closure(ALFBClosureValidation)
   }
   

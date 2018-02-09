@@ -80,8 +80,9 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
     case .closure(let model):
       start.link(with: ClosureMiddlewareValidation(model: model))
       result = start.check(value: value.transformForDisplay())
-    case .phone:
+    case .phone(let regexp):
       start.link(with: PhoneMiddlewareValidation())
+        .link(with: Phone3PartRegExpMiddlewareValidation(regexp: regexp))
       result = start.check(value: value.transformForDisplay())
     }
     

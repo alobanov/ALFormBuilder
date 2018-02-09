@@ -15,6 +15,7 @@
 		E85254F91FB341E0006328B8 /* FloatValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85254F81FB341DF006328B8 /* FloatValue.swift */; };
 		E8A1057A1FA31173003FDF9B /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105781FA31173003FDF9B /* CellIdentifiable.swift */; };
 		E8A1057B1FA31173003FDF9B /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A105791FA31173003FDF9B /* UITableView+Additions.swift */; };
+		E8AC7FD5202DDCB100077676 /* Phone3PartRegExpMiddlewareValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AC7FD4202DDCB100077676 /* Phone3PartRegExpMiddlewareValidation.swift */; };
 		E8ACFEB21FB49CF40013BC88 /* FromItemCompositeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ACFEB11FB49CF40013BC88 /* FromItemCompositeProtocol.swift */; };
 		E8D3C6D71FA070A70074FB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */; };
 		E8D3C6D91FA070A70074FB28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3C6D81FA070A70074FB28 /* ViewController.swift */; };
@@ -117,6 +118,7 @@
 		E85254F81FB341DF006328B8 /* FloatValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatValue.swift; sourceTree = "<group>"; };
 		E8A105781FA31173003FDF9B /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		E8A105791FA31173003FDF9B /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
+		E8AC7FD4202DDCB100077676 /* Phone3PartRegExpMiddlewareValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone3PartRegExpMiddlewareValidation.swift; sourceTree = "<group>"; };
 		E8ACFEB11FB49CF40013BC88 /* FromItemCompositeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromItemCompositeProtocol.swift; sourceTree = "<group>"; };
 		E8D3C6D31FA070A70074FB28 /* FormBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D3C6D61FA070A70074FB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				E8FFFE271FA8670F00E7A820 /* FormModelValidator.swift */,
 				E8FFFE281FA8670F00E7A820 /* NilMiddlewareValidation.swift */,
 				FBE9411A1FE94C1D0004DFFF /* ClosureMiddlewareValidation.swift */,
+				E8AC7FD4202DDCB100077676 /* Phone3PartRegExpMiddlewareValidation.swift */,
 			);
 			path = validation;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 				E8FFFE511FA8671000E7A820 /* RowFormButtonComposite.swift in Sources */,
 				E8FFFE611FA8671000E7A820 /* RowItemBuilder.swift in Sources */,
 				E8FFFE5F1FA8671000E7A820 /* CustomRowItemBuilder.swift in Sources */,
+				E8AC7FD5202DDCB100077676 /* Phone3PartRegExpMiddlewareValidation.swift in Sources */,
 				E8FFFE4D1FA8671000E7A820 /* SectionFormComposite.swift in Sources */,
 				E8FFFE501FA8671000E7A820 /* RowFromPhoneComposite.swift in Sources */,
 			);
