@@ -28,6 +28,7 @@ public protocol ALFormBuilderProtocol {
   func configure(compositeFormData: FormItemCompositeProtocol)
   
   func apply(errors: [String: String]) -> Bool
+  func apply(errors: [String: [String]]) -> Bool
   
   //маппинг динамического словаря в модель
   func mappedObject<T: Mappable>(parameters: [String: Any]?) -> T?
@@ -214,6 +215,7 @@ open class ALFormBuilder: ALFormBuilderProtocol {
     return jsonBuilder.mappedObject(parameters: parameters)
   }
   
+  
   public func apply(errors: [String: String]) -> Bool {
     var isContainError = false
     
@@ -223,6 +225,26 @@ open class ALFormBuilder: ALFormBuilderProtocol {
       }
       
       model.validation.change(state: .failed(message: message))
+      isContainError = true
+    }
+    
+    if isContainError {
+      didChangeCompletelyValidation?(!isContainError)
+    }
+    return isContainError
+  }
+    
+  public func apply(errors: [String: [String]]) -> Bool {
+    var isContainError = false
+    
+    for (formItentifier, message) in errors {
+      guard let model = model(by: formItentifier) as? RowCompositeValidationSetting else {
+        continue
+      }
+      
+      let messages = message.map{$0+":::"}.joined()
+      model.validation.change(state: .failed(message: messages))
+      
       isContainError = true
     }
     
