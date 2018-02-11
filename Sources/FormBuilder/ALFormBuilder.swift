@@ -229,6 +229,7 @@ open class ALFormBuilder: ALFormBuilderProtocol {
     }
     
     if isContainError {
+      completelyValidation = !isContainError
       didChangeCompletelyValidation?(!isContainError)
     }
     return isContainError
@@ -249,8 +250,10 @@ open class ALFormBuilder: ALFormBuilderProtocol {
     }
     
     if isContainError {
+      completelyValidation = !isContainError
       didChangeCompletelyValidation?(!isContainError)
     }
+    
     return isContainError
   }
   
