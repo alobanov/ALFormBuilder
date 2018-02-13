@@ -243,7 +243,7 @@ open class ALFormBuilder: ALFormBuilderProtocol {
         continue
       }
       
-      let messages = message.map{$0+":::"}.joined()
+      let messages = message.joined(separator: ";;")
       model.validation.change(state: .failed(message: messages))
       
       isContainError = true
