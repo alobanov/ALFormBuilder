@@ -28,7 +28,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
-                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 2))
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 2), showEye: nil)
   }
   
   func decimalField2(builder: StringRowItemBuilderProtocol) {
@@ -40,7 +40,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.textField, identifier: "decimal2", level: .item, dataType: .decimal)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1.0", isPassword: false,
-                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 2))
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyDecimals(maxFractionDigits: 2), showEye: nil)
   }
   
   func intField(builder: StringRowItemBuilderProtocol) {
@@ -52,7 +52,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.textField, identifier: "int", level: .item, dataType: .integer)
     builder.defineVisualization(placeholderText: "Число", placeholderTopText: "Введите число",
                                 detailsText: "Например 1", isPassword: false,
-                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyNumbers)
+                                keyboardType: .numbersAndPunctuation, autocapitalizationType: .none, keyboardOptions: .onlyNumbers, showEye: nil)
   }
   
   func mail(builder: StringRowItemBuilderProtocol) {
@@ -63,7 +63,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Mail", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Почта", placeholderTopText: "Введите почту",
                                 detailsText: "Например example@gmail.com", isPassword: false,
-                                keyboardType: .emailAddress, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
+                                keyboardType: .emailAddress, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces, showEye: nil)
   }
   
   func pass(builder: StringRowItemBuilderProtocol) {
@@ -74,7 +74,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Pass", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Пароль", placeholderTopText: "Пароль",
                                 detailsText: "Должен быть длиннее 4 семволов", isPassword: true,
-                                keyboardType: .defaultKeyboard, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces)
+                                keyboardType: .defaultKeyboard, autocapitalizationType: .none, keyboardOptions: .removeWhitespaces, showEye: nil)
   }
   
   func phone(builder: StringRowItemBuilderProtocol) {
@@ -86,7 +86,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.textField, identifier: "Phone", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Введите телефонный номер", placeholderTopText: "Введите телефонный номер",
                                 detailsText: "Например 89634480209", isPassword: false,
-                                keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .none)
+                                keyboardType: .phonePad, autocapitalizationType: .none, keyboardOptions: .none, showEye: nil)
   }
   
   func login(builder: ButtonRowItemBuilderProtocol) {
@@ -119,7 +119,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.pickerField, identifier: "Town", level: .item, dataType: .picker)
     builder.defineVisualization(placeholderText: "Выберите город", placeholderTopText: nil,
                                 detailsText: "Нажмите на поле", isPassword: false,
-                                keyboardType: nil, autocapitalizationType: nil, keyboardOptions: .removeWhitespaces)
+                                keyboardType: nil, autocapitalizationType: nil, keyboardOptions: .removeWhitespaces, showEye: nil)
   }
   
   func phoneCustom(builder: PhoneRowItemBuilder) {
@@ -147,7 +147,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.multilineTextField, identifier: "Multiline", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",
                                 detailsText: "Например example@gmail.com", isPassword: false,
-                                keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none)
+                                keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none, showEye: nil)
   }
   
   func html(builder: StringRowItemBuilderProtocol) {
@@ -160,7 +160,7 @@ class AuthFormDirector {
     builder.defineBase(cellType: ALFBCells.htmlText, identifier: "html", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "HTML", placeholderTopText: "HTML",
                                 detailsText: nil, isPassword: false,
-                                keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none)
+                                keyboardType: .defaultKeyboard, autocapitalizationType: .sentences, keyboardOptions: .none, showEye: nil)
   }
   
   func sectionFirst(builder: SectionItemBuilderProtocol) {

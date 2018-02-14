@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                           detailsText: nil,
                                           isPassword: false,
                                           keyboardType: .defaultKeyboard,
-                                          autocapitalizationType: .none, keyboardOptions: .none)
+                                          autocapitalizationType: .none, keyboardOptions: .none, showEye: nil)
     
     let baseMailComposite = BaseFormComposite(identifier: "Mail row", level: .item)
     let mail = RowFormTextComposite(composite: baseMailComposite, value: value, validation: validation, visualisation: vsl, visible: vsbl, base: base1)
@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                               detailsText: nil,
                                               isPassword: true,
                                               keyboardType: .defaultKeyboard,
-                                              autocapitalizationType: .none, keyboardOptions: .none)
+                                              autocapitalizationType: .none, keyboardOptions: .none, showEye: nil)
     
     let base2 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
@@ -94,7 +94,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                                detailsText: nil,
                                                isPassword: true,
                                                keyboardType: .defaultKeyboard,
-                                               autocapitalizationType: .none, keyboardOptions: .none)
+                                               autocapitalizationType: .none, keyboardOptions: .none, showEye: nil)
     
     let base3 = ALFB.Base(cellType: TestCells.defaultCell, dataType: .string)
     
