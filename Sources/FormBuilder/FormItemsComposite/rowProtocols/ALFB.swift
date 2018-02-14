@@ -52,11 +52,12 @@ public struct ALFB {
     public var placeholderTopText: String?
     public var detailsText: String?
     public var isPassword: Bool?
+    public var showEye: Bool?
     public var keyboardType: FBKeyboardType?
     public let autocapitalizationType: FBAutocapitalizationType?
     public let keyboardOptions: TextConstraintType
     
-    public init(placeholderText: String, placeholderTopText: String?, detailsText: String?, isPassword: Bool?, keyboardType: FBKeyboardType?, autocapitalizationType: FBAutocapitalizationType?, keyboardOptions: TextConstraintType) {
+    public init(placeholderText: String, placeholderTopText: String?, detailsText: String?, isPassword: Bool?, keyboardType: FBKeyboardType?, autocapitalizationType: FBAutocapitalizationType?, keyboardOptions: TextConstraintType, showEye: Bool?) {
       self.placeholderText = placeholderText
       self.placeholderTopText = placeholderTopText
       self.detailsText = detailsText
@@ -64,6 +65,7 @@ public struct ALFB {
       self.keyboardType = keyboardType
       self.autocapitalizationType = autocapitalizationType
       self.keyboardOptions = keyboardOptions
+      self.showEye = showEye
     }
   }
   
