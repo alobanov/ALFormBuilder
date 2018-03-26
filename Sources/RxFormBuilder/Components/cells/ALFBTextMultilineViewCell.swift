@@ -71,9 +71,11 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     if textView.text.isEmpty {
       textView.text = placeholder
       textView.textColor = UIColor.lightGray
+    } else {
+      textView.textColor = UIColor.black
     }
     
-    var display = vm.visible.isMandatory && vm.validation.state.isCompletelyValid
+    var display = vm.visible.isMandatory && !vm.validation.state.isCompletelyValid
     displayValidMark(display)
     
     if let s = self.storedModel {
@@ -91,20 +93,6 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   }
   
   func configureRx() {
-    // Check validation all of text stream
-//    textView.rx.text.asDriver().skip(1)
-//      .filter({ [weak self] text -> Bool in
-//        return (text != self?.storedModel.value.transformForDisplay())
-//      }).drive(onNext: { [weak self] text in
-//        self?.storedModel.update(value: ALStringValue(value: text))
-//      }).disposed(by: bag)
-    
-//    textView.rx.didBeginEditing.asObservable()
-//      .subscribe(onNext: { [weak self] _ in
-//        self?.displayValidMark(false)
-//        self?.validMark.isHidden = true
-//      }).disposed(by: bag)
-    
     self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
     let endEditing = textView.rx.didEndEditing.asObservable().withLatestFrom(validationState)
     endEditing.subscribe(onNext: {[weak self] valid in
@@ -163,8 +151,8 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     let text = textView.text.trim()
     if text == placeholder {
       textView.text = ""
-      textView.textColor = UIColor.black
     }
+    textView.textColor = UIColor.black
     textView.becomeFirstResponder()
     self.storedModel.base.changeisEditingNow(true)
   }
