@@ -13,6 +13,7 @@ public protocol RowFormButtonCompositeOutput: FormItemCompositeProtocol, RowComp
 }
 
 public class RowFormButtonComposite: RowFormButtonCompositeOutput {
+  
   // MARK :- ModelItemDatasoursable
   private let decoratedComposite: FormItemCompositeProtocol
   
@@ -36,6 +37,8 @@ public class RowFormButtonComposite: RowFormButtonCompositeOutput {
   public var datasource: [FormItemCompositeProtocol] {
     return self.visible.isVisible ? [self] : []
   }
+  
+  public var customData: Any?
   
   // MARK :- RowFormComposite properties
   public var visible: ALFB.Condition

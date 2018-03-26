@@ -40,6 +40,8 @@ class RowFormTextMultilineComposite: RowFormTextCompositeOutput {
     return self.visible.isVisible ? [self] : []
   }
   
+  public var customData: Any?
+  
   var didChangeData: DidChange?
   
   // MARK :- RowFormComposite properties

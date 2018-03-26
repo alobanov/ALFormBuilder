@@ -93,7 +93,7 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       if numberOfChars > max {
         if text.count > 1 {
           let lastIndex = newText.index(newText.startIndex, offsetBy: max)
-          textView.text = newText.substring(to: lastIndex)
+          textView.text = String(newText[..<lastIndex])
         }
         return false
       } else {

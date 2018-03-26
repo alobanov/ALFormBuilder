@@ -39,6 +39,8 @@ public class SectionFormComposite: FormItemCompositeProtocol, SectionFormComposi
     return self.decoratedComposite.leaves.flatMap { $0.leaves }
   }
   
+  public var customData: Any?
+  
   public var level: ALFB.FormModelLevel = .section
   
   public init(composite: FormItemCompositeProtocol, header: String? = nil, footer: String? = nil) {

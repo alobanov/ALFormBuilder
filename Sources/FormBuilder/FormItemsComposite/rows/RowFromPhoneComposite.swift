@@ -40,6 +40,8 @@ public class RowFromPhoneComposite: RowFromPhoneCompositeOutput {
     return self.visible.isVisible ? [self] : []
   }
   
+  public var customData: Any?
+  
   public var didChangeData: DidChange?
   
   // MARK :- RowFormComposite properties

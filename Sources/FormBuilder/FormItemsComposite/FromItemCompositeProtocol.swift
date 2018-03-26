@@ -21,6 +21,8 @@ public protocol FormItemCompositeProtocol {
   var leaves: [FormItemCompositeProtocol] {get}
   // Retrieve items for render via table or collection view as raw type
   var datasource: [FormItemCompositeProtocol] {get}
+  // custom data
+  var customData: Any? {get}
   
   // MARK: - Methods
   // Add child item

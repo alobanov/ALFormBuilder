@@ -37,6 +37,8 @@ public class RowCustomComposite: RowCustomCompositeOutput {
     return self.visible.isVisible ? [self] : []
   }
   
+  public var customData: Any?
+  
   // MARK :- RowFormComposite properties
   public var visible: ALFB.Condition
   public var base: ALFB.Base

@@ -42,6 +42,8 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
   
   public var didChangeData: DidChange?
   
+  public var customData: Any?
+  
   // MARK :- RowFormComposite properties
   public var value: ALValueTransformable
   public var validation: ALFB.Validation

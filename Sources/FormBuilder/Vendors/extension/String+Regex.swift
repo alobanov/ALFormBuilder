@@ -60,7 +60,7 @@ extension String {
       if firstMatch.numberOfRanges >= 1 {
         let range = firstMatch.range(at: 1)
         let newRange = searchString.index(searchString.startIndex, offsetBy: range.location) ..< searchString.index(searchString.startIndex, offsetBy: range.location + range.length)
-        let string = searchString.substring(with: newRange)
+        let string = String(searchString[newRange])
         return string
       }
 

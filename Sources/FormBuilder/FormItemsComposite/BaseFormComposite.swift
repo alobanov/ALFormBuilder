@@ -25,6 +25,8 @@ public class BaseFormComposite: FormItemCompositeProtocol {
     return children
   }
   
+  public var customData: Any?
+  
   public required init() {}
   
   public init(identifier: String, level: ALFB.FormModelLevel) {
