@@ -24,6 +24,7 @@ public protocol RowItemValidationBuilderProtocol {
 
 public protocol RowItemValueBuilderProtocol {
   func define(value: ALValueTransformable)
+  func define(customValue: Any?)
 }
 
 public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderProtocol, RowItemValidationBuilderProtocol, RowItemValueBuilderProtocol {
@@ -33,6 +34,7 @@ public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderPr
   var identifier: String = ""
   var level = ALFB.FormModelLevel.item
   var base = ALFB.Base(cellType: ALFB.Cells.emptyField, dataType: .string)
+  var customData: Any?
   
   public func defineVisible(interpreter: ALInterpreterConditions, visible: String, mandatory: String, disable: String, valid: String?) {
     visibleSetting = ALFB.Condition(interpreter: interpreter, visible: visible, mandatory: mandatory, disable: disable, valid: valid)
@@ -54,6 +56,10 @@ public class RowItemBuilder: RowItemVisibleBuilderProtocol, RowItemBaseBuilderPr
   
   public func define(value: ALValueTransformable) {
     self.value = value
+  }
+  
+  public func define(customValue: Any?) {
+    self.customData = customValue
   }
   
   public func result() -> FormItemCompositeProtocol {

@@ -27,6 +27,7 @@ public class PhoneRowItemBuilder: RowItemBuilder, PhoneRowItemBuilderProtocol {
   
   public override func result() -> FormItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
+    baseComposite.customData = customData
     return RowFromPhoneComposite(composite: baseComposite, value: self.value, validation: validation,
                                 visualisation: visualization, visible: visibleSetting, base: base)
   }

@@ -27,6 +27,7 @@ public class BoolRowItemBuilder: RowItemBuilder, BoolRowItemBuilderProtocol {
   
   public override func result() -> FormItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
+    baseComposite.customData = customData
     return RowFormBoolComposite(composite: baseComposite, value: self.value, visible: visibleSetting, base: base, validation: validation, title: title)
   }
 }

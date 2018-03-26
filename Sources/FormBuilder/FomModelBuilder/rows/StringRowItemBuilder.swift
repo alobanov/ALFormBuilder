@@ -27,6 +27,7 @@ public class StringRowItemBuilder: RowItemBuilder, StringRowItemBuilderProtocol 
   
   public override func result() -> FormItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
+    baseComposite.customData = customData
     return RowFormTextComposite(composite: baseComposite, value: self.value, validation: validation,
                                 visualisation: visualization, visible: visibleSetting, base: base)
   }

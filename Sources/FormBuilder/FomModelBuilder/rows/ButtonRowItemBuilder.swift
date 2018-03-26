@@ -26,6 +26,7 @@ public class ButtonRowItemBuilder: RowItemBuilder, ButtonRowItemBuilderProtocol 
   
   public override func result() -> FormItemCompositeProtocol {
     let baseComposite = BaseFormComposite(identifier: identifier, level: level)
+    baseComposite.customData = customData
     return RowFormButtonComposite(composite: baseComposite, visible: visibleSetting, base: base, title: self.title)
   }
 }
