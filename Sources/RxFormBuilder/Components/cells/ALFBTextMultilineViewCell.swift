@@ -73,10 +73,7 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       textView.textColor = UIColor.lightGray
     }
     
-    var display = vm.validation.state.isVisibleValidationUI
-    if !validMark.isHidden {
-      display = vm.visible.isMandatory
-    }
+    var display = vm.visible.isMandatory && vm.validation.state.isCompletelyValid
     displayValidMark(display)
     
     if let s = self.storedModel {
@@ -95,18 +92,18 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   
   func configureRx() {
     // Check validation all of text stream
-    textView.rx.text.asDriver().skip(1)
-      .filter({ [weak self] text -> Bool in
-        return (text != self?.storedModel.value.transformForDisplay())
-      }).drive(onNext: { [weak self] text in
-        self?.storedModel.update(value: ALStringValue(value: text))
-      }).disposed(by: bag)
+//    textView.rx.text.asDriver().skip(1)
+//      .filter({ [weak self] text -> Bool in
+//        return (text != self?.storedModel.value.transformForDisplay())
+//      }).drive(onNext: { [weak self] text in
+//        self?.storedModel.update(value: ALStringValue(value: text))
+//      }).disposed(by: bag)
     
-    textView.rx.didBeginEditing.asObservable()
-      .subscribe(onNext: { [weak self] _ in
-        self?.displayValidMark(false)
-        self?.validMark.isHidden = true
-      }).disposed(by: bag)
+//    textView.rx.didBeginEditing.asObservable()
+//      .subscribe(onNext: { [weak self] _ in
+//        self?.displayValidMark(false)
+//        self?.validMark.isHidden = true
+//      }).disposed(by: bag)
     
     self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
     let endEditing = textView.rx.didEndEditing.asObservable().withLatestFrom(validationState)
@@ -131,11 +128,11 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   // MARK: - UITextViewDelegate
   
   public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    var newText = (textView.text as NSString).replacingCharacters(in: range, with: text).trim()
+    if newText == placeholder {
+      newText = ""
+    }
     if let max = maxLength {
-      var newText = (textView.text as NSString).replacingCharacters(in: range, with: text).trim()
-      if newText == placeholder {
-        newText = ""
-      }
       let numberOfChars = newText.count
       if numberOfChars > max {
         if text.count > 1 {
@@ -144,9 +141,11 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
         }
         return false
       } else {
+        storedModel.update(value: ALStringValue(value: newText))
         return true
       }
     } else {
+      storedModel.update(value: ALStringValue(value: newText))
       return true
     }
   }
@@ -158,6 +157,9 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   }
   
   public func textViewDidBeginEditing(_ textView: UITextView) {
+    displayValidMark(false)
+    validMark.isHidden = true
+    
     let text = textView.text.trim()
     if text == placeholder {
       textView.text = ""
@@ -174,6 +176,9 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       textView.textColor = UIColor.lightGray
     }
     textView.resignFirstResponder()
+    DispatchQueue.main.async {
+      self.reload?()
+    }
   }
   
 }
