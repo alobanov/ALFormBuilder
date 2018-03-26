@@ -42,7 +42,9 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
   
   public var didChangeData: DidChange?
   
-  public var customData: Any?
+  public var customData: Any? {
+    return self.decoratedComposite.customData
+  }
   
   // MARK :- RowFormComposite properties
   public var value: ALValueTransformable

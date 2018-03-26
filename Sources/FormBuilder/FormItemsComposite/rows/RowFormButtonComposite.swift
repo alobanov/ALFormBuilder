@@ -38,7 +38,9 @@ public class RowFormButtonComposite: RowFormButtonCompositeOutput {
     return self.visible.isVisible ? [self] : []
   }
   
-  public var customData: Any?
+  public var customData: Any? {
+    return self.decoratedComposite.customData
+  }
   
   // MARK :- RowFormComposite properties
   public var visible: ALFB.Condition

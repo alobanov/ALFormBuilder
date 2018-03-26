@@ -40,7 +40,9 @@ public class RowFromPhoneComposite: RowFromPhoneCompositeOutput {
     return self.visible.isVisible ? [self] : []
   }
   
-  public var customData: Any?
+  public var customData: Any? {
+    return self.decoratedComposite.customData
+  }
   
   public var didChangeData: DidChange?
   
