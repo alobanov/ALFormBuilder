@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,25 +20,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Lorem ipsum dolor sit" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-OI-TwK">
-                        <rect key="frame" x="8" y="30" width="296" height="58.5"/>
+                        <rect key="frame" x="8" y="30" width="279" height="58.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2k-Op-KGH">
-                        <rect key="frame" x="12" y="8" width="296" height="17"/>
+                        <rect key="frame" x="12" y="8" width="274" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.53000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bCO-fF-SEM">
+                        <rect key="frame" x="295" y="40" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="YQZ-0r-Ljb"/>
+                            <constraint firstAttribute="width" constant="20" id="gaG-jd-1Km"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="bCO-fF-SEM" secondAttribute="trailing" constant="5" id="4Gh-DI-tz3"/>
                     <constraint firstItem="ewe-OI-TwK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7RD-0f-Fiw"/>
+                    <constraint firstItem="bCO-fF-SEM" firstAttribute="leading" secondItem="ewe-OI-TwK" secondAttribute="trailing" constant="8" id="8hZ-ab-fAQ"/>
                     <constraint firstItem="ewe-OI-TwK" firstAttribute="top" secondItem="Q2k-Op-KGH" secondAttribute="bottom" constant="5" id="FMR-j3-TYV"/>
                     <constraint firstItem="Q2k-Op-KGH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="FRV-ZD-MGu"/>
-                    <constraint firstAttribute="trailing" secondItem="ewe-OI-TwK" secondAttribute="trailing" constant="16" id="WcN-Iv-s3f"/>
+                    <constraint firstItem="bCO-fF-SEM" firstAttribute="leading" secondItem="Q2k-Op-KGH" secondAttribute="trailing" constant="9" id="huo-zD-fcJ"/>
                     <constraint firstItem="Q2k-Op-KGH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="nkf-Dj-g9a"/>
-                    <constraint firstAttribute="trailing" secondItem="Q2k-Op-KGH" secondAttribute="trailing" constant="12" id="pi4-qs-zPa"/>
+                    <constraint firstItem="bCO-fF-SEM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oo3-HB-Rnm"/>
                     <constraint firstAttribute="bottom" secondItem="ewe-OI-TwK" secondAttribute="bottom" priority="999" constant="11" id="uwk-QG-Zsb"/>
                 </constraints>
             </tableViewCellContentView>
@@ -46,8 +55,10 @@
             <connections>
                 <outlet property="textView" destination="ewe-OI-TwK" id="DH0-D2-fSc"/>
                 <outlet property="titleLabel" destination="Q2k-Op-KGH" id="A0U-p0-moC"/>
+                <outlet property="validMark" destination="bCO-fF-SEM" id="A7m-rR-0Mq"/>
+                <outlet property="validMarkWidth" destination="gaG-jd-1Km" id="RhE-R3-d6b"/>
             </connections>
-            <point key="canvasLocation" x="34" y="63.5"/>
+            <point key="canvasLocation" x="34" y="63"/>
         </tableViewCell>
     </objects>
 </document>

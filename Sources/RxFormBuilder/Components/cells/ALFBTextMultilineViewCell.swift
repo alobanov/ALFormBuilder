@@ -20,9 +20,14 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
   let bag = DisposeBag()
   
   fileprivate var alreadyInitialized = false
+  fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
+  fileprivate var didChangeValidation: DidChangeValidation!
   
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var validMark: UIImageView!
+  @IBOutlet weak var validMarkWidth: NSLayoutConstraint!
+  
   fileprivate var storedModel: RowFormTextCompositeOutput!
   private var maxLength: Int?
   private var placeholder: String = ""
@@ -33,6 +38,13 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     textView.textColor = ALFBStyle.fbDarkGray
     titleLabel.textColor = ALFBStyle.fbDarkGray
     textView.delegate = self
+    validMark.image = ALFBStyle.imageOfTfAlertIconStar
+    
+    self.didChangeValidation = { [weak self] _ in
+      if let state = self?.storedModel.validation.state {
+        self?.validationState.onNext(state)
+      }
+    }
     
     self.layoutIfNeeded()
   }
@@ -61,6 +73,16 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       textView.textColor = UIColor.lightGray
     }
     
+    var display = vm.validation.state.isVisibleValidationUI
+    if !validMark.isHidden {
+      display = vm.visible.isMandatory
+    }
+    displayValidMark(display)
+    
+    if let s = self.storedModel {
+      self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
+    }
+    
     // Configurate next only one
     if !alreadyInitialized {
       configureRx()      
@@ -79,7 +101,32 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       }).drive(onNext: { [weak self] text in
         self?.storedModel.update(value: ALStringValue(value: text))
       }).disposed(by: bag)
+    
+    textView.rx.didBeginEditing.asObservable()
+      .subscribe(onNext: { [weak self] _ in
+        self?.displayValidMark(false)
+        self?.validMark.isHidden = true
+      }).disposed(by: bag)
+    
+    self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
+    let endEditing = textView.rx.didEndEditing.asObservable().withLatestFrom(validationState)
+    endEditing.subscribe(onNext: {[weak self] valid in
+      self?.storedModel.base.changeisEditingNow(false)
+      var hideValidMark = valid.isValidWithTyping
+      let isMandatory = self?.storedModel.visible.isMandatory ?? false
+      if !isMandatory {
+        hideValidMark = !isMandatory
+      }
+      self?.displayValidMark(!hideValidMark)
+    }).disposed(by: bag)
+    
   }
+  
+  private func displayValidMark(_ display: Bool)  {
+    validMark.isHidden = !display
+    validMarkWidth.constant = validMark.isHidden ? 0 : 20.0
+  }
+
   
   // MARK: - UITextViewDelegate
   

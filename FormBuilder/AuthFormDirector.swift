@@ -141,9 +141,9 @@ class AuthFormDirector {
   
   func multiline(builder: StringRowItemBuilderProtocol) {
     builder.define(value: ALStringValue(value: nil))
-    builder.defineValidation(validationType: .none,
-                             validateAtCreation: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 10)
-    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "false", disable: "false", valid: nil)
+    builder.defineValidation(validationType: .nonNil,
+                             validateAtCreation: false, valueKeyPath: "multiline", errorText: "Ошибка поля", maxLength: 100)
+    builder.defineVisible(interpreter: interpreter, visible: "true", mandatory: "true", disable: "false", valid: nil)
     builder.defineBase(cellType: ALFBCells.multilineTextField, identifier: "Multiline", level: .item, dataType: .string)
     builder.defineVisualization(placeholderText: "Описание", placeholderTopText: "Введите описание",
                                 detailsText: "Например example@gmail.com", isPassword: false,

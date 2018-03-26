@@ -104,7 +104,7 @@ open class ALFBTextViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDeleg
       validateBtn.isHidden = !vm.visible.isMandatory
     }
     
-    if let s = self.storedModel as? FormItemCompositeProtocol {
+    if let s = self.storedModel {
       self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
     }
     
@@ -194,6 +194,8 @@ extension ALFBTextViewCell {
         if old == newState { return old }
         return newState
       }.subscribe(onNext: { [weak self] state in
+        
+        
         self?.textField.validate(state ?? .valid)
       })
      .disposed(by: bag)
