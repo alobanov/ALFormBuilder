@@ -67,7 +67,7 @@ public class ALEvaluator: ALExpression {
                                                       rightOperand: nextExpression))
         index += 2
 
-      case "<=":
+      case ">=":
         let nextExpression = getNextExpression(items, index: index)
         expressionStack.push(ConditionMoreThanOrEqual(leftOperand: expressionStack.pop(),
                                                       rightOperand: nextExpression))
