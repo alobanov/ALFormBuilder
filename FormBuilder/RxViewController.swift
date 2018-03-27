@@ -49,6 +49,8 @@ class RxViewController: UIViewController, UITableViewDelegate {
     
     let datasource = BehaviorSubject<[RxSectionModel]>(value: [])
 
+    Driver.just(()).asDriver()
+    
     fb.rxDidChangeFormModel.subscribe(onNext: { [weak self] item in
       if let p = item as? RowCompositeValueTransformable {
         print("something change in \(item.identifier) to: \(p.value.transformForDisplay() ?? "")")

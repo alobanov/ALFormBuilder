@@ -60,7 +60,19 @@ public class ALEvaluator: ALExpression {
         expressionStack.push(ALConditionLessThen(leftOperand: expressionStack.pop(),
                                                  rightOperand: nextExpression))
         index += 2
+        
+      case "<=":
+        let nextExpression = getNextExpression(items, index: index)
+        expressionStack.push(ConditionLessThanOrEqual(leftOperand: expressionStack.pop(),
+                                                      rightOperand: nextExpression))
+        index += 2
 
+      case "<=":
+        let nextExpression = getNextExpression(items, index: index)
+        expressionStack.push(ConditionMoreThanOrEqual(leftOperand: expressionStack.pop(),
+                                                      rightOperand: nextExpression))
+        index += 2
+        
       default:
           expressionStack.push(ALVariableExpression(name: items[index]))
           index += 1
@@ -103,7 +115,8 @@ public class ALEvaluator: ALExpression {
 
     if (expression.contains("||") || expression.contains("&&")) &&
        (expression.contains("==") || expression.contains("!=")
-      || expression.contains("<") || expression.contains(">"))
+      || expression.contains("<") || expression.contains(">")
+      || expression.contains("<=") || expression.contains(">="))
     {
       let expressions = parseoutAdditionsAndSubtractions(expression)
       var newExpression = ""
