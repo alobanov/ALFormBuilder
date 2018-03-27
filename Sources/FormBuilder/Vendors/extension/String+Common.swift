@@ -31,6 +31,10 @@ public extension String {
     return String.numberFormatter.number(from: self)?.floatValue
   }
   
+  public var strToDouble: Double? {
+    return String.numberFormatter.number(from: self)?.doubleValue
+  }
+  
   public func strToBool() -> Bool {
     switch self {
     case "1": return true

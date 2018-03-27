@@ -16,6 +16,7 @@ public protocol ALExpression {
   func integerValue() -> Int?
   func stringValue() -> String?
   func floatValue() -> Float?
+  func doubleValue() -> Double?
   
   func interpret(_ variables: [String: ALExpression]) -> Bool
   func context() -> ALContextType
@@ -31,6 +32,10 @@ public extension ALExpression {
   }
   
   func stringValue() -> String? {
+    return nil
+  }
+  
+  func doubleValue() -> Double? {
     return nil
   }
 

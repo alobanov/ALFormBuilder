@@ -24,7 +24,7 @@ public class ALConditionLessThen: ALExpression {
     case .bool, .string, .undefined:
       return false
     case .integer, .float:
-      return leftOperand.floatValue() ?? 0.0 < rightOperand.floatValue() ?? 0.0
+      return leftOperand.doubleValue() ?? 0.0 < rightOperand.doubleValue() ?? 0.0
     }
   }
 }

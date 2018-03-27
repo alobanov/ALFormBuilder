@@ -69,6 +69,10 @@ public class ALVariableExpression: ALExpression {
     }
   }
   
+  public func doubleValue() -> Double? {
+    return name.strToDouble
+  }
+  
   public func floatValue() -> Float? {
     return name.strToFloat
   }
