@@ -33,6 +33,8 @@ public protocol FormItemCompositeProtocol {
   func isValid() -> Bool
   // Check for changing initial state of all tree
   func wasChanged() -> Bool
+  // get item by identifier
+  func item(by identifier: String) -> FormItemCompositeProtocol
 }
 
 // MARK: - Extension
@@ -56,6 +58,10 @@ public extension FormItemCompositeProtocol {
     }
     
     return false
+  }
+  
+  func item(by identifier: String) -> FormItemCompositeProtocol? {
+    return children.filter { $0.identifier == identifier }
   }
   
   public func add(_ model: FormItemCompositeProtocol...) {
