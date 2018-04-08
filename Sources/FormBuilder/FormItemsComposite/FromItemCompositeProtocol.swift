@@ -27,6 +27,8 @@ public protocol FormItemCompositeProtocol {
   // MARK: - Methods
   // Add child item
   func add(_ model: FormItemCompositeProtocol...)
+  // Add child from array
+  func add(_ items: [FormItemCompositeProtocol])
   // Remove child item
   func remove(_ model: FormItemCompositeProtocol)
   // reamove all child items
@@ -64,6 +66,12 @@ public extension FormItemCompositeProtocol {
   
   func item(by identifier: String) -> FormItemCompositeProtocol? {
     return children.filter { $0.identifier == identifier }.first
+  }
+  
+  public func add(_ items: [FormItemCompositeProtocol]) {
+    for item in items {
+      self.add(item)
+    }
   }
   
   public func add(_ model: FormItemCompositeProtocol...) {
