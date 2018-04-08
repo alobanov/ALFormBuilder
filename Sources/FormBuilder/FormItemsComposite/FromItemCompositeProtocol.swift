@@ -29,12 +29,14 @@ public protocol FormItemCompositeProtocol {
   func add(_ model: FormItemCompositeProtocol...)
   // Remove child item
   func remove(_ model: FormItemCompositeProtocol)
+  // reamove all child items
+  func removeAll()
   // Check validation for through tree
   func isValid() -> Bool
   // Check for changing initial state of all tree
   func wasChanged() -> Bool
   // get item by identifier
-  func item(by identifier: String) -> FormItemCompositeProtocol
+  func item(by identifier: String) -> FormItemCompositeProtocol?
 }
 
 // MARK: - Extension
@@ -61,7 +63,7 @@ public extension FormItemCompositeProtocol {
   }
   
   func item(by identifier: String) -> FormItemCompositeProtocol? {
-    return children.filter { $0.identifier == identifier }
+    return children.filter { $0.identifier == identifier }.first
   }
   
   public func add(_ model: FormItemCompositeProtocol...) {
@@ -70,5 +72,11 @@ public extension FormItemCompositeProtocol {
   
   public func remove(_ model: FormItemCompositeProtocol) {
     print("Implement this method if you want to remove child")
+  }
+  
+  public func removeAll() {
+    for item in children {
+      self.remove(item)
+    }
   }
 }
