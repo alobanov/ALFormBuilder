@@ -25,7 +25,7 @@ public protocol RxALFormBuilderProtocol {
   func model(by identifier: String) -> FormItemCompositeProtocol?
   
   // Конфигурируем
-  func configure(compositeFormData: FormItemCompositeProtocol)
+  func configure(compositeFormData: FormItemCompositeProtocol, reinitJsonBuilder: [String: Any]?)
 }
 
 public class RxALFormBuilder: ALFormBuilder, RxALFormBuilderProtocol {

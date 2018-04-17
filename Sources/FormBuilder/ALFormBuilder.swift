@@ -25,7 +25,7 @@ public protocol ALFormBuilderProtocol {
   func model(by identifier: String) -> FormItemCompositeProtocol?
   
   // Конфигурируем
-  func configure(compositeFormData: FormItemCompositeProtocol)
+  func configure(compositeFormData: FormItemCompositeProtocol, reinitJsonBuilder: [String: Any]?)
   
   func apply(errors: [String: String]) -> Bool
   func apply(errors: [String: [String]]) -> Bool
@@ -58,15 +58,19 @@ open class ALFormBuilder: ALFormBuilderProtocol {
     self.jsonBuilder = jsonBuilder
     
     if compositeFormData.level == .root {
-      configure(compositeFormData: compositeFormData)
+      configure(compositeFormData: compositeFormData, reinitJsonBuilder: nil)
     }
   }
   
   // Ручная конфигурация с новой структурой
   // Метод перезапускает инициализацию FormJSONBuilder
   // Также выполняется подписка на изменение всех полей в форме
-  public func configure(compositeFormData: FormItemCompositeProtocol) {
+  public func configure(compositeFormData: FormItemCompositeProtocol, reinitJsonBuilder: [String: Any]?) {
     self.compositeFormData = compositeFormData
+    if let updateDictionary = reinitJsonBuilder {
+      self.jsonBuilder = ALFormJSONBuilder(predefinedObject: updateDictionary)
+    }
+    
     self.jsonBuilder.prepareObject(tree: compositeFormData)
     
     guard let rows = compositeFormData.leaves
