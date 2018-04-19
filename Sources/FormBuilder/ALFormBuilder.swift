@@ -154,10 +154,10 @@ public class ALFormBuilder: ALFormBuilderProtocol {
   // Обновить значение в JOSN передав просто композит модели ячейки
   private func updateChanged(item: FormItemCompositeProtocol, isSilent: Bool) {
     jsonBuilder.updateValue(item: item)
+    rebuildFields(item1: item)
     if !isSilent {
       didChangeFormModel?(item)
     }
-    rebuildFields(item1: item)
   }
   
   // Получить модель по уникальному идентификатору

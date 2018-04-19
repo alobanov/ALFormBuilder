@@ -50,22 +50,28 @@ class RxViewController: UIViewController, UITableViewDelegate {
     let datasource = BehaviorSubject<[RxSectionModel]>(value: [])
 
     fb.rxDidChangeFormModel.subscribe(onNext: { [weak self] item in
-      if let p = item as? RowCompositeValueTransformable {
-        print("something change in \(item.identifier) to: \(p.value.transformForDisplay() ?? "")")
+//      if let p = item as? RowCompositeValueTransformable {
+//        print("something change in \(item.identifier) to: \(p.value.transformForDisplay() ?? "")")
+//      }
+      if let m = item as? RowFormTextComposite {
+        let isCompletelyValid = m.validation.state.isCompletelyValid
+        let visibleValid = m.visible.isValid
+        print("444: \(m.value.transformForDisplay()), \(isCompletelyValid), \(visibleValid)")
       }
-      self?.logger.debug(self?.fb.object(withoutNull: false) ?? [:])
+      
+//      self?.logger.debug(self?.fb.object(withoutNull: false) ?? [:])
     }).disposed(by: bag)
     
     fb.rxDidDatasource.bind(to: datasource).disposed(by: bag)
     
-    fb.rxDidChangeFormState.subscribe(onNext: { isChange in
-      print("something change in all form to: \(isChange)")
-    }).disposed(by: bag)
-    
-    fb.rxDidChangeCompletelyValidation.subscribe(onNext: { [weak self] state in
-      print("all form completely valid: \(state)")
-      self?.testBtn.isEnabled = state
-    }).disposed(by: bag)
+//    fb.rxDidChangeFormState.subscribe(onNext: { isChange in
+//      print("something change in all form to: \(isChange)")
+//    }).disposed(by: bag)
+//
+//    fb.rxDidChangeCompletelyValidation.subscribe(onNext: { [weak self] state in
+//      print("all form completely valid: \(state)")
+//      self?.testBtn.isEnabled = state
+//    }).disposed(by: bag)
     
 //    fb.didChangeFormModel = { item in
 //      datasource.onNext(FormBuilder.buildRxDataSource(item: item))
