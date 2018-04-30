@@ -17,7 +17,7 @@ public class RowFromPhoneComposite: RowFromPhoneCompositeOutput {
   public var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable
-  private let decoratedComposite: FormItemCompositeProtocol
+  private var decoratedComposite: FormItemCompositeProtocol
   
   // MARK :- FormItemCompositeProtocol properties
   public var level: ALFB.FormModelLevel {
@@ -41,7 +41,8 @@ public class RowFromPhoneComposite: RowFromPhoneCompositeOutput {
   }
   
   public var customData: Any? {
-    return self.decoratedComposite.customData
+    get { return self.decoratedComposite.customData }
+    set(new) { self.decoratedComposite.customData = new }
   }
   
   public var didChangeData: DidChange?

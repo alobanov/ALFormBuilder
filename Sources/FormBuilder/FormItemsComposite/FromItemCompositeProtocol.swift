@@ -22,7 +22,7 @@ public protocol FormItemCompositeProtocol {
   // Retrieve items for render via table or collection view as raw type
   var datasource: [FormItemCompositeProtocol] {get}
   // custom data
-  var customData: Any? {get}
+  var customData: Any? {get set}
   
   // MARK: - Methods
   // Add child item

@@ -17,7 +17,7 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
   public var didChangeValidation: [String : DidChangeValidation?] = [:]
   
   // MARK :- ModelItemDatasoursable
-  private let decoratedComposite: FormItemCompositeProtocol
+  private var decoratedComposite: FormItemCompositeProtocol
   
   // MARK :- FormItemCompositeProtocol properties  
   public var level: ALFB.FormModelLevel {
@@ -43,7 +43,8 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
   public var didChangeData: DidChange?
   
   public var customData: Any? {
-    return self.decoratedComposite.customData
+    get { return self.decoratedComposite.customData }
+    set(new) { self.decoratedComposite.customData = new }
   }
   
   // MARK :- RowFormComposite properties
@@ -62,6 +63,8 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
     self.visualisation = visualisation
     self.visible = visible
     self.base = base
+    
+    self.decoratedComposite.customData = "asd"
     
     if validation.validateAtCreation {
       update(value: value)
