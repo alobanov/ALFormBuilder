@@ -64,8 +64,6 @@ public class RowFormTextComposite: RowFormTextCompositeOutput {
     self.visible = visible
     self.base = base
     
-    self.decoratedComposite.customData = "asd"
-    
     if validation.validateAtCreation {
       update(value: value)
     }
