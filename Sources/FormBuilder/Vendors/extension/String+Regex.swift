@@ -9,7 +9,7 @@
 import Foundation
 
 extension String {
-  func regex(pattern: String) -> [String] {
+  public func regex(pattern: String) -> [String] {
     do {
       let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
       let nsstr = self as NSString
@@ -28,7 +28,7 @@ extension String {
     }
   }
 
-  func regex(pattern: String, group: Int) -> [String] {
+  public func regex(pattern: String, group: Int) -> [String] {
     do {
       let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
       let nsstr = self as NSString
