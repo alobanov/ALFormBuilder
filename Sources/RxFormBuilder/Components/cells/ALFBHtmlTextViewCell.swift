@@ -48,7 +48,7 @@ open class ALFBHtmlTextViewCell: UITableViewCell, RxCellReloadeble, WKNavigation
     contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[wv]-12-|", options: [], metrics: nil, views: ["wv" : webView]))
     contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[wv]-8@999-|", options: [], metrics: nil, views: ["wv" : webView]))
     let h = NSLayoutConstraint(item: webView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: 1.0)
-    h.priority = 999
+    h.priority = UILayoutPriority(rawValue: 999)
     webView.addConstraint(h)
     self.webViewHeight = h
     self.webView = webView

@@ -183,7 +183,7 @@ class AuthFormDirector {
     
     let secBuilder2 = SectionItemBuilder()
     director.sectionSecond(builder: secBuilder2)
-    let section2 = secBuilder2.result()
+//    let section2 = secBuilder2.result()
     
     // Fields
     let mail = StringRowItemBuilder()

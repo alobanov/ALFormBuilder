@@ -43,7 +43,7 @@ extension String {
           return [String]()
         }
 
-        let substring = nsstr.substring(with: match.rangeAt(group))
+        let substring = nsstr.substring(with: match.range(at: group))
         result.append(substring)
       }
 
@@ -58,9 +58,9 @@ extension String {
       let firstMatch = results[0]
 
       if firstMatch.numberOfRanges >= 1 {
-        let range = firstMatch.rangeAt(1)
-        let newRange = searchString.index(searchString.startIndex, offsetBy: range.location) ..< searchString.index(searchString.startIndex, offsetBy: range.location + range.length)
-        let string = searchString.substring(with: newRange)
+        let range = firstMatch.range(at: 1)
+//        let newRange = searchString.index(searchString.startIndex, offsetBy: range.location) ..< searchString.index(searchString.startIndex, offsetBy: range.location + range.length)
+        let string = searchString[range.location..<(range.location + range.length)]
         return string
       }
 

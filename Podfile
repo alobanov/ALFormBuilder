@@ -8,8 +8,8 @@ target 'FormBuilder' do
 pod 'SwiftyJSON'
 pod 'ObjectMapper'
 pod 'RxDataSources'
-pod 'RxCocoa', '~> 3'
-pod 'RxSwift', '~> 3'
+pod 'RxCocoa', '~> 4'
+pod 'RxSwift', '~> 4'
 pod 'IQKeyboardManagerSwift'
 end
 

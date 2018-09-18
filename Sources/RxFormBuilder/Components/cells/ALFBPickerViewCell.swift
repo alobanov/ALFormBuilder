@@ -26,18 +26,15 @@ open class ALFBPickerViewCell: UITableViewCell, RxCellReloadeble {
   
   open override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
     lblText.isUserInteractionEnabled = false
     validationBorder.isHidden = true
     accessibilityTraits = UIAccessibilityTraitButton
-    
-    self.didChangeValidation = { [weak self] _ in
+    self.didChangeValidation = { [weak self]  in
       if let state = self?.storedModel.validation.state {
         self?.validationState.onNext(state)
       }
     }
-    
-    self.layoutIfNeeded()
+    layoutIfNeeded()
   }
   
   public func reload(with model: RxCellModelDatasoursable) {

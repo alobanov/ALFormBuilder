@@ -39,14 +39,12 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
     titleLabel.textColor = ALFBStyle.fbDarkGray
     textView.delegate = self
     validMark.image = ALFBStyle.imageOfTfAlertIconStar
-    
-    self.didChangeValidation = { [weak self] _ in
+    self.didChangeValidation = { [weak self]  in
       if let state = self?.storedModel.validation.state {
         self?.validationState.onNext(state)
       }
     }
-    
-    self.layoutIfNeeded()
+    layoutIfNeeded()
   }
   
   public func reload(with model: RxCellModelDatasoursable) {
@@ -75,7 +73,7 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       textView.textColor = UIColor.black
     }
     
-    var display = vm.visible.isMandatory && !vm.validation.state.isCompletelyValid
+    let display = vm.visible.isMandatory && !vm.validation.state.isCompletelyValid
     displayValidMark(display)
     
     if let s = self.storedModel {
@@ -125,7 +123,7 @@ open class ALFBTextMultilineViewCell: UITableViewCell, RxCellReloadeble, UITextV
       if numberOfChars > max {
         if text.count > 1 {
           let lastIndex = newText.index(newText.startIndex, offsetBy: max)
-          textView.text = newText.substring(to: lastIndex)
+          textView.text = String(newText[..<lastIndex])
         }
         return false
       } else {

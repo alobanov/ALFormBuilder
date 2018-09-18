@@ -41,7 +41,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
   
   @IBOutlet weak var errorHighlightView: UIView!
   
-  private var storedModel: RowFromPhoneCompositeOutput!
+  private var storedModel: RowFromPhoneCompositeOutput?
   private var alreadyInitialized = false
   
   fileprivate var validationState: BehaviorSubject<ALFB.ValidationState>!
@@ -63,13 +63,12 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     cityCodeField.tag = PhonePart.cityCode.rawValue
     phoneField.tag = PhonePart.phone.rawValue
     
-    self.didChangeValidation = { [weak self] _ in
-      if let state = self?.storedModel.validation.state {
+    self.didChangeValidation = { [weak self] in
+      if let state = self?.storedModel?.validation.state {
         self?.validationState.onNext(state)
       }
     }
-    
-    self.layoutIfNeeded()
+    layoutIfNeeded()
   }
   
   public func reload(with model: RxCellModelDatasoursable) {
@@ -116,7 +115,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     cityCodeField.text = phonePartFrom(text: value, byType: .cityCode)
     phoneField.text = phonePartFrom(text: value, byType: .phone)
     
-    topPlaceholderLabel.textColor = self.storedModel.validation.state.color
+    topPlaceholderLabel.textColor = vm.validation.state.color
     
     // addidional description information field under the text field
     descriptionLabel.text = vm.visualisation.detailsText
@@ -130,9 +129,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
       validateBtn.isHidden = !vm.visible.isMandatory
     }
     
-    if let s = self.storedModel as? FormItemCompositeProtocol {
-      self.storedModel.didChangeValidation[s.identifier] = didChangeValidation
-    }
+    vm.didChangeValidation[vm.identifier] = didChangeValidation
     
     // Configurate next only one
     if !alreadyInitialized {
@@ -153,8 +150,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
   }
   
   private func phoneParts() -> [String] {
-    let value = self.storedModel.value.transformForDisplay() ?? ""
-    
+    let value = storedModel?.value.transformForDisplay() ?? ""
     return [phonePartFrom(text: value, byType: .baseCode),
             phonePartFrom(text: value, byType: .cityCode),
             phonePartFrom(text: value, byType: .phone)]
@@ -164,16 +160,17 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     var phoneArr = phoneParts()
     phoneArr[byType.rawValue] = text
     let value = phoneArr.joined(separator: " ")
-    storedModel.update(value: ALStringValue(value: value))
+    storedModel?.update(value: ALStringValue(value: value))
   }
   
   // MARK: - UITextFieldDelegate
   public func textField(_ textField: UITextField,
                           shouldChangeCharactersIn range: NSRange,
-                          replacementString string: String) -> Bool {
+                          replacementString string: String) -> Bool
+  {
+    guard let storedModel = storedModel else { return true }
     let maxLength = (textField.tag == 1) ? 5 : 9
-
-    return textField.filtred(self.storedModel.visualisation.keyboardOptions.options,
+    return textField.filtred(storedModel.visualisation.keyboardOptions.options,
                              string: string,
                              range: range,
                              maxLeng: maxLength)
@@ -195,7 +192,8 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
   }
   
   func configureRx() {
-    self.validationState = BehaviorSubject<ALFB.ValidationState>(value: self.storedModel.validation.state)
+    guard let storedModel = storedModel else { return }
+    self.validationState = BehaviorSubject<ALFB.ValidationState>(value: storedModel.validation.state)
     
     // События начала ввода
     let startEditingCity = cityCodeField.rx.controlEvent(.editingDidBegin).asDriver()
@@ -205,7 +203,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
 //    let validationCityCode =
     cityCodeField.rx.text.asDriver().skip(1)
       .filter { [weak self] text -> Bool in
-        let value = self?.storedModel.value.transformForDisplay() ?? ""
+        let value = self?.storedModel?.value.transformForDisplay() ?? ""
         return (text != self?.phonePartFrom(text: value, byType: .cityCode))
       }
       .drive(onNext: { [weak self] text in
@@ -216,7 +214,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     //let validationPhone =
     phoneField.rx.text.asDriver().skip(1)
       .filter { [weak self] text -> Bool in
-        let value = self?.storedModel.value.transformForDisplay() ?? ""
+        let value = self?.storedModel?.value.transformForDisplay() ?? ""
         return (text != self?.phonePartFrom(text: value,
                                             byType: .phone))
       }
@@ -235,7 +233,7 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     // При активном фокусе полей показываем кнопку "отчистить"
     Driver.merge([startEditingCity, startEditingPhone])
       .do(onNext: { [weak self] _ in
-        self?.storedModel.base.changeisEditingNow(true)
+        self?.storedModel?.base.changeisEditingNow(true)
         self?.cleareBtn.isHidden = false
         self?.validateBtn.isHidden = true
       })
@@ -252,10 +250,10 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     
     // После потери фокуса показываем состояние валидации
     Observable.merge([endEditingCity, endEditingPhone]).subscribe(onNext: { [weak self] valid in
-      self?.storedModel.base.changeisEditingNow(false)
+      self?.storedModel?.base.changeisEditingNow(false)
       self?.validateBtn.isHidden = valid.isValidWithTyping
       self?.cleareBtn.isHidden = true
-      let isMandatory = self?.storedModel.visible.isMandatory ?? false
+      let isMandatory = self?.storedModel?.visible.isMandatory ?? false
       if !isMandatory {
         self?.validateBtn.isHidden = !isMandatory
       }
@@ -278,10 +276,11 @@ open class ALFBPhoneViewCell: UITableViewCell, RxCellReloadeble, UITextFieldDele
     }).disposed(by: bag)
     
     // При нажатии на звездочку показываем ссощение об ошибке
-    validateBtn.rx.tap.subscribe(onNext: {[unowned self] _ in
-      if self.storedModel.validation.state.message != "" {
-        self.showValidationWarning(text: self.storedModel.validation.state.message)
-        self.highlightField()
+    validateBtn.rx.tap.subscribe(onNext: {[weak self] _ in
+      guard let storedModel = self?.storedModel else { return }
+      if storedModel.validation.state.message != "" {
+        self?.showValidationWarning(text: storedModel.validation.state.message)
+        self?.highlightField()
       }
     }).disposed(by: bag)
   }

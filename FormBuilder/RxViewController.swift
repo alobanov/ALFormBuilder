@@ -49,17 +49,12 @@ class RxViewController: UIViewController, UITableViewDelegate {
     
     let datasource = BehaviorSubject<[RxSectionModel]>(value: [])
 
-    fb.rxDidChangeFormModel.subscribe(onNext: { [weak self] item in
-//      if let p = item as? RowCompositeValueTransformable {
-//        print("something change in \(item.identifier) to: \(p.value.transformForDisplay() ?? "")")
-//      }
+    fb.rxDidChangeFormModel.subscribe(onNext: { item in
       if let m = item as? RowFormTextComposite {
         let isCompletelyValid = m.validation.state.isCompletelyValid
         let visibleValid = m.visible.isValid
-        print("444: \(m.value.transformForDisplay()), \(isCompletelyValid), \(visibleValid)")
+        print("444: \(String(describing: m.value.transformForDisplay())), \(isCompletelyValid), \(visibleValid)")
       }
-      
-//      self?.logger.debug(self?.fb.object(withoutNull: false) ?? [:])
     }).disposed(by: bag)
     
     fb.rxDidDatasource.bind(to: datasource).disposed(by: bag)
@@ -88,10 +83,8 @@ class RxViewController: UIViewController, UITableViewDelegate {
     self.fb.prepareDatasource()
     
     // Table view
-    let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>()
-    
-    
-    rxDataSource.configureCell = { [weak self] (dataSource, table, idxPath, _) in
+    let rxDataSource = RxTableViewSectionedAnimatedDataSource<RxSectionModel>(configureCell:
+    { [weak self] (dataSource, table, idxPath, _) in
       var item: RxSectionItemModel
       
       do {
@@ -102,13 +95,13 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       let cellType = item.model.cellType.type
       let cell = table.dequeueReusableTableCell(forIndexPath: idxPath, andtype: cellType)
-
+      
       if let c = cell as? RxCellReloadeble {
         c.reload(with: item.model)
       }
       
       if var c = cell as? TableReloadable {
-        c.reload = { _ in
+        c.reload = { [weak self] in
           guard let sSelf = self else {
             return
           }
@@ -121,7 +114,7 @@ class RxViewController: UIViewController, UITableViewDelegate {
       
       cell.selectionStyle = UITableViewCellSelectionStyle.none
       return cell
-    }
+    })
     
     rxDataSource.animationConfiguration =
       AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .none, deleteAnimation: .fade)
